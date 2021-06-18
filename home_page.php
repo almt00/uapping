@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+    <title> Uapping </title>
+
+    <?php include_once "helpers/help_css.php"?>
+
+    <?php include_once "helpers/help_meta.php"?>
+
+</head>
+<body>
+
+<?php include_once "components/cp_header.php" ?>
+
+<?php include_once "components/cp_main_eventos.php" ?>
+
+
+<?php include_once "helpers/help_js.php"?>
+
+</body>
+</html>
