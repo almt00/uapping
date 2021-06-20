@@ -1,9 +1,9 @@
 
 window.onload = function (){
 
-    document.getElementById("interesses").style.color = "white";
-    document.getElementById("interesses").style.color = "white";
+    /* ------------------ home page / pin bar (todos, interesses) ------------------ */
 
+    document.getElementById("interesses").style.color = "white";
     document.getElementById("todos").style.color = "#1D1D1D";
 
     document.getElementById("interesses").onclick = function (){

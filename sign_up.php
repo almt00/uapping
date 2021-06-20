@@ -25,6 +25,12 @@
            <form action="home_page.php" method="post" id="sign_up">
                <section class="row justify-content-center form-section">
                     <article class="col-12">
+                        <div class="div-icons-sign-up text-center position-relative">
+                            <i id="nome_icon" class="far fa-user icon-sign_up_1"></i>
+                            <i id="username_icon" class="far fa-user icon-sign_up_2"></i>
+                            <i id="email_icon" class="far fa-envelope icon-sign_up_3"></i>
+                            <i id="pass_icon" class="fas fa-lock icon-sign_up_4"></i>
+                        </div>
                         <input id="nome" required="required" class="input_sign_up mb-3 mb-md-3" type="text" name="nome" size="24" placeholder="nome completo">
                         <input id="username" required="required" class="input_sign_up mb-3 mb-md-3" type="text" name="username" size="24" placeholder="username">
                         <input id="email" required="required" class="input_sign_up mb-3 mb-md-3" type="email" name="email" size="24" placeholder="email">
@@ -64,7 +70,7 @@
                         </label>
                         <input id="credenciais" class="input_sign_up mt-3 mt-md-3" type="text" name="credenciais" size="24" placeholder="credenciais">
 
-                        <section class="row" id="interesses">
+                        <section class="row" id="interesses_card">
                             <article class="col-12">
                                 <section class="row justify-content-center">
                                     <article class="col-6 check-interesse check-int-1 text-left">

@@ -16,7 +16,7 @@ footer{
 }
 
 .logo-section-landing{
-    height: 50vh;
+    min-height: 35vh;
     /* background-image: url("../assets/img/background.svg");
     background-position: bottom center;
     background-repeat: no-repeat;
@@ -24,7 +24,41 @@ footer{
 }
 
 .link-section{
-    height: 50vh;
+    height: 30vh;
+}
+
+.card_selector{
+    font-size: 0.7rem;
+    color:#DEDEDE;
+}
+
+.position-card-1{
+    position: relative;
+    top:0;
+    left:0;
+    transition: left 1s;
+}
+
+.position-card-2{
+    position: absolute;
+    top:0;
+    left:100%;
+    transition: left 1s;
+}
+
+.position-card-2 img{
+    width: 44%;
+}
+
+.position-card-3{
+    position: absolute;
+    top:0;
+    left:200%;
+    transition: left 1s;
+}
+
+.position-card-3 img{
+    width: 44%;
 }
 
 .form-section{
@@ -52,6 +86,45 @@ footer{
 
 .input_search-home-page:focus{
     outline: none;
+}
+
+.div-icons-sign-up{
+    width:19rem;
+    max-width:100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icon-sign_up_1{
+    position: absolute;
+    top:0.7rem;
+    right:0;
+    margin-right:1.2rem;
+    font-size: 1.6rem;
+}
+
+.icon-sign_up_2{
+    position: absolute;
+    top:4.8rem;
+    right:0;
+    margin-right:1.2rem;
+    font-size: 1.6rem;
+}
+
+.icon-sign_up_3{
+    position: absolute;
+    top:8.9rem;
+    right:0;
+    margin-right:1.2rem;
+    font-size: 1.6rem;
+}
+
+.icon-sign_up_4{
+    position: absolute;
+    top:13rem;
+    right:0;
+    margin-right:1.2rem;
+    font-size: 1.6rem;
 }
 
 .img-filter-top{
@@ -97,7 +170,7 @@ footer{
 }
 
 .art-logo-icon-lp{
-    max-width: 13%;
+    max-width: 22%;
 }
 
 .art-logo-text-lp{
@@ -109,7 +182,7 @@ footer{
 }
 
 .log-in{
-    padding: 0.5rem 4rem;
+    padding: 0.5rem 6vw;
     background: linear-gradient(90deg, rgba(72,149,239,1) 0%, rgba(53,231,255,1) 100%);
     color: white;
     text-transform: uppercase;
@@ -117,6 +190,7 @@ footer{
     border-radius: 50px;
     display: block;
     margin-bottom: 1rem;
+    font-size: 0.9rem;
 }
 
 .log-in:hover{
@@ -125,7 +199,7 @@ footer{
 }
 
 .sign-up{
-    padding: 0.5rem 4rem;
+    padding: 0.5rem 6vw;
     background-color: white;
     color: #4895ef;
     border: 2px solid #4895ef;
@@ -133,6 +207,7 @@ footer{
     font-weight: bold;
     border-radius: 50px;
     display: block;
+    font-size: 0.9rem;
 }
 
 .sign-up:hover{
@@ -175,6 +250,7 @@ footer{
 .input_sign_up{
     border-radius: 50pt;
     padding: 0.8rem 4rem 0.8rem 2rem;
+    max-width: 100%;
     display: none;
     margin-left:auto;
     margin-right:auto;
@@ -195,6 +271,11 @@ footer{
 
 .sec-selector-home-page{
     margin:0;
+}
+
+#interesses_card{
+    padding:0;
+    display: none;
 }
 
 #interesses{
@@ -271,6 +352,7 @@ footer{
 
 .select_sign_up{
     width:19rem;
+    max-width: 100%;
     margin-left: 50%;
     transform: translateX(-50%);
     display: none;
@@ -480,7 +562,7 @@ footer{
 
 #avancar_sign_up{
     border-radius: 50pt;
-    padding: 0.5rem 3rem;
+    padding: 0.5rem 14vw;
     color: white;
     background: linear-gradient(90deg, rgba(0,205,144,1) 0%, rgba(0,195,55,1) 100%);
     text-transform: uppercase;
@@ -573,6 +655,20 @@ footer{
 /* Dispositivos Medium (768px --- 991px) md  */
 @media only screen and (min-width: 768px) {
 
+    #avancar_sign_up{
+        padding: 0.5rem 3rem;
+    }
+
+    .log-in{
+        padding: 0.5rem 4rem;
+        font-size: 1rem;
+    }
+
+    .sign-up{
+        padding: 0.5rem 4rem;
+        font-size: 1rem;
+    }
+
     .sign-up-h1{
         font-size: 3rem;
         margin-left: 0;
@@ -586,6 +682,15 @@ footer{
     .sign-up-h6{
         font-size: 1.3rem;
         margin-left: 0;
+    }
+
+    .art-logo-icon-lp{
+        max-width: 50%;
+    }
+
+    .art-logo-text-lp{
+        margin-left: 3vmin;
+        max-width: 70%;
     }
 
     .display-md-off{

@@ -65,9 +65,13 @@ function sign_up(direct){
     if (direct === "avancar"){
         switch (sign_up_page){
             case 1: document.getElementById("nome").style.display = "none";
+                document.getElementById("nome_icon").style.display = "none";
                 document.getElementById("username").style.display = "none";
+                document.getElementById("username_icon").style.display = "none";
                 document.getElementById("email").style.display = "none";
+                document.getElementById("email_icon").style.display = "none";
                 document.getElementById("pass").style.display = "none";
+                document.getElementById("pass_icon").style.display = "none";
                 document.getElementById("pass_confirm").style.display = "none";
                 document.getElementById("header_1").style.display = "none";
 
@@ -86,16 +90,16 @@ function sign_up(direct){
                 document.getElementById("check").style.display = "none";
                 document.getElementById("credenciais").style.display = "none";
 
-                document.getElementById("interesses").style.display = "flex";
+                document.getElementById("interesses_card").style.display = "flex";
 
                 document.getElementById("header_6").innerHTML = "Seleciona os teus";
-                document.getElementById("header_3").innerHTML = "Interesses";
+                document.getElementById("header_3").innerHTML = "interesses";
                 sign_up_page = 3; break;
             case 3: document.getElementById("termos_sign_up").style.display = "flex";
                 document.getElementById("submit").style.display = "block";
                 document.getElementById("avancar_sign_up").style.display = "none";
                 document.getElementById("check_2").style.display = "block";
-                document.getElementById("interesses").style.display = "none";
+                document.getElementById("interesses_card").style.display = "none";
 
                 document.getElementById("header_6").style.display = "none";
                 document.getElementById("header_3").style.display = "none";
@@ -107,9 +111,13 @@ function sign_up(direct){
         switch (sign_up_page){
             case 1: window.location.href = 'index.php';
             case 2: document.getElementById("nome").style.display = "block";
+                document.getElementById("nome_icon").style.display = "block";
                 document.getElementById("username").style.display = "block";
+                document.getElementById("username_icon").style.display = "block";
                 document.getElementById("email").style.display = "block";
+                document.getElementById("email_icon").style.display = "block";
                 document.getElementById("pass").style.display = "block";
+                document.getElementById("pass_icon").style.display = "block";
                 document.getElementById("pass_confirm").style.display = "block";
 
                 document.getElementById("departamentos").style.display = "none";
@@ -126,7 +134,7 @@ function sign_up(direct){
                 document.getElementById("cursos").style.display = "inline-block";
                 document.getElementById("hr_meca").style.display = "block";
                 document.getElementById("check").style.display = "block";
-                document.getElementById("interesses").style.display = "none";
+                document.getElementById("interesses_card").style.display = "none";
 
                 document.getElementById("header_6").innerHTML = "Insere os teus";
                 document.getElementById("header_3").innerHTML = "Dados da UA";
@@ -139,13 +147,13 @@ function sign_up(direct){
                 document.getElementById("avancar_sign_up").style.display = "block";
                 document.getElementById("check_2").style.display = "none";
 
-                document.getElementById("interesses").style.display = "flex";
+                document.getElementById("interesses_card").style.display = "flex";
 
                 document.getElementById("header_6").style.display = "block";
                 document.getElementById("header_3").style.display = "block";
                 document.getElementById("header_4").style.display = "none";
                 document.getElementById("header_6").innerHTML = "Seleciona os teus";
-                document.getElementById("header_3").innerHTML = "Interesses";
+                document.getElementById("header_3").innerHTML = "interesses";
                 sign_up_page = 3; break;
         }
     }
