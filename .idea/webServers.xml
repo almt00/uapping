@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0fe9fef7-a1d4-49d2-8feb-cbaeed0169dc" name="CBL" url="http://labmm.clients.ua.pt/deca_20L4/deca_20L4_32">
+        <fileTransfer rootFolder="/deca_20L4_32" host="labmm.clients.ua.pt" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="42d70c8f-81b1-49eb-a596-3571a10d6a7f" name="Lab4" url="http://labmm.clients.ua.pt/deca_20L4/deca_20L4_13">
+        <fileTransfer rootFolder="/deca_20L4_13" host="labmm.clients.ua.pt" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

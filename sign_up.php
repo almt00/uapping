@@ -13,10 +13,12 @@
 <main class="container-fluid overflow-hidden">
     <section class="row justify-content-center align-items-center mt-5 mt-md-5">
         <article class="col-md-12 text-md-center">
+            <div class="div-icons-sign-up">
             <h1 id="header_1" class="sign-up-h1"> Bem Vindo! </h1>
             <h6 id="header_6" class="sign-up-h6"> Cria a tua conta </h6>
             <h1 id="header_3" class="sign-up-h1"> </h1>
             <h1 id="header_4" class="sign-up-h4"> </h1>
+            </div>
         </article>
     </section>
 
@@ -24,7 +26,7 @@
        <article class="col-md-6">
            <form action="home_page.php" method="post" id="sign_up">
                <section class="row justify-content-center form-section">
-                    <article class="col-12">
+                    <article class="col-12 px-4">
                         <div class="div-icons-sign-up text-center position-relative">
                             <i id="nome_icon" class="far fa-user icon-sign_up_1"></i>
                             <i id="username_icon" class="far fa-user icon-sign_up_2"></i>
@@ -98,7 +100,7 @@
                             </article>
                         </section>
                         <section id="termos_sign_up" class="row justify-content-center">
-                            <article class="col-9 col-md-12">
+                            <article class="col-11 col-md-12">
                                 <p class="termos_info text-justify"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                                     do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum facilisis leo vel
                                     fringilla. Volutpat ac tincidunt vitae semper quis lectus. Convallis tellus id interdum velit.

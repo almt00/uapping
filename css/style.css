@@ -62,7 +62,7 @@ footer{
 }
 
 .form-section{
-    min-height:18rem;
+    min-height:27rem;
 }
 
 .header-section{
@@ -89,10 +89,12 @@ footer{
 }
 
 .div-icons-sign-up{
-    width:19rem;
+    width:21.6rem;
     max-width:100%;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
 }
 
 .icon-sign_up_1{
@@ -226,7 +228,7 @@ footer{
     font-weight: 800;
     font-size: 2.2rem;
     white-space: nowrap;
-    margin-left: calc(50% - 140px);
+    /* margin-left: calc(50% - 172px); */
 }
 
 .sign-up-h4{
@@ -244,13 +246,14 @@ footer{
     font-weight: 400;
     font-size: 0.8rem;
     white-space: nowrap;
-    margin-left: calc(50% - 140px);
+    /* margin-left: calc(50% - 172px); */
 }
 
 .input_sign_up{
     border-radius: 50pt;
     padding: 0.8rem 4rem 0.8rem 2rem;
     max-width: 100%;
+    width: 22rem;
     display: none;
     margin-left:auto;
     margin-right:auto;
@@ -351,7 +354,7 @@ footer{
 }
 
 .select_sign_up{
-    width:19rem;
+    width:19.4rem;
     max-width: 100%;
     margin-left: 50%;
     transform: translateX(-50%);
