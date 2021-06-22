@@ -4,6 +4,10 @@
     user-select: none;
 }
 
+.min-100vh{
+    min-height: 100vh;
+}
+
 .main-flex{
     display:flex;
     height:100vh;
@@ -17,10 +21,6 @@ footer{
 
 .logo-section-landing{
     min-height: 35vh;
-    /* background-image: url("../assets/img/background.svg");
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    background-size: cover;*/
 }
 
 .link-section{
@@ -102,7 +102,7 @@ footer{
     top:0.7rem;
     right:0;
     margin-right:1.2rem;
-    font-size: 1.6rem;
+    height:1.7rem;
 }
 
 .icon-sign_up_2{
@@ -110,15 +110,15 @@ footer{
     top:4.8rem;
     right:0;
     margin-right:1.2rem;
-    font-size: 1.6rem;
+    height:1.7rem;
 }
 
 .icon-sign_up_3{
     position: absolute;
-    top:8.9rem;
-    right:0;
+    top:8.95rem;
+    right:-0.2rem;
     margin-right:1.2rem;
-    font-size: 1.6rem;
+    height:1.7rem;
 }
 
 .icon-sign_up_4{
@@ -126,7 +126,7 @@ footer{
     top:13rem;
     right:0;
     margin-right:1.2rem;
-    font-size: 1.6rem;
+    height:1.7rem;
 }
 
 .img-filter-top{
@@ -184,7 +184,7 @@ footer{
 }
 
 .log-in{
-    padding: 0.5rem 6vw;
+    padding: 0.8rem 0.8rem;
     background: linear-gradient(90deg, rgba(72,149,239,1) 0%, rgba(53,231,255,1) 100%);
     color: white;
     text-transform: uppercase;
@@ -192,7 +192,10 @@ footer{
     border-radius: 50px;
     display: block;
     margin-bottom: 1rem;
-    font-size: 0.9rem;
+    margin-left:auto;
+    margin-right:auto;
+    font-size: 1rem;
+    width:100%;
 }
 
 .log-in:hover{
@@ -201,15 +204,18 @@ footer{
 }
 
 .sign-up{
-    padding: 0.5rem 6vw;
+    padding: 0.8rem 0.8rem;
     background-color: white;
     color: #4895ef;
     border: 2px solid #4895ef;
     text-transform: uppercase;
     font-weight: bold;
     border-radius: 50px;
+    margin-left:auto;
+    margin-right:auto;
     display: block;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    width:100%;
 }
 
 .sign-up:hover{
@@ -251,7 +257,7 @@ footer{
 
 .input_sign_up{
     border-radius: 50pt;
-    padding: 0.8rem 4rem 0.8rem 2rem;
+    padding: 0.8rem 3.4rem 0.8rem 2rem;
     max-width: 100%;
     width: 22rem;
     display: none;
@@ -354,7 +360,7 @@ footer{
 }
 
 .select_sign_up{
-    width:19.4rem;
+    width:22rem;
     max-width: 100%;
     margin-left: 50%;
     transform: translateX(-50%);
@@ -551,7 +557,7 @@ footer{
 
 #submit{
     border-radius: 50pt;
-    padding: 0.5rem 3rem;
+    padding: 0.8rem 3rem;
     color: white;
     background: linear-gradient(90deg, rgba(0,116,82,1) 0%, rgba(0,112,32,1) 100%);
     text-transform: uppercase;
@@ -560,12 +566,14 @@ footer{
     border: none;
     margin-left:auto;
     margin-right:auto;
+    width:100%;
+    max-width: 22rem;
     transition: background-color 0.2s;
 }
 
 #avancar_sign_up{
     border-radius: 50pt;
-    padding: 0.5rem 14vw;
+    padding: 0.8rem 0.8rem;
     color: white;
     background: linear-gradient(90deg, rgba(0,205,144,1) 0%, rgba(0,195,55,1) 100%);
     text-transform: uppercase;
@@ -575,6 +583,8 @@ footer{
     margin-left:auto;
     margin-right:auto;
     transition: background-color 0.2s;
+    width:100%;
+    max-width: 22rem;
 }
 
 #avancar_sign_up:focus{
@@ -582,13 +592,14 @@ footer{
 }
 
 #avancar_sign_up:hover{
-    background: linear-gradient(90deg, rgba(0,172,121,1) 0%, rgba(0,162,46,1) 100%);
+    background: linear-gradient(90deg, rgba(0,205,144,1) 0%, rgba(0,195,55,1) 100%);
 }
+
 
 #voltar_sign_up{
     font-size:0.9rem;
     border-radius: 50pt;
-    padding: 0.3rem 1rem;
+    padding: 0.8rem 0.8rem;
     display: block;
     color: white;
     font-weight: bold;
@@ -597,6 +608,8 @@ footer{
     border: none;
     background-color: transparent;
     transition: color 0.2s;
+    width:100%;
+    max-width: 22rem;
 }
 
 #voltar_sign_up:focus{
@@ -604,7 +617,7 @@ footer{
 }
 
 #voltar_sign_up:hover{
-    color: #c7c7c7;
+    color: white;
 }
 
 /* nav PC */
@@ -659,7 +672,23 @@ footer{
 @media only screen and (min-width: 768px) {
 
     #avancar_sign_up{
-        padding: 0.5rem 3rem;
+        max-width: 22rem;
+    }
+
+    #avancar_sign_up:hover{
+        background: linear-gradient(90deg, rgba(0,172,121,1) 0%, rgba(0,162,46,1) 100%);
+    }
+
+    #submit{
+        max-width: 22rem;
+    }
+
+    #voltar_sign_up{
+        max-width: 22rem;
+    }
+
+    #voltar_sign_up:hover{
+        color: #c7c7c7;
     }
 
     .log-in{

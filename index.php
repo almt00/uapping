@@ -11,13 +11,6 @@
     <body>
 
     <main class="container-fluid">
-        <!-- <section>
-            <img class="landing_waves_blue" src="assets/img/blue_waves_top_right.svg">
-            <img class="landing_waves_red" src="assets/img/red_wave_top_left_1.svg">
-            <img class="landing_waves_red" src="assets/img/red_wave_top_left_2.svg">
-            <img class="landing_waves_red" src="assets/img/red_wave_top_left_3.svg">
-        </section> -->
-
         <section class="row mt-5 mt-md-5 logo-section-landing">
             <article class="col-12">
                 <section class="row justify-content-center">
@@ -63,7 +56,7 @@
         <section class="row mt-4 mt-md-4 justify-content-center align-items-center link-section">
             <article class="col-md-6 link-landing">
                 <a id="lon_in" class="log-in text-center text-decoration-none" href="Log_In.php"> Iniciar Sessão </a>
-                <a id="sign_up" class="sign-up text-center text-decoration-none" href="sign_up.php"> Criar Conta </a>
+                <a id="sign_up" class="sign-up text-center text-decoration-none mb-5" href="sign_up.php"> Criar Conta </a>
             </article>
         </section>
     </main>

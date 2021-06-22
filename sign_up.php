@@ -28,10 +28,10 @@
                <section class="row justify-content-center form-section">
                     <article class="col-12 px-4">
                         <div class="div-icons-sign-up text-center position-relative">
-                            <i id="nome_icon" class="far fa-user icon-sign_up_1"></i>
-                            <i id="username_icon" class="far fa-user icon-sign_up_2"></i>
-                            <i id="email_icon" class="far fa-envelope icon-sign_up_3"></i>
-                            <i id="pass_icon" class="fas fa-lock icon-sign_up_4"></i>
+                            <img id="nome_icon" class="icon-sign_up_1" src="assets/img/input_profile_icon.svg" alt="profile_icon">
+                            <img id="username_icon" class="icon-sign_up_2" src="assets/img/input_profile_icon.svg" alt="profile_icon">
+                            <img id="email_icon" class="icon-sign_up_3" src="assets/img/input_mail_icon.svg" alt="profile_icon">
+                            <img id="pass_icon" class="icon-sign_up_4" src="assets/img/input_pass_icon.svg" alt="profile_icon">
                         </div>
                         <input id="nome" required="required" class="input_sign_up mb-3 mb-md-3" type="text" name="nome" size="24" placeholder="nome completo">
                         <input id="username" required="required" class="input_sign_up mb-3 mb-md-3" type="text" name="username" size="24" placeholder="username">
@@ -117,10 +117,10 @@
                     </article>
                </section>
                <section class="row justify-content-center mt-3 mt-md-3">
-                   <article class="col-md-12 mt-5 mt-md-5">
+                   <article class="col-md-12 mt-5 mt-md-5 px-4">
                        <input type="submit" class="mb-2 mb-md-2" value="Enviar" id="submit">
                        <button id="avancar_sign_up" class="mb-2 mb-md-2" type="button"> Avançar </button>
-                       <button id="voltar_sign_up" type="button"> Voltar </button>
+                       <button id="voltar_sign_up" class="mb-5" type="button"> Voltar </button>
                    </article>
                </section>
            </form>
