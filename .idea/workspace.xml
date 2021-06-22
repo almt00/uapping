@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc3bdd00-b72e-48f2-b01f-93c206799223" name="Default Changelist" comment="mais alterações no sign up">
+    <list default="true" id="fc3bdd00-b72e-48f2-b01f-93c206799223" name="Default Changelist" comment="22/06/2021 - alterações adicionais no sign up aprt 2">
+      <change afterPath="$PROJECT_DIR$/assets/img/wave_header_home_page.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/red_wave_top_left_1.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/red_wave_top_left_2.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/red_wave_top_left_3.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/red_waves_top_left.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/cp_header.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/cp_header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/cp_main_eventos.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/cp_main_eventos.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/sign_up.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/scripts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +71,7 @@
       <workItem from="1624049257049" duration="769000" />
       <workItem from="1624191938600" duration="20383000" />
       <workItem from="1624272092039" duration="13757000" />
+      <workItem from="1624349319442" duration="9866000" />
     </task>
     <task id="LOCAL-00001" summary="melhoramentos na landing page e inscrição">
       <created>1624214380874</created>
@@ -95,7 +94,21 @@
       <option name="project" value="LOCAL" />
       <updated>1624276853398</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="22/06/2021 - alterações adicionais no sign up">
+      <created>1624349429007</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1624349429007</updated>
+    </task>
+    <task id="LOCAL-00005" summary="22/06/2021 - alterações adicionais no sign up aprt 2">
+      <created>1624349506529</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1624349506529</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +129,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="melhoramentos na landing page e inscrição" />
     <MESSAGE value="mais alterações no sign up" />
-    <option name="LAST_COMMIT_MESSAGE" value="mais alterações no sign up" />
+    <MESSAGE value="22/06/2021 - alterações adicionais no sign up" />
+    <MESSAGE value="22/06/2021 - alterações adicionais no sign up aprt 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="22/06/2021 - alterações adicionais no sign up aprt 2" />
   </component>
 </project>

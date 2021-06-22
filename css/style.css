@@ -72,6 +72,9 @@ footer{
 .section-search-home-page{
     min-height: 18rem;
     background-color: #ff3052;
+    background-image: url("../assets/img/wave_header_home_page.svg");
+    background-size: cover;
+    background-position: top center;
     border-radius: 0 0 35px 0;
     padding-top: 5rem;
 }
@@ -80,7 +83,7 @@ footer{
     border-radius: 50pt;
     padding: 0.5rem 3rem 0.5rem 2.8rem;
     display: block;
-    border: none;
+    border: 3px solid #25004C;
     width: 100%;
 }
 
@@ -131,28 +134,45 @@ footer{
 
 .img-filter-top{
     position: absolute;
-    top:0.6rem;
-    left:calc(100% - 3.2rem);
+    top:1.5rem;
+    left:calc(100% - 3.3rem);
+    padding:10px;
+    transform: translate(-50%, -50%);
 }
 
 .icon-search-top{
     position: absolute;
-    top:0.8rem;
-    left:2rem;
+    top:1.5rem;
+    font-size: 2.6rem;
+    left:3.2rem;
+    padding:12px;
+    transform: translate(-50%, -50%);
 }
 
 .checkbox-top-home-page{
     border-radius: 50pt;
     outline: none;
-    border: 2pt solid #25004C;
     background-color: white;
-    height:2.4rem;
+    height:2.8rem;
     width:100%;
     display: block;
     font-family: 'Open Sans', sans-serif;
     font-size: 1.2rem;
     overflow: hidden;
     color: white;
+}
+
+.checkbox-top-home-page_overlay{
+    border-radius: 50pt;
+    outline: none;
+    background-color: transparent;
+    height:2.8rem;
+    width:100%;
+    display: block;
+    border: 3px solid #25004C;
+    position: absolute;
+    top:0;
+    left:0;
 }
 
 .checkbox-top-home-page p{
@@ -366,8 +386,8 @@ footer{
     transform: translateX(-50%);
     display: none;
     border-radius: 50px;
-    padding: 0.6rem 1.8rem 0.6rem 1.2rem;
-    height:2.8rem;
+    padding: 0.6rem 1.6rem 0.6rem 1.6rem;
+    height:3.2rem;
 }
 
 .border_bottom_meca{
@@ -626,9 +646,10 @@ footer{
     position: fixed;
     width: 100%;
     height: 3rem;
-    background-color: #2d2d2d;
-    padding: 10pt;
+    background-color: transparent;
+    padding: 20pt 10pt 20pt 10pt;
     z-index: 10;
+    transition: background-color 0.2s;
 }
 
 #nav-bar p{

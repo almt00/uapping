@@ -1,3 +1,4 @@
+var scrolled;
 
 window.onload = function (){
 
@@ -17,5 +18,17 @@ window.onload = function (){
         document.getElementById("interesses").style.color = "#1D1D1D";
         document.getElementById("todos").style.color = "white";
     }
+
+    /* ------------------ scroll event / nav-bar -------------------- */
+
+    window.addEventListener("scroll", function (){
+        scrolled = window.scrollY;
+        if (scrolled !== 0){
+            document.getElementById("nav-bar").style.backgroundColor = "#f28792";
+        } else{
+            document.getElementById("nav-bar").style.backgroundColor = "transparent";
+        }
+        }
+    )
 
 }

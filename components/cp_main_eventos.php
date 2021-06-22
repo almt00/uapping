@@ -4,15 +4,16 @@
             <section class="row section-search-home-page">
                 <article class="col-12">
                     <section class="row justify-content-center">
-                        <article class="col-10 position-relative">
+                        <article class="col-12 px-4 position-relative">
                             <i class="fas fa-search icon-search-top"></i>
                             <input class="input_search-home-page" type="text" id="search-bar" name="search_bar">
                             <img class="img-filter-top" src="assets/img/filter.svg">
                         </article>
                     </section>
                     <section class="row justify-content-center mt-4">
-                        <article class="col-10">
+                        <article class="col-12 px-4">
                             <switch class="checkbox-top-home-page position-relative">
+                                <border class="checkbox-top-home-page_overlay"></border>
                                 <selector id="selector" class="selector">
                                 </selector>
                                 <section style="height:100%;" class="row sec-selector-home-page text-center align-content-center">
