@@ -15,6 +15,7 @@
 
 <?php include_once "components/cp_main_eventos.php" ?>
 
+<?php include_once "components/cp_navegacao_mobile.php" ?>
 
 <?php include_once "helpers/help_js.php"?>
 

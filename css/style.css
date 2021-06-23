@@ -4,18 +4,23 @@
     user-select: none;
 }
 
+.background_cinza{
+    background-color: #EDEDED;
+}
+
 .min-100vh{
     min-height: 100vh;
 }
 
 .main-flex{
     display:flex;
-    height:100vh;
+    min-height:100vh;
     justify-content: space-between;
     flex-direction: column;
 }
 
 footer{
+    margin-top:5rem;
     background-color: rgba(0, 15, 59, 0.8);
 }
 
@@ -71,12 +76,72 @@ footer{
 
 .section-search-home-page{
     min-height: 18rem;
-    background-color: #ff3052;
+    background-color: #f28792;
     background-image: url("../assets/img/wave_header_home_page.svg");
     background-size: cover;
     background-position: top center;
     border-radius: 0 0 35px 0;
     padding-top: 5rem;
+    overflow: hidden;
+}
+
+.event-card{
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.event-card a{
+    text-decoration: none;
+    color:black;
+}
+
+.event-header img{
+    height:100%;
+}
+
+.event-cover{
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:14rem;
+}
+
+.card-footer{
+    position: absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    background: rgba(88, 88, 88, 0.53);
+    backdrop-filter: blur(2px);
+    font-size: 1.8rem;
+    height:3rem;
+    z-index: 1;
+}
+
+.save_share{
+    height:100%;
+}
+
+.h2-eventos{
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+}
+
+.h4-eventos{
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.p-eventos{
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    font-size: 1rem;
 }
 
 .input_search-home-page{
@@ -149,6 +214,55 @@ footer{
     transform: translate(-50%, -50%);
 }
 
+.art-date_slide{
+    padding:0;
+}
+
+.date-slide{
+    background-color: transparent;
+    height:2.8rem;
+    width:100%;
+    display: block;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    color: #B25959;
+    line-height: 2.8rem;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.date-slide::-webkit-scrollbar{
+    display:none;
+}
+
+.date-slide-elements{
+    border-radius: 50px;
+    display: inline-block;
+    height:100%;
+    background-color: #ffffff54;
+    font-weight: bold;
+    text-align: center;
+}
+
+.date-slide-elements img{
+    margin-bottom:0.2rem;
+}
+
+.slide-hoje{
+    padding:0 1.5rem;
+}
+
+.slide-amanha{
+    padding:0 1.8rem;
+}
+
+.slide-dias{
+    padding:0 1rem;
+}
+
 .checkbox-top-home-page{
     border-radius: 50pt;
     outline: none;
@@ -189,6 +303,16 @@ footer{
     width:50%;
     height:100%;
     /* transition: all 0.3s;*/
+}
+
+.switch-interesses{
+    height:100%;
+    font-weight: bold;
+}
+
+.switch-todos{
+    height:100%;
+    font-weight: bold;
 }
 
 .art-logo-icon-lp{
@@ -638,6 +762,32 @@ footer{
 
 #voltar_sign_up:hover{
     color: white;
+}
+
+/* nav mobile */
+
+.nav-mobile{
+    position: fixed;
+    bottom:5rem;
+    left:50%;
+    width:75%;
+    height:3.5rem;
+    transform: translateX(-50%);
+    background: rgba(242, 225, 225, 0.86);
+    z-index: 5;
+    border-radius: 50px;
+    backdrop-filter: blur(2px);
+}
+
+.nav-mobile-row{
+    height:100%;
+}
+
+.nav-mobile-row img{
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top:50%;
+    left:50%;
 }
 
 /* nav PC */
