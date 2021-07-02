@@ -834,6 +834,8 @@ footer{
     z-index: 1;
 }
 
+/* menu_user */
+
 #panel_user_menu_mobile{
     position: absolute;
     display: none;
@@ -881,10 +883,6 @@ footer{
     font-size: 0.8rem;
 }
 
-.section-2-user-menu{
-
-}
-
 .user-menu-options img{
     height: 1.2rem;
     position: absolute;
@@ -895,6 +893,35 @@ footer{
 .user-menu-options-span{
     margin-left: 2.2rem;
     font-size: 1.2rem;
+}
+
+/* menu_interesses */
+
+#panel_interesses_menu_mobile{
+    position: absolute;
+    display: none;
+    z-index: 10;
+    top:0;
+    width:100%;
+    height:100%;
+}
+
+.interesses_menu{
+    position: fixed;
+    height: 32rem;
+    width: 100%;
+    background-color: white;
+    z-index: 2;
+    bottom: -32rem;
+    transition: bottom 0.5s;
+}
+
+.h5-interesses{
+    text-align: center;
+    color: black;
+    font-size:1.3rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
 }
 
 /* Displays */

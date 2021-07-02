@@ -31,7 +31,7 @@
                 </section>
             </article>
         </section>
-        <section class="section-2-user-menu position-relative">
+        <section class="position-relative">
             <a href="">
                 <article class="col-12 user-menu-options py-1">
                     <img src="assets/icons_user_menu/change_interesses.svg">

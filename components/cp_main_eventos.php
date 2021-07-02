@@ -7,7 +7,7 @@
                         <article class="col-12 px-4 position-relative">
                             <i class="fas fa-search icon-search-top"></i>
                             <input class="input_search-home-page" type="text" id="search-bar" name="search_bar">
-                            <img class="img-filter-top" src="assets/img/filter.svg">
+                            <img id="btn_interesses" class="img-filter-top" src="assets/img/filter.svg">
                         </article>
                     </section>
                     <section class="row justify-content-center mt-4">
@@ -101,3 +101,44 @@
         </article>
     </footer>
 </main>
+
+<Panel id="panel_interesses_menu_mobile" class="">
+    <interesses id="interesses_menu" class="container-fluid interesses_menu">
+        <section class="row mx-4">
+            <article class="col-12 my-4">
+                <h5 class="h5-interesses"> Interesses </h5>
+            </article>
+            <article class="col-12">
+                <section class="row">
+                    <article class="col-12">
+                        <span class=""> Cultura </span>
+                        <span> Música </span>
+                        <span> Dança </span>
+                        <span> Desporto </span>
+                        <span> Jogos </span>
+                    </article>
+                </section>
+            </article>
+        </section>
+        <section class="row mx-4">
+            <article class="col-12 my-4">
+                <h5 class="h5-interesses"> Núcleos </h5>
+            </article>
+            <article class="col-12 my-4">
+                <p class=""> Cultura </p>
+            </article>
+            <article class="col-12">
+                <section class="row">
+                    <article class="col-12">
+                        <span class=""> Cultura </span>
+                        <span> Música </span>
+                        <span> Dança </span>
+                        <span> Desporto </span>
+                        <span> Jogos </span>
+                    </article>
+                </section>
+            </article>
+        </section>
+    </interesses>
+    <background id="background_interesses_menu" class="black-ground"></background>
+</Panel>
