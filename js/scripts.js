@@ -1,4 +1,5 @@
 var scrolled;
+var user_menu;
 
 window.onload = function (){
 
@@ -37,5 +38,24 @@ window.onload = function (){
         }
         }
     )
+
+    /* ------------------ user menu / btn -------------------- */
+
+    user_menu = false;
+    document.getElementById("btn_user_menu_mobile").onclick = function (){
+        if (user_menu === false){
+            document.getElementById("panel_user_menu_mobile").style.display = "block";
+            document.body.style.overflow = "hidden";
+            user_menu = true;
+        }
+    }
+
+    document.getElementById("background_user_menu").onclick = function (){
+        if (user_menu === true){
+            document.getElementById("panel_user_menu_mobile").style.display = "none";
+            document.body.style.overflow = "auto";
+            user_menu = false;
+        }
+    }
 
 }

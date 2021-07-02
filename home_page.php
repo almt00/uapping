@@ -11,6 +11,8 @@
 </head>
 <body>
 
+<?php $nav_homepage = true; ?>
+
 <?php include_once "components/cp_header.php" ?>
 
 <?php include_once "components/cp_main_eventos.php" ?>

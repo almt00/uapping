@@ -302,7 +302,6 @@ footer{
     left: 0;
     width:50%;
     height:100%;
-    /* transition: all 0.3s;*/
 }
 
 .switch-interesses{
@@ -795,7 +794,7 @@ footer{
 #nav-bar{
     position: fixed;
     width: 100%;
-    height: 3rem;
+    height: 4rem;
     background-color: transparent;
     padding: 20pt 10pt 20pt 10pt;
     z-index: 10;
@@ -815,11 +814,87 @@ footer{
 }
 
 .width-7{
-    width: 6rem;
+    width: 7rem;
 }
 
 .icon-size{
-    font-size: 1.5rem;
+    font-size: 2.2rem;
+}
+
+.black-ground{
+    position: fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    width:100%;
+    height:120%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 1;
+}
+
+#panel_user_menu_mobile{
+    position: absolute;
+    display: none;
+    z-index: 10;
+    top:0;
+    width:100%;
+    height:100%;
+}
+
+.user_menu_mobile{
+    background-color: white;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    min-height: 10rem;
+    max-width: calc(100% - 3rem);
+    width: 25rem;
+    z-index: 2;
+    border-radius: 25px;
+    padding-bottom: 1.5rem;
+}
+
+.user_menu_mobile a{
+    color: black;
+    text-decoration: none;
+}
+
+.section-1-user-menu{
+    padding:1.5rem 1.5rem;
+    height: 5.8rem;
+}
+
+.section-1-user-menu img{
+    border-radius: 50px;
+    height:100%;
+}
+
+.art-1-icon-user-menu{
+    max-width: 3rem;
+    max-height: 100%;
+}
+
+.art-2-icon-user-menu{
+    font-size: 0.8rem;
+}
+
+.section-2-user-menu{
+
+}
+
+.user-menu-options img{
+    height: 1.2rem;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.user-menu-options-span{
+    margin-left: 2.2rem;
+    font-size: 1.2rem;
 }
 
 /* Displays */
