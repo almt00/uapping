@@ -21,5 +21,9 @@
 
 <?php include_once "helpers/help_js.php"?>
 
+<script>
+    console.log("ola")
+</script>
+
 </body>
 </html>
