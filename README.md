@@ -7,6 +7,8 @@ Membros:
 
 Miguel Teixeira 	100402
 Mariana Ferreira 	100183
-Ana Teixeira 		  94559
+Ana Teixeira 	    94559
 Edgar Quintero 		98940
 Mariana Alves 		99683
+
+
