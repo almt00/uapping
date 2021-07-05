@@ -1,89 +1,75 @@
-<main class="main background_cinza container-fluid main-flex">
+<main class="main container-fluid main-flex">
     <section class="row">
         <article class="col-12">
-            <section class="row section-search-home-page">
-                <article class="col-12">
+            <section class="row sec-top-nucleos">
+                <article class="col-12 section-search-home-page">
                     <section class="row justify-content-center">
-                        <article class="col-12 px-4 position-relative">
-                            <i class="fas fa-search icon-search-top"></i>
-                            <input class="input_search-home-page" type="text" id="search-bar" name="search_bar">
-                            <img id="btn_interesses" class="img-filter-top" src="assets/img/filter.svg">
-                        </article>
-                    </section>
-                    <section class="row justify-content-center mt-4">
                         <article class="col-12 px-4">
-                            <switch class="checkbox-top-home-page position-relative">
-                                <border class="checkbox-top-home-page_overlay"></border>
-                                <selector id="selector" class="selector">
-                                </selector>
-                                <section style="height:100%;" class="row sec-selector-home-page text-center align-content-center">
-                                    <article id="interesses" class="switch-interesses col-6">
-                                        <p> Interesses </p>
-                                    </article>
-                                    <article id="todos" class="switch-todos col-6">
-                                        <p> Todos </p>
-                                    </article>
-                                </section>
-                            </switch>
-                        </article>
-                    </section>
-                    <section class="row justify-content-center mt-4">
-                        <article class="col-12 art-date_slide">
-                            <Dateslide id="slide_date" class="px-4 date-slide">
-                                <hoje class="date-slide-elements slide-hoje"> Hoje </hoje>
-                                <amanha class="date-slide-elements slide-amanha ml-2"> Amanhã </amanha>
-                                <dia class="date-slide-elements slide-dias ml-2"> 20 </dia>
-                                <dia class="date-slide-elements slide-dias ml-2"> 21 </dia>
-                                <dia class="date-slide-elements slide-dias ml-2"> 22 </dia>
-                                <dia class="date-slide-elements slide-dias ml-2"> 23 </dia>
-                                <calendar class="date-slide-elements slide-dias ml-2"> <img src="assets/img/calendar.svg"> </calendar>
-                            </Dateslide>
                         </article>
                     </section>
                 </article>
             </section>
-            <section class="row">
-                <article class="col-12 mt-5 mb-3 px-4">
-                    <h2 class="pl-2 h2-eventos"> Eventos </h2>
+            <section class="row section-nucleos">
+                <article class="col-12 mt-4 mb-3 position-relative">
+                    <h2 class="text-center h2-nucleo_save"> Núcleos </h2>
+                    <a href="#"><img class="mr-4 info_nucleos" src="assets/outros/info.svg"></a>
                 </article>
-                <article class="col-12">
-                    <section class="row px-4">
-
-                        <article class="col-12 event-card mb-5">
+                <article class="col-12 px-4 mb-3">
+                    <switch class="checkbox-top-home-page position-relative">
+                        <border class="checkbox-top-home-page_overlay"></border>
+                        <selector id="selector" class="selector">
+                        </selector>
+                        <section style="height:100%;" class="row sec-selector-home-page text-center align-content-center">
+                            <article id="oficiais" class="switch-interesses col-6">
+                                <p> Oficiais </p>
+                            </article>
+                            <article id="criacoes" class="switch-todos col-6">
+                                <p> Criações </p>
+                            </article>
+                        </section>
+                    </switch>
+                </article>
+                <article class="col-12 text-center mb-3 px-5 p-text">
+                    <p> Bem vindo aos núcleos oficiais! <br>
+                        Aqui podes encontrar os núcleos setoriais que já existem na UA </p>
+                </article>
+                <article class="col-12 p-0 mb-5">
+                    <article class="col-12 px-4 position-relative">
+                        <i class="fas fa-search icon-search-top"></i>
+                        <input class="input_search-home-page" type="text" id="search-bar" name="search_bar">
+                        <img id="" class="img-filter-top" src="assets/img/filter.svg">
+                    </article>
+                </article>
+                <article class="col-12 px-4">
+                    <section class="row mb-4">
+                        <article class="col-6 art-card-nucleo_geral">
                             <a href="#">
-                                <section class="row">
-                                    <article class="col-12">
-                                        <section class="row event-header mb-3">
-                                            <titulo class="col-12 mt-3 mb-1">
-                                                <h4 class="h4-eventos"> Smells like drunk spirit </h4>
-                                            </titulo>
-                                            <article class="col-6">
-                                                <section class="row">
-                                                    <data class="col-12 mb-2">
-                                                        <img class="mr-1" src="assets/img/calendar_black.svg">
-                                                        <p class="d-inline"> Hoje </p>
-                                                    </data>
-                                                    <horas class="col-12">
-                                                        <img class="mr-1" src="assets/img/clock.svg">
-                                                        <p class="d-inline"> 21:45 </p>
-                                                    </horas>
-                                                </section>
-                                            </article>
-                                            <nucleo class="col-6 text-right">
-                                                <img src="assets/img/NRock_1.svg">
-                                            </nucleo>
-                                        </section>
-                                        <section class="row event-cover" style='background-image: url("assets/img/smells_rock_1.jpg");'>
-                                        </section>
-                                    </article>
-                                </section>
+                                <div class="nucleo_card" style="background-image: ;">
+                                    <div class="row align-items-center sec_nucleo_card_img">
+                                        <div class="col-4 art_nucleo_card min-nucleo-card">
+                                            <img src="assets/img/user_profile.png">
+                                        </div>
+                                        <div class="col-6 art_nucleo_card word-warp">
+                                            <p class="p-nucleo_name m-0"> NFC </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </a>
-                            <div class="card-footer text-right py-1 px-4">
-                                <i class="save_share text-white mr-3 fas fa-share-alt"></i>
-                                <i class="save_share text-white far fa-bookmark"></i>
-                            </div>
                         </article>
-
+                        <article class="col-6 art-card-nucleo_geral">
+                            <a href="#">
+                                <div class="nucleo_card" style="background-image: ;">
+                                    <div class="row align-items-center sec_nucleo_card_img">
+                                        <div class="col-4 art_nucleo_card min-nucleo-card">
+                                            <img src="assets/img/user_profile.png">
+                                        </div>
+                                        <div class="col-6 art_nucleo_card word-warp">
+                                            <p class="p-nucleo_name m-0"> NROCK </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
                     </section>
                 </article>
             </section>

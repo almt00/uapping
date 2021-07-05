@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc3bdd00-b72e-48f2-b01f-93c206799223" name="Default Changelist" comment="02/07/2021 - alterações header update (agora temos user menu).">
-      <change afterPath="$PROJECT_DIR$/assets/barra_navegacao/nav_home.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/barra_navegacao/nav_home_filled.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/barra_navegacao/nav_nucleo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/barra_navegacao/nav_nucleo_filled.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/barra_navegacao/nav_save.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/barra_navegacao/nav_save_filled.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/cp_main_nucleos.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nucleos.php" afterDir="false" />
+    <list default="true" id="fc3bdd00-b72e-48f2-b01f-93c206799223" name="Default Changelist" comment="02/07/2021 - alterações README">
+      <change afterPath="$PROJECT_DIR$/assets/outros/info.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/switch_interesses.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/switch_nucleos.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/cp_header.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/cp_header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/cp_main_eventos.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/cp_main_eventos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/cp_navegacao_mobile.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/cp_navegacao_mobile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/cp_main_nucleos.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/cp_main_nucleos.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/help_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/help_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home_page.php" beforeDir="false" afterPath="$PROJECT_DIR$/home_page.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nucleos.php" beforeDir="false" afterPath="$PROJECT_DIR$/nucleos.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,13 +45,16 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1u8Sy1fNSOXAQ8NYnCN06DdD7hr" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
@@ -64,11 +63,12 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\Documents\UA\2º Ano\2º Semestre\Lab 4_A\CBL_Projeto_Final\js" />
       <recent name="C:\Users\ASUS\Documents\UA\2º Ano\2º Semestre\Lab 4_A\CBL_Projeto_Final" />
     </key>
   </component>
@@ -90,7 +90,8 @@
       <workItem from="1624984900931" duration="126000" />
       <workItem from="1625179096135" duration="866000" />
       <workItem from="1625222186118" duration="18302000" />
-      <workItem from="1625249340704" duration="2245000" />
+      <workItem from="1625249340704" duration="2379000" />
+      <workItem from="1625477284247" duration="26370000" />
     </task>
     <task id="LOCAL-00001" summary="melhoramentos na landing page e inscrição">
       <created>1624214380874</created>
@@ -155,7 +156,21 @@
       <option name="project" value="LOCAL" />
       <updated>1625242748145</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="02/07/2021 - alterações header update (agora temos menu de interesses semi feito).">
+      <created>1625252292263</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1625252292263</updated>
+    </task>
+    <task id="LOCAL-00011" summary="02/07/2021 - alterações README">
+      <created>1625480938351</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1625480938351</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,6 +189,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="melhoramentos na landing page e inscrição" />
     <MESSAGE value="mais alterações no sign up" />
     <MESSAGE value="22/06/2021 - alterações adicionais no sign up" />
@@ -182,6 +198,8 @@
     <MESSAGE value="22/06/2021 - alterações grande parte da home page e navbar mobile" />
     <MESSAGE value="02/07/2021 - alterações navegação adicionada ao icon da home page" />
     <MESSAGE value="02/07/2021 - alterações header update (agora temos user menu)." />
-    <option name="LAST_COMMIT_MESSAGE" value="02/07/2021 - alterações header update (agora temos user menu)." />
+    <MESSAGE value="02/07/2021 - alterações header update (agora temos menu de interesses semi feito)." />
+    <MESSAGE value="02/07/2021 - alterações README" />
+    <option name="LAST_COMMIT_MESSAGE" value="02/07/2021 - alterações README" />
   </component>
 </project>
