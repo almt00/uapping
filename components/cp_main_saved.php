@@ -9,10 +9,9 @@
                     </section>
                 </article>
             </section>
-            <section class="row section-nucleos">
+            <section class="row section-nucleos background_cinza pb-5">
                 <article class="col-12 mt-4 mb-3 position-relative">
-                    <h2 class="text-center h2-nucleo_save"> Núcleos </h2>
-                    <a href="#"><img class="mr-4 info_nucleos" src="assets/outros/info.svg"></a>
+                    <h2 class="text-center h2-nucleo_save"> Guardados </h2>
                 </article>
                 <article class="col-12 px-4 mb-3">
                     <switch class="checkbox-top-home-page position-relative">
@@ -20,68 +19,65 @@
                         <selector id="selector" class="selector">
                         </selector>
                         <section style="height:100%;" class="row sec-selector-home-page text-center align-content-center">
-                            <article id="oficiais" class="switch-interesses col-6">
-                                <p> Oficiais </p>
+                            <article id="ativos" class="switch-interesses col-6">
+                                <p> Ativos </p>
                             </article>
-                            <article id="criacoes" class="switch-todos col-6" style="color:#1D1D1D;">
-                                <p> Criações </p>
+                            <article id="passados" class="switch-todos col-6" style="color:#1D1D1D;">
+                                <p> Passados </p>
                             </article>
                         </section>
                     </switch>
                 </article>
                 <article class="col-12 text-center mb-3 px-5 p-text">
-                    <p id="text_nucleo_oficiais"> Bem vindo aos núcleos oficiais! <br>
-                        Aqui podes encontrar os núcleos setoriais que já existem na UA </p>
-                    <p id="text_nucleo_criacoes" style="display:none;"> Gostavas que a UA tivesse um núcleo diferente?
-                        <br> Sugere um tema aqui! </p>
+                    <p id="text_saved_ativos"> Aqui podes ver todos os eventos que não queres mesmo deixar passar... </p>
+                    <p id="text_saved_passados" style="display:none;"> Aqui podes ver todos os eventos  que queres mais tarde recordar... </p>
                 </article>
-                <article class="col-12 p-0 mb-5">
-                    <article class="col-12 px-4 position-relative">
-                        <i class="fas fa-search icon-search-top"></i>
-                        <input class="input_search-home-page" type="text" id="search-bar" name="search_bar">
-                        <img id="" class="img-filter-top" src="assets/img/filter.svg">
-                    </article>
-                </article>
-                <article class="col-12 px-4">
 
-                    <section class="row mb-3">
+                <article class="col-12 mt-4">
+                    <section class="row px-4">
 
-                        <article class="col-6 art-card-nucleo_geral" style="padding-right:8px;">
+                        <article class="col-12 event-card mb-5">
                             <a href="#">
-                                <div class="nucleo_card" style="background-image: ;">
-                                    <div class="row align-items-center sec_nucleo_card_img">
-                                        <div class="col-4 art_nucleo_card min-nucleo-card">
-                                            <img src="assets/img/user_profile.png">
-                                        </div>
-                                        <div class="col-6 art_nucleo_card word-warp">
-                                            <p class="p-nucleo_name m-0"> NFC </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <section class="row">
+                                    <article class="col-12">
+                                        <section class="row event-header mb-3">
+                                            <titulo class="col-12 mt-3 mb-1">
+                                                <h4 class="h4-eventos"> Smells like drunk spirit </h4>
+                                            </titulo>
+                                            <article class="col-6">
+                                                <section class="row">
+                                                    <data class="col-12 mb-2">
+                                                        <img class="mr-1" src="assets/img/calendar_black.svg">
+                                                        <p class="d-inline"> Hoje </p>
+                                                    </data>
+                                                    <horas class="col-12">
+                                                        <img class="mr-1" src="assets/img/clock.svg">
+                                                        <p class="d-inline"> 21:45 </p>
+                                                    </horas>
+                                                </section>
+                                            </article>
+                                            <nucleo class="col-6 text-right">
+                                                <img src="assets/img/NRock_1.svg">
+                                            </nucleo>
+                                        </section>
+                                        <section class="row event-cover" style='background-image: url("assets/img/smells_rock_1.jpg");'>
+                                        </section>
+                                    </article>
+                                </section>
                             </a>
-                        </article>
-                        <article class="col-6 art-card-nucleo_geral" style="padding-left:8px;">
-                            <a href="#">
-                                <div class="nucleo_card" style="background-image: ;">
-                                    <div class="row align-items-center sec_nucleo_card_img">
-                                        <div class="col-4 art_nucleo_card min-nucleo-card">
-                                            <img src="assets/img/user_profile.png">
-                                        </div>
-                                        <div class="col-6 art_nucleo_card word-warp">
-                                            <p class="p-nucleo_name m-0"> NROCK </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+                            <div class="card-footer text-right py-1 px-4">
+                                <i class="save_share text-white mr-3 fas fa-share-alt"></i>
+                                <i class="save_share text-white far fa-bookmark"></i>
+                            </div>
                         </article>
 
                     </section>
-
                 </article>
+
             </section>
         </article>
     </section>
-    <footer class="row justify-content-center py-5">
+    <footer class="row justify-content-center py-5 mt-0">
         <article class="col-3 text-center">
             <a href="https://www.facebook.com/" target="_blank"> <span class="fab fa-facebook-f text-white fa-3x"></span> </a>
         </article>

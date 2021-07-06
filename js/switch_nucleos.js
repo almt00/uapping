@@ -2,19 +2,20 @@ var interesses_menu;
 
 /* ------------------ home page / pin bar (todos, interesses) ------------------ */
 
-document.getElementById("oficiais").style.color = "white";
-document.getElementById("criacoes").style.color = "#1D1D1D";
-
 document.getElementById("oficiais").onclick = function (){
     document.getElementById("selector").style.left = "0%";
     document.getElementById("oficiais").style.color = "white";
     document.getElementById("criacoes").style.color = "#1D1D1D";
+    document.getElementById("text_nucleo_oficiais").style.display = "block";
+    document.getElementById("text_nucleo_criacoes").style.display = "none";
 }
 
 document.getElementById("criacoes").onclick = function (){
     document.getElementById("selector").style.left = "50%";
     document.getElementById("oficiais").style.color = "#1D1D1D";
     document.getElementById("criacoes").style.color = "white";
+    document.getElementById("text_nucleo_oficiais").style.display = "none";
+    document.getElementById("text_nucleo_criacoes").style.display = "block";
 }
 
 /* ------------------ interesses / btn home_page (eventos) -------------------- */

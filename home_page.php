@@ -2,8 +2,6 @@
 <html lang="pt">
 <head>
 
-    <title> Uapping </title>
-
     <?php include_once "helpers/help_css.php"?>
 
     <?php include_once "helpers/help_meta.php"?>

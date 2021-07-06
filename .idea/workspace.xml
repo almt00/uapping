@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc3bdd00-b72e-48f2-b01f-93c206799223" name="Default Changelist" comment="02/07/2021 - alterações README">
-      <change afterPath="$PROJECT_DIR$/assets/outros/info.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/switch_interesses.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/switch_nucleos.js" afterDir="false" />
+    <list default="true" id="fc3bdd00-b72e-48f2-b01f-93c206799223" name="Default Changelist" comment="05/07/2021 - alterações página dos núcleos">
+      <change afterPath="$PROJECT_DIR$/components/cp_main_saved.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/switch_saved.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/saved.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Log_In.php" beforeDir="false" afterPath="$PROJECT_DIR$/Log_In.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/cp_main_eventos.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/cp_main_eventos.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/cp_main_nucleos.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/cp_main_nucleos.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/help_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/help_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/help_meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/help_meta.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home_page.php" beforeDir="false" afterPath="$PROJECT_DIR$/home_page.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/switch_interesses.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/switch_interesses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/switch_nucleos.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/switch_nucleos.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nucleos.php" beforeDir="false" afterPath="$PROJECT_DIR$/nucleos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sign_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/sign_up.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,13 +68,14 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/components" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\ASUS\Documents\UA\2º Ano\2º Semestre\Lab 4_A\CBL_Projeto_Final\js" />
+      <recent name="C:\Users\ASUS\Documents\UA\2º Ano\2º Semestre\Lab 4_A\CBL_Projeto_Final\components" />
       <recent name="C:\Users\ASUS\Documents\UA\2º Ano\2º Semestre\Lab 4_A\CBL_Projeto_Final" />
+      <recent name="C:\Users\ASUS\Documents\UA\2º Ano\2º Semestre\Lab 4_A\CBL_Projeto_Final\js" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -91,7 +97,8 @@
       <workItem from="1625179096135" duration="866000" />
       <workItem from="1625222186118" duration="18302000" />
       <workItem from="1625249340704" duration="2379000" />
-      <workItem from="1625477284247" duration="26370000" />
+      <workItem from="1625477284247" duration="27355000" />
+      <workItem from="1625577354569" duration="5497000" />
     </task>
     <task id="LOCAL-00001" summary="melhoramentos na landing page e inscrição">
       <created>1624214380874</created>
@@ -170,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625480938351</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="05/07/2021 - alterações página dos núcleos">
+      <created>1625517135286</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1625517135286</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +214,7 @@
     <MESSAGE value="02/07/2021 - alterações header update (agora temos user menu)." />
     <MESSAGE value="02/07/2021 - alterações header update (agora temos menu de interesses semi feito)." />
     <MESSAGE value="02/07/2021 - alterações README" />
-    <option name="LAST_COMMIT_MESSAGE" value="02/07/2021 - alterações README" />
+    <MESSAGE value="05/07/2021 - alterações página dos núcleos" />
+    <option name="LAST_COMMIT_MESSAGE" value="05/07/2021 - alterações página dos núcleos" />
   </component>
 </project>

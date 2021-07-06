@@ -20,7 +20,7 @@
                                     <article id="interesses" class="switch-interesses col-6">
                                         <p> Interesses </p>
                                     </article>
-                                    <article id="todos" class="switch-todos col-6">
+                                    <article id="todos" class="switch-todos col-6" style="color:#1D1D1D;">
                                         <p> Todos </p>
                                     </article>
                                 </section>
