@@ -114,13 +114,13 @@ footer{
     width:100%;
     background: rgba(88, 88, 88, 0.53);
     backdrop-filter: blur(2px);
-    font-size: 1.8rem;
     height:3rem;
     z-index: 1;
 }
 
 .save_share{
-    height:100%;
+    height:80%;
+    margin-top:0.25rem;
 }
 
 .h2-eventos{
@@ -936,7 +936,7 @@ footer{
 .sec-top-nucleos{
     position: absolute;
     top:0;
-    z-index: -1;
+    z-index: -2;
     width:100%;
 }
 
@@ -1001,6 +1001,181 @@ footer{
 
 .word-warp{
     word-wrap: normal;
+}
+
+/* evento detail */
+
+.section-evento_detail{
+    margin-top:calc(4rem + 16rem - 2rem);
+    background-color: white;
+    border-top-right-radius:30px;
+    border-top-left-radius:30px;
+}
+
+.h2-evento_detail{
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+}
+
+.event-detail-cover{
+    position: absolute;
+    top:0;
+    margin-top:4rem;
+    z-index: -1;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:16rem;
+    width:100%;
+}
+
+.barra_evento_detail{
+    height:0.3rem;
+    width:10rem;
+    background-color: black;
+    margin-left:50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+}
+
+.mt-barra{
+    margin-top:2.5rem;
+}
+
+.evento-detail-icon{
+    height:90%;
+    width:26px;
+}
+
+.caixa-evento-detail{
+    height:1.8rem;
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 0.51);
+}
+
+.horas-preco-evento-detail{
+    height:1.8rem;
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 0.51);
+    text-align: left;
+}
+
+.div-horas{
+    width:6em;
+    line-height: 2rem;
+    margin-left:calc(60% + 0.5rem);
+    transform: translateX(-50%);
+}
+
+.div-preco{
+    border-radius: 50px;
+    border: 2px solid rgba(0, 0, 0, 0.51);
+    width:6em;
+    line-height: 2rem;
+    margin-left:60%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.px-event-detail{
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.subtitle-event-detail{
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.text-event-detail{
+    font-size: 1rem;
+    font-weight: normal;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.share-save-event-detail-icons{
+    height:2.5rem;
+}
+
+.share-save-event-detail-icons img{
+    height:100%;
+    width:2rem;
+}
+
+.tag-share-save-event-detail{
+    position: absolute;
+    top:2.4rem;
+    left:50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    width:2rem;
+}
+
+.art-people-event-detail{
+    height:2rem;
+}
+
+.art-people-event-detail img{
+    height:100%;
+}
+
+.people-bubble-event-detail{
+    background-color: rgba(125, 124, 123, 0.15);
+    display: inline-block;
+    padding:6px;
+    border-radius: 100%;
+    position:relative;
+    height:2rem;
+    width:2rem;
+}
+
+.people-bubble-event-detail span{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.9rem;
+}
+
+.bg-profile{
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.links-cal-out-event-detail{
+    width:100%;
+    border-radius: 50px;
+    border: 2px solid #EBEAE9;
+    padding: 0.5rem 0.7rem 0.5rem 2.8rem;
+}
+
+.links-face-out-event-detail{
+    border-radius: 50px;
+    background-color: #EBEAE9;
+    width:100%;
+    padding: 0.5rem 0.7rem 0.5rem 3.4rem;
+}
+
+.links-cal-icon{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    left:1.2rem;
+    margin-left:2.5rem;
+}
+
+.links-face-icon{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    left:1rem;
+    margin-left:2.5rem;
 }
 
 /* Displays */

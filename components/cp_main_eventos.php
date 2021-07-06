@@ -50,7 +50,7 @@
                     <section class="row px-4">
 
                         <article class="col-12 event-card mb-5">
-                            <a href="#">
+                            <a href="evento_detail.php">
                                 <section class="row">
                                     <article class="col-12">
                                         <section class="row event-header mb-3">
@@ -79,8 +79,8 @@
                                 </section>
                             </a>
                             <div class="card-footer text-right py-1 px-4">
-                                <i class="save_share text-white mr-3 fas fa-share-alt"></i>
-                                <i class="save_share text-white far fa-bookmark"></i>
+                                <img class="save_share" src="assets/img/share_white.svg">
+                                <img class="ml-3 save_share" src="assets/img/save_white.svg">
                             </div>
                         </article>
 

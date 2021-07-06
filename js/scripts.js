@@ -5,22 +5,22 @@ window.onload = function (){
 
     /* ------------------ scroll event / nav-bar -------------------- */
 
-    scrolled = window.scrollY;
-    if (scrolled !== 0){
-        document.getElementById("nav-bar").style.backgroundColor = "#f28792";
-    } else{
-        document.getElementById("nav-bar").style.backgroundColor = "transparent";
-    }
-
-    window.addEventListener("scroll", function (){
         scrolled = window.scrollY;
         if (scrolled !== 0){
             document.getElementById("nav-bar").style.backgroundColor = "#f28792";
         } else{
             document.getElementById("nav-bar").style.backgroundColor = "transparent";
         }
-        }
-    )
+
+        window.addEventListener("scroll", function (){
+                scrolled = window.scrollY;
+                if (scrolled !== 0){
+                    document.getElementById("nav-bar").style.backgroundColor = "#f28792";
+                } else{
+                    document.getElementById("nav-bar").style.backgroundColor = "transparent";
+                }
+            }
+        )
 
     /* ------------------ user menu / btn -------------------- */
 
