@@ -1,3 +1,4 @@
+<?php require_once("connections/connection.php"); ?>
 <main class="main background_cinza container-fluid main-flex">
     <section class="row">
         <article class="col-12">
@@ -56,8 +57,6 @@
                 </article>
                 <article class="col-12">
                     <section class="row px-4">
-                        <?php require_once("connections/connection.php");
-                        new_db_connection(); ?>
                         <article class="col-12 event-card mb-5">
                             <a href="evento_detail.php">
                                 <section class="row">

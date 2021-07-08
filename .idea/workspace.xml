@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc3bdd00-b72e-48f2-b01f-93c206799223" name="Default Changelist" comment="07/07/2021 - alterações favicon add">
-      <change afterPath="$PROJECT_DIR$/assets/img/face_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/insta_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/event_detail.js" afterDir="false" />
+    <list default="true" id="fc3bdd00-b72e-48f2-b01f-93c206799223" name="Default Changelist" comment="07/07/2021 - alterações página detail dos eventos finalizada">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/cp_main_evento_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/cp_main_evento_detail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evento_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/evento_detail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/cp_main_eventos.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/cp_main_eventos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connections/connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/connections/connection.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +90,7 @@
       <workItem from="1625608284714" duration="1009000" />
       <workItem from="1625662196926" duration="2491000" />
       <workItem from="1625690181724" duration="2049000" />
-      <workItem from="1625745955378" duration="6444000" />
+      <workItem from="1625745955378" duration="7705000" />
     </task>
     <task id="LOCAL-00001" summary="melhoramentos na landing page e inscrição">
       <created>1624214380874</created>
@@ -201,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625667028097</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="07/07/2021 - alterações página detail dos eventos finalizada">
+      <created>1625769295316</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1625769295316</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +238,7 @@
     <MESSAGE value="06/07/2021 - alterações página dos guardados e (atualizações adjacentes)" />
     <MESSAGE value="06/07/2021 - alterações página evento detail e (atualizações adjacentes)" />
     <MESSAGE value="07/07/2021 - alterações favicon add" />
-    <option name="LAST_COMMIT_MESSAGE" value="07/07/2021 - alterações favicon add" />
+    <MESSAGE value="07/07/2021 - alterações página detail dos eventos finalizada" />
+    <option name="LAST_COMMIT_MESSAGE" value="07/07/2021 - alterações página detail dos eventos finalizada" />
   </component>
 </project>
