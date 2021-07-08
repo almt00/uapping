@@ -11,7 +11,7 @@
 
 <main class="container-fluid overflow-hidden">
     <section class="row justify-content-center align-items-center mt-5 mt-md-5">
-        <article class="col-md-12 text-md-center">
+        <article class="col-12 text-md-center">
             <div class="div-icons-sign-up">
                 <h1 id="header_1" class="sign-up-h1"> Bem Vindo! </h1>
                 <h6 id="header_6" class="sign-up-h6"> Cria a tua conta </h6>

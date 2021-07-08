@@ -221,6 +221,23 @@ footer{
     transform: translate(-50%, -50%);
 }
 
+/* log in */
+
+.logo-text-log-in{
+    width: 14rem;
+    max-width: 90%;
+    margin-bottom:2rem;
+}
+
+.logo-icon-log-in{
+    display:block;
+    width: 8rem;
+    max-width: 50%;
+    margin-bottom:3rem;
+    margin-left:50%;
+    transform: translateX(-50%);
+}
+
 .art-date_slide{
     padding:0;
 }
@@ -394,6 +411,14 @@ footer{
     font-size: 2.2rem;
     white-space: nowrap;
     text-align: center;
+}
+
+.log-in-h2{
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-weight: 800;
+    font-size: 1.5rem;
+    white-space: nowrap;
 }
 
 .sign-up-h6{
@@ -1256,6 +1281,11 @@ footer{
 
     .sign-up-h4{
         font-size: 3rem;
+        margin-left: 0;
+    }
+
+    .log-in-h2{
+        font-size: 1.8rem;
         margin-left: 0;
     }
 
