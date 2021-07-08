@@ -32,10 +32,16 @@
                             <Dateslide id="slide_date" class="px-4 date-slide">
                                 <hoje class="date-slide-elements slide-hoje"> Hoje </hoje>
                                 <amanha class="date-slide-elements slide-amanha ml-2"> Amanhã </amanha>
-                                <dia class="date-slide-elements slide-dias ml-2"> 20 </dia>
-                                <dia class="date-slide-elements slide-dias ml-2"> 21 </dia>
-                                <dia class="date-slide-elements slide-dias ml-2"> 22 </dia>
-                                <dia class="date-slide-elements slide-dias ml-2"> 23 </dia>
+                                <!--- para apresentar os dias dentro dos pill utilizando tempo real de forma dinâmica--->
+                                <?php
+                                echo $dates = date('Y-m-d H:i:s');
+                                for ($n = 0; $n <= 5; $n++) {
+                                    $data_pill= date("Y-m-d", strtotime("+".$n."days"));
+                                    if ($n>=2){
+                                        echo '<dia class="date-slide-elements slide-dias ml-2" id="pill_'.$n.'">'.$data_pill[strlen($data_pill)-2].$data_pill[strlen($data_pill)-1].'</dia>';
+                                    }
+                                }
+                                ?>
                                 <calendar class="date-slide-elements slide-dias ml-2"> <img src="assets/img/calendar.svg"> </calendar>
                             </Dateslide>
                         </article>
