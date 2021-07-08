@@ -1084,6 +1084,14 @@ footer{
     padding-right: 2.5rem;
 }
 
+.pl-event-detail{
+    padding-left: 2.5rem;
+}
+
+.pr-event-detail{
+    padding-right: 2.5rem;
+}
+
 .subtitle-event-detail{
     font-size: 1.4rem;
     font-weight: 700;
@@ -1176,6 +1184,19 @@ footer{
     transform: translateY(-50%);
     left:1rem;
     margin-left:2.5rem;
+}
+
+.org-icons-event-detail{
+    height:2.2rem;
+    margin-left:0.6rem;
+}
+
+.art-org-icons{
+    /*position: absolute;
+    right:0;
+    top:7px;*/
+    min-width:9rem;
+    margin-right: 15px;
 }
 
 /* Displays */

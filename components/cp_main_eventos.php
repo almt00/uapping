@@ -1,3 +1,4 @@
+<?php require_once("connections/connection.php"); ?>
 <main class="main background_cinza container-fluid main-flex">
     <section class="row">
         <article class="col-12">
@@ -35,7 +36,6 @@
                                 <amanha class="date-slide-elements slide-amanha ml-2"> Amanhã</amanha>
                                 <!--- para apresentar os dias dentro dos pill utilizando tempo real de forma dinâmica--->
                                 <?php
-                                echo $dates = date('Y-m-d H:i:s');
                                 for ($n = 0; $n <= 5; $n++) {
                                     $data_pill = date("Y-m-d", strtotime("+" . $n . "days"));
                                     if ($n >= 2) {
@@ -56,8 +56,6 @@
                 </article>
                 <article class="col-12">
                     <section class="row px-4">
-                        <?php require_once("connections/connection.php");
-                        new_db_connection(); ?>
                         <article class="col-12 event-card mb-5">
                             <a href="evento_detail.php">
                                 <section class="row">
