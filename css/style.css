@@ -454,7 +454,7 @@ footer{
 }
 
 .check-int-1 input[type="checkbox"]{
-    background-image: url("../assets/img/danca.svg");
+    background-image: url("../assets/img/musica.svg");
 }
 
 .check-int-2 input[type="checkbox"]{
@@ -462,7 +462,7 @@ footer{
 }
 
 .check-int-3 input[type="checkbox"]{
-    background-image: url("../assets/img/musica.svg");
+    background-image: url("../assets/img/danca.svg");
 }
 
 .check-int-4 input[type="checkbox"]{
@@ -474,7 +474,7 @@ footer{
 }
 
 .check-int-1 input[type="checkbox"]:checked{
-    background-image: url("../assets/img/danca2.svg");
+    background-image: url("../assets/img/musica2.svg");
 }
 
 .check-int-2 input[type="checkbox"]:checked{
@@ -482,7 +482,7 @@ footer{
 }
 
 .check-int-3 input[type="checkbox"]:checked{
-    background-image: url("../assets/img/musica2.svg");
+    background-image: url("../assets/img/danca2.svg");
 }
 
 .check-int-4 input[type="checkbox"]:checked{

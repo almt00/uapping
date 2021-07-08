@@ -109,10 +109,14 @@
                                             mysqli_stmt_bind_result($stmt, $id_interesse, $nome_interesse, $icone_interesse);
                                             while (mysqli_stmt_fetch($stmt)) {
                                                 ?>
-                                                <article class="col-6 check-interesse text-left mb-3"
-                                                         style='background-image: url("assets/img/<?= $icone_interesse ?>"); background-repeat: no-repeat'>
-                                                    <input type="checkbox" value=<?=$id_interesse?>>
+                                                <article class="col-6 check-interesse text-left mb-3 check-int-<?=$id_interesse?>">
+                                                    <input name="<?=$nome_interesse?>" id='interesse_<?=$id_interesse?>' type="checkbox" value='<?= $id_interesse ?>' >
                                                 </article>
+
+                                                <!--<article class="col-6 check-interesse text-left mb-3"
+                                                         style='background-image: url("assets/img/<?/*= $icone_interesse */?>"); background-repeat: no-repeat'>
+                                                    <input id='interesse_<?/*=$id_interesse*/?>' type="checkbox" value='<?/*= $id_interesse */?>' >
+                                                </article>-->
                                                 <?php
                                             }
                                         } else {
@@ -123,29 +127,31 @@
                                         echo("Error description: " . mysqli_error($link));
                                     }
                                     mysqli_close($link);
+
+
                                     ?>
-                                   <!-- <article class="col-6 check-interesse check-int-1 text-left">
-                                        <input type="checkbox" value=$id_interesse>
-                                    </article>
-                                    <article class="col-6 check-interesse check-int-2 text-right">
-                                        <input type="checkbox">
-                                    </article>
-                                </section>
-                                <section class="row justify-content-center mt-3">
-                                    <article class="col-6 check-interesse check-int-3 text-left">
-                                        <input type="checkbox">
-                                    </article>
-                                    <article class="col-6 check-interesse check-int-4 text-right">
-                                        <input type="checkbox">
-                                    </article>
-                                </section>
-                                <section class="row justify-content-center mt-3">
-                                    <article class="col-6 check-interesse check-int-5 text-left">
-                                        <input type="checkbox">
-                                    </article>
-                                    <article class="col-6 check-interesse text-right">
-                                    </article>
-                                </section>-->
+                                    <!-- <article class="col-6 check-interesse check-int-1 text-left">
+                                         <input type="checkbox" value=$id_interesse>
+                                     </article>
+                                     <article class="col-6 check-interesse check-int-2 text-right">
+                                         <input type="checkbox">
+                                     </article>
+                                 </section>
+                                 <section class="row justify-content-center mt-3">
+                                     <article class="col-6 check-interesse check-int-3 text-left">
+                                         <input type="checkbox">
+                                     </article>
+                                     <article class="col-6 check-interesse check-int-4 text-right">
+                                         <input type="checkbox">
+                                     </article>
+                                 </section>
+                                 <section class="row justify-content-center mt-3">
+                                     <article class="col-6 check-interesse check-int-5 text-left">
+                                         <input type="checkbox">
+                                     </article>
+                                     <article class="col-6 check-interesse text-right">
+                                     </article>
+                                 </section>-->
                             </article>
                         </section>
                         <section id="termos_sign_up" class="row justify-content-center">
