@@ -23,7 +23,7 @@
 
    <section class="row justify-content-center mt-3 mt-md-3">
        <article class="col-md-6">
-           <form action="home_page.php" method="post" id="sign_up">
+           <form action="scripts/sc_registo.php" method="post" id="sign_up">
                <section class="row justify-content-center form-section">
                     <article class="col-12 px-4">
                         <div class="div-icons-sign-up text-center position-relative">
