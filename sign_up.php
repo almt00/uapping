@@ -36,17 +36,17 @@
                             <img id="pass_icon" class="icon-sign_up_4" src="assets/img/input_pass_icon.svg"
                                  alt="profile_icon">
                         </div>
-                        <input id="nome" required="required" class="input_sign_up mb-3 mb-md-3" type="text" name="nome"
+                        <input id="nome" required="" class="input_sign_up mb-3 mb-md-3" type="text" name="nome"
                                size="24" placeholder="nome completo">
-                        <input id="username" required="required" class="input_sign_up mb-3 mb-md-3" type="text"
+                        <input id="username" required="" class="input_sign_up mb-3 mb-md-3" type="text"
                                name="username" size="24" placeholder="username">
-                        <input id="email" required="required" class="input_sign_up mb-3 mb-md-3" type="email"
+                        <input id="email" required="" class="input_sign_up mb-3 mb-md-3" type="email"
                                name="email" size="24" placeholder="email">
-                        <input id="pass" required="required" class="input_sign_up mb-3 mb-md-3" type="password"
+                        <input id="pass" required="" class="input_sign_up mb-3 mb-md-3" type="password"
                                name="pass" size="24" placeholder="password">
-                        <input id="pass_confirm" required="required" class="input_sign_up mb-3 mb-md-3" type="password"
+                        <input id="pass_confirm" required="" class="input_sign_up mb-3 mb-md-3" type="password"
                                name="pass_confirm" size="24" placeholder="confirma a password">
-                        <select required="required" class="custom-select select_sign_up mb-3 mb-md-3" id="departamentos"
+                        <select required="" class="custom-select select_sign_up mb-3 mb-md-3" id="departamentos"
                                 name="departamento" form="sign_up">
                             <?php
                             require_once "connections/connection.php";
