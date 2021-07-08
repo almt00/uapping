@@ -36,7 +36,6 @@
                                 <amanha class="date-slide-elements slide-amanha ml-2"> Amanhã</amanha>
                                 <!--- para apresentar os dias dentro dos pill utilizando tempo real de forma dinâmica--->
                                 <?php
-                                echo $dates = date('Y-m-d H:i:s');
                                 for ($n = 0; $n <= 5; $n++) {
                                     $data_pill = date("Y-m-d", strtotime("+" . $n . "days"));
                                     if ($n >= 2) {
