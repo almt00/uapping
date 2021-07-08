@@ -17,5 +17,7 @@
 
 <?php include_once "helpers/help_js.php"?>
 
+<script src="js/event_detail.js" type="text/javascript"> </script>
+
 </body>
 </html>
