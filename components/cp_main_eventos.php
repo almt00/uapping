@@ -16,7 +16,8 @@
                                 <border class="checkbox-top-home-page_overlay"></border>
                                 <selector id="selector" class="selector">
                                 </selector>
-                                <section style="height:100%;" class="row sec-selector-home-page text-center align-content-center">
+                                <section style="height:100%;"
+                                         class="row sec-selector-home-page text-center align-content-center">
                                     <article id="interesses" class="switch-interesses col-6">
                                         <p> Interesses </p>
                                     </article>
@@ -30,13 +31,20 @@
                     <section class="row justify-content-center mt-4">
                         <article class="col-12 art-date_slide">
                             <Dateslide id="slide_date" class="px-4 date-slide">
-                                <hoje class="date-slide-elements slide-hoje"> Hoje </hoje>
-                                <amanha class="date-slide-elements slide-amanha ml-2"> Amanhã </amanha>
-                                <dia class="date-slide-elements slide-dias ml-2"> 20 </dia>
-                                <dia class="date-slide-elements slide-dias ml-2"> 21 </dia>
-                                <dia class="date-slide-elements slide-dias ml-2"> 22 </dia>
-                                <dia class="date-slide-elements slide-dias ml-2"> 23 </dia>
-                                <calendar class="date-slide-elements slide-dias ml-2"> <img src="assets/img/calendar.svg"> </calendar>
+                                <hoje class="date-slide-elements slide-hoje"> Hoje</hoje>
+                                <amanha class="date-slide-elements slide-amanha ml-2"> Amanhã</amanha>
+                                <!--- para apresentar os dias dentro dos pill utilizando tempo real de forma dinâmica--->
+                                <?php
+                                echo $dates = date('Y-m-d H:i:s');
+                                for ($n = 0; $n <= 5; $n++) {
+                                    $data_pill = date("Y-m-d", strtotime("+" . $n . "days"));
+                                    if ($n >= 2) {
+                                        echo '<dia class="date-slide-elements slide-dias ml-2" id="pill_' . $n . '">' . $data_pill[strlen($data_pill) - 2] . $data_pill[strlen($data_pill) - 1] . '</dia>';
+                                    }
+                                }
+                                ?>
+                                <calendar class="date-slide-elements slide-dias ml-2"><img
+                                            src="assets/img/calendar.svg"></calendar>
                             </Dateslide>
                         </article>
                     </section>
@@ -48,7 +56,8 @@
                 </article>
                 <article class="col-12">
                     <section class="row px-4">
-
+                        <?php require_once("connections/connection.php");
+                        new_db_connection(); ?>
                         <article class="col-12 event-card mb-5">
                             <a href="evento_detail.php">
                                 <section class="row">
@@ -73,7 +82,8 @@
                                                 <img src="assets/img/NRock_1.svg">
                                             </nucleo>
                                         </section>
-                                        <section class="row event-cover" style='background-image: url("assets/img/smells_rock_1.jpg");'>
+                                        <section class="row event-cover"
+                                                 style='background-image: url("assets/img/smells_rock_1.jpg");'>
                                         </section>
                                     </article>
                                 </section>
@@ -91,13 +101,15 @@
     </section>
     <footer class="row justify-content-center py-5">
         <article class="col-3 text-center">
-            <a href="https://www.facebook.com/" target="_blank"> <span class="fab fa-facebook-f text-white fa-3x"></span> </a>
+            <a href="https://www.facebook.com/" target="_blank"> <span
+                        class="fab fa-facebook-f text-white fa-3x"></span> </a>
         </article>
         <article class="col-3 text-center mw-6rem">
             <a href="https://twitter.com/" target="_blank"> <span class="fab fa-twitter text-white fa-3x"></span> </a>
         </article>
         <article class="col-3 text-center">
-            <a href="https://www.instagram.com/" target="_blank"> <span class="fab fa-instagram text-white fa-3x"></span> </a>
+            <a href="https://www.instagram.com/" target="_blank"> <span
+                        class="fab fa-instagram text-white fa-3x"></span> </a>
         </article>
     </footer>
 </main>
