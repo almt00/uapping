@@ -1,3 +1,29 @@
+<?php
+require_once "connections/connection.php";
+$link = new_db_connection();
+if (isset($_GET['id_evento'])) {
+    $id_evento = $_GET['id_evento'];
+    $link = new_db_connection();
+    $stmt = mysqli_stmt_init($link);
+    $query = "SELECT eventos.id_evento,eventos.nome_evento, eventos.data_evento,eventos.hora_evento,eventos.imagem_evento,eventos.local_evento,eventos.descricao_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial, nucleos_oficiais.link_fb_oficial,nucleos_oficiais.link_insta_oficial,nucleos_oficiais.link_site_oficial
+FROM eventos
+INNER JOIN nucleos_oficiais
+ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo
+WHERE eventos.id_evento=?";
+    if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
+        mysqli_stmt_bind_param($stmt, 'i', $id_evento);
+        mysqli_stmt_execute($stmt); // Execute the prepared statement
+        mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $local_evento, $descricao_evento, $id_nucleo, $imagem_oficial, $link_fb_oficial, $link_insta_oficial, $link_site_oficial);
+        mysqli_stmt_fetch($stmt);
+        mysqli_stmt_close($stmt); // Close statement
+    }
+    mysqli_close($link);
+} else {
+    header("Location: ../home_page.php");
+    die;
+}
+?>
+
 <main class="main container-fluid main-flex">
     <section class="row">
         <article class="col-12">
@@ -14,30 +40,30 @@
             </div>
             <section class="row">
                 <article class="col-12">
-                    <section id="capa_evento" class="row event-detail-cover" style='background-image: url("assets/img/smells_rock_1.jpg");'>
-                    </section>
+                    <section id="capa_evento" class="row event-detail-cover"
+                             style='background-image: url("assets/img/<?= $imagem_evento ?> ");'></section>
                     <section class="row section-evento_detail">
                         <article class="col-12 mt-barra mb-4">
-                            <div class="barra_evento_detail"> </div>
+                            <div class="barra_evento_detail"></div>
                         </article>
                         <article class="col-12 px-event-detail mb-3 position-relative">
-                            <h2 class="h2-evento_detail"> Smells like drunk spirit </h2>
+                            <h2 class="h2-evento_detail"> <?= $nome_evento ?> </h2>
                         </article>
                         <article class="col-12 mb-4 px-event-detail">
                             <section class="row justify-content-between">
                                 <data class="col-6 mb-3 caixa-evento-detail">
                                     <img class="mr-2 evento-detail-icon" src="assets/img/calendar_black.svg">
-                                    <p class="d-inline evento-detail-text"> 18 Maio </p>
+                                    <p class="d-inline evento-detail-text"> <?= $data_evento ?> </p>
                                 </data>
                                 <horas class="col-5 mb-3 horas-preco-evento-detail">
                                     <div class="div-horas">
                                         <img class="mr-2 evento-detail-icon" src="assets/img/clock.svg">
-                                        <p class="d-inline evento-detail-text"> 21:45 </p>
+                                        <p class="d-inline evento-detail-text"> <?= $hora_evento ?> </p>
                                     </div>
                                 </horas>
                                 <localizacao class="col-6 mb-3 caixa-evento-detail">
                                     <img class="mr-2 evento-detail-icon" src="assets/img/location.svg">
-                                    <p class="d-inline"> Online </p>
+                                    <p class="d-inline"> <?= $local_evento ?> </p>
                                 </localizacao>
                                 <preco class="col-5 mb-3 horas-preco-evento-detail">
                                     <div class="div-preco">
@@ -50,17 +76,16 @@
                             <h3 class="subtitle-event-detail"> Sobre </h3>
                         </article>
                         <article class="col-12 mb-3 px-event-detail">
-                            <p class="text-event-detail"> Sentes saudades de testar a resistência do teu fígado? As quintas deixaram de ter o mesmo sabor? Então prepara-te porque o NRock, o NEBG e o NEMu uniram-se para te pôr back on track!
-                                Dia 29 it “Smells like drunk spirit”! Junta-te a quatro amigos no Discord e, cumprindo as normas da DGS, volta a sentir o espírito das quintas académicas!
+                            <p class="text-event-detail"> <?= $descricao_evento ?>
                             </p>
                         </article>
                         <article class="col-12 mb-5 text-right share-save-event-detail-icons px-event-detail">
                             <div class="d-inline position-relative">
-                            <img id="share" class="evento-detail-icon" src="assets/img/share.svg">
+                                <img id="share" class="evento-detail-icon" src="assets/img/share.svg">
                                 <p class="tag-share-save-event-detail"> Partilhar </p>
                             </div>
                             <div class="d-inline position-relative">
-                            <img class="ml-3 evento-detail-icon" src="assets/img/save.svg">
+                                <img class="ml-3 evento-detail-icon" src="assets/img/save.svg">
                                 <p class="tag-share-save-event-detail" style="margin-left:0.4rem"> Guardar </p>
                             </div>
                         </article>
@@ -68,17 +93,18 @@
                             <h3 class="subtitle-event-detail"> Participantes </h3>
                         </article>
                         <article class="col-12 mb-5 art-people-event-detail px-event-detail">
-                            <div class="mr-1 people-bubble-event-detail bg-profile" style='background-image: url("assets/img/smells_rock_1.jpg");'>  </div>
-                            <div class="mr-1 people-bubble-event-detail bg-profile">  </div>
-                            <div class="mr-1 people-bubble-event-detail bg-profile">  </div>
-                            <div class="people-bubble-event-detail"> <span> +3 </span> </div>
+                            <div class="mr-1 people-bubble-event-detail bg-profile"
+                                 style='background-image: url("assets/img/smells_rock_1.jpg");'></div>
+                            <div class="mr-1 people-bubble-event-detail bg-profile"></div>
+                            <div class="mr-1 people-bubble-event-detail bg-profile"></div>
+                            <div class="people-bubble-event-detail"><span> +3 </span></div>
                         </article>
                         <article class="col-12 mb-3 text-center px-event-detail">
-                            <div class="links-cal-out-event-detail"> Adicionar ao calendário </div>
+                            <div class="links-cal-out-event-detail"> Adicionar ao calendário</div>
                             <img class="mr-2 links-cal-icon" src="assets/img/calendar_black.svg">
                         </article>
                         <article class="col-12 mb-5 text-center px-event-detail">
-                            <div class="links-face-out-event-detail"> Evento no Facebook </div>
+                            <div class="links-face-out-event-detail"> Evento no Facebook</div>
                             <img class="mr-2 links-face-icon" src="assets/img/facebook_cinza.svg">
                         </article>
                         <article class="col-12 mb-2 px-event-detail">
@@ -90,9 +116,21 @@
                                     <a href="nucleos_detail.php"><img src="assets/temp/NRock_text.png"></a>
                                 </article>
                                 <article class="position-relative mb-4 text-right art-org-icons align-self-center">
-                                    <a href=""><img class="org-icons-event-detail" src="assets/img/site_icon.svg"></a>
-                                    <a href=""><img class="org-icons-event-detail" src="assets/img/insta_icon.svg"></a>
-                                    <a href=""><img class="org-icons-event-detail" src="assets/img/face_icon.svg"></a>
+                                    <?php
+                                    if ($link_site_oficial != null) {
+                                        echo '<a href="' . $link_site_oficial . '" target="_blank"><img
+                                                class="org-icons-event-detail" src="assets/img/site_icon.svg"></a>';
+                                    }
+                                    if ($link_insta_oficial != null) {
+                                        echo '<a href="' . $link_insta_oficial . '" target="_blank"><img
+                                                class="org-icons-event-detail" src="assets/img/site_icon.svg"></a>';
+                                    }
+                                    if ($link_fb_oficial != null) {
+                                        echo '<a href="' . $link_fb_oficial . '" target="_blank"><img
+                                                class="org-icons-event-detail" src="assets/img/site_icon.svg"></a>';
+                                    }
+                                    ?>
+
                                 </article>
                             </section>
                         </article>
@@ -104,13 +142,15 @@
     </section>
     <footer class="row justify-content-center py-5">
         <article class="col-3 text-center">
-            <a href="https://www.facebook.com/" target="_blank"> <span class="fab fa-facebook-f text-white fa-3x"></span> </a>
+            <a href="https://www.facebook.com/" target="_blank"> <span
+                        class="fab fa-facebook-f text-white fa-3x"></span> </a>
         </article>
         <article class="col-3 text-center mw-6rem">
             <a href="https://twitter.com/" target="_blank"> <span class="fab fa-twitter text-white fa-3x"></span> </a>
         </article>
         <article class="col-3 text-center">
-            <a href="https://www.instagram.com/" target="_blank"> <span class="fab fa-instagram text-white fa-3x"></span> </a>
+            <a href="https://www.instagram.com/" target="_blank"> <span
+                        class="fab fa-instagram text-white fa-3x"></span> </a>
         </article>
     </footer>
 </main>
