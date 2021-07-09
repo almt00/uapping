@@ -18,7 +18,7 @@ WHERE email_utilizador = ?";
                     // Guardar sessão de utilizador
                     session_start();
                     $_SESSION["nome"] = $nome_utilizador;
-                    $_SESSION["nick"] = $nickname_utilizador;
+                    $_SESSION["nickname"] = $nickname_utilizador;
                     $_SESSION["id_user"] = $id_utilizador;
                     $_SESSION["ativo"] = $ativo;
                     // Feedback de sucesso

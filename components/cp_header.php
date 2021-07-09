@@ -1,9 +1,14 @@
+<?php
+session_start();
+?>
 <header class="container-fluid">
     <nav id="nav-bar" class="row justify-content-around align-items-center align-content-center">
         <article class="col-6 col-md-3 ">
-            <a href="home_page.php"> <img style="color:black;" class="img-fluid width-7" src="assets/img/logo_texto_preto.svg"> </a>
+            <a href="home_page.php"> <img style="color:black;" class="img-fluid width-7"
+                                          src="assets/img/logo_texto_preto.svg"> </a>
         </article>
-        <article class="col-md-6 text-left text-md-center align-self-center link-nav display-xs-off display-md-on-block">
+        <article
+                class="col-md-6 text-left text-md-center align-self-center link-nav display-xs-off display-md-on-block">
             <a href=""> Guardados </a>
             <a href=""> Núcleos </a>
         </article>
@@ -23,10 +28,10 @@
             <article class="p-0 col-9">
                 <section class="row ml-3">
                     <article class="p-0 col-12">
-                        <strong> Edgar Quintero </strong>
+                        <strong> <?= $_SESSION['nome'] ?> </strong>
                     </article>
                     <article class="art-2-icon-user-menu p-0 col-12">
-                        @smtgradom12
+                        @<?= $_SESSION['nickname'] ?>
                     </article>
                 </section>
             </article>
