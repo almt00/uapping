@@ -916,6 +916,13 @@ footer{
     padding:0;
 }
 
+.edit-profile-menu-user{
+    position: absolute;
+    top:0;
+    right:0;
+    height:1.1rem !important;
+}
+
 .btn-logout{
     width:100%;
     background-color: #EBEAE9;

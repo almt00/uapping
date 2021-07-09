@@ -22,7 +22,8 @@ session_start();
 <panel id="panel_user_menu_mobile">
     <menu id="user_menu_mobile" class="container-fluid user_menu_mobile">
         <section class="row section-1-user-menu">
-            <article class="p-0 col-3 art-1-icon-user-menu">
+            <article class="p-0 col-3 art-1-icon-user-menu position-relative">
+                <img class="edit-profile-menu-user" src="assets/icons_user_menu/edit.svg">
                 <img src="assets/img/user_profile.png">
             </article>
             <article class="p-0 col-9">
