@@ -50,24 +50,24 @@
                         require_once "connections/connection.php";
                         $link = new_db_connection();
                         $stmt = mysqli_stmt_init($link);
-                        $query = "SELECT nucleos.id_nucleo,nucleos.nome_nucleo,nucleos.sigla_nucleo FROM nucleos
+                        $query = "SELECT nucleos.id_nucleo,nucleos.nome_nucleo,nucleos.sigla_nucleo,nucleos_oficiais.imagem_oficial FROM nucleos
                                 INNER JOIN nucleos_oficiais
                                 ON nucleos.id_nucleo=nucleos_oficiais.ref_id_nucleo;";
                         if (mysqli_stmt_prepare($stmt, $query)) {
                             if (mysqli_stmt_execute($stmt)) {
-                                mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $sigla_nucleo);
+                                mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $sigla_nucleo, $imagem_oficial);
                                 while (mysqli_stmt_fetch($stmt)) {
                                     ?>
                                     <article class="col-6 art-card-nucleo_geral" style="padding-right:8px;">
-                                        <a href="nucleos_detail.php?id_nucleo=<?=$id_nucleo?>">
+                                        <a href="nucleos_detail.php?id_nucleo=<?= $id_nucleo ?>">
                                             <div class="nucleo_card" style="background-image: ;">
                                                 <div class="row align-items-center sec_nucleo_card_img">
                                                     <div class="col-4 art_nucleo_card min-nucleo-card">
-                                                        <img src="assets/img/user_profile.png">
+                                                        <img src="assets/img/<?= $imagem_oficial ?>">
                                                     </div>
                                                     <div class="col-6 art_nucleo_card word-warp">
-                                                        <p class="p-nucleo_name m-0"> <?=$sigla_nucleo?> </p>
-                                                        <p class="p-nucleo_name m-0"> <?=$nome_nucleo?> </p>
+                                                        <p class="p-nucleo_name m-0"> <?= $sigla_nucleo ?> </p>
+                                                        <p class="text-white m-0"> <?= $nome_nucleo ?> </p>
                                                     </div>
                                                 </div>
                                             </div>
