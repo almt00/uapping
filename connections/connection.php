@@ -4,8 +4,8 @@ error_reporting(E_ALL);
 function new_db_connection()
 {
     // Define working environment
+    $env = "localhost";
     //$env = "labmm";
-    $env = "labmm";
 
     // Variables for the database connection
     if ($env == "labmm") {

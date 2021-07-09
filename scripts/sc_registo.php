@@ -19,9 +19,9 @@ if (isset($_POST['nome']) && (isset($_POST['username'])) && (isset($_POST['email
             $_SESSION['id_user'] = mysqli_stmt_insert_id($stmt); // colocar id
             $_SESSION['username'] = $username;
             // $_SESSION["role"] = $id_roles;
-            header("Location: ../index.php?msg=1#login");
+            header("Location: ../index.php?msg=1#login"); // copiado n sei de onde mas era para o feedback
         } else {
-            header("Location: ../index.php?msg=0#login");
+            header("Location: ../index.php?msg=0#login"); // copiado n sei de onde mas era para o feedback
         }
     }
     mysqli_stmt_close($stmt);
