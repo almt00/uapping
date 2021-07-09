@@ -906,6 +906,27 @@ footer{
     height:100%;
 }
 
+.section-2-user-menu{
+    padding-left:1.5rem;
+    padding-right:1.5rem;
+    margin-top:2rem;
+}
+
+.art-2-user-menu{
+    padding:0;
+}
+
+.btn-logout{
+    width:100%;
+    background-color: #EBEAE9;
+    text-align: center;
+    color: #505050;
+    padding:0.6rem;
+    border-radius: 50pt;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+}
+
 .art-1-icon-user-menu{
     max-width: 3rem;
     max-height: 100%;

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc3bdd00-b72e-48f2-b01f-93c206799223" name="Default Changelist" comment="07/07/2021 - alterações ligação à bd para todos e aquela ceninha apagada parte 2">
+    <list default="true" id="fc3bdd00-b72e-48f2-b01f-93c206799223" name="Default Changelist" comment="07/07/2021 - alterações log in feito">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Log_In.php" beforeDir="false" afterPath="$PROJECT_DIR$/Log_In.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/cp_header.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/cp_header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connections/connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/connections/connection.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/sign_up.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +91,8 @@
       <workItem from="1625608284714" duration="1009000" />
       <workItem from="1625662196926" duration="2491000" />
       <workItem from="1625690181724" duration="2049000" />
-      <workItem from="1625745955378" duration="15352000" />
+      <workItem from="1625745955378" duration="15458000" />
+      <workItem from="1625832218206" duration="1696000" />
     </task>
     <task id="LOCAL-00001" summary="melhoramentos na landing page e inscrição">
       <created>1624214380874</created>
@@ -219,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625770753230</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="07/07/2021 - alterações log in feito">
+      <created>1625780958944</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1625780958944</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,6 +264,7 @@
     <MESSAGE value="07/07/2021 - alterações página detail dos eventos finalizada" />
     <MESSAGE value="07/07/2021 - alterações ligação à bd para todos e aquela ceninha apagada" />
     <MESSAGE value="07/07/2021 - alterações ligação à bd para todos e aquela ceninha apagada parte 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="07/07/2021 - alterações ligação à bd para todos e aquela ceninha apagada parte 2" />
+    <MESSAGE value="07/07/2021 - alterações log in feito" />
+    <option name="LAST_COMMIT_MESSAGE" value="07/07/2021 - alterações log in feito" />
   </component>
 </project>

@@ -68,9 +68,13 @@ session_start();
                 </article>
             </a>
         </section>
-        <section class="row">
-            <article class="col-12">
-
+        <section class="row section-2-user-menu">
+            <article class="col-12 art-2-user-menu">
+                <a href="#">
+                    <div class="btn-logout">
+                        Logout
+                    </div>
+                </a>
             </article>
         </section>
     </menu>
