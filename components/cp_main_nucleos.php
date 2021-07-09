@@ -47,7 +47,7 @@
                     <section class="row mb-3">
 
                         <article class="col-6 art-card-nucleo_geral" style="padding-right:8px;">
-                            <a href="#">
+                            <a href="nucleos_detail.php">
                                 <div class="nucleo_card" style="background-image: ;">
                                     <div class="row align-items-center sec_nucleo_card_img">
                                         <div class="col-4 art_nucleo_card min-nucleo-card">
@@ -61,7 +61,7 @@
                             </a>
                         </article>
                         <article class="col-6 art-card-nucleo_geral" style="padding-left:8px;">
-                            <a href="#">
+                            <a href="nucleos_detail.php">
                                 <div class="nucleo_card" style="background-image: ;">
                                     <div class="row align-items-center sec_nucleo_card_img">
                                         <div class="col-4 art_nucleo_card min-nucleo-card">

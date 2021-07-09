@@ -18,3 +18,7 @@ window.addEventListener("scroll", function (){
         }
     }
 )
+
+document.getElementById("btn_back").onclick = function () {
+    window.history.back();
+}

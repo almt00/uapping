@@ -137,6 +137,21 @@ footer{
     font-size: 1.8rem;
 }
 
+.h2-nucleo_detail{
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+.h5-nucleo_detail{
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    font-size: 1rem;
+}
+
 .h4-eventos{
     color: black;
     font-family: 'Open Sans', sans-serif;
@@ -1084,6 +1099,18 @@ footer{
     width:100%;
 }
 
+.btn-back{
+    position: absolute;
+    top:1.3rem;
+    left:1rem;
+    z-index: 1;
+    margin-top:4rem;
+}
+
+.btn-back img{
+    height:2.5rem;
+}
+
 .barra_evento_detail{
     height:0.3rem;
     width:10rem;
@@ -1250,6 +1277,48 @@ footer{
     top:7px;*/
     min-width:9rem;
     margin-right: 15px;
+}
+
+/* Nucleo Detail */
+
+.padding-top-nucleo-detail{
+    padding-top:0.8rem;
+}
+
+.membros-nucleo-detail{
+    height: auto;
+    width: 6rem;
+    max-width: 100%;
+    border-radius: 50%;
+    border: 3px solid #F0C567;
+}
+
+.p-nome-membro-nucleo-detail{
+    font-weight: bold;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 5vmin;
+    margin-top: 0.6rem;
+    font-size: 4vmin;
+    margin-bottom:0.2rem;
+}
+
+.p-role-membro-nucleo-detail{
+    font-size: 3vmin;
+    font-weight: normal;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.nucleo_logo_icon{
+    position: absolute;
+    top:1.5rem;
+    right:0;
+    margin-top:4rem;
+}
+
+.nucleo_logo_icon img{
+    height:4rem;
 }
 
 /* Displays */

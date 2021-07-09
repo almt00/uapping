@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc3bdd00-b72e-48f2-b01f-93c206799223" name="Default Changelist" comment="07/07/2021 - alterações: &#10;- lougout btn feito">
-      <change afterPath="$PROJECT_DIR$/assets/icons_user_menu/edit.svg" afterDir="false" />
+    <list default="true" id="fc3bdd00-b72e-48f2-b01f-93c206799223" name="Default Changelist" comment="07/07/2021 - alterações: connections">
+      <change afterPath="$PROJECT_DIR$/assets/img/back.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/temp/profile_test.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/cp_main_nucleos_detail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nucleos_detail.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/cp_header.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/cp_header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/connections/connection.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/cp_main_evento_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/cp_main_evento_detail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/cp_main_nucleos.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/cp_main_nucleos.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/event_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/event_detail.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +62,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../Website SFC/server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -94,7 +98,8 @@
       <workItem from="1625662196926" duration="2491000" />
       <workItem from="1625690181724" duration="2049000" />
       <workItem from="1625745955378" duration="15458000" />
-      <workItem from="1625832218206" duration="2811000" />
+      <workItem from="1625832218206" duration="4947000" />
+      <workItem from="1625838818196" duration="12978000" />
     </task>
     <task id="LOCAL-00001" summary="melhoramentos na landing page e inscrição">
       <created>1624214380874</created>
@@ -236,7 +241,21 @@
       <option name="project" value="LOCAL" />
       <updated>1625833953634</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="07/07/2021 - alterações: &#10;- lougout btn feito final">
+      <created>1625835064619</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1625835064619</updated>
+    </task>
+    <task id="LOCAL-00022" summary="07/07/2021 - alterações: connections">
+      <created>1625839225039</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1625839225039</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +294,8 @@
     <MESSAGE value="07/07/2021 - alterações ligação à bd para todos e aquela ceninha apagada parte 2" />
     <MESSAGE value="07/07/2021 - alterações log in feito" />
     <MESSAGE value="07/07/2021 - alterações: &#10;- lougout btn feito" />
-    <option name="LAST_COMMIT_MESSAGE" value="07/07/2021 - alterações: &#10;- lougout btn feito" />
+    <MESSAGE value="07/07/2021 - alterações: &#10;- lougout btn feito final" />
+    <MESSAGE value="07/07/2021 - alterações: connections" />
+    <option name="LAST_COMMIT_MESSAGE" value="07/07/2021 - alterações: connections" />
   </component>
 </project>

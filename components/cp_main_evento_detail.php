@@ -9,9 +9,13 @@
                     </section>
                 </article>
             </section>
+            <div id="btn_back" class="btn-back ">
+                <img src="assets/img/back.svg">
+            </div>
             <section class="row">
                 <article class="col-12">
-                    <section id="capa_evento" class="row event-detail-cover" style='background-image: url("assets/img/smells_rock_1.jpg");'> </section>
+                    <section id="capa_evento" class="row event-detail-cover" style='background-image: url("assets/img/smells_rock_1.jpg");'>
+                    </section>
                     <section class="row section-evento_detail">
                         <article class="col-12 mt-barra mb-4">
                             <div class="barra_evento_detail"> </div>
@@ -83,12 +87,12 @@
                         <article class="col-12 mb2 px-event-detail">
                             <section class="row justify-content-between">
                                 <article class="col-6 mb-4">
-                                    <img src="assets/temp/NRock_text.png">
+                                    <a href="nucleos_detail.php"><img src="assets/temp/NRock_text.png"></a>
                                 </article>
                                 <article class="position-relative mb-4 text-right art-org-icons align-self-center">
-                                    <img class="org-icons-event-detail" src="assets/img/site_icon.svg">
-                                    <img class="org-icons-event-detail" src="assets/img/insta_icon.svg">
-                                    <img class="org-icons-event-detail" src="assets/img/face_icon.svg">
+                                    <a href=""><img class="org-icons-event-detail" src="assets/img/site_icon.svg"></a>
+                                    <a href=""><img class="org-icons-event-detail" src="assets/img/insta_icon.svg"></a>
+                                    <a href=""><img class="org-icons-event-detail" src="assets/img/face_icon.svg"></a>
                                 </article>
                             </section>
                         </article>
