@@ -71,7 +71,7 @@ session_start();
         </section>
         <section class="row section-2-user-menu">
             <article class="col-12 art-2-user-menu">
-                <a href="#">
+                <a href="scripts/sc_logout.php">
                     <div class="btn-logout">
                         Logout
                     </div>
