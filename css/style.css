@@ -545,6 +545,52 @@ footer{
     background-position: center center;
 }
 
+/* interesses pills */
+
+.check-interesse-pills-text{
+    position: absolute;
+    width:calc(100% - 18px);
+    height:100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.check-interesse-pills-text p{
+    position: absolute;
+    top:50%;
+    left:calc(50% - 0.1rem);
+    transform: translate(-50%, -50%);
+    color: #979797;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    margin-bottom:0.2rem;
+    font-size: 0.8rem;
+}
+
+.check-interesse-pills{
+    height: 40px;
+    border-radius: 10px;
+    max-width: 150px;
+    padding: 0 9px;
+    overflow: hidden;
+    margin-top:1rem;
+}
+
+.check-interesse-pills input[type="checkbox"]{
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #DADADA;
+}
+
+.check-interesse-pills input[type="checkbox"]:checked{
+    background-color: #C3DDFA;
+}
+
+
 .termos_info{
     color: white;
 }

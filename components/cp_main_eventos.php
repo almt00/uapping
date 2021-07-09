@@ -139,18 +139,32 @@
 
 <Panel id="panel_interesses_menu_mobile" class="">
     <interesses id="interesses_menu" class="container-fluid interesses_menu">
+        <form action="" method="post" id="interesses_pills">
         <section class="row mx-4">
-            <article class="col-12 my-4">
+            <article class="col-12 mt-4 mb-2">
                 <h5 class="h5-interesses"> Interesses </h5>
             </article>
             <article class="col-12">
-                <section class="row">
-                    <article class="col-12">
-                        <span class=""> Cultura </span>
-                        <span> Música </span>
-                        <span> Dança </span>
-                        <span> Desporto </span>
-                        <span> Jogos </span>
+                <section class="row justify-content-start">
+                    <article id="checkpills_1" class="col-4 check-interesse-pills">
+                        <div class="check-interesse-pills-text"> <p id="checkpills-text-1"> Cultura </p> </div>
+                        <input id="checkpills-input-1" name="" value="" type="checkbox">
+                    </article>
+                    <article id="checkpills_2" class="col-4 check-interesse-pills">
+                        <div class="check-interesse-pills-text"> <p id="checkpills-text-2"> Música </p> </div>
+                        <input id="checkpills-input-2" name="" value="" type="checkbox">
+                    </article>
+                    <article id="checkpills_3" class="col-4 check-interesse-pills">
+                        <div class="check-interesse-pills-text"> <p id="checkpills-text-3"> Dança </p> </div>
+                        <input id="checkpills-input-3" name="" value="" type="checkbox">
+                    </article>
+                    <article id="checkpills_4" class="col-4 check-interesse-pills">
+                        <div class="check-interesse-pills-text"> <p id="checkpills-text-4"> Desporto </p> </div>
+                        <input id="checkpills-input-4" name="" value="" type="checkbox">
+                    </article>
+                    <article id="checkpills_5" class="col-4 check-interesse-pills">
+                        <div class="check-interesse-pills-text"> <p id="checkpills-text-5"> Jogos </p> </div>
+                        <input id="checkpills-input-5" name="" value="" type="checkbox">
                     </article>
                 </section>
             </article>
@@ -174,6 +188,7 @@
                 </section>
             </article>
         </section>
+        </form>
     </interesses>
     <background id="background_interesses_menu" class="black-ground"></background>
 </Panel>
