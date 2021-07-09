@@ -1,4 +1,3 @@
-<?php require_once("connections/connection.php"); ?>
 <main class="main background_cinza container-fluid main-flex">
     <section class="row">
         <article class="col-12">

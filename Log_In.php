@@ -2,9 +2,9 @@
 <html lang="pt">
 <head>
 
-    <?php include_once "helpers/help_css.php"?>
+    <?php include_once "helpers/help_css.php" ?>
 
-    <?php include_once "helpers/help_meta.php"?>
+    <?php include_once "helpers/help_meta.php" ?>
 
 </head>
 <body class="background_roxo">
@@ -33,15 +33,31 @@
                             <img id="pass_icon" class="icon-sign_up_2" src="assets/img/input_pass_icon.svg"
                                  alt="profile_icon">
                         </div>
-                        <input id="email" required="" style="display:block;" class="input_sign_up mb-3 mb-md-3" type="email"
+                        <input id="email" required="" style="display:block;" class="input_sign_up mb-3 mb-md-3"
+                               type="email"
                                name="email" size="24" placeholder="email">
-                        <input id="pass" required="" style="display:block;" class="input_sign_up mb-3 mb-md-3" type="password"
+                        <input id="pass" required="" style="display:block;" class="input_sign_up mb-3 mb-md-3"
+                               type="password"
                                name="pass" size="24" placeholder="password">
+                        <?php
+                        if (isset($_GET['msg'])) {
+                            switch ($_GET['msg']) {
+                                case 1:
+                                    echo '<p class="tex" style="color: red">A password está errada, por favor tenta novamente!</p>';
+                                    break;
+                                case 2:
+                                    echo '<p class="" style="color: red">O email que inseriste ainda não está registado, por favor tenta novamente!</p>';
+                            }
+                        }
+                        ?>
                     </article>
+
                 </section>
                 <section class="row justify-content-center mt-3 mt-md-3">
                     <article class="col-md-12 mt-5 mt-md-5 px-4">
-                        <input type="submit" class="mb-2 mb-md-2" style="display:block;background: linear-gradient(90deg, rgba(0,205,144,1) 0%, rgba(0,195,55,1) 100%);" value="Entrar" id="submit">
+                        <input type="submit" class="mb-2 mb-md-2"
+                               style="display:block;background: linear-gradient(90deg, rgba(0,205,144,1) 0%, rgba(0,195,55,1) 100%);"
+                               value="Entrar" id="submit">
                         <button id="voltar_sign_up" class="mb-5" type="button"> Voltar</button>
                     </article>
                 </section>
@@ -51,7 +67,7 @@
 </main>
 
 <script>
-    document.getElementById("voltar_sign_up").onclick = function (){
+    document.getElementById("voltar_sign_up").onclick = function () {
         window.location.href = 'index.php';
     }
 </script>
