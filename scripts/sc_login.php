@@ -22,15 +22,14 @@ WHERE email_utilizador = ?";
                     $_SESSION["id_user"] = $id_utilizador;
                     $_SESSION["ativo"] = $ativo;
                     // Feedback de sucesso
-                    header("Location: ../login.php?msg=3#login");
+                    header("Location: ../home_page.php");
                 } else {
                     // Password está errada
-                    header("Location: ../login.php?msg=2#login");
+                    header("Location: ../Log_In.php");
                 }
                 mysqli_stmt_close($stmt);
                 mysqli_close($link);
             }
-            header("Location: ../home_page.php"); // copiado n sei de onde mas era para o feedback
         } else {
             header("Location: ../index.php?msg=0#login"); // copiado n sei de onde mas era para o feedback
         }
