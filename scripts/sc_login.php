@@ -1,5 +1,4 @@
 <?php
-
 require_once "../connections/connection.php";
 $link = new_db_connection();
 if (isset($_POST['email']) && (isset($_POST['pass']))) {

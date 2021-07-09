@@ -43,7 +43,7 @@
                         if (isset($_GET['msg'])) {
                             switch ($_GET['msg']) {
                                 case 1:
-                                    echo '<p class="tex" style="color: red">A password está errada, por favor tenta novamente!</p>';
+                                    echo '<p class="" style="color: red">A password está errada, por favor tenta novamente!</p>';
                                     break;
                                 case 2:
                                     echo '<p class="" style="color: red">O email que inseriste ainda não está registado, por favor tenta novamente!</p>';

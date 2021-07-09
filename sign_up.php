@@ -127,8 +127,6 @@
                                         echo("Error description: " . mysqli_error($link));
                                     }
                                     mysqli_close($link);
-
-
                                     ?>
                                     <!-- <article class="col-6 check-interesse check-int-1 text-left">
                                          <input type="checkbox" value=$id_interesse>

@@ -53,46 +53,72 @@
                 <article class="col-12 mt-5 mb-3 px-4">
                     <h2 class="pl-2 h2-eventos"> Eventos </h2>
                 </article>
-                <article class="col-12">
-                    <section class="row px-4">
-                        <article class="col-12 event-card mb-5">
-                            <a href="evento_detail.php">
-                                <section class="row">
-                                    <article class="col-12">
-                                        <section class="row event-header mb-3">
-                                            <titulo class="col-12 mt-3 mb-1">
-                                                <h4 class="h4-eventos"> Smells like drunk spirit </h4>
-                                            </titulo>
-                                            <article class="col-6">
-                                                <section class="row">
-                                                    <data class="col-12 mb-2">
-                                                        <img class="mr-1" src="assets/img/calendar_black.svg">
-                                                        <p class="d-inline"> Hoje </p>
-                                                    </data>
-                                                    <horas class="col-12">
-                                                        <img class="mr-1" src="assets/img/clock.svg">
-                                                        <p class="d-inline"> 21:45 </p>
-                                                    </horas>
-                                                </section>
-                                            </article>
-                                            <nucleo class="col-6 text-right">
-                                                <img src="assets/img/NRock_1.svg">
-                                            </nucleo>
-                                        </section>
-                                        <section class="row event-cover"
-                                                 style='background-image: url("assets/img/smells_rock_1.jpg");'>
-                                        </section>
+                <?php
+                require_once "connections/connection.php";
+                $link = new_db_connection();
+                $stmt = mysqli_stmt_init($link);
+                $query = "SELECT eventos.id_evento,eventos.nome_evento, eventos.data_evento,eventos.hora_evento,eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial 
+                        FROM eventos
+                        INNER JOIN nucleos_oficiais
+                        ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo  
+                        ORDER BY eventos.data_evento ASC";
+                if (mysqli_stmt_prepare($stmt, $query)) {
+                    if (mysqli_stmt_execute($stmt)) {
+                        mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento,$hora_evento,$imagem_evento,$id_nucleo,$imagem_oficial);
+                        while (mysqli_stmt_fetch($stmt)) {
+                            ?>
+                            <article class="col-12">
+                                <section class="row px-4">
+                                    <article class="col-12 event-card mb-5">
+                                        <a href="evento_detail.php?id_evento=<?=$id_evento?>">
+                                            <section class="row">
+                                                <article class="col-12">
+                                                    <section class="row event-header mb-3">
+                                                        <titulo class="col-12 mt-3 mb-1">
+                                                            <h4 class="h4-eventos"> <?=$nome_evento?> </h4>
+                                                        </titulo>
+                                                        <article class="col-6">
+                                                            <section class="row">
+                                                                <data class="col-12 mb-2">
+                                                                    <img class="mr-1"
+                                                                         src="assets/img/calendar_black.svg">
+                                                                    <p class="d-inline"> <?=$data_evento?> </p>
+                                                                </data>
+                                                                <horas class="col-12">
+                                                                    <img class="mr-1" src="assets/img/clock.svg">
+                                                                    <p class="d-inline"> <?=$hora_evento?> </p>
+                                                                </horas>
+                                                            </section>
+                                                        </article>
+                                                        <nucleo class="col-6 text-right">
+                                                            <img src="assets/img/<?=$imagem_oficial?> ">
+                                                        </nucleo>
+                                                    </section>
+                                                    <section class="row event-cover"
+                                                             style='background-image: url("assets/img/<?=$imagem_evento?> ");'>
+                                                    </section>
+                                                </article>
+                                            </section>
+                                        </a>
+                                        <div class="card-footer text-right py-1 px-4">
+                                            <img class="save_share" src="assets/img/share_white.svg">
+                                            <img class="ml-3 save_share" src="assets/img/save_white.svg">
+                                        </div>
                                     </article>
-                                </section>
-                            </a>
-                            <div class="card-footer text-right py-1 px-4">
-                                <img class="save_share" src="assets/img/share_white.svg">
-                                <img class="ml-3 save_share" src="assets/img/save_white.svg">
-                            </div>
-                        </article>
 
-                    </section>
-                </article>
+                                </section>
+                            </article>
+                            <?php
+                        }
+                    } else {
+                        echo "Error:" . mysqli_stmt_error($stmt);
+                    }
+                    mysqli_stmt_close($stmt);
+                } else {
+                    echo("Error description: " . mysqli_error($link));
+                }
+                mysqli_close($link);
+                ?>
             </section>
         </article>
     </section>
