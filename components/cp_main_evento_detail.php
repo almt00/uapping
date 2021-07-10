@@ -53,12 +53,20 @@ WHERE eventos.id_evento=?";
                             <section class="row justify-content-between">
                                 <data class="col-6 mb-3 caixa-evento-detail">
                                     <img class="mr-2 evento-detail-icon" src="assets/img/calendar_black.svg">
-                                    <p class="d-inline evento-detail-text"> <?= $data_evento ?> </p>
+                                    <p class="d-inline evento-detail-text"> <?php
+                                        if (date('Y-m-d') == $data_evento) {
+                                            echo "Hoje";
+                                        } else if (date("Y-m-d", strtotime("+" . 1 . "days"))== $data_evento){
+                                            echo "Amanhã";
+                                        } else {
+                                            echo date('j/m', strtotime($data_evento));
+                                        }
+                                        ?> </p>
                                 </data>
                                 <horas class="col-5 mb-3 horas-preco-evento-detail">
                                     <div class="div-horas">
                                         <img class="mr-2 evento-detail-icon" src="assets/img/clock.svg">
-                                        <p class="d-inline evento-detail-text"> <?= $hora_evento ?> </p>
+                                        <p class="d-inline evento-detail-text"> <?= date('G:i', strtotime($hora_evento)) ?> </p>
                                     </div>
                                 </horas>
                                 <localizacao class="col-6 mb-3 caixa-evento-detail">
