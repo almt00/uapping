@@ -18,9 +18,8 @@ if (isset($_GET['id_nucleo'])) {
         mysqli_stmt_fetch($stmt);
         mysqli_stmt_close($stmt); // Close statement
     }
-
 } else {
-    header("Location: ../home_page.php");
+    header("Location: home_page.php");
     die;
 }
 ?>

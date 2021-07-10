@@ -98,7 +98,7 @@ WHERE eventos.id_evento=?";
                                 const toShare = {
                                     title: "Partilhar evento: <?= $nome_evento ?> ",
                                     text: "Olha só este evento na UA chamado <?= $nome_evento ?>!",
-                                    url: window.location.href
+                                    url: window.location.href // ver isto qdo for partilhar fora do detalhe
                                 };
                                 const button = document.getElementById('share');
                                 button.addEventListener('click', async () => {
@@ -140,7 +140,7 @@ WHERE eventos.id_evento=?";
                         <article class="col-12 mb2 px-event-detail">
                             <section class="row justify-content-between">
                                 <article class="col-6 mb-4">
-                                    <a href="nucleos_detail.php"><img src="assets/temp/NRock_text.png"></a>
+                                    <a href="nucleos_detail.php?id_nucleo=<?=$id_nucleo ?>"><img src="assets/temp/NRock_text.png"></a>
                                 </article>
                                 <article class="position-relative mb-4 text-right art-org-icons align-self-center">
                                     <?php
