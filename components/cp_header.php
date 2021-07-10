@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION['id_user']) || $_SESSION['id_user']==null) {
+    header("Location: index.php");
+}
 ?>
 <header class="container-fluid">
     <nav id="nav-bar" class="row justify-content-around align-items-center align-content-center">
