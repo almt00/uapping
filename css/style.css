@@ -856,6 +856,8 @@ footer{
     color: white;
 }
 
+
+
 /* nav mobile */
 
 .nav-mobile{
@@ -1367,6 +1369,99 @@ footer{
     height:4rem;
 }
 
+/* Criar Nucleo */
+
+.section-criar-nucleo{
+    margin-top:4rem;
+    background-color: white;
+}
+
+.select_criar_nucleo{
+    width:22rem;
+    max-width: 100%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    padding: 0.6rem 1.6rem 0.6rem 1.6rem;
+    height:3.2rem;
+    border: 2px solid #BCBCBC;
+    color: #adadad;
+}
+
+.select_criar_nucleo:focus{
+    outline: none;
+}
+
+.input_criar_nucleo{
+    border-radius: 50pt;
+    padding: 0.8rem 2rem 0.8rem 2rem;
+    max-width: 100%;
+    width: 22rem;
+    margin-left:50%;
+    transform: translateX(-50%);
+    border: 2px solid #BCBCBC;
+}
+
+.input_criar_nucleo:focus{
+    outline: none;
+}
+
+.input_criar_nucleo::placeholder{
+    color: #adadad;
+}
+
+.background-light-pink{
+    background-color: #FFFDFC;
+}
+
+.text-area-criar-nucleo{
+    max-width:22rem;
+    margin-left:50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    padding: 0.8rem 2rem 0.8rem 2rem;
+    border: 2px solid #BCBCBC;
+}
+
+.text-area-criar-nucleo::placeholder{
+    color: #adadad;
+}
+
+#cancelar_criar_nucleo{
+    font-size:0.9rem;
+    border-radius: 50pt;
+    padding: 0.8rem 0.8rem;
+    display: block;
+    color: #787878;
+    font-weight: bold;
+    margin-left:auto;
+    margin-right:auto;
+    border: none;
+    background-color: transparent;
+    width:100%;
+    max-width: 22rem;
+}
+
+#cancelar_criar_nucleo:focus{
+    outline: none;
+}
+
+#criar_nucleo_submit{
+    border-radius: 50pt;
+    padding: 0.8rem 0.8rem;
+    color: white;
+    background: linear-gradient(90deg, rgba(0,205,144,1) 0%, rgba(0,195,55,1) 100%);
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    border: none;
+    margin-left:auto;
+    margin-right:auto;
+    transition: background-color 0.2s;
+    width:100%;
+    max-width: 22rem;
+}
+
 /* Displays */
 
 .display-xs-block{
@@ -1399,7 +1494,15 @@ footer{
         max-width: 22rem;
     }
 
+    #criar_nucleo_submit{
+        max-width: 22rem;
+    }
+
     #voltar_sign_up{
+        max-width: 22rem;
+    }
+
+    #cancelar_criar_nucleo{
         max-width: 22rem;
     }
 

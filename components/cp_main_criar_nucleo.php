@@ -13,36 +13,47 @@
                 <article class="col-12 mt-5 mb-3 position-relative">
                     <h2 class="text-center h2-nucleo_save"> Criar um Núcleo </h2>
                 </article>
-                <form action="" method="post" id="criar_nucleo">
                 <article class="col-12 px-4">
-                    <select required="" class="custom-select select_criar_nucleo mb-3 mb-md-3" id="departamentos"
-                            name="departamento" form="sign_up">
-                        <?php
-                        require_once "connections/connection.php";
-                        $link = new_db_connection();
-                        $stmt = mysqli_stmt_init($link);
-                        $query = "SELECT id_departamento, nome_departamento FROM departamentos";
-                        if (mysqli_stmt_prepare($stmt, $query)) {
-                            if (mysqli_stmt_execute($stmt)) {
-                                mysqli_stmt_bind_result($stmt, $id_departamento, $nome_departamento);
-                                while (mysqli_stmt_fetch($stmt)) {
-                                    echo '<option value="' . $id_departamento . '">' . $nome_departamento . '</option>';
-                                }
-                            } else {
-                                echo "Error:" . mysqli_stmt_error($stmt);
-                            }
-                            mysqli_stmt_close($stmt);
-                        } else {
-                            echo("Error description: " . mysqli_error($link));
-                        }
-                        ?>
-                    </select>
+                    <form action="" method="post" id="criar_nucleo">
+                        <section class="row justify-content-center">
+                            <article class="col-12">
+                                <select required="" class="custom-select select_criar_nucleo mb-3 mb-md-3" id="departamentos"
+                                        name="departamento" form="sign_up">
+                                    <?php
+                                    require_once "connections/connection.php";
+                                    $link = new_db_connection();
+                                    $stmt = mysqli_stmt_init($link);
+                                    $query = "SELECT id_departamento, nome_departamento FROM departamentos";
+                                    if (mysqli_stmt_prepare($stmt, $query)) {
+                                        if (mysqli_stmt_execute($stmt)) {
+                                            mysqli_stmt_bind_result($stmt, $id_departamento, $nome_departamento);
+                                            while (mysqli_stmt_fetch($stmt)) {
+                                                echo '<option value="' . $id_departamento . '">' . $nome_departamento . '</option>';
+                                            }
+                                        } else {
+                                            echo "Error:" . mysqli_stmt_error($stmt);
+                                        }
+                                        mysqli_stmt_close($stmt);
+                                    } else {
+                                        echo("Error description: " . mysqli_error($link));
+                                    }
+                                    ?>
+                                </select>
+                                <input id="nome" class="input_criar_nucleo mb-3 mb-md-3" type="text" name="nome"
+                                       size="24" placeholder="nome">
+                                <input id="sigla" class="input_criar_nucleo mb-3 mb-md-3" type="text" name="sigla"
+                                       size="24" placeholder="sigla">
+                                <textarea placeholder="descrição" class="form-control text-area-criar-nucleo" id="exampleFormControlTextarea1" rows="5"></textarea>
+                            </article>
+                        </section>
+                        <section class="row justify-content-center mt-3 mt-md-3">
+                            <article class="col-md-12 mt-3 mt-md-5 px-4">
+                                <input type="submit" class="mb-2 mb-md-2" style="display: block;" value="Submeter" id="criar_nucleo_submit">
+                                <button id="cancelar_criar_nucleo" class="mb-5" type="button"> cancelar </button>
+                            </article>
+                        </section>
+                    </form>
                 </article>
-                <article class="col-12 px-4">
-                    <input id="nome" required="" class="input_criar_nucleo mb-3 mb-md-3" type="text" name="nome"
-                           size="24" placeholder="nome">
-                </article>
-                </form>
             </section>
         </article>
     </section>
