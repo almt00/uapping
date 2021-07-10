@@ -82,11 +82,11 @@
                                                                 <data class="col-12 mb-2">
                                                                     <img class="mr-1"
                                                                          src="assets/img/calendar_black.svg">
-                                                                    <p class="d-inline"> <?=$data_evento?> </p>
+                                                                    <p class="d-inline"> <?=date('j/m',strtotime($data_evento))?> </p>
                                                                 </data>
                                                                 <horas class="col-12">
                                                                     <img class="mr-1" src="assets/img/clock.svg">
-                                                                    <p class="d-inline"> <?=$hora_evento?> </p>
+                                                                    <p class="d-inline"> <?=date('G:i',strtotime($hora_evento))?> </p>
                                                                 </horas>
                                                             </section>
                                                         </article>
