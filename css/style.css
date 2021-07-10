@@ -1042,6 +1042,10 @@ footer{
 
 /* nucleos */
 
+#nucleos_criacoes{
+    display: none;
+}
+
 .section-nucleos{
     margin-top:4rem;
     background-color: white;
@@ -1112,7 +1116,7 @@ footer{
 }
 
 .min-nucleo-card{
-    min-width:4rem;
+    min-width:5rem;
 }
 
 .word-warp{

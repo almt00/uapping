@@ -1,6 +1,6 @@
 var interesses_menu;
 
-/* ------------------ home page / pin bar (todos, interesses) ------------------ */
+/* ------------------ home page / pin bar (oficiais, criacoes) ------------------ */
 
 document.getElementById("oficiais").onclick = function (){
     document.getElementById("selector").style.left = "0%";
@@ -8,6 +8,8 @@ document.getElementById("oficiais").onclick = function (){
     document.getElementById("criacoes").style.color = "#1D1D1D";
     document.getElementById("text_nucleo_oficiais").style.display = "block";
     document.getElementById("text_nucleo_criacoes").style.display = "none";
+    document.getElementById("nucleos_oficiais").style.display = "block";
+    document.getElementById("nucleos_criacoes").style.display = "none";
 }
 
 document.getElementById("criacoes").onclick = function (){
@@ -16,6 +18,8 @@ document.getElementById("criacoes").onclick = function (){
     document.getElementById("criacoes").style.color = "white";
     document.getElementById("text_nucleo_oficiais").style.display = "none";
     document.getElementById("text_nucleo_criacoes").style.display = "block";
+    document.getElementById("nucleos_oficiais").style.display = "none";
+    document.getElementById("nucleos_criacoes").style.display = "block";
 }
 
 /* ------------------ interesses / btn home_page (eventos) -------------------- */

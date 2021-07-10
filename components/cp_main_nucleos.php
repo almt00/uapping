@@ -43,11 +43,12 @@
                         <img id="" class="img-filter-top" src="assets/img/filter.svg">
                     </article>
                 </article>
-                <article class="col-12 px-4">
+                <article id="nucleos_oficiais" class="col-12 px-4">
 
                     <section class="row mb-3">
                         <?php
                         require_once "connections/connection.php";
+                        $padding = false;
                         $link = new_db_connection();
                         $stmt = mysqli_stmt_init($link);
                         $query = "SELECT nucleos.id_nucleo,nucleos.nome_nucleo,nucleos.sigla_nucleo,nucleos_oficiais.imagem_oficial FROM nucleos
@@ -58,7 +59,13 @@
                                 mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $sigla_nucleo, $imagem_oficial);
                                 while (mysqli_stmt_fetch($stmt)) {
                                     ?>
-                                    <article class="col-6 art-card-nucleo_geral" style="padding-right:8px;">
+                                    <article class="col-6 art-card-nucleo_geral" style="
+                                    <?php if ($padding === false){?>
+                                    padding-right:8px;
+                                    <?php $padding = true;} else{ ?>
+                                    padding-left:8px;
+                                    <?php $padding = false;} ?>
+                                    ">
                                         <a href="nucleos_detail.php?id_nucleo=<?= $id_nucleo ?>">
                                             <div class="nucleo_card" style="background-image: ;">
                                                 <div class="row align-items-center sec_nucleo_card_img">
@@ -86,6 +93,9 @@
                         ?>
 
                     </section>
+
+                </article>
+                <article id="nucleos_criacoes" class="col-12 px-4">
 
                 </article>
             </section>
