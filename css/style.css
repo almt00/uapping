@@ -1042,10 +1042,6 @@ footer{
 
 /* nucleos */
 
-#nucleos_criacoes{
-    display: none;
-}
-
 .section-nucleos{
     margin-top:4rem;
     background-color: white;
@@ -1121,6 +1117,28 @@ footer{
 
 .word-warp{
     word-wrap: normal;
+}
+
+/* nucleos criações */
+
+#nucleos_criacoes{
+    display: none;
+}
+
+.art-nucleo-criacao{
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:6rem;
+    width:100%;
+    border-radius: 30px;
+}
+
+.sinal-mais-criacoes{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
 }
 
 /* evento detail */

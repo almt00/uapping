@@ -96,7 +96,24 @@
 
                 </article>
                 <article id="nucleos_criacoes" class="col-12 px-4">
+                    <a href="criar_nucleo.php">
+                        <section class="row">
+                            <article class="col-12">
+                                <div class="art-nucleo-criacao" style='background-image: url("assets/img/cover_criar_nucleo.svg");'>
+                                    <img class="sinal-mais-criacoes" src="assets/criacoes_nucleos/sinal_mais_criacoes.svg">
+                                </div>
+                            </article>
+                        </section>
+                    </a>
+                    <section class="row mt-5">
+                        <article class="col-12">
+                            <a href=".php">
+                                <div class="art-nucleo-criacao" style='background-image: url("assets/criacoes_nucleos/cover_criacoes_azul.svg");'>
 
+                                </div>
+                            </a>
+                        </article>
+                    </section>
                 </article>
             </section>
         </article>
