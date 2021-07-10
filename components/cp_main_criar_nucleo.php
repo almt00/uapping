@@ -71,3 +71,9 @@
         </article>
     </footer>
 </main>
+
+<script>
+    document.getElementById("cancelar_criar_nucleo").onclick = function () {
+        window.location.href = "home_page.php";
+    }
+</script>
