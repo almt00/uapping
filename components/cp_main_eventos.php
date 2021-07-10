@@ -1,4 +1,4 @@
-<main class="main background_cinza container-fluid main-flex">
+<main class="background_cinza container-fluid main-flex">
     <section class="row">
         <article class="col-12">
             <section class="row section-search-home-page">

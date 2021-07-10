@@ -47,7 +47,7 @@ if (!isset($_SESSION['id_user']) || $_SESSION['id_user']==null) {
                     <span class="user-menu-options-span"> Alterar Interesses </span>
                 </article>
             </a>
-            <a href="">
+            <a href="criar_nucleo.php">
                 <article class="col-12 user-menu-options py-1">
                     <img src="assets/icons_user_menu/criar_nucleo.svg">
                     <span class="user-menu-options-span"> Criar núcleo </span>

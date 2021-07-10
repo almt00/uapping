@@ -24,7 +24,7 @@ if (isset($_GET['id_nucleo'])) {
     die;
 }
 ?>
-<main class="main container-fluid main-flex">
+<main class="container-fluid main-flex">
     <section class="row">
         <article class="col-12">
             <section class="row sec-top-nucleos">
