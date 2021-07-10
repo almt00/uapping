@@ -44,7 +44,6 @@
                     </article>
                 </article>
                 <article class="col-12 px-4">
-
                     <section class="row mb-3">
                         <?php
                         require_once "connections/connection.php";

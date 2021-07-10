@@ -23,7 +23,7 @@ if (isset($_POST['nome']) && (isset($_POST['username'])) && (isset($_POST['email
             // $_SESSION["role"] = $id_roles;
             header("Location: ../home_page.php"); // copiado n sei de onde mas era para o feedback
         } else {
-            //header("Location: ../index.php?msg=0#login"); // copiado n sei de onde mas era para o feedback
+            header("Location: ../index.php?msg=0#login"); // copiado n sei de onde mas era para o feedback
             mysqli_error($link);
         }
     }
