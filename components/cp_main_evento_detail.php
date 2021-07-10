@@ -56,7 +56,7 @@ WHERE eventos.id_evento=?";
                                     <p class="d-inline evento-detail-text"> <?php
                                         if (date('Y-m-d') == $data_evento) {
                                             echo "Hoje";
-                                        } else if (date("Y-m-d", strtotime("+" . 1 . "days"))== $data_evento){
+                                        } else if (date("Y-m-d", strtotime("+" . 1 . "days")) == $data_evento) {
                                             echo "Amanhã";
                                         } else {
                                             echo date('j/m', strtotime($data_evento));
@@ -92,6 +92,25 @@ WHERE eventos.id_evento=?";
                                 <img id="share" class="evento-detail-icon" src="assets/img/share.svg">
                                 <p class="tag-share-save-event-detail"> Partilhar </p>
                             </div>
+
+                            <!--script para partilha com a interface nativa do dispositivo-->
+                            <script>
+                                const toShare = {
+                                    title: "Partilhar evento: <?= $nome_evento ?> ",
+                                    text: "Olha só este evento na UA chamado <?= $nome_evento ?>!",
+                                    url: window.location.href
+                                };
+                                const button = document.getElementById('share');
+                                button.addEventListener('click', async () => {
+                                    try {
+                                        await navigator.share(toShare); // Will trigger the native "share" feature
+                                        button.textContent = 'Shared !';
+                                    } catch (err) {
+                                        button.textContent = 'Something went wrong';
+                                        console.log(err);
+                                    }
+                                });
+                            </script>
                             <div class="d-inline position-relative">
                                 <img class="ml-3 evento-detail-icon" src="assets/img/save.svg">
                                 <p class="tag-share-save-event-detail" style="margin-left:0.4rem"> Guardar </p>

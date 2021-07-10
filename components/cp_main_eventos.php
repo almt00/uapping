@@ -38,7 +38,7 @@
                                 for ($n = 0; $n <= 5; $n++) {
                                     $data_pill = date("Y-m-d", strtotime("+" . $n . "days"));
                                     if ($n >= 2) {
-                                        echo '<dia class="date-slide-elements slide-dias ml-2" id="pill_' . $n . '">' . $data_pill[strlen($data_pill) - 2] . $data_pill[strlen($data_pill) - 1] . '</dia>';
+                                        echo '<dia class="date-slide-elements slide-dias ml-2" id="pill_' . $n . '">' . date('j', strtotime($data_pill)) . '</dia>';
                                     }
                                 }
                                 ?>
