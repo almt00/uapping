@@ -64,38 +64,46 @@
                         ORDER BY eventos.data_evento ASC";
                 if (mysqli_stmt_prepare($stmt, $query)) {
                     if (mysqli_stmt_execute($stmt)) {
-                        mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento,$hora_evento,$imagem_evento,$id_nucleo,$imagem_oficial);
+                        mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $id_nucleo, $imagem_oficial);
                         while (mysqli_stmt_fetch($stmt)) {
                             ?>
                             <article class="col-12">
                                 <section class="row px-4">
                                     <article class="col-12 event-card mb-5">
-                                        <a href="evento_detail.php?id_evento=<?=$id_evento?>">
+                                        <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
                                             <section class="row">
                                                 <article class="col-12">
                                                     <section class="row event-header mb-3">
                                                         <titulo class="col-12 mt-3 mb-1">
-                                                            <h4 class="h4-eventos"> <?=$nome_evento?> </h4>
+                                                            <h4 class="h4-eventos"> <?= $nome_evento ?> </h4>
                                                         </titulo>
                                                         <article class="col-6">
                                                             <section class="row">
                                                                 <data class="col-12 mb-2">
                                                                     <img class="mr-1"
                                                                          src="assets/img/calendar_black.svg">
-                                                                    <p class="d-inline"> <?=date('j/m',strtotime($data_evento))?> </p>
+                                                                    <p class="d-inline"> <?php
+                                                                        if (date('Y-m-d') == $data_evento) {
+                                                                            echo "Hoje";
+                                                                        } else if (date("Y-m-d", strtotime("+" . 1 . "days"))== $data_evento){
+                                                                            echo "Amanhã";
+                                                                        } else {
+                                                                            echo date('j/m', strtotime($data_evento));
+                                                                        }
+                                                                        ?> </p>
                                                                 </data>
                                                                 <horas class="col-12">
                                                                     <img class="mr-1" src="assets/img/clock.svg">
-                                                                    <p class="d-inline"> <?=date('G:i',strtotime($hora_evento))?> </p>
+                                                                    <p class="d-inline"> <?= date('G:i', strtotime($hora_evento)) ?> </p>
                                                                 </horas>
                                                             </section>
                                                         </article>
                                                         <nucleo class="col-6 text-right">
-                                                            <img src="assets/img/<?=$imagem_oficial?> ">
+                                                            <img src="assets/img/<?= $imagem_oficial ?> ">
                                                         </nucleo>
                                                     </section>
                                                     <section class="row event-cover"
-                                                             style='background-image: url("assets/img/<?=$imagem_evento?> ");'>
+                                                             style='background-image: url("assets/img/<?= $imagem_evento ?> ");'>
                                                     </section>
                                                 </article>
                                             </section>
@@ -140,54 +148,54 @@
 <Panel id="panel_interesses_menu_mobile" class="">
     <interesses id="interesses_menu" class="container-fluid interesses_menu">
         <form action="" method="post" id="interesses_pills">
-        <section class="row mx-4">
-            <article class="col-12 mt-4 mb-2">
-                <h5 class="h5-interesses"> Interesses </h5>
-            </article>
-            <article class="col-12">
-                <section class="row justify-content-start">
-                    <article id="checkpills_1" class="col-4 check-interesse-pills">
-                        <div class="check-interesse-pills-text"> <p id="checkpills-text-1"> Cultura </p> </div>
-                        <input id="checkpills-input-1" name="" value="" type="checkbox">
-                    </article>
-                    <article id="checkpills_2" class="col-4 check-interesse-pills">
-                        <div class="check-interesse-pills-text"> <p id="checkpills-text-2"> Música </p> </div>
-                        <input id="checkpills-input-2" name="" value="" type="checkbox">
-                    </article>
-                    <article id="checkpills_3" class="col-4 check-interesse-pills">
-                        <div class="check-interesse-pills-text"> <p id="checkpills-text-3"> Dança </p> </div>
-                        <input id="checkpills-input-3" name="" value="" type="checkbox">
-                    </article>
-                    <article id="checkpills_4" class="col-4 check-interesse-pills">
-                        <div class="check-interesse-pills-text"> <p id="checkpills-text-4"> Desporto </p> </div>
-                        <input id="checkpills-input-4" name="" value="" type="checkbox">
-                    </article>
-                    <article id="checkpills_5" class="col-4 check-interesse-pills">
-                        <div class="check-interesse-pills-text"> <p id="checkpills-text-5"> Jogos </p> </div>
-                        <input id="checkpills-input-5" name="" value="" type="checkbox">
-                    </article>
-                </section>
-            </article>
-        </section>
-        <section class="row mx-4">
-            <article class="col-12 my-4">
-                <h5 class="h5-interesses"> Núcleos </h5>
-            </article>
-            <article class="col-12 my-4">
-                <p class=""> Cultura </p>
-            </article>
-            <article class="col-12">
-                <section class="row">
-                    <article class="col-12">
-                        <span class=""> Cultura </span>
-                        <span> Música </span>
-                        <span> Dança </span>
-                        <span> Desporto </span>
-                        <span> Jogos </span>
-                    </article>
-                </section>
-            </article>
-        </section>
+            <section class="row mx-4">
+                <article class="col-12 mt-4 mb-2">
+                    <h5 class="h5-interesses"> Interesses </h5>
+                </article>
+                <article class="col-12">
+                    <section class="row justify-content-start">
+                        <article id="checkpills_1" class="col-4 check-interesse-pills">
+                            <div class="check-interesse-pills-text"><p id="checkpills-text-1"> Cultura </p></div>
+                            <input id="checkpills-input-1" name="" value="" type="checkbox">
+                        </article>
+                        <article id="checkpills_2" class="col-4 check-interesse-pills">
+                            <div class="check-interesse-pills-text"><p id="checkpills-text-2"> Música </p></div>
+                            <input id="checkpills-input-2" name="" value="" type="checkbox">
+                        </article>
+                        <article id="checkpills_3" class="col-4 check-interesse-pills">
+                            <div class="check-interesse-pills-text"><p id="checkpills-text-3"> Dança </p></div>
+                            <input id="checkpills-input-3" name="" value="" type="checkbox">
+                        </article>
+                        <article id="checkpills_4" class="col-4 check-interesse-pills">
+                            <div class="check-interesse-pills-text"><p id="checkpills-text-4"> Desporto </p></div>
+                            <input id="checkpills-input-4" name="" value="" type="checkbox">
+                        </article>
+                        <article id="checkpills_5" class="col-4 check-interesse-pills">
+                            <div class="check-interesse-pills-text"><p id="checkpills-text-5"> Jogos </p></div>
+                            <input id="checkpills-input-5" name="" value="" type="checkbox">
+                        </article>
+                    </section>
+                </article>
+            </section>
+            <section class="row mx-4">
+                <article class="col-12 my-4">
+                    <h5 class="h5-interesses"> Núcleos </h5>
+                </article>
+                <article class="col-12 my-4">
+                    <p class=""> Cultura </p>
+                </article>
+                <article class="col-12">
+                    <section class="row">
+                        <article class="col-12">
+                            <span class=""> Cultura </span>
+                            <span> Música </span>
+                            <span> Dança </span>
+                            <span> Desporto </span>
+                            <span> Jogos </span>
+                        </article>
+                    </section>
+                </article>
+            </section>
         </form>
     </interesses>
     <background id="background_interesses_menu" class="black-ground"></background>
