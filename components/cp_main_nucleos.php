@@ -60,12 +60,14 @@
                                 while (mysqli_stmt_fetch($stmt)) {
                                     ?>
                                     <article class="col-6 art-card-nucleo_geral" style="
-                                    <?php if ($padding === false){?>
-                                    padding-right:8px;
-                                    <?php $padding = true;} else{ ?>
-                                    padding-left:8px;
-                                    <?php $padding = false;} ?>
-                                    ">
+                                    <?php if ($padding === false) { ?>
+                                            padding-right:8px;
+                                        <?php $padding = true;
+                                    } else { ?>
+                                            padding-left:8px;
+                                        <?php $padding = false;
+                                    } ?>
+                                            ">
                                         <a href="nucleos_detail.php?id_nucleo=<?= $id_nucleo ?>">
                                             <div class="nucleo_card" style="background-image: ;">
                                                 <div class="row align-items-center sec_nucleo_card_img">
@@ -99,45 +101,105 @@
                     <a href="criar_nucleo.php">
                         <section class="row mb-5">
                             <article class="col-12">
-                                <div class="art-nucleo-criacao" style='background-image: url("assets/img/cover_criar_nucleo.svg");'>
-                                    <img class="sinal-mais-criacoes" src="assets/criacoes_nucleos/sinal_mais_criacoes.svg">
+                                <div class="art-nucleo-criacao"
+                                     style='background-image: url("assets/img/cover_criar_nucleo.svg");'>
+                                    <img class="sinal-mais-criacoes"
+                                         src="assets/criacoes_nucleos/sinal_mais_criacoes.svg">
                                 </div>
                             </article>
                         </section>
                     </a>
+                    <?php
+                    $link = new_db_connection();
+                    $stmt_1 = mysqli_stmt_init($link);
+                    $query = "SELECT nucleos_membros.ref_id_nucleo FROM nucleos_membros
+                            WHERE ref_id_utilizador=?";
+                    if (mysqli_stmt_prepare($stmt_1, $query)) {
+                        mysqli_stmt_bind_param($stmt_1, 'i', $_SESSION['id_user']);
+                        if (mysqli_stmt_execute($stmt_1)) {
+                            mysqli_stmt_bind_result($stmt_1, $ref_id_nucleo);
+                            //$result=mysqli_stmt_get_result($stmt_1);
+                            //print_r($result);
+                        } else {
+                            echo "Error:" . mysqli_stmt_error($stmt_1);
+                        }
+                        mysqli_stmt_close($stmt_1);
+                    } else {
+                        echo("Error description: " . mysqli_error($link));
+                    }
+                    mysqli_close($link);
+                    ?>
+                    <?php
+                    require_once "connections/connection.php";
 
-                    <!-- Esta section é toda para dar fetch / toda ela faz parte de cada card nucleo criação -->
-                    <section class="row mt-3 a-criacao_nucleo">
-                        <article class="col-12">
-                            <a href="" class="text-decoration-none">
-                                <div class="art-nucleo-criacao overflow-hidden" style='background-image: url("assets/criacoes_nucleos/cover_criacoes_azul.svg");'>
-                                    <section class="row align-items-end align-content-end" style="height:100%;">
-                                        <article class="col-2 text-left img-criacao-nucleo">
-                                            <img src="assets/criacoes_nucleos/ghost_criacoes.svg">
-                                        </article>
-                                        <article class="col-8 pb-1">
-                                            <h2 class="h2-cricao_nucleo m-0"> NRádio </h2>
-                                            <p class="text-criação_nucleo m-0 pt-2" style="white-space: nowrap;"> “Núcleo fantasma” de Rádio </p>
-                                        </article>
-                                        <article class="col-12 mt-2 mb-1 margin-criacao_nucleo">
-                                            <div class="mr-1 people-bubble-criacao_nucleo bg-profile"
-                                                 style='background-image: url("assets/img/smells_rock_1.jpg");'></div>
-                                            <div class="mr-1 people-bubble-criacao_nucleo bg-profile"></div>
-                                            <div class="mr-1 people-bubble-criacao_nucleo bg-profile"></div>
-                                            <div class="people-bubble-criacao_nucleo"><span> +3 </span></div>
-                                        </article>
-                                    </section>
-                                </div>
-                            </a>
-                            <div id="aderir_nucleo_criacao" class="aderir_criacoes">
-                                <img src="assets/criacoes_nucleos/aderiu_criacoes.svg">
-                                <!-- <img src="assets/criacoes_nucleos/aderir_criacoes.svg"> -->
-                                <!-- estas são as duas opções de iamgens a serem mostradas consoante o estado de ainda vai seguir
-                                ou já a seguir -->
-                            </div>
-                        </article>
-                    </section>
+                    $link = new_db_connection();
+                    $stmt = mysqli_stmt_init($link);
+                    $query = "SELECT nucleos.id_nucleo,nucleos.nome_nucleo, nucleos.descricao_nucleo,nucleos.sigla_nucleo,cores_fantasmas.nome_cor_fantasma
+                            FROM nucleos
+                            INNER JOIN nucleos_fantasmas
+                            ON nucleos.id_nucleo=nucleos_fantasmas.ref_id_nucleo
+                            INNER JOIN cores_fantasmas
+                            ON nucleos_fantasmas.ref_id_cor_fantasma=cores_fantasmas.id_cor_fantasma
+                            ORDER BY nucleos.data_insercao_nucleo DESC";
+                    if (mysqli_stmt_prepare($stmt, $query)) {
+                        if (mysqli_stmt_execute($stmt)) {
+                            mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $descricao_nucleo, $sigla_nucleo, $cor_nucleo);
+                            while (mysqli_stmt_fetch($stmt)) {
+                                ?>
+                                <section class="row mt-3 a-criacao_nucleo">
+                                    <article class="col-12">
+                                        <a href=""<?= $id_nucleo ?> class="text-decoration-none">
+                                            <div class="art-nucleo-criacao overflow-hidden"
+                                                 style='background-image: url("assets/criacoes_nucleos/cover_criacoes_<?= $cor_nucleo ?>.svg");'>
+                                                <section class="row align-items-end align-content-end"
+                                                         style="height:100%;">
+                                                    <article class="col-2 text-left img-criacao-nucleo">
+                                                        <img src="assets/criacoes_nucleos/ghost_criacoes.svg">
+                                                    </article>
+                                                    <article class="col-8 pb-1">
+                                                        <h2 class="h2-cricao_nucleo m-0"> <?= $sigla_nucleo ?> </h2>
+                                                        <p class="text-criação_nucleo m-0 pt-2"
+                                                           style="white-space: nowrap;"> <?= $nome_nucleo ?> </p>
+                                                    </article>
+                                                    <article class="col-12 mt-2 mb-1 margin-criacao_nucleo">
+                                                        <div class="mr-1 people-bubble-criacao_nucleo bg-profile"
+                                                             style='background-image: url("assets/img/smells_rock_1.jpg");'></div>
+                                                        <div class="mr-1 people-bubble-criacao_nucleo bg-profile"></div>
+                                                        <div class="mr-1 people-bubble-criacao_nucleo bg-profile"></div>
+                                                        <div class="people-bubble-criacao_nucleo"><span> +3 </span>
+                                                        </div>
+                                                    </article>
+                                                </section>
+                                            </div>
+                                        </a>
+                                        <div id="aderir_nucleo_criacao" class="aderir_criacoes">
+                                            <?php
+                                            if ($id_nucleo == $ref_id_nucleo) {
+                                                echo ' <img src="assets/criacoes_nucleos/aderiu_criacoes.svg">';
+                                            } else {
+                                                echo '<img src="assets/criacoes_nucleos/aderir_criacoes.svg">';
+                                               // echo $_SESSION['id_user'];
+                                                //echo $id_nucleo.' e '.$ref_id_nucleo;
+                                            }
+                                            ?>
 
+                                            <!-- <img src="assets/criacoes_nucleos/aderir_criacoes.svg"> -->
+                                            <!-- estas são as duas opções de iamgens a serem mostradas consoante o estado de ainda vai seguir
+                                            ou já a seguir -->
+                                        </div>
+                                    </article>
+                                </section>
+                                <?php
+                            }
+                        } else {
+                            echo "Error:" . mysqli_stmt_error($stmt);
+                        }
+                        mysqli_stmt_close($stmt);
+                    } else {
+                        echo("Error description: " . mysqli_error($link));
+                    }
+                    mysqli_close($link);
+                    ?>
                 </article>
             </section>
         </article>
