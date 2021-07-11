@@ -1,5 +1,6 @@
 var scrolled;
 var user_menu;
+var normal_user, admin_user, backoffice_user;
 
 window.onload = function (){
 
@@ -7,7 +8,13 @@ window.onload = function (){
 
         scrolled = window.scrollY;
         if (scrolled !== 0){
-            document.getElementById("nav-bar").style.backgroundColor = "#f28792";
+            if (normal_user === true){
+                document.getElementById("nav-bar").style.backgroundColor = "#f28792";
+            } else if (admin_user === true){
+                document.getElementById("nav-bar").style.backgroundColor = "#E18AC7";
+            } else if (backoffice_user === true){
+                document.getElementById("nav-bar").style.backgroundColor = "#FC855D";
+            }
         } else{
             document.getElementById("nav-bar").style.backgroundColor = "transparent";
         }
@@ -15,7 +22,13 @@ window.onload = function (){
         window.addEventListener("scroll", function (){
                 scrolled = window.scrollY;
                 if (scrolled !== 0){
-                    document.getElementById("nav-bar").style.backgroundColor = "#f28792";
+                    if (normal_user === true){
+                        document.getElementById("nav-bar").style.backgroundColor = "#f28792";
+                    } else if (admin_user === true){
+                        document.getElementById("nav-bar").style.backgroundColor = "#E18AC7";
+                    } else if (backoffice_user === true){
+                        document.getElementById("nav-bar").style.backgroundColor = "#FC855D";
+                    }
                 } else{
                     document.getElementById("nav-bar").style.backgroundColor = "transparent";
                 }

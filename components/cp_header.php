@@ -9,6 +9,7 @@ if (!isset($_SESSION['id_user']) || $_SESSION['id_user']==null) {
         <article class="col-6 col-md-3 ">
             <a href="home_page.php"> <img style="color:black;" class="img-fluid width-7"
                                           src="assets/img/logo_texto_preto.svg"> </a>
+            <!-- <p class=""> Amin </p> acabar mais tarde escrever admin no canto-->
         </article>
         <article
                 class="col-md-6 text-left text-md-center align-self-center link-nav display-xs-off display-md-on-block">

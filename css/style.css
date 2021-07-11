@@ -85,6 +85,28 @@ footer{
     overflow: hidden;
 }
 
+.section-search-home-page-admin{
+    min-height: 18rem;
+    background-color: #E18AC7;
+    background-image: url("../assets/img/wave_header_home_page_rosa.svg");
+    background-size: cover;
+    background-position: top center;
+    border-radius: 0 0 35px 0;
+    padding-top: 5rem;
+    overflow: hidden;
+}
+
+.section-search-home-page-backoffice{
+    min-height: 18rem;
+    background-color: #FC855D;
+    background-image: url("../assets/img/wave_header_home_page_laranja.svg");
+    background-size: cover;
+    background-position: top center;
+    border-radius: 0 0 35px 0;
+    padding-top: 5rem;
+    overflow: hidden;
+}
+
 .event-card{
     background-color: white;
     border-radius: 15px;
@@ -1547,6 +1569,44 @@ footer{
     transition: background-color 0.2s;
     width:100%;
     max-width: 22rem;
+}
+
+/* ADMIN - novo admin */
+
+.icon-novo_admin_1{
+    position: absolute;
+    top:0.8rem;
+    right:0;
+    margin-right:1.2rem;
+    height:1.7rem;
+    z-index: 5;
+}
+
+.icon-novo_admin_2{
+    position: absolute;
+    top:5.2rem;
+    right:-0.2rem;
+    margin-right:1.2rem;
+    height:1.7rem;
+    z-index: 5;
+}
+
+.input_novo_admin{
+    border-radius: 50pt;
+    padding: 0.8rem 3.4rem 0.8rem 2rem;
+    max-width: 100%;
+    width: 22rem;
+    margin-left:50%;
+    transform: translateX(-50%);
+    border: 2px solid #BCBCBC;
+}
+
+.input_novo_admin:focus{
+    outline: none;
+}
+
+.input_novo_admin::placeholder{
+    color: #adadad;
 }
 
 /* Displays */
