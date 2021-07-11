@@ -101,7 +101,6 @@
                                     </div>
                                 </article>
                             <?php
-
                             }
                             if (mysqli_stmt_get_result($stmt) == 0) {
                             ?>
@@ -109,7 +108,8 @@
                                     document.getElementById('text_saved_ativos').innerHTML = 'Ainda não tens nenhum evento guardado...';
                                 </script>
                                 <?php
-                                echo'<img src="assets/uapping_SVG_PNG/empty.svg">'; // aqui colocar imagem ( Miguel )
+
+                                echo '<article class="col-12 text-center"><img src="assets/uapping_SVG_PNG/empty.svg"></article>'; // aqui colocar imagem ( Miguel )
                                 // echo 'nada';
 
                             }
