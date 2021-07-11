@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<script> normal_user = true; </script>
+
 <?php include_once "components/cp_header.php" ?>
 
 <?php include_once "components/cp_main_criar_nucleo.php" ?>

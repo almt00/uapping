@@ -9,17 +9,15 @@
 </head>
 <body>
 
-<script> normal_user = true; </script>
+<script> admin_user = true; </script>
 
 <?php include_once "components/cp_header.php" ?>
 
-<?php include_once "components/cp_main_evento_detail.php" ?>
+<?php include_once "components/cp_admin_main_novo_admin.php" ?>
 
 <?php include_once "components/cp_navegacao_mobile.php" ?>
 
 <?php include_once "helpers/help_js.php"?>
-
-<script src="js/event_detail.js" type="text/javascript"> </script>
 
 </body>
 </html>
