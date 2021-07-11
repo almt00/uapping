@@ -54,54 +54,65 @@
                             mysqli_stmt_bind_param($stmt, 'i', $_SESSION['id_user']);
                             if (mysqli_stmt_execute($stmt)) {
                                 mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $id_nucleo, $imagem_oficial);
-                                while (mysqli_stmt_fetch($stmt)) {
-                                    ?>
-                                    <article class="col-12 event-card mb-5">
-                                        <a href="evento_detail.php?id_evento=<?=$id_evento?>">
-                                            <section class="row">
-                                                <article class="col-12">
-                                                    <section class="row event-header mb-3">
-                                                        <titulo class="col-12 mt-3 mb-1">
-                                                            <h4 class="h4-eventos"> <?=$nome_evento?> </h4>
-                                                        </titulo>
-                                                        <article class="col-6">
-                                                            <section class="row">
-                                                                <data class="col-12 mb-2">
-                                                                    <img class="mr-1"
-                                                                         src="assets/img/calendar_black.svg">
-                                                                    <p class="d-inline"> <?php
-                                                                        if (date('Y-m-d') == $data_evento) {
-                                                                            echo "Hoje";
-                                                                        } else if (date("Y-m-d", strtotime("+" . 1 . "days"))== $data_evento){
-                                                                            echo "Amanhã";
-                                                                        } else {
-                                                                            echo date('j/m', strtotime($data_evento));
-                                                                        }
-                                                                        ?> </p>
-                                                                </data>
-                                                                <horas class="col-12">
-                                                                    <img class="mr-1" src="assets/img/clock.svg">
-                                                                    <p class="d-inline"> <?=date('G:i',strtotime($hora_evento))?> </p>
-                                                                </horas>
-                                                            </section>
-                                                        </article>
-                                                        <nucleo class="col-6 text-right">
-                                                            <img src="assets/img/<?=$imagem_oficial?>">
-                                                        </nucleo>
-                                                    </section>
-                                                    <section class="row event-cover"
-                                                             style='background-image: url("assets/img/<?=$imagem_evento?>");'>
-                                                    </section>
-                                                </article>
-                                            </section>
-                                        </a>
-                                        <div class="card-footer text-right py-1 px-4">
-                                            <img class="save_share" src="assets/img/share_white.svg">
-                                            <img class="ml-3 save_share" src="assets/img/saved_white.svg">
-                                        </div>
-                                    </article>
-                                    <?php
-                                }
+                            while (mysqli_stmt_fetch($stmt)) {
+                                ?>
+                                <article class="col-12 event-card mb-5">
+                                    <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
+                                        <section class="row">
+                                            <article class="col-12">
+                                                <section class="row event-header mb-3">
+                                                    <titulo class="col-12 mt-3 mb-1">
+                                                        <h4 class="h4-eventos"> <?= $nome_evento ?> </h4>
+                                                    </titulo>
+                                                    <article class="col-6">
+                                                        <section class="row">
+                                                            <data class="col-12 mb-2">
+                                                                <img class="mr-1"
+                                                                     src="assets/img/calendar_black.svg">
+                                                                <p class="d-inline"> <?php
+                                                                    if (date('Y-m-d') == $data_evento) {
+                                                                        echo "Hoje";
+                                                                    } else if (date("Y-m-d", strtotime("+" . 1 . "days")) == $data_evento) {
+                                                                        echo "Amanhã";
+                                                                    } else {
+                                                                        echo date('j/m', strtotime($data_evento));
+                                                                    }
+                                                                    ?> </p>
+                                                            </data>
+                                                            <horas class="col-12">
+                                                                <img class="mr-1" src="assets/img/clock.svg">
+                                                                <p class="d-inline"> <?= date('G:i', strtotime($hora_evento)) ?> </p>
+                                                            </horas>
+                                                        </section>
+                                                    </article>
+                                                    <nucleo class="col-6 text-right">
+                                                        <img src="assets/img/<?= $imagem_oficial ?>">
+                                                    </nucleo>
+                                                </section>
+                                                <section class="row event-cover"
+                                                         style='background-image: url("assets/img/<?= $imagem_evento ?>");'>
+                                                </section>
+                                            </article>
+                                        </section>
+                                    </a>
+                                    <div class="card-footer text-right py-1 px-4">
+                                        <img class="save_share" src="assets/img/share_white.svg">
+                                        <img class="ml-3 save_share" src="assets/img/saved_white.svg">
+                                    </div>
+                                </article>
+                            <?php
+
+                            }
+                            if (mysqli_stmt_get_result($stmt) == 0) {
+                            ?>
+                                <script>
+                                    document.getElementById('text_saved_ativos').innerHTML = 'Ainda não tens nenhum evento guardado...';
+                                </script>
+                                <?php
+                                echo'<img src="assets/uapping_SVG_PNG/empty.svg">'; // aqui colocar imagem ( Miguel )
+                                // echo 'nada';
+
+                            }
                             } else {
                                 echo "Error:" . mysqli_stmt_error($stmt);
                             }
