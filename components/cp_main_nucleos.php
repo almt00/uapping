@@ -97,7 +97,7 @@
                 </article>
                 <article id="nucleos_criacoes" class="col-12 px-4">
                     <a href="criar_nucleo.php">
-                        <section class="row">
+                        <section class="row mb-5">
                             <article class="col-12">
                                 <div class="art-nucleo-criacao" style='background-image: url("assets/img/cover_criar_nucleo.svg");'>
                                     <img class="sinal-mais-criacoes" src="assets/criacoes_nucleos/sinal_mais_criacoes.svg">
@@ -105,15 +105,39 @@
                             </article>
                         </section>
                     </a>
-                    <section class="row mt-5">
-                        <article class="col-12">
-                            <a href=".php">
-                                <div class="art-nucleo-criacao" style='background-image: url("assets/criacoes_nucleos/cover_criacoes_azul.svg");'>
 
+                    <!-- Esta section é toda para dar fetch / toda ela faz parte de cada card nucleo criação -->
+                    <section class="row mt-3 a-criacao_nucleo">
+                        <article class="col-12">
+                            <a href="" class="text-decoration-none">
+                                <div class="art-nucleo-criacao overflow-hidden" style='background-image: url("assets/criacoes_nucleos/cover_criacoes_azul.svg");'>
+                                    <section class="row align-items-end align-content-end" style="height:100%;">
+                                        <article class="col-2 text-left img-criacao-nucleo">
+                                            <img src="assets/criacoes_nucleos/ghost_criacoes.svg">
+                                        </article>
+                                        <article class="col-8 pb-1">
+                                            <h2 class="h2-cricao_nucleo m-0"> NRádio </h2>
+                                            <p class="text-criação_nucleo m-0 pt-2" style="white-space: nowrap;"> “Núcleo fantasma” de Rádio </p>
+                                        </article>
+                                        <article class="col-12 mt-2 mb-1 margin-criacao_nucleo">
+                                            <div class="mr-1 people-bubble-criacao_nucleo bg-profile"
+                                                 style='background-image: url("assets/img/smells_rock_1.jpg");'></div>
+                                            <div class="mr-1 people-bubble-criacao_nucleo bg-profile"></div>
+                                            <div class="mr-1 people-bubble-criacao_nucleo bg-profile"></div>
+                                            <div class="people-bubble-criacao_nucleo"><span> +3 </span></div>
+                                        </article>
+                                    </section>
                                 </div>
                             </a>
+                            <div id="aderir_nucleo_criacao" class="aderir_criacoes">
+                                <img src="assets/criacoes_nucleos/aderiu_criacoes.svg">
+                                <!-- <img src="assets/criacoes_nucleos/aderir_criacoes.svg"> -->
+                                <!-- estas são as duas opções de iamgens a serem mostradas consoante o estado de ainda vai seguir
+                                ou já a seguir -->
+                            </div>
                         </article>
                     </section>
+
                 </article>
             </section>
         </article>
@@ -132,3 +156,9 @@
         </article>
     </footer>
 </main>
+
+<script>
+    document.getElementById("aderir_nucleo_criacao").onclick = function () {
+        window.location.href = "home_page.php";
+    }
+</script>

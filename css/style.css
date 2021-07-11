@@ -1141,6 +1141,71 @@ footer{
     transform: translate(-50%, -50%);
 }
 
+.a-criacao_nucleo a{
+    text-decoration: none;
+}
+
+.a-criacao_nucleo a:hover{
+    text-decoration: none;
+    color: black;
+}
+
+.img-criacao-nucleo img{
+    height:2.5rem;
+    margin-bottom:0.2rem;
+    padding-left:0.5rem
+}
+
+.img-criacao-nucleo{
+    margin-left:2rem;
+}
+
+.h2-cricao_nucleo{
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    line-height: 0.2rem;
+}
+
+.text-criação_nucleo{
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    font-size: 0.8rem;
+}
+
+.people-bubble-criacao_nucleo{
+    background-color: rgb(255, 255, 255);
+    display: inline-block;
+    padding:6px;
+    border-radius: 100%;
+    position:relative;
+    height:1.2rem;
+    width:1.2rem;
+}
+
+.people-bubble-criacao_nucleo span{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.7rem;
+    color: black;
+}
+
+.margin-criacao_nucleo{
+    margin-left:2rem;
+}
+
+.aderir_criacoes{
+    position: absolute;
+    bottom:0.5rem;
+    right:2rem;
+    z-index: 5;
+}
+
 /* evento detail */
 
 .section-evento_detail{
