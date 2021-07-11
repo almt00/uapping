@@ -1609,6 +1609,35 @@ footer{
     color: #adadad;
 }
 
+/* ADMIN - Administradores */
+
+.h2-admin-administradores{
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    font-size: 1.8rem;
+}
+
+.h2-admin-administradores span{
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+.h2-admin-administradores-sub{
+    color: #25004C;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+}
+
+.img-add-administradores{
+    margin-bottom:0.5rem;
+    height:2.6rem;
+}
+
 /* Displays */
 
 .display-xs-block{
