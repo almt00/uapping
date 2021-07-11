@@ -16,7 +16,10 @@ if ((isset($_POST['nome'])) && (isset($_POST['sigla'])) && (isset($_POST['descri
             mysqli_close($link);
             $link = new_db_connection();
             $stmt2 = mysqli_stmt_init($link);
-            $cor = 1;
+            // array com nºs q corresponde aos ID's das cores, escolher random
+            $cores = array(1, 2, 3, 4);
+            $cor = array_rand($cores, 1);
+            // $cor = 1;
             $query2 = "INSERT INTO nucleos_fantasmas (ref_id_nucleo,ref_id_cor_fantasma) VALUES (?,?)";
             if (mysqli_stmt_prepare($stmt2, $query2)) {
                 mysqli_stmt_bind_param($stmt2, 'ii', $id_nucleo, $cor);
@@ -29,6 +32,7 @@ if ((isset($_POST['nome'])) && (isset($_POST['sigla'])) && (isset($_POST['descri
                     if (mysqli_stmt_prepare($stmt3, $query3)) {
                         mysqli_stmt_bind_param($stmt3, 'ii', $id_nucleo, $area);
                         if (mysqli_stmt_execute($stmt3)) {
+
                             header("Location: ../nucleos.php");
                         } else {
                             echo 'erro5';

@@ -85,7 +85,7 @@
                                                                     <p class="d-inline"> <?php
                                                                         if (date('Y-m-d') == $data_evento) {
                                                                             echo "Hoje";
-                                                                        } else if (date("Y-m-d", strtotime("+" . 1 . "days"))== $data_evento){
+                                                                        } else if (date("Y-m-d", strtotime("+" . 1 . "days")) == $data_evento) {
                                                                             echo "Amanhã";
                                                                         } else {
                                                                             echo date('j/m', strtotime($data_evento));
