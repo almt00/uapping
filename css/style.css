@@ -1676,7 +1676,48 @@ footer{
     min-width:5rem;
 }
 
-/* ADMIN -  */
+/* ADMIN - Home page */
+
+.date-slide-elements_admin{
+    border-radius: 50px;
+    display: inline-block;
+    height:100%;
+    background-color: #ffffff54;
+    font-weight: bold;
+    text-align: center;
+}
+
+.date-slide-admin{
+    background-color: transparent;
+    height:2.8rem;
+    width:100%;
+    display: block;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    color: #91359F;
+    line-height: 2.8rem;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.date-slide-admin::-webkit-scrollbar{
+    display:none;
+}
+
+.input_search-home-page-admin{
+    border-radius: 50pt;
+    padding: 0.5rem 1rem 0.5rem 2.8rem;
+    display: block;
+    border: 3px solid #25004C;
+    width: 100%;
+}
+
+.input_search-home-page-admin:focus{
+    outline: none;
+}
 
 /* Displays */
 
