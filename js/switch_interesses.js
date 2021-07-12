@@ -9,6 +9,8 @@ document.getElementById("interesses").onclick = function (){
     document.getElementById("interesses").style.color = "white";
     document.getElementById("todos").style.color = "#1D1D1D";
 
+    console.log("hey")
+
     var button = "interesses";
 
     $.ajax({

@@ -53,6 +53,8 @@
                 <article class="col-12 mt-5 mb-3 px-4">
                     <h2 class="pl-2 h2-eventos"> Eventos </h2>
                 </article>
+                <div id="eventos_conteudo"></div>
+
                 <?php
                 require_once "connections/connection.php";
                 $link = new_db_connection();
@@ -199,7 +201,6 @@
     </interesses>
     <background id="background_interesses_menu" class="black-ground"></background>
 </Panel>
-
 <!--TEMPLATE JS AJAX INTERESSES-->
 <script id="eventos_template" type="text/x-handlebars-template">
     {{#each this}}
@@ -231,7 +232,7 @@
                                 </nucleo>
                             </section>
                             <section id="background" class="row event-cover"
-                                     style='background-image: url("assets/img/{{imagem}}");'>
+                                     style= background-image: url("assets/img/{{imagem}}")>
                             </section>
                         </article>
                     </section>
