@@ -1,7 +1,7 @@
 <nav class="container-fluid nav-mobile">
     <div class="row nav-mobile-row">
         <site class="col-4 text-center">
-            <a href="">
+            <a href="home_page_admin.php">
                 <?php if (isset($nav_homepage) && $nav_homepage === true){ ?>
                     <img src="assets/barra_navegacao/nav_home_filled.svg">
                 <?php } else{ ?>
