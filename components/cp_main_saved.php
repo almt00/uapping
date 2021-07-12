@@ -54,7 +54,9 @@
                             mysqli_stmt_bind_param($stmt, 'i', $_SESSION['id_user']);
                             if (mysqli_stmt_execute($stmt)) {
                                 mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $id_nucleo, $imagem_oficial);
+
                             while (mysqli_stmt_fetch($stmt)) {
+
                                 ?>
                                 <article class="col-12 event-card mb-5">
                                     <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
@@ -102,8 +104,9 @@
                                 </article>
                             <?php
                             }
-                            if (mysqli_stmt_get_result($stmt) == 0) {
-                            ?>
+                            $result = mysqli_stmt_store_result($stmt);
+                            $rows = mysqli_stmt_num_rows($stmt);
+                            if ($rows == 0) { ?>
                                 <script>
                                     document.getElementById('text_saved_ativos').innerHTML = 'Ainda não tens nenhum evento guardado...';
                                 </script>
