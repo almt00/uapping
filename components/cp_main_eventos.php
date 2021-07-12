@@ -219,7 +219,8 @@
                                         <data class="col-12 mb-2">
                                             <img class="mr-1"
                                                  src="assets/img/calendar_black.svg">
-                                            <p class="d-inline" id="data_evento">{{data}}</p>
+
+                                            <p class="d-inline" id="data_evento">{{formatDate data}}</p>
                                         </data>
                                         <horas class="col-12">
                                             <img class="mr-1" src="assets/img/clock.svg">
@@ -232,7 +233,7 @@
                                 </nucleo>
                             </section>
                             <section id="background" class="row event-cover"
-                                     style= background-image: url("assets/img/{{imagem}}")>
+                                     style= 'background-image: url("assets/img/{{imagem}}")'>
                             </section>
                         </article>
                     </section>

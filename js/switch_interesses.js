@@ -14,7 +14,7 @@ document.getElementById("interesses").onclick = function (){
     var button = "interesses";
 
     $.ajax({
-        url: '/components/bd_eventos.php', //Jquery carrega serverside.php
+        url: 'components/bd_eventos.php', //Jquery carrega serverside.php
         data: 'button=' + button, // Envia o valor do botão clicado
         dataType: 'json', //escolhe o tipo de dados
         type: 'GET', //por default, mas pode ser POST
@@ -29,6 +29,14 @@ document.getElementById("interesses").onclick = function (){
     return false; // keeps the page from not refreshing
 
 }
+});
+Handlebars.registerHelper('formatDate', function(dateString) {
+    return new Handlebars.SafeString(
+        moment(dateString).format("DD/MM")
+    );
+});
+Handlebars.registerHelper('concat', function(prefix, id) {
+    return (prefix + id);
 });
 
 function createHTML(eventos_data) {
