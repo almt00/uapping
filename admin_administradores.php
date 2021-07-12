@@ -11,13 +11,13 @@
 
 <script> admin_user = true; </script>
 
-<?php $nav_nucleo = true; ?>
+<?php $nav_administradores = true; ?>
 
 <?php include_once "components/cp_header.php" ?>
 
 <?php include_once "components/cp_admin_administradores.php" ?>
 
-<?php include_once "components/cp_navegacao_mobile.php" ?>
+<?php include_once "components/cp_navegacao_mobile_admin.php" ?>
 
 <?php include_once "helpers/help_js.php"?>
 

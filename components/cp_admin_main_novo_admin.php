@@ -31,7 +31,7 @@
                         </section>
                         <section class="row mt-4 mb-5">
                             <article class="col-12 text-center">
-                                <img src="assets/asset_novo_admin.svg">
+                                <img class="img-fluid" src="assets/asset_novo_admin.svg">
                             </article>
                         </section>
                         <section class="row justify-content-center mt-3 mt-md-3">

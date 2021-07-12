@@ -15,7 +15,7 @@
 
 <?php include_once "components/cp_admin_main_novo_admin.php" ?>
 
-<?php include_once "components/cp_navegacao_mobile.php" ?>
+<?php include_once "components/cp_navegacao_mobile_admin.php" ?>
 
 <?php include_once "helpers/help_js.php"?>
 

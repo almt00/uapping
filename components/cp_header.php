@@ -6,17 +6,14 @@ if (!isset($_SESSION['id_user']) || $_SESSION['id_user']==null) {
 ?>
 <header class="container-fluid">
     <nav id="nav-bar" class="row justify-content-around align-items-center align-content-center">
-        <article class="col-6 col-md-3 ">
+        <article class="col-6">
             <a href="home_page.php"> <img style="color:black;" class="img-fluid width-7"
-                                          src="assets/img/logo_texto_preto.svg"> </a>
-            <!-- <p class=""> Amin </p> acabar mais tarde escrever admin no canto-->
+                                          src="assets/img/logo_texto_preto.svg">
+                <span id="role_admin_header" class="role-header"> admin </span>
+                <span id="role_backoffice_header" class="role-header"> backoffice </span>
+            </a>
         </article>
-        <article
-                class="col-md-6 text-left text-md-center align-self-center link-nav display-xs-off display-md-on-block">
-            <a href=""> Guardados </a>
-            <a href=""> Núcleos </a>
-        </article>
-        <article class="col-6 col-md-3 text-right">
+        <article class="col-6 text-right">
             <i class="fas fa-bell icon-size mr-3 mr-md-2"></i>
             <i id="btn_user_menu_mobile" class="fas fa-user-circle icon-size"></i>
         </article>
@@ -85,3 +82,4 @@ if (!isset($_SESSION['id_user']) || $_SESSION['id_user']==null) {
     </menu>
     <background id="background_user_menu" class="black-ground"></background>
 </panel>
+

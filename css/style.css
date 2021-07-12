@@ -74,6 +74,18 @@ footer{
     min-height: 3.3rem;
 }
 
+.role-header{
+    position: absolute;
+    top:-0.3rem;
+    color: black;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-left:0.3rem;
+    display: none;
+}
+
 .section-search-home-page{
     min-height: 18rem;
     background-color: #f28792;
@@ -887,6 +899,7 @@ footer{
     bottom:5rem;
     left:50%;
     width:75%;
+    max-width: 23rem;
     height:3.5rem;
     transform: translateX(-50%);
     background: rgba(242, 225, 225, 0.86);
@@ -1636,6 +1649,31 @@ footer{
 .img-add-administradores{
     margin-bottom:0.5rem;
     height:2.6rem;
+}
+
+.p-administradores_nome{
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    font-size: 1.1rem;
+    margin:0;
+}
+
+.p-administradores_nick{
+    color: #505050;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    font-size: 0.9rem;
+    margin:0;
+}
+
+.art-ban{
+    position: absolute;
+    right:0;
+    top:50%;
+    transform: translateY(-50%);
+    padding-right:1.5rem;
+    min-width:5rem;
 }
 
 /* Displays */

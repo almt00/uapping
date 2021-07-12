@@ -35,6 +35,12 @@ window.onload = function (){
             }
         )
 
+    if(admin_user === true){
+        document.getElementById("role_admin_header").style.display = "inline";
+    } else if(backoffice_user === true){
+        document.getElementById("role_backoffice_header").style.display = "inline";
+    }
+
     /* ------------------ user menu / btn -------------------- */
 
     user_menu = false;
