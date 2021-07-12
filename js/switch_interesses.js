@@ -3,10 +3,39 @@ var checkpills_1, checkpills_2, checkpills_3, checkpills_4, checkpills_5;
 
 /* ------------------ home page / pin bar (todos, interesses) ------------------ */
 
+$(document).ready(function () {
 document.getElementById("interesses").onclick = function (){
     document.getElementById("selector").style.left = "0%";
     document.getElementById("interesses").style.color = "white";
     document.getElementById("todos").style.color = "#1D1D1D";
+
+    var button = "interesses";
+
+    $.ajax({
+        url: '/components/bd_eventos.php', //Jquery carrega serverside.php
+        data: 'button=' + button, // Envia o valor do botão clicado
+        dataType: 'json', //escolhe o tipo de dados
+        type: 'GET', //por default, mas pode ser POST
+    })
+        .done(function (data) {
+            createHTML(data);
+        })
+        .fail(function () { // Se existir um erro no pedido
+            $('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+        })
+    ;
+    return false; // keeps the page from not refreshing
+
+}
+});
+
+function createHTML(eventos_data) {
+    console.log(eventos_data);
+    var raw_template = document.getElementById("eventos_template").innerText;
+    var compiled_template = Handlebars.compile(raw_template);
+    var ourGeneratedHTML = compiled_template(eventos_data);
+    var eventos_conteudo = document.getElementById("eventos_conteudo");
+    eventos_conteudo.innerHTML = ourGeneratedHTML;
 }
 
 document.getElementById("todos").onclick = function (){
