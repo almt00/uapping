@@ -13,7 +13,7 @@
                 <article class="col-12 mt-4 mb-3 px-4">
                     <h2 class="h2-admin-administradores"> Gestão <span> Gretua </span> </h2>
                 </article>
-                <article class="col-12 mt-4 mb-3 px-4">
+                <article class="col-12 mt-1 mb-3 px-4">
                     <h2 class="h2-admin-administradores-sub d-inline-block mr-2"> Administradores </h2>
                     <a href="admin_novo_admin.php"><img class="img-add-administradores" src="assets/admin/add_administradores.svg"></a>
                 </article>
