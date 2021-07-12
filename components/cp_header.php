@@ -7,8 +7,12 @@ if (!isset($_SESSION['id_user']) || $_SESSION['id_user']==null) {
 <header class="container-fluid">
     <nav id="nav-bar" class="row justify-content-around align-items-center align-content-center">
         <article class="col-6">
-            <a href="home_page.php"> <img style="color:black;" class="img-fluid width-7"
-                                          src="assets/img/logo_texto_preto.svg">
+            <a id="home_page_header" href="home_page.php"> <img style="color:black;" class="img-fluid width-7"
+                    src="assets/img/logo_texto_preto.svg"> </a>
+                <a id="home_page_header_admin" href="home_page_admin.php" style="display: none;"> <img style="color:black;" class="img-fluid width-7"
+                            src="assets/img/logo_texto_preto.svg"> </a>
+                    <a id="home_page_header_backoffice" href="home_page_backoffice.php" style="display: none;"> <img style="color:black;" class="img-fluid width-7"
+                                  src="assets/img/logo_texto_preto.svg"> </a>
                 <span id="role_admin_header" class="role-header"> admin </span>
                 <span id="role_backoffice_header" class="role-header"> backoffice </span>
             </a>

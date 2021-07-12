@@ -37,8 +37,14 @@ window.onload = function (){
 
     if(admin_user === true){
         document.getElementById("role_admin_header").style.display = "inline";
+        document.getElementById("home_page_header").style.display = "none"
+        document.getElementById("home_page_header_admin").style.display = "inline"
+        document.getElementById("home_page_header_backoffice").style.display = "none"
     } else if(backoffice_user === true){
         document.getElementById("role_backoffice_header").style.display = "inline";
+        document.getElementById("home_page_header").style.display = "none"
+        document.getElementById("home_page_header_admin").style.display = "none"
+        document.getElementById("home_page_header_backoffice").style.display = "inline"
     }
 
     /* ------------------ user menu / btn -------------------- */
