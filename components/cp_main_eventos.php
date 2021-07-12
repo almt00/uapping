@@ -113,7 +113,6 @@
                                             <img class="ml-3 save_share" src="assets/img/save_white.svg">
                                         </div>
                                     </article>
-
                                 </section>
                             </article>
                             <?php
@@ -200,3 +199,49 @@
     </interesses>
     <background id="background_interesses_menu" class="black-ground"></background>
 </Panel>
+
+<!--TEMPLATE JS AJAX INTERESSES-->
+<script id="eventos_template" type="text/x-handlebars-template">
+    {{#each this}}
+    <article class="col-12" id="eventos" >
+        <section class="row px-4">
+            <article class="col-12 event-card mb-5" id="evento_">
+                <a href="evento_detail.php?id_evento={{id_evento}}">
+                    <section class="row">
+                        <article class="col-12">
+                            <section class="row event-header mb-3">
+                                <titulo class="col-12 mt-3 mb-1">
+                                    <h4 class="h4-eventos" id="nome_evento">{{nome}}</h4>
+                                </titulo>
+                                <article class="col-6">
+                                    <section class="row">
+                                        <data class="col-12 mb-2">
+                                            <img class="mr-1"
+                                                 src="assets/img/calendar_black.svg">
+                                            <p class="d-inline" id="data_evento">{{data}}</p>
+                                        </data>
+                                        <horas class="col-12">
+                                            <img class="mr-1" src="assets/img/clock.svg">
+                                            <p class="d-inline" id="hora_evento">{{hora}}</p>
+                                        </horas>
+                                    </section>
+                                </article>
+                                <nucleo class="col-6 text-right">
+                                    <img src="assets/img/{{imagem_nucleo}}">
+                                </nucleo>
+                            </section>
+                            <section id="background" class="row event-cover"
+                                     style='background-image: url("assets/img/{{imagem}}");'>
+                            </section>
+                        </article>
+                    </section>
+                </a>
+                <div class="card-footer text-right py-1 px-4">
+                    <img class="save_share" src="assets/img/share_white.svg">
+                    <img class="ml-3 save_share" src="assets/img/save_white.svg">
+                </div>
+            </article>
+    </article>
+    {{/each}}
+</script>
+<!--terminar template -->
