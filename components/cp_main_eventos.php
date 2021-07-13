@@ -53,8 +53,8 @@
                 <article class="col-12 mt-5 mb-3 px-4">
                     <h2 class="pl-2 h2-eventos"> Eventos </h2>
                 </article>
-                <div id="eventos_conteudo"></div>
-                <div id="eventos_load">
+                <div id="eventos_conteudo"></div> <!--recebe template handlebars por ajax-->
+                <div id="eventos_load"> <!--recebe sem ser por ajax-->
                 <?php
                 require_once "connections/connection.php";
                 $link = new_db_connection();
@@ -77,7 +77,7 @@
                                                     <article class="col-12">
                                                         <section class="row event-header mb-3 align-items-center">
                                                             <titulo class="col-12 mt-3 mb-1">
-                                                                <h4 class="h4-eventos"> <?= $nome_evento ?> </h4>
+                                                                <h4 class="h2-eventos"> <?= $nome_evento ?> </h4>
                                                             </titulo>
                                                             <article class="col-6">
                                                                 <section class="row">
