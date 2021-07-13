@@ -8,7 +8,7 @@ if (isset($_POST['nome']) && (isset($_POST['username'])) && (isset($_POST['email
     $email = $_POST['email'];
     $password_hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
     $id_curso = $_POST['curso'];
-    $id_interesse = $_POST['interesses'];
+    $id_interesses = $_POST['interesses'];
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
     $query = "INSERT INTO utilizadores (nome_utilizador,nickname_utilizador,email_utilizador,password_hash_utilizador,ref_id_curso) VALUES (?,?,?,?,?)";
@@ -26,7 +26,7 @@ if (isset($_POST['nome']) && (isset($_POST['username'])) && (isset($_POST['email
             mysqli_close($link);
             $link = new_db_connection();
 //para dar vários interesses a serem inseridos na bd sem problemas
-            foreach ($id_interesse as $interesse) {
+            foreach ($id_interesses as $interesse) {
                 $link = new_db_connection();
                 $stmt2 = mysqli_stmt_init($link);
                 $query2 = "INSERT INTO utilizadores_has_interesses (utilizadores_id_utilizador,interesses_id_interesse) VALUES (?,?)";

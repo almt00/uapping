@@ -1,33 +1,34 @@
 <?php
 require_once "../connections/connection.php";
-
 $id_switch = $_GET['id_switch'];
-
 
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
-$query1 = "SELECT eventos.id_evento,eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial 
-                        FROM eventos
-                        INNER JOIN nucleos_oficiais
-                        ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo  
-                        ";
+$query1 = "SELECT eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
+FROM eventos
+INNER JOIN nucleos_oficiais 
+ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo";
 
 $query2= " INNER JOIN nucleos 
-                        ON nucleos_oficiais.ref_id_nucleo = nucleos.id_nucleo
-                        INNER JOIN nucleos_has_interesses 
-                        ON nucleos.id_nucleo = nucleos_has_interesses.nucleos_id_nucleo
-                      	INNER JOIN interesses
-                        ON nucleos_has_interesses.nucleos_id_nucleo = interesses.id_interesse
-                        WHERE nucleos_has_interesses.interesses_id_interesse IN (1,2)
-                        GROUP BY eventos.id_evento,eventos.nome_evento, eventos.data_evento,eventos.hora_evento,eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial";
+ON nucleos_oficiais.ref_id_nucleo = nucleos.id_nucleo
+INNER JOIN nucleos_has_interesses 
+ON nucleos.id_nucleo = nucleos_has_interesses.nucleos_id_nucleo
+INNER JOIN interesses 
+ON nucleos_has_interesses.interesses_id_interesse = interesses.id_interesse
+INNER JOIN utilizadores_has_interesses 
+ON interesses.id_interesse = utilizadores_has_interesses.interesses_id_interesse
+INNER JOIN utilizadores 
+ON utilizadores_has_interesses.utilizadores_id_utilizador = utilizadores.id_utilizador
+WHERE utilizadores.id_utilizador = 48
+GROUP BY eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial";
 
 $query3 = " ORDER BY eventos.data_evento ASC";
 
 if($id_switch=="interesses") {
     $query= $query1. $query2. $query3;
-
 }else{
     $query= $query1. $query3;
+
 }
 
 if (mysqli_stmt_prepare($stmt, $query)) {
@@ -54,4 +55,3 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     echo("Error description: " . mysqli_error($link));
 }
 mysqli_close($link);
-?>

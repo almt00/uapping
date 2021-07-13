@@ -15,8 +15,6 @@ $(document).ready(function () {
         })
             .done(function (data) {
 
-
-
                 createHTML(data);
 
             })
