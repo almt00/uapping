@@ -11,13 +11,9 @@
 
 <script> admin_user = true; </script>
 
-<?php $nav_homepage = true; ?>
-
 <?php include_once "components/cp_header.php" ?>
 
-<?php include_once "components/cp_main_eventos_admin.php" ?>
-
-<?php include_once "components/cp_navegacao_mobile_admin.php" ?>
+<?php include_once "components/cp_admin_criar_evento.php" ?>
 
 <?php include_once "helpers/help_js.php"?>
 

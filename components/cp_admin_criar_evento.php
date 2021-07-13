@@ -2,7 +2,7 @@
     <section class="row">
         <article class="col-12">
             <section class="row sec-top-nucleos">
-                <article class="col-12 section-search-home-page">
+                <article class="col-12 section-search-home-page-admin">
                     <section class="row justify-content-center">
                         <article class="col-12 px-4">
                         </article>
@@ -10,13 +10,31 @@
                 </article>
             </section>
             <section class="row section-criar-nucleo justify-content-center">
-                <article class="col-12 mt-5 mb-3 position-relative">
-                    <h2 class="text-center h2-nucleo_save"> Criar um Núcleo </h2>
+                <article class="col-12 mt-4 mb-3 position-relative">
+                    <h2 class="text-center h2-nucleo_save"> Criar um Evento </h2>
                 </article>
                 <article class="col-12 px-4">
                     <form action="scripts/sc_criar_nucleo.php" method="post" id="criar_nucleo">
                         <section class="row justify-content-center">
-                            <article class="col-12">
+                            <article class="col-12 capa_evento">
+                                <div class="div-icons-sign-up text-center position-relative">
+                                    <img id="clock_icon" class="icon-clock-criar-evento" src="assets/img/clock_cinza.svg"
+                                         alt="profile_icon">
+                                </div>
+                                <input id="nome_evento" class="input_novo_admin mb-3 mb-md-3" type="text" name="nome_evento"
+                                       size="24" placeholder="Nome do Evento" required="required">
+                                <section class="row justify-content-center sec_input_data_hora">
+                                    <article class="col-6 art_input_data_hora pr-2">
+                                        <input id="data" class="input_data_hora mb-3 mb-md-3" type="text" name="data"
+                                               size="24" placeholder="Data" required="required">
+                                        <img id="calendar_icon" class="icon-calendar-criar-evento" src="assets/img/calendar_cinza.svg"
+                                             alt="profile_icon">
+                                    </article>
+                                    <article class="col-6 art_input_data_hora pl-2">
+                                        <input id="hora" class="input_data_hora mb-3 mb-md-3" type="text" name="hora"
+                                               size="24" placeholder="Hora" required="required">
+                                    </article>
+                                </section>
                                 <select required="required" class="custom-select select_criar_nucleo mb-3 mb-md-3"
                                         id="area"
                                         name="area" form="criar_nucleo">
@@ -40,10 +58,32 @@
                                     }
                                     ?>
                                 </select>
-                                <input id="nome" class="input_criar_nucleo mb-3 mb-md-3" type="text" name="nome"
-                                       size="24" placeholder="nome" required="required">
-                                <input id="sigla" class="input_criar_nucleo mb-3 mb-md-3" type="text" name="sigla"
-                                       size="24" placeholder="sigla" required="required">
+                                <select required="required" class="custom-select select_criar_nucleo mb-3 mb-md-3"
+                                        id="area"
+                                        name="area" form="criar_nucleo">
+                                    <?php
+                                    require_once "connections/connection.php";
+                                    $link = new_db_connection();
+                                    $stmt = mysqli_stmt_init($link);
+                                    $query = "SELECT id_interesse, nome_interesse FROM interesses";
+                                    if (mysqli_stmt_prepare($stmt, $query)) {
+                                        if (mysqli_stmt_execute($stmt)) {
+                                            mysqli_stmt_bind_result($stmt, $id_interesse, $nome_interesse);
+                                            while (mysqli_stmt_fetch($stmt)) {
+                                                echo '<option value="' . $id_interesse . '">' . $nome_interesse . '</option>';
+                                            }
+                                        } else {
+                                            echo "Error:" . mysqli_stmt_error($stmt);
+                                        }
+                                        mysqli_stmt_close($stmt);
+                                    } else {
+                                        echo("Error description: " . mysqli_error($link));
+                                    }
+                                    ?>
+                                </select>
+                                <label for="file-upload" class="capa_evento_div mb-3"> <img src="assets/img/img_upload.svg"> </label>
+                                <input id="file-upload" class="input_novo_admin" type="file" name="capa_evento"
+                                       size="24" required="required">
                                 <textarea required="required" name="descricao" placeholder="descrição"
                                           class="form-control text-area-criar-nucleo" id="exampleFormControlTextarea1"
                                           rows="5"></textarea>
@@ -52,7 +92,7 @@
                         <section class="row justify-content-center mt-3 mt-md-3">
                             <article class="col-md-12 mt-3 mt-md-5 px-4">
                                 <input form="criar_nucleo" type="submit" class="mb-2 mb-md-2" style="display: block;"
-                                       value="Submeter" id="criar_nucleo_submit">
+                                       value="adicionar" id="criar_nucleo_submit">
                                 <button id="cancelar_criar_nucleo" class="mb-5" type="button"> cancelar</button>
                             </article>
                         </section>
