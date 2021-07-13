@@ -1719,6 +1719,85 @@ footer{
     outline: none;
 }
 
+.add_eventos_home_page{
+    height:4rem;
+    position: absolute;
+    right:0;
+    top:-2rem;
+    margin-right:1.5rem;
+    filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.26));
+}
+
+/* ADMIN - Criar Evento */
+
+.art_input_data_hora{
+    width: 100%;
+    padding:0;
+}
+
+.sec_input_data_hora{
+    max-width: 100%;
+    width:22rem;
+    margin:0 0 0 50%;
+    transform: translateX(-50%);
+}
+
+.input_data_hora{
+    border-radius: 50pt;
+    padding: 0.8rem 2.8rem 0.8rem 2rem;
+    width: 100%;
+    max-width: 11rem;
+    border: 2px solid #BCBCBC;
+}
+
+.input_data_hora:focus{
+    outline: none;
+}
+
+.input_data_hora::placeholder{
+    color: #adadad;
+}
+
+.icon-clock-criar-evento{
+    position: absolute;
+    top:5.2rem;
+    right:-0.4rem;
+    margin-right:1.2rem;
+    height:1.7rem;
+    z-index: 5;
+}
+
+.icon-calendar-criar-evento{
+    position: absolute;
+    top:0.8rem;
+    right:0.2rem;
+    margin-right:1.2rem;
+    height:1.7rem;
+    z-index: 5;
+}
+
+.capa_evento_div{
+    border-radius: 20pt;
+    border: 2px solid #BCBCBC;
+    width: 100%;
+    max-width: 22rem;
+    text-align: center;
+    height:7rem;
+    margin-left:50%;
+    transform: translateX(-50%);
+}
+
+.capa_evento_div img{
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+    height:3.4rem;
+}
+
+.capa_evento input[type="file"] {
+    display: none;
+}
+
 /* Displays */
 
 .display-xs-block{

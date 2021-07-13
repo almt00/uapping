@@ -25,7 +25,7 @@ if (isset($admin_membro) && $admin_membro==1) {
     <main class="background_cinza container-fluid main-flex">
         <section class="row">
             <article class="col-12">
-                <section class="row section-search-home-page-admin">
+                <section class="row section-search-home-page-admin" style="min-height: 19.5rem;">
                     <article class="col-12">
                         <section class="row justify-content-center mb-3">
                             <article class="col-12 px-4">
@@ -37,7 +37,6 @@ if (isset($admin_membro) && $admin_membro==1) {
                                 <i class="fas fa-search icon-search-top"></i>
                                 <input class="input_search-home-page-admin" type="text" id="search-bar"
                                        name="search_bar">
-                                <!-- <img id="btn_interesses" class="img-filter-top" src="assets/img/filter.svg"> -->
                             </article>
                         </section>
                         <section class="row justify-content-center mt-4">
@@ -59,6 +58,11 @@ if (isset($admin_membro) && $admin_membro==1) {
                                 </Dateslide>
                             </article>
                         </section>
+                    </article>
+                </section>
+                <section class="row justify-content-center">
+                    <article class="col-12 px-4 position-relative">
+                        <a href="admin_criar_evento.php"><img class="add_eventos_home_page" src="assets/admin/add_eventos.svg"></a>
                     </article>
                 </section>
                 <section class="row">
@@ -215,5 +219,5 @@ if (isset($admin_membro) && $admin_membro==1) {
         <background id="background_interesses_menu" class="black-ground"></background>
     </Panel>
 <?php } else {
-    echo "<script>window.location.href='home_page.php'</script>"; // sera q isto é problematico?
+     echo "<script>window.location.href='home_page.php'</script>"; // sera q isto é problematico?
 } ?>
