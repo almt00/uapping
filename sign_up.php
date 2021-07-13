@@ -109,10 +109,10 @@
                                             mysqli_stmt_bind_result($stmt, $id_interesse, $nome_interesse, $icone_interesse);
                                             while (mysqli_stmt_fetch($stmt)) {
                                                 ?>
-                                                <article class="col-6 check-interesse text-left mb-3 check-int-<?=$id_interesse?>">
-                                                    <input name="<?=$nome_interesse?>" id='interesse_<?=$id_interesse?>' type="checkbox" value='<?= $id_interesse ?>' >
-                                                </article>
 
+                                                <article class="col-6 check-interesse text-left mb-3 check-int-<?=$id_interesse?>">
+                                                    <input name="interesses[]" id='interesse_<?=$id_interesse?>' type="checkbox" value='<?= $id_interesse ?>'>
+                                                </article>
                                                 <!--<article class="col-6 check-interesse text-left mb-3"
                                                          style='background-image: url("assets/img/<?/*= $icone_interesse */?>"); background-repeat: no-repeat'>
                                                     <input id='interesse_<?/*=$id_interesse*/?>' type="checkbox" value='<?/*= $id_interesse */?>' >

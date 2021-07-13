@@ -18,7 +18,8 @@ $query2= " INNER JOIN nucleos
                         ON nucleos.id_nucleo = nucleos_has_interesses.nucleos_id_nucleo
                       	INNER JOIN interesses
                         ON nucleos_has_interesses.nucleos_id_nucleo = interesses.id_interesse
-                        WHERE nucleos_has_interesses.interesses_id_interesse IN (1)";
+                        WHERE nucleos_has_interesses.interesses_id_interesse IN (1,2)
+                        GROUP BY eventos.id_evento,eventos.nome_evento, eventos.data_evento,eventos.hora_evento,eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial";
 
 $query3 = " ORDER BY eventos.data_evento ASC";
 
