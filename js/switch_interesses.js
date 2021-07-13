@@ -3,16 +3,10 @@ var checkpills_1, checkpills_2, checkpills_3, checkpills_4, checkpills_5;
 
 /* ------------------ home page / pin bar (todos, interesses) ------------------ */
 
-/* ---clicando no  switch limpar os eventos sem o ajax-- */
-document.getElementById("switch_interesses").onclick = function (){
-    document.getElementById("eventos_load").style.display = "none";
-}
-
-
 $(document).ready(function () {
     $('.capture_id').on('click', function () {
         var id_switch = this.id;
-        console.log(id_switch);
+
         $.ajax({
             url: 'components/bd_eventos.php', //Jquery carrega serverside.php
             data: 'id_switch=' + id_switch, // Envia o valor do botão clicado
@@ -20,11 +14,11 @@ $(document).ready(function () {
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
-                $('#eventos_load').html(''); // Clear #eventos sem ajax div
 
-                if (id_switch == "interesses") {
-                    createHTML(data);
-                }
+
+
+                createHTML(data);
+
             })
             .fail(function () { // Se existir um erro no pedido
                 $('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
@@ -57,6 +51,7 @@ document.getElementById("interesses").onclick = function (){
     document.getElementById("selector").style.left = "0%";
     document.getElementById("interesses").style.color = "white";
     document.getElementById("todos").style.color = "#1D1D1D";
+    document.getElementById("eventos_load").style.display = "none";
 
 }
 
@@ -64,6 +59,7 @@ document.getElementById("todos").onclick = function (){
     document.getElementById("selector").style.left = "50%";
     document.getElementById("interesses").style.color = "#1D1D1D";
     document.getElementById("todos").style.color = "white";
+    document.getElementById("eventos_load").style.display = "none";
 }
 
 /* ------------------ interesses / btn home_page (eventos) -------------------- */
