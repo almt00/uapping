@@ -118,8 +118,8 @@
                         mysqli_stmt_bind_param($stmt_1, 'i', $_SESSION['id_user']);
                         if (mysqli_stmt_execute($stmt_1)) {
                             mysqli_stmt_bind_result($stmt_1, $ref_id_nucleo);
-                            //$result=mysqli_stmt_get_result($stmt_1);
-                            //print_r($result);
+                            mysqli_stmt_fetch($stmt_1);
+
                         } else {
                             echo "Error:" . mysqli_stmt_error($stmt_1);
                         }
@@ -134,16 +134,18 @@
 
                     $link = new_db_connection();
                     $stmt = mysqli_stmt_init($link);
-                    $query = "SELECT nucleos.id_nucleo,nucleos.nome_nucleo, nucleos.descricao_nucleo,nucleos.sigla_nucleo,cores_fantasmas.nome_cor_fantasma
+                    $query = "SELECT nucleos.id_nucleo,nucleos.nome_nucleo, nucleos.descricao_nucleo,nucleos.sigla_nucleo,cores_fantasmas.nome_cor_fantasma,nucleos_membros.ref_id_nucleo,nucleos_membros.ref_id_utilizador
                             FROM nucleos
                             INNER JOIN nucleos_fantasmas
                             ON nucleos.id_nucleo=nucleos_fantasmas.ref_id_nucleo
                             INNER JOIN cores_fantasmas
-                            ON nucleos_fantasmas.ref_id_cor_fantasma=cores_fantasmas.id_cor_fantasma
+                            ON nucleos_fantasmas.ref_id_cor_fantasma=cores_fantasmas.id_cor_fantasma 
+                            LEFT JOIN nucleos_membros
+                            ON nucleos_fantasmas.ref_id_nucleo=nucleos_membros.ref_id_nucleo
                             ORDER BY nucleos.data_insercao_nucleo DESC";
                     if (mysqli_stmt_prepare($stmt, $query)) {
                         if (mysqli_stmt_execute($stmt)) {
-                            mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $descricao_nucleo, $sigla_nucleo, $cor_nucleo);
+                            mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $descricao_nucleo, $sigla_nucleo, $cor_nucleo,$ref_pertence,$ref_utilizador);
                             while (mysqli_stmt_fetch($stmt)) {
                                 ?>
                                 <section class="row mt-3 a-criacao_nucleo">
@@ -174,7 +176,7 @@
                                         </a>
                                         <div id="aderir_nucleo_criacao" class="aderir_criacoes">
                                             <?php
-                                            if ($id_nucleo == $ref_id_nucleo) {
+                                            if (($ref_utilizador==$_SESSION['id_user']) && ($id_nucleo == $ref_pertence)) {
                                                 echo ' <img src="assets/criacoes_nucleos/aderiu_criacoes.svg">';
                                             } else {
                                                 echo '<img src="assets/criacoes_nucleos/aderir_criacoes.svg">';

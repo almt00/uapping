@@ -80,10 +80,24 @@
                                         echo("Error description: " . mysqli_error($link));
                                     }
                                     ?>
+                                    <script>
+                                        function previewFile(input){
+                                            var file = $("input[type=file]").get(0).files[0];
+                                            if(file){
+                                                var reader = new FileReader();
+                                                reader.onload = function(){
+                                                    $('#previewImg').css('background-image', 'url(' +reader.result+ ')');
+                                                    $('#previewImg').css('filter', 'brightness(60%)');
+                                                    console.log(reader);
+                                                }
+                                                reader.readAsDataURL(file);
+                                            }
+                                        }
+                                    </script>
                                 </select>
-                                <label for="file-upload" class="capa_evento_div mb-3"> <img src="assets/img/img_upload.svg"> </label>
+                                <label for="file-upload" class="capa_evento_div mb-3" id="previewImg"> <img src="assets/img/img_upload.svg"> </label>
                                 <input id="file-upload" class="input_novo_admin" type="file" name="capa_evento"
-                                       size="24" required="required">
+                                       size="24" required="required" onchange="previewFile(this);">
                                 <textarea required="required" name="descricao" placeholder="descrição"
                                           class="form-control text-area-criar-nucleo" id="exampleFormControlTextarea1"
                                           rows="5"></textarea>
