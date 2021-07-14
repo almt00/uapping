@@ -1,6 +1,9 @@
 <?php
 require_once "../connections/connection.php";
 $id_switch = $_GET['id_switch'];
+session_start();
+$id_utilizador=$_SESSION["id_user"];
+
 
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
@@ -19,7 +22,7 @@ INNER JOIN utilizadores_has_interesses
 ON interesses.id_interesse = utilizadores_has_interesses.interesses_id_interesse
 INNER JOIN utilizadores 
 ON utilizadores_has_interesses.utilizadores_id_utilizador = utilizadores.id_utilizador
-WHERE utilizadores.id_utilizador = 48
+WHERE utilizadores.id_utilizador = ?
 GROUP BY eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial";
 
 $query3 = " ORDER BY eventos.data_evento ASC";
@@ -28,10 +31,13 @@ if($id_switch=="interesses") {
     $query= $query1. $query2. $query3;
 }else{
     $query= $query1. $query3;
-
 }
 
 if (mysqli_stmt_prepare($stmt, $query)) {
+    if($id_switch=="interesses"){
+        mysqli_stmt_bind_param($stmt, 'i', $id_utilizador);
+    }
+
     if (mysqli_stmt_execute($stmt)) {
         mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $id_nucleo, $imagem_oficial);
         $data = array();
