@@ -1785,6 +1785,9 @@ footer{
     height:7rem;
     margin-left:50%;
     transform: translateX(-50%);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .capa_evento_div img{
@@ -1796,6 +1799,118 @@ footer{
 
 .capa_evento input[type="file"] {
     display: none;
+}
+
+/* BACKOFFICE - users */
+
+.admin-mark{
+    font-size: 0.8rem;
+    font-weight: normal;
+    color: #868686;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.link_edit_users a{
+    text-decoration: none;
+}
+
+/* BACKOFFICE - edit users */
+
+.input_edit_user{
+    color:#BFBFBF;
+}
+
+.icon-nucleo{
+    position: absolute;
+    top:9.5rem;
+    right:-0.2rem;
+    margin-right:1.2rem;
+    height:1.7rem;
+    z-index: 5;
+}
+
+.input_backoffice{
+    border-radius: 50pt;
+    padding: 0.8rem 3.4rem 0.8rem 1.6rem;
+    max-width: 100%;
+    width: 22rem;
+    margin-left:50%;
+    transform: translateX(-50%);
+    border: 2px solid #BCBCBC;
+}
+
+.input_backoffice:focus{
+    outline: none;
+}
+
+.input_backoffice::placeholder{
+    color: #adadad;
+}
+
+.check-bloquear{
+    height: 45px;
+    border-radius: 50px;
+    max-width: 150px;
+    padding: 0 9px;
+    overflow: hidden;
+    border: 2px solid #BCBCBC;
+}
+
+.check-bloquear input[type="checkbox"]{
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    cursor: pointer;
+
+}
+
+.check-bloquear input[type="checkbox"]:checked{
+
+}
+
+.check-bloquear-text{
+    width:100%;
+    height:100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.check-bloquear-text p{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    margin-left:0.8rem;
+    color: #979797;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    margin-bottom:0.2rem;
+    font-size: 1rem;
+}
+
+.check-bloquear-text img{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    margin-left:2rem;
+    color: #979797;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    margin-bottom:0.2rem;
+    font-size: 1rem;
+}
+
+.check-bloquear-text img#ban_vermelho{
+    display: none;
+}
+
+.sec-bloquear{
+    position:relative;
+    max-width: 22rem;
+    width:100%;
+    margin-left:50%;
+    transform: translateX(-50%);
 }
 
 /* Displays */
