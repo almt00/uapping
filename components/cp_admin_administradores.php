@@ -40,14 +40,14 @@ mysqli_close($link);
                 <?php
                 $link = new_db_connection();
                 $stmt = mysqli_stmt_init($link);
-                $query = "SELECT utilizadores.nome_utilizador,utilizadores.nickname_utilizador,utilizadores.ativo_utilizador,utilizadores.ref_id_avatar FROM utilizadores
+                $query = "SELECT utilizadores.nome_utilizador,utilizadores.nickname_utilizador,utilizadores.ativo_utilizador,utilizadores.ref_id_avatar,utilizadores.id_utilizador FROM utilizadores
                         INNER JOIN nucleos_membros
                         ON utilizadores.id_utilizador=nucleos_membros.ref_id_utilizador
                         WHERE nucleos_membros.admin_membro=1 AND nucleos_membros.ref_id_nucleo=1";
                 if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
                     //mysqli_stmt_bind_param($stmt, 'i', $_SESSION['id_user']);
                     mysqli_stmt_execute($stmt); // Execute the prepared statement
-                    mysqli_stmt_bind_result($stmt, $nome, $nickname, $ativo, $avatar);
+                    mysqli_stmt_bind_result($stmt, $nome, $nickname, $ativo, $avatar, $id_utilizador);
                     while (mysqli_stmt_fetch($stmt)) {
                         ?>
                         <article class="col-12 mt-3 px-4">
@@ -67,9 +67,9 @@ mysqli_close($link);
                                 </article>
                                 <article class="col-2 text-right art-ban">
                                     <?php
-                                    if ($ativo == 1) {
+                                    if ($ativo == 1 && $id_utilizador != $_SESSION['id_user']) {
                                         echo '<img src="assets/img/ban_cinza.svg" style="height:2.2rem;">';
-                                    } else {
+                                    } else if ($ativo != 1) {
                                         echo '<img src="assets/img/ban_vermelho.svg" style="height:2.2rem;">';
                                     }
                                     ?>
