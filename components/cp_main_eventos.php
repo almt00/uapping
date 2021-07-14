@@ -77,7 +77,6 @@ ON utilizadores_has_interesses.utilizadores_id_utilizador = utilizadores.id_util
 WHERE utilizadores.id_utilizador = ?
 GROUP BY eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
 ORDER BY eventos.data_evento ASC";
-
                 if (mysqli_stmt_prepare($stmt, $query)) {
                         mysqli_stmt_bind_param($stmt, 'i', $id_utilizador);
 
@@ -172,6 +171,8 @@ ORDER BY eventos.data_evento ASC";
                 </article>
                 <article class="col-12">
                     <section class="row justify-content-start">
+                        <div id="pills_interesses_conteudo"></div> <!--recebe template handlebars por ajax-->
+                        <!--
                         <article id="checkpills_1" class="col-4 check-interesse-pills">
                             <div class="check-interesse-pills-text"><p id="checkpills-text-1"> Cultura </p></div>
                             <input id="checkpills-input-1" name="" value="" type="checkbox">
@@ -191,7 +192,7 @@ ORDER BY eventos.data_evento ASC";
                         <article id="checkpills_5" class="col-4 check-interesse-pills">
                             <div class="check-interesse-pills-text"><p id="checkpills-text-5"> Jogos </p></div>
                             <input id="checkpills-input-5" name="" value="" type="checkbox">
-                        </article>
+                        </article>-->
                     </section>
                 </article>
             </section>
@@ -218,7 +219,7 @@ ORDER BY eventos.data_evento ASC";
     </interesses>
     <background id="background_interesses_menu" class="black-ground"></background>
 </Panel>
-<!--TEMPLATE JS AJAX INTERESSES-->
+<!--TEMPLATE JS AJAX INTERESSES VS TODOS EVENTOS-->
 <script id="eventos_template" type="text/x-handlebars-template">
     {{#each this}}
     <article class="col-12" id="eventos">
@@ -261,6 +262,14 @@ ORDER BY eventos.data_evento ASC";
                 </div>
             </article>
     </article>
+    {{/each}}
+</script>
+<!--terminar template -->
+
+<!--TEMPLATE JS AJAX INTERESSES PILLS-->
+<script id="pills_interesses_template" type="text/x-handlebars-template">
+    {{#each this}}
+        <p id="nome_interesse">{{nome_interesse}}</p>
     {{/each}}
 </script>
 <!--terminar template -->

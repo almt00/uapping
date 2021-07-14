@@ -35,6 +35,7 @@ Handlebars.registerHelper('concat', function(prefix, id) {
     return (prefix + id);
 });
 
+//forma de otimizar melhor isto
 function createHTML(eventos_data) {
     console.log(eventos_data);
     var raw_template = document.getElementById("eventos_template").innerText;
@@ -42,6 +43,14 @@ function createHTML(eventos_data) {
     var ourGeneratedHTML = compiled_template(eventos_data);
     var eventos_conteudo = document.getElementById("eventos_conteudo");
     eventos_conteudo.innerHTML = ourGeneratedHTML;
+}
+
+function createHTML1(interesses) {
+    var raw_template = document.getElementById("pills_interesses_template").innerText;
+    var compiled_template = Handlebars.compile(raw_template);
+    var ourGeneratedHTML = compiled_template(interesses);
+    var pills_interesses_conteudo = document.getElementById("pills_interesses_conteudo");
+    pills_interesses_conteudo.innerHTML = ourGeneratedHTML;
 }
 
 
@@ -86,8 +95,28 @@ document.getElementById("background_interesses_menu").onclick = function (){
     }
 }
 
+$(document).ready(function () {
+    $('#btn_interesses').on('click', function () {
 
+        $.ajax({
+            url: 'components/bd_pills_interesses.php', //Jquery carrega serverside.php
+            //data: 'filtro=' + filtro, // Envia o valor do botão clicado
+            dataType: 'json', //escolhe o tipo de dados
+            type: 'GET', //por default, mas pode ser POST
+        })
+            .done(function (data) {
+                createHTML1(data);
 
+            })
+            .fail(function () { // Se existir um erro no pedido
+                $('#checkpills').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+            })
+        ;
+        return false; // keeps the page from not refreshing
+    });
+});
+
+/*
 checkpills_1 = false;
 document.getElementById("checkpills_1").onclick = function (){
     if (checkpills_1 === false){
@@ -151,4 +180,4 @@ document.getElementById("checkpills_5").onclick = function (){
         document.getElementById("checkpills-text-5").style.color = "#979797";
     }
 }
-
+*/
