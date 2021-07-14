@@ -20,6 +20,7 @@
                                 <select required="required" class="custom-select select_criar_nucleo mb-3 mb-md-3"
                                         id="area"
                                         name="area" form="criar_nucleo">
+                                    <option selected disabled value>escolher área</option>
                                     <?php
                                     require_once "connections/connection.php";
                                     $link = new_db_connection();
