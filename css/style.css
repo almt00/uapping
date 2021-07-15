@@ -2030,6 +2030,50 @@ footer{
     max-width: 22rem;
 }
 
+input[type="date"], input[type="time"]{
+    background-color: white;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    height:2rem;
+    width: 7rem;
+    padding:5rem;
+    opacity: 0;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    height:2rem;
+    width: 7rem;
+    padding:5rem;
+    opacity: 0;
+}
+
+.icon-data{
+    position: absolute;
+    top:0.8rem;
+    right:0.4rem;
+    margin-right:1.2rem;
+    height:1.7rem;
+    z-index: 5;
+}
+
+.icon-hora{
+    position: absolute;
+    top:5.2rem;
+    right:-0.2rem;
+    margin-right:1.2rem;
+    height:1.7rem;
+    z-index: 5;
+}
+
 /* Displays */
 
 .display-xs-block{
