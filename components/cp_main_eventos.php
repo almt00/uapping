@@ -56,15 +56,15 @@
                 <div id="eventos_conteudo"></div> <!--recebe template handlebars por ajax-->
                 <div id="eventos_load"> <!--recebe sem ser por ajax-->
                 <?php
-                $id_utilizador = $_SESSION["id_user"];
                 require_once "connections/connection.php";
                 $link = new_db_connection();
                 $stmt = mysqli_stmt_init($link);
-                $query = "SELECT eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
+                $id_utilizador = $_SESSION["id_user"];
+                $query1="SELECT eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
 FROM eventos
 INNER JOIN nucleos_oficiais 
-ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo
-INNER JOIN nucleos 
+ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo";
+                $query2=" INNER JOIN nucleos 
 ON nucleos_oficiais.ref_id_nucleo = nucleos.id_nucleo
 INNER JOIN nucleos_has_interesses 
 ON nucleos.id_nucleo = nucleos_has_interesses.nucleos_id_nucleo
@@ -74,13 +74,23 @@ INNER JOIN utilizadores_has_interesses
 ON interesses.id_interesse = utilizadores_has_interesses.interesses_id_interesse
 INNER JOIN utilizadores 
 ON utilizadores_has_interesses.utilizadores_id_utilizador = utilizadores.id_utilizador
-WHERE utilizadores.id_utilizador = ?
-GROUP BY eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
+WHERE utilizadores.id_utilizador = ?";
+                $query3= " GROUP BY eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
 ORDER BY eventos.data_evento ASC";
 
+                if(isset($_SESSION["interesses"])){
+                    //$_SESSION["interesses"];
+                    $query = $query1. $query2. $query3;
+                    var_dump($query);exit;
+                }else{
+                    $id_interesses=NULL;
+                    $query = $query1. $query3;
+                    var_dump($query);exit;
+                }
                 if (mysqli_stmt_prepare($stmt, $query)) {
-                        mysqli_stmt_bind_param($stmt, 'i', $id_utilizador);
-
+                if(isset($_SESSION["interesses"])) {
+                    mysqli_stmt_bind_param($stmt, 'i', $id_utilizador);
+                }
                     if (mysqli_stmt_execute($stmt)) {
                         mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $id_nucleo, $imagem_oficial);
                         while (mysqli_stmt_fetch($stmt)) {
@@ -172,6 +182,8 @@ ORDER BY eventos.data_evento ASC";
                 </article>
                 <article class="col-12">
                     <section class="row justify-content-start">
+                        <div id="pills_interesses_conteudo"></div> <!--recebe template handlebars por ajax-->
+                        <!--
                         <article id="checkpills_1" class="col-4 check-interesse-pills">
                             <div class="check-interesse-pills-text"><p id="checkpills-text-1"> Cultura </p></div>
                             <input id="checkpills-input-1" name="" value="" type="checkbox">
@@ -191,7 +203,7 @@ ORDER BY eventos.data_evento ASC";
                         <article id="checkpills_5" class="col-4 check-interesse-pills">
                             <div class="check-interesse-pills-text"><p id="checkpills-text-5"> Jogos </p></div>
                             <input id="checkpills-input-5" name="" value="" type="checkbox">
-                        </article>
+                        </article>-->
                     </section>
                 </article>
             </section>
@@ -218,7 +230,7 @@ ORDER BY eventos.data_evento ASC";
     </interesses>
     <background id="background_interesses_menu" class="black-ground"></background>
 </Panel>
-<!--TEMPLATE JS AJAX INTERESSES-->
+<!--TEMPLATE JS AJAX INTERESSES VS TODOS EVENTOS-->
 <script id="eventos_template" type="text/x-handlebars-template">
     {{#each this}}
     <article class="col-12" id="eventos">
@@ -261,6 +273,14 @@ ORDER BY eventos.data_evento ASC";
                 </div>
             </article>
     </article>
+    {{/each}}
+</script>
+<!--terminar template -->
+
+<!--TEMPLATE JS AJAX INTERESSES PILLS-->
+<script id="pills_interesses_template" type="text/x-handlebars-template">
+    {{#each this}}
+        <p id="nome_interesse">{{nome_interesse}}</p>
     {{/each}}
 </script>
 <!--terminar template -->
