@@ -3,11 +3,6 @@ require_once "../connections/connection.php";
 $id_switch = $_GET['id_switch'];
 session_start();
 $id_utilizador=$_SESSION["id_user"];
-if(isset($_SESSION["interesses"])){
-    $id_interesses=$_SESSION["interesses"];
-}else{
-    $id_interesses=NULL;
-}
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 $query1 = "SELECT eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
@@ -30,14 +25,14 @@ GROUP BY eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT
 
 $query3 = " ORDER BY eventos.data_evento ASC";
 
-if(($id_switch=="interesses")&&(isset($id_interesses))){
+if($id_switch=="interesses"){
     $query= $query1. $query2. $query3;
 }else{
     $query= $query1. $query3;
 }
 
 if (mysqli_stmt_prepare($stmt, $query)) {
-    if(($id_switch=="interesses")&&(isset($id_interesses))){
+    if($id_switch=="interesses"){
         mysqli_stmt_bind_param($stmt, 'i', $id_utilizador);
     }
 
