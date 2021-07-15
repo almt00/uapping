@@ -63,11 +63,11 @@ if (isset($_GET['id_nucleo'])) {
                             }
                             if ($link_insta_oficial != null) {
                                 echo '<a href="' . $link_insta_oficial . '" target="_blank"><img
-                                                class="org-icons-event-detail" src="assets/img/site_icon.svg"></a>';
+                                                class="org-icons-event-detail" src="assets/img/insta_icon.svg"></a>';
                             }
                             if ($link_fb_oficial != null) {
                                 echo '<a href="' . $link_fb_oficial . '" target="_blank"><img
-                                                class="org-icons-event-detail" src="assets/img/site_icon.svg"></a>';
+                                                class="org-icons-event-detail" src="assets/img/face_icon.svg"></a>';
                             }
                             ?>
                         </article>

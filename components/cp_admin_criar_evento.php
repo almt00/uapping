@@ -56,6 +56,20 @@
                                     <option value> entrada </option>
                                     <option value="gratuita"> gratuita </option>
                                     <option value="paga"> paga </option>
+                                    <script>
+                                        function previewFile(input){
+                                            var file = $("input[type=file]").get(0).files[0];
+                                            if(file){
+                                                var reader = new FileReader();
+                                                reader.onload = function(){
+                                                    $('#previewImg').css('background-image', 'url(' +reader.result+ ')');
+                                                    $('#previewImg').css('filter', 'brightness(60%)');
+                                                    console.log(reader);
+                                                }
+                                                reader.readAsDataURL(file);
+                                            }
+                                        }
+                                    </script>
                                 </select>
                                 <input id="preco" class="input_novo_admin mb-3 mb-md-3" type="text" name="preco"
                                        size="24" placeholder="Preço" style="display: none">
