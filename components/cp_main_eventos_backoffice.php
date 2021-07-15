@@ -69,12 +69,8 @@ if (isset($admin_membro) && $admin_membro==1) {
                     $stmt = mysqli_stmt_init($link);
                     $query = "SELECT eventos.id_evento,eventos.nome_evento, eventos.data_evento,eventos.hora_evento,eventos.imagem_evento,eventos.ref_id_nucleo 
                         FROM eventos
-                        INNER JOIN nucleos_oficiais
-                        ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo  
-                        WHERE eventos.ref_id_nucleo=?
                         ORDER BY eventos.data_evento ASC";
                     if (mysqli_stmt_prepare($stmt, $query)) {
-                        mysqli_stmt_bind_param($stmt, 'i', $id_nucleo);
                         if (mysqli_stmt_execute($stmt)) {
                             mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $id_nucleo);
                             while (mysqli_stmt_fetch($stmt)) {
