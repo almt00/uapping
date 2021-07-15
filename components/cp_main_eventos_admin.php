@@ -134,6 +134,7 @@ if (isset($admin_membro) && $admin_membro==1) {
                                     </section>
                                 </article>
                                 <?php
+                                $_SESSION['id_nucleo_admin']=$id_nucleo;
                             }
                         } else {
                             echo "Error:" . mysqli_stmt_error($stmt);

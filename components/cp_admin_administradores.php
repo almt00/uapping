@@ -81,7 +81,8 @@ mysqli_close($link);
                 }
                 mysqli_stmt_store_result($stmt);
                 $rows = mysqli_stmt_num_rows($stmt);
-                if ($rows <= 3) {
+                $n=3;
+                if ($rows <= $n) {
                     echo ' <article class="col-12 mt-4 mb-3 px-4 text-center">
                     <img class="img-fluid" src="assets/asset_administradores.svg">
                 </article>';
