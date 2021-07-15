@@ -18,68 +18,44 @@
                         <section class="row justify-content-center">
                             <article class="col-12 capa_evento">
                                 <div class="div-icons-sign-up text-center position-relative">
+                                    <img id="email_icon" class="icon-hora" src="assets/img/clock_cinza.svg"
+                                         alt="profile_icon">
+                                </div>
+                                <div class="div-icons-sign-up text-center position-relative">
                                     <!--<img id="clock_icon" class="icon-clock-criar-evento" src="assets/img/clock_cinza.svg"
                                          alt="profile_icon">-->
                                 </div>
                                 <input id="nome_evento" class="input_novo_admin mb-3 mb-md-3" type="text" name="nome_evento"
                                        size="24" placeholder="Nome do Evento" required="required">
                                 <section class="row justify-content-center sec_input_data_hora">
-                                    <article class="col-6 art_input_data_hora pr-2">
+                                    <article class="col-6 art_input_data_hora pr-2" style="overflow: hidden;">
+                                        <img id="username_icon" class="icon-data" src="assets/img/calendar_cinza.svg"
+                                             alt="profile_icon" style="">
                                         <input id="data" class="input_data_hora mb-3 mb-md-3" type="date" name="data"
-                                               size="24" placeholder="Data" required="required">
+                                               required="required">
                                         <!--<img id="calendar_icon" class="icon-calendar-criar-evento" src="assets/img/calendar_cinza.svg"
                                              alt="profile_icon">-->
                                     </article>
                                     <article class="col-6 art_input_data_hora pl-2">
                                         <input id="hora" class="input_data_hora mb-3 mb-md-3" type="time" name="hora"
-                                               size="24" placeholder="Hora" required="required">
+                                               required="required">
                                     </article>
                                 </section>
                                 <select required="required" class="custom-select select_criar_nucleo mb-3 mb-md-3"
                                         id="area_1"
                                         name="area_1" form="criar_nucleo">
-                                    <?php
-                                    require_once "connections/connection.php";
-                                    $link = new_db_connection();
-                                    $stmt = mysqli_stmt_init($link);
-                                    $query = "SELECT id_interesse, nome_interesse FROM interesses";
-                                    if (mysqli_stmt_prepare($stmt, $query)) {
-                                        if (mysqli_stmt_execute($stmt)) {
-                                            mysqli_stmt_bind_result($stmt, $id_interesse, $nome_interesse);
-                                            while (mysqli_stmt_fetch($stmt)) {
-                                                echo '<option value="' . $id_interesse . '">' . $nome_interesse . '</option>';
-                                            }
-                                        } else {
-                                            echo "Error:" . mysqli_stmt_error($stmt);
-                                        }
-                                        mysqli_stmt_close($stmt);
-                                    } else {
-                                        echo("Error description: " . mysqli_error($link));
-                                    }
-                                    ?>
+                                    <option value> localização </option>
+                                    <option value="online"> online </option>
+                                    <option value="presencial"> presencial </option>
                                 </select>
+                                <input id="morada" class="input_novo_admin mb-3 mb-md-3" type="text" name="morada"
+                                       size="24" placeholder="Morada" required="required" style="display: none">
                                 <select required="required" class="custom-select select_criar_nucleo mb-3 mb-md-3"
-                                        id="area_1"
-                                        name="area_1" form="criar_nucleo">
-                                    <?php
-                                    require_once "connections/connection.php";
-                                    $link = new_db_connection();
-                                    $stmt = mysqli_stmt_init($link);
-                                    $query = "SELECT id_interesse, nome_interesse FROM interesses";
-                                    if (mysqli_stmt_prepare($stmt, $query)) {
-                                        if (mysqli_stmt_execute($stmt)) {
-                                            mysqli_stmt_bind_result($stmt, $id_interesse, $nome_interesse);
-                                            while (mysqli_stmt_fetch($stmt)) {
-                                                echo '<option value="' . $id_interesse . '">' . $nome_interesse . '</option>';
-                                            }
-                                        } else {
-                                            echo "Error:" . mysqli_stmt_error($stmt);
-                                        }
-                                        mysqli_stmt_close($stmt);
-                                    } else {
-                                        echo("Error description: " . mysqli_error($link));
-                                    }
-                                    ?>
+                                        id="area_2"
+                                        name="area_2" form="criar_nucleo">
+                                    <option value> entrada </option>
+                                    <option value="gratuita"> gratuita </option>
+                                    <option value="paga"> paga </option>
                                     <script>
                                         function previewFile(input){
                                             var file = $("input[type=file]").get(0).files[0];
@@ -95,12 +71,14 @@
                                         }
                                     </script>
                                 </select>
+                                <input id="preco" class="input_novo_admin mb-3 mb-md-3" type="text" name="preco"
+                                       size="24" placeholder="Preço" style="display: none">
                                 <label for="file-upload" class="capa_evento_div mb-3" id="previewImg"> <img src="assets/img/img_upload.svg"> </label>
                                 <input id="file-upload" class="input_novo_admin" type="file" name="capa_evento"
                                        size="24" required="required" onchange="previewFile(this);">
                                 <textarea required="required" name="descricao" placeholder="descrição"
                                           class="form-control text-area-criar-nucleo" id="exampleFormControlTextarea1"
-                                          rows="5"></textarea>
+                                          rows="5" style="padding-left:1.6rem;"></textarea>
                             </article>
                         </section>
                         <section class="row justify-content-center mt-3 mt-md-3">
@@ -131,6 +109,30 @@
 </main>
 
 <script>
+
+    var select_1 = document.getElementById("area_1");
+    var select_2 = document.getElementById("area_2");
+
+    document.getElementById("area_1").onchange = function (){
+        if (select_1.selectedIndex === 2){
+            document.getElementById("morada").style.display = "inline-block";
+            document.getElementById("morada").required = true;
+        } else{
+            document.getElementById("morada").style.display = "none";
+            document.getElementById("morada").required = false;
+        }
+    }
+
+    document.getElementById("area_2").onchange = function (){
+        if (select_2.selectedIndex === 2){
+            document.getElementById("preco").style.display = "inline-block";
+            document.getElementById("preco").required = true;
+        } else{
+            document.getElementById("preco").style.display = "none";
+            document.getElementById("preco").required = false;
+        }
+    }
+
     document.getElementById("cancelar_criar_nucleo").onclick = function () {
         window.history.back();
     }
