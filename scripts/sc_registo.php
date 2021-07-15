@@ -29,7 +29,6 @@ if (isset($_POST['nome']) && (isset($_POST['username'])) && (isset($_POST['email
                 header("Location: ../home_page.php"); // copiado n sei de onde mas era para o feedback
             }else{
                 $id_interesses = $_POST['interesses'];
-                $_SESSION["interesses"] = $id_interesses;
                 //var_dump($id_interesses);exit;
                 foreach ($id_interesses as $interesse) {
                     $link = new_db_connection();
