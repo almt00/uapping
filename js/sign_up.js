@@ -1,14 +1,5 @@
 var sign_up_page;
 var check;
-/*
-$(document).ready(function(){
-    $("form").submit(function(){
-        if ($('input:checkbox').filter(':checked').length < 1){
-            alert("Please Check at least one Check Box");
-            return false;
-        }
-    });
-});*/
 
 window.onload = function () {
     sign_up_page = 1;
@@ -69,20 +60,6 @@ window.onload = function () {
         }
     }
 
-    /*
-        document.getElementsByClassName("caixa").onclick = function () {
-            debugger;
-            if (document.getElementById("avancar_sign_up").disabled === true) {
-                document.getElementById("avancar_sign_up").disabled = false;
-                document.getElementById("avancar_sign_up").style.background = "linear-gradient(90deg, rgba(0,205,144,1) 0%, rgba(0,195,55,1) 100%)";
-            } else {
-                document.getElementById("avancar_sign_up").disabled = true;
-                document.getElementById("avancar_sign_up").style.background = "linear-gradient(90deg, rgba(0,116,82,1) 0%, rgba(0,112,32,1) 100%)";
-            }
-        }
-    }
-    */
-
     function sign_up(direct) {
         if (direct === "avancar") {
             switch (sign_up_page) {
@@ -119,7 +96,6 @@ window.onload = function () {
 
                     document.getElementById("header_6").innerHTML = "Seleciona os teus";
                     document.getElementById("header_3").innerHTML = "interesses";
-                    document.getElementById("avancar_sign_up").disabled = true;
                     sign_up_page = 3;
 
                     break;

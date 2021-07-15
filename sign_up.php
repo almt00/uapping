@@ -112,7 +112,7 @@
                                             while (mysqli_stmt_fetch($stmt)) {
                                                 ?>
                                                 <article class="col-6 check-interesse text-left mb-3 check-int-<?=$id_interesse?>">
-                                                    <input name="interesses[]" class='caixa' id='interesse_<?=$id_interesse?>' type="checkbox" value='<?= $id_interesse ?>'>
+                                                    <input name="interesses[]" id='interesse_<?=$id_interesse?>' type="checkbox" value='<?= $id_interesse ?>'>
                                                 </article>
                                                 <!--<article class="col-6 check-interesse text-left mb-3"
                                                          style='background-image: url("assets/img/<?/*= $icone_interesse */?>"); background-repeat: no-repeat'>
