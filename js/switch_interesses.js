@@ -14,8 +14,7 @@ $(document).ready(function () {
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
-
-                createHTML(data);
+                createHTMLDinamyc("eventos_template","eventos_conteudo", data);
 
             })
             .fail(function () { // Se existir um erro no pedido
@@ -35,22 +34,12 @@ Handlebars.registerHelper('concat', function(prefix, id) {
     return (prefix + id);
 });
 
-//forma de otimizar melhor isto
-function createHTML(eventos_data) {
-    console.log(eventos_data);
-    var raw_template = document.getElementById("eventos_template").innerText;
+function createHTMLDinamyc(templateId, placeID, data) {
+    var raw_template = document.getElementById(templateId).innerText;
     var compiled_template = Handlebars.compile(raw_template);
-    var ourGeneratedHTML = compiled_template(eventos_data);
-    var eventos_conteudo = document.getElementById("eventos_conteudo");
-    eventos_conteudo.innerHTML = ourGeneratedHTML;
-}
-
-function createHTML1(interesses) {
-    var raw_template = document.getElementById("pills_interesses_template").innerText;
-    var compiled_template = Handlebars.compile(raw_template);
-    var ourGeneratedHTML = compiled_template(interesses);
-    var pills_interesses_conteudo = document.getElementById("pills_interesses_conteudo");
-    pills_interesses_conteudo.innerHTML = ourGeneratedHTML;
+    var ourGeneratedHTML = compiled_template(data);
+    var place = document.getElementById(placeID);
+    place.innerHTML = ourGeneratedHTML;
 }
 
 
@@ -105,7 +94,7 @@ $(document).ready(function () {
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
-                createHTML1(data);
+                createHTMLDinamyc("pills_interesses_template","pills_interesses_conteudo", data);
 
             })
             .fail(function () { // Se existir um erro no pedido

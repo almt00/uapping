@@ -39,6 +39,7 @@
                                     $data_pill = date("Y-m-d", strtotime("+" . $n . "days"));
                                     if ($n >= 2) {
                                         echo '<dia class="date-slide-elements slide-dias ml-2" id="pill_' . $n . '">' . date('j', strtotime($data_pill)) . '</dia>';
+                                        //var_dump($data_pill);
                                     }
                                 }
                                 ?>
@@ -74,7 +75,7 @@ INNER JOIN utilizadores_has_interesses
 ON interesses.id_interesse = utilizadores_has_interesses.interesses_id_interesse
 INNER JOIN utilizadores 
 ON utilizadores_has_interesses.utilizadores_id_utilizador = utilizadores.id_utilizador
-WHERE utilizadores.id_utilizador = ? AND data_evento>NOW()
+WHERE utilizadores.id_utilizador = ? AND data_evento>NOW() AND hora_evento>NOW()
 GROUP BY eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
 ORDER BY eventos.data_evento ASC";
                     if (mysqli_stmt_prepare($stmt, $query)) {
@@ -236,7 +237,6 @@ ORDER BY eventos.data_evento ASC";
                                         <data class="col-12 mb-2">
                                             <img class="mr-1"
                                                  src="assets/img/calendar_black.svg">
-
                                             <p class="d-inline" id="data_evento">{{formatDate data}}</p>
                                         </data>
                                         <horas class="col-12">

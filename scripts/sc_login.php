@@ -33,7 +33,7 @@ if (isset($_POST['email']) && (isset($_POST['pass']))) {
                 mysqli_stmt_close($stmt);
                 mysqli_close($link);
             } else {
-                header("Location: ../Log_In.php?msg=2");
+                header("Location: ../Log_In.php?msg=1");
             }
         }
     }

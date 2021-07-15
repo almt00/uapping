@@ -40,14 +40,8 @@
                                type="password"
                                name="pass" size="24" placeholder="password">
                         <?php
-                        if (isset($_GET['msg'])) {
-                            switch ($_GET['msg']) {
-                                case 1:
-                                    echo '<div class="text-center"><p class="text-warning" >A password está errada, por favor tenta novamente!</p></div>';
-                                    break;
-                                case 2:
-                                    echo '<div class="text-center"><p class="text-warning">O email que inseriste ainda não está registado, por favor tenta novamente!</p></div>';
-                            }
+                        if (isset($_GET['msg'])&&($_GET['msg']==1)) {
+                                    echo '<div class="text-center alert alert-danger p-2 m-3"><p class="text-dark m-0">Email ou password incorreta</p></div>';
                         }
                         ?>
                     </article>

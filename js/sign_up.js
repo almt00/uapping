@@ -1,6 +1,38 @@
 var sign_up_page;
 var check;
 
+$(document).ready(function () {
+    $('#departamentos').on('change', function () {
+        var val = $(this).val();
+
+        $.ajax({
+            url: 'components/bd_cursos.php', //Jquery carrega serverside.php
+            data: 'departamento=' + val, // Envia o valor do botão clicado
+            dataType: 'json', //escolhe o tipo de dados
+            type: 'GET', //por default, mas pode ser POST
+        })
+            .done(function (data) {
+
+                createHTMLDinamyc("cursos_template", "cursos", data);
+
+            })
+            .fail(function () { // Se existir um erro no pedido
+                $('#selector').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+            })
+        ;
+        return false; // keeps the page from not refreshing
+    });
+});
+
+
+function createHTMLDinamyc(templateId, placeID, data) {
+    var raw_template = document.getElementById(templateId).innerText;
+    var compiled_template = Handlebars.compile(raw_template);
+    var ourGeneratedHTML = compiled_template(data);
+    var place = document.getElementById(placeID);
+    place.innerHTML = ourGeneratedHTML;
+}
+
 window.onload = function () {
     sign_up_page = 1;
     check = false;

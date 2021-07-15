@@ -6,6 +6,8 @@
 
     <?php include_once "helpers/help_meta.php" ?>
 
+    <?php include_once "helpers/help_js.php" ?>
+
 </head>
 <body class="background_roxo">
 
@@ -48,6 +50,7 @@
                                name="pass_confirm" size="24" placeholder="confirma a password">
                         <select required="" class="custom-select select_sign_up mb-3 mb-md-3" id="departamentos"
                                 name="departamento" form="sign_up">
+                            <option value="0" >Seleciona departamento</option>
                             <?php
                             require_once "connections/connection.php";
                             $link = new_db_connection();
@@ -70,25 +73,28 @@
                         </select>
                         <select required="required" class="custom-select select_sign_up mb-2 mb-md-2" id="cursos"
                                 name="curso" form="sign_up">
-                            <option value> Cursos</option>
+                            <option value>Cursos</option>
+
+
                             <?php
+                            /*
                             $stmt = mysqli_stmt_init($link);
                             $query = "SELECT id_curso, nome_curso, ref_id_departamento FROM cursos";
                             if (mysqli_stmt_prepare($stmt, $query)) {
                                 if (mysqli_stmt_execute($stmt)) {
                                     mysqli_stmt_bind_result($stmt, $id_curso, $nome_curso, $ref_id_departamento);
-                                    while (mysqli_stmt_fetch($stmt)) {
-                                        echo '<option value="' . $id_curso . '"> ' . $nome_curso . '</option>';
-                                    }
-                                } else {
-                                    echo "Error:" . mysqli_stmt_error($stmt);
-                                }
-                                mysqli_stmt_close($stmt);
-                            } else {
-                                echo("Error description: " . mysqli_error($link));
-                            }
-                            ?>
+                                    while (mysqli_stmt_fetch($stmt)) {*/
 
+                            //echo '<option value="' . $id_curso . '"> ' . $nome_curso . '</option>';
+                            /*}
+                        } else {
+                            echo "Error:" . mysqli_stmt_error($stmt);
+                        }
+                        mysqli_stmt_close($stmt);
+                    } else {
+                        echo("Error description: " . mysqli_error($link));
+                    }*/
+                            ?>
                         </select>
                         <div id="hr_meca" class="border_bottom_meca"></div>
                         <label id="check" class="box"> Já pertenço à direção de um núcleo
@@ -97,7 +103,6 @@
                         </label>
                         <input id="credenciais" class="input_sign_up mt-3 mt-md-3" type="text" name="credenciais"
                                size="24" placeholder="credenciais">
-
 
 
                         <section class="row" id="interesses_card">
@@ -111,12 +116,14 @@
                                             mysqli_stmt_bind_result($stmt, $id_interesse, $nome_interesse, $icone_interesse);
                                             while (mysqli_stmt_fetch($stmt)) {
                                                 ?>
-                                                <article class="col-6 check-interesse text-left mb-3 check-int-<?=$id_interesse?>">
-                                                    <input name="interesses[]" id='interesse_<?=$id_interesse?>' type="checkbox" value='<?= $id_interesse ?>'>
+                                                <article
+                                                        class="col-6 check-interesse text-left mb-3 check-int-<?= $id_interesse ?>">
+                                                    <input name="interesses[]" id='interesse_<?= $id_interesse ?>'
+                                                           type="checkbox" value='<?= $id_interesse ?>'>
                                                 </article>
                                                 <!--<article class="col-6 check-interesse text-left mb-3"
-                                                         style='background-image: url("assets/img/<?/*= $icone_interesse */?>"); background-repeat: no-repeat'>
-                                                    <input id='interesse_<?/*=$id_interesse*/?>' type="checkbox" value='<?/*= $id_interesse */?>' >
+                                                         style='background-image: url("assets/img/<?/*= $icone_interesse */ ?>"); background-repeat: no-repeat'>
+                                                    <input id='interesse_<?/*=$id_interesse*/ ?>' type="checkbox" value='<?/*= $id_interesse */ ?>' >
                                                 </article>-->
                                                 <?php
                                             }
@@ -187,6 +194,12 @@
         </article>
     </section>
 </main>
+
+<script id="cursos_template" type="text/x-handlebars-template">
+    {{#each this}}
+    <option id="selector">{{nome_curso}}</option>
+    {{/each}}
+</script>
 
 <script src="js/sign_up.js"></script>
 
