@@ -100,7 +100,7 @@
                                        size="24" required="required" onchange="previewFile(this);">
                                 <textarea required="required" name="descricao" placeholder="descrição"
                                           class="form-control text-area-criar-nucleo" id="exampleFormControlTextarea1"
-                                          rows="5"></textarea>
+                                          rows="5" style="padding-left:1.6rem;"></textarea>
                             </article>
                         </section>
                         <section class="row justify-content-center mt-3 mt-md-3">

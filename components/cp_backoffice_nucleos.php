@@ -14,7 +14,7 @@
                     <h2 class="h2-admin-administradores-sub d-inline-block mr-2"> Núcleos </h2>
                 </article>
                     <article class="col-12 px-4 mt-3">
-                        <a href="">
+                        <a href="backoffice_add_nucleo.php">
                         <div class="art-nucleo-criacao"
                              style='background-image: url("assets/img/cover_criar_nucleo.svg");'>
                             <img class="sinal-mais-criacoes"
