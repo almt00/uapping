@@ -19,7 +19,7 @@
             </a>
         </site>
         <site class="col-3 text-center">
-            <a href="nucleos.php">
+            <a href="backoffice_nucleos.php">
                 <?php if (isset($nav_nucleo) && $nav_nucleo === true){ ?>
                     <img src="assets/barra_navegacao/nav_nucleo_filled.svg">
                 <?php } else{ ?>
