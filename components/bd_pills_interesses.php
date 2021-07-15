@@ -3,33 +3,44 @@ require_once "../connections/connection.php";
 
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
-$query = "SELECT nucleos.id_nucleo, nucleos.nome_nucleo,
-GROUP_CONCAT(nucleos_has_interesses.interesses_id_interesse) AS 'interesses_id', GROUP_CONCAT(interesses.nome_interesse) AS 'interesses_nome'
-FROM nucleos
-INNER JOIN nucleos_has_interesses ON nucleos.id_nucleo = nucleos_has_interesses.nucleos_id_nucleo
-INNER JOIN interesses ON nucleos_has_interesses.interesses_id_interesse = interesses.id_interesse
-GROUP BY nucleos.id_nucleo";
-
-
+$query = "SELECT id_interesse, nome_interesse FROM interesses";
 if (mysqli_stmt_prepare($stmt, $query)) {
+    $data = array('interesses' => array(), 'nucleos' => array());
     if (mysqli_stmt_execute($stmt)) {
-        mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $id_interesse, $nome_interesse);
-        $data = array();
+        mysqli_stmt_bind_result($stmt,  $id_interesse, $nome_interesse);
+
         while (mysqli_stmt_fetch($stmt)) {
             $row_result = array();
             $row_result["id_interesse"] = htmlspecialchars($id_interesse);
             $row_result["nome_interesse"] = htmlspecialchars($nome_interesse);
-            $row_result["nome_nucleo"] = htmlspecialchars($nome_nucleo);
-            $row_result["id_nucleo"] = htmlspecialchars($id_nucleo);
-            $data[] = $row_result;
+            $data['interesses'][] = $row_result;
         }
-        print json_encode($data);
+        $stmt2 = mysqli_stmt_init($link);
+        $query2 = "SELECT id_nucleo, nome_nucleo FROM nucleos";
+        if (mysqli_stmt_prepare($stmt2, $query2)) {
+            if (mysqli_stmt_execute($stmt2)) {
+                mysqli_stmt_bind_result($stmt2,  $id_nucleo, $nome_nucleo);
+                while (mysqli_stmt_fetch($stmt2)) {
+                    $row_result = array();
+                    $row_result["id_nucleo"] = htmlspecialchars($id_nucleo);
+                    $row_result["nome_nucleo"] = htmlspecialchars($nome_nucleo);
+                    $data['nucleos'][] = $row_result;
+                }
+
+            } else {
+                echo "Error:" . mysqli_stmt_error($stmt2);
+            }
+            mysqli_stmt_close($stmt2);
+
     } else {
         echo "Error:" . mysqli_stmt_error($stmt);
     }
+
+        print json_encode($data);
     mysqli_stmt_close($stmt);
 } else {
     echo("Error description: " . mysqli_error($link));
+}
 }
 mysqli_close($link);
 

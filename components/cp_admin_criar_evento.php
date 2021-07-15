@@ -14,30 +14,30 @@
                     <h2 class="text-center h2-nucleo_save"> Criar um Evento </h2>
                 </article>
                 <article class="col-12 px-4">
-                    <form action="scripts/sc_criar_nucleo.php" method="post" id="criar_nucleo">
+                    <form action="scripts/sc_criar_evento.php" method="post" id="criar_evento">
                         <section class="row justify-content-center">
                             <article class="col-12 capa_evento">
                                 <div class="div-icons-sign-up text-center position-relative">
-                                    <img id="clock_icon" class="icon-clock-criar-evento" src="assets/img/clock_cinza.svg"
-                                         alt="profile_icon">
+                                    <!--<img id="clock_icon" class="icon-clock-criar-evento" src="assets/img/clock_cinza.svg"
+                                         alt="profile_icon">-->
                                 </div>
                                 <input id="nome_evento" class="input_novo_admin mb-3 mb-md-3" type="text" name="nome_evento"
                                        size="24" placeholder="Nome do Evento" required="required">
                                 <section class="row justify-content-center sec_input_data_hora">
                                     <article class="col-6 art_input_data_hora pr-2">
-                                        <input id="data" class="input_data_hora mb-3 mb-md-3" type="text" name="data"
+                                        <input id="data" class="input_data_hora mb-3 mb-md-3" type="date" name="data"
                                                size="24" placeholder="Data" required="required">
-                                        <img id="calendar_icon" class="icon-calendar-criar-evento" src="assets/img/calendar_cinza.svg"
-                                             alt="profile_icon">
+                                        <!--<img id="calendar_icon" class="icon-calendar-criar-evento" src="assets/img/calendar_cinza.svg"
+                                             alt="profile_icon">-->
                                     </article>
                                     <article class="col-6 art_input_data_hora pl-2">
-                                        <input id="hora" class="input_data_hora mb-3 mb-md-3" type="text" name="hora"
+                                        <input id="hora" class="input_data_hora mb-3 mb-md-3" type="time" name="hora"
                                                size="24" placeholder="Hora" required="required">
                                     </article>
                                 </section>
                                 <select required="required" class="custom-select select_criar_nucleo mb-3 mb-md-3"
-                                        id="area"
-                                        name="area" form="criar_nucleo">
+                                        id="area_1"
+                                        name="area_1" form="criar_nucleo">
                                     <?php
                                     require_once "connections/connection.php";
                                     $link = new_db_connection();
@@ -59,8 +59,8 @@
                                     ?>
                                 </select>
                                 <select required="required" class="custom-select select_criar_nucleo mb-3 mb-md-3"
-                                        id="area"
-                                        name="area" form="criar_nucleo">
+                                        id="area_1"
+                                        name="area_1" form="criar_nucleo">
                                     <?php
                                     require_once "connections/connection.php";
                                     $link = new_db_connection();
@@ -105,7 +105,7 @@
                         </section>
                         <section class="row justify-content-center mt-3 mt-md-3">
                             <article class="col-md-12 mt-3 mt-md-5 px-4">
-                                <input form="criar_nucleo" type="submit" class="mb-2 mb-md-2" style="display: block;"
+                                <input form="criar_evento" type="submit" class="mb-2 mb-md-2" style="display: block;"
                                        value="adicionar" id="criar_nucleo_submit">
                                 <button id="cancelar_criar_nucleo" class="mb-5" type="button"> cancelar</button>
                             </article>

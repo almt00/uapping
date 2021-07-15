@@ -18,7 +18,7 @@
                                 </selector>
                                 <section style="height:100%;"
                                          class="row sec-selector-home-page text-center align-content-center">
-                                    <article id="interesses"  class="capture_id switch-interesses col-6">
+                                    <article id="interesses" class="capture_id switch-interesses col-6">
                                         <p> Interesses </p>
                                     </article>
                                     <article id="todos" class="capture_id switch-todos col-6" style="color:#1D1D1D;">
@@ -55,12 +55,12 @@
                 </article>
                 <div id="eventos_conteudo"></div> <!--recebe template handlebars por ajax-->
                 <div id="eventos_load"> <!--recebe sem ser por ajax-->
-                <?php
-                require_once "connections/connection.php";
-                $link = new_db_connection();
-                $stmt = mysqli_stmt_init($link);
-                $id_utilizador = $_SESSION["id_user"];
-                $query="SELECT eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
+                    <?php
+                    require_once "connections/connection.php";
+                    $link = new_db_connection();
+                    $stmt = mysqli_stmt_init($link);
+                    $id_utilizador = $_SESSION["id_user"];
+                    $query = "SELECT eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
 FROM eventos
 INNER JOIN nucleos_oficiais 
 ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo
@@ -74,15 +74,15 @@ INNER JOIN utilizadores_has_interesses
 ON interesses.id_interesse = utilizadores_has_interesses.interesses_id_interesse
 INNER JOIN utilizadores 
 ON utilizadores_has_interesses.utilizadores_id_utilizador = utilizadores.id_utilizador
-WHERE utilizadores.id_utilizador = ?
+WHERE utilizadores.id_utilizador = ? AND data_evento>NOW()
 GROUP BY eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
 ORDER BY eventos.data_evento ASC";
-                if (mysqli_stmt_prepare($stmt, $query)) {
-                    mysqli_stmt_bind_param($stmt, 'i', $id_utilizador);
-                    if (mysqli_stmt_execute($stmt)) {
-                        mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $id_nucleo, $imagem_oficial);
-                        while (mysqli_stmt_fetch($stmt)) {
-                            ?>
+                    if (mysqli_stmt_prepare($stmt, $query)) {
+                        mysqli_stmt_bind_param($stmt, 'i', $id_utilizador);
+                        if (mysqli_stmt_execute($stmt)) {
+                            mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $id_nucleo, $imagem_oficial);
+                            while (mysqli_stmt_fetch($stmt)) {
+                                ?>
                                 <article class="col-12">
                                     <section class="row px-4">
                                         <article class="col-12 event-card mb-5">
@@ -131,20 +131,20 @@ ORDER BY eventos.data_evento ASC";
                                         </article>
                                     </section>
                                 </article>
-                            <?php
+                                <?php
+                            }
+                        } else {
+                            echo "Error:" . mysqli_stmt_error($stmt);
                         }
+                        mysqli_stmt_close($stmt);
                     } else {
-                        echo "Error:" . mysqli_stmt_error($stmt);
+                        echo("Error description: " . mysqli_error($link));
                     }
-                    mysqli_stmt_close($stmt);
-                } else {
-                    echo("Error description: " . mysqli_error($link));
-                }
-                mysqli_close($link);
-                ?>
-            </div>
-            </section>
-        </article>
+                    mysqli_close($link);
+                    ?>
+                </div>
+    </section>
+    </article>
     </section>
     <footer class="row justify-content-center py-5">
         <article class="col-3 text-center">
@@ -267,8 +267,11 @@ ORDER BY eventos.data_evento ASC";
 
 <!--TEMPLATE JS AJAX INTERESSES PILLS-->
 <script id="pills_interesses_template" type="text/x-handlebars-template">
-    {{#each this}}
-        <p id="nome_interesse">{{nome_interesse}}</p>
+    {{#each this.interesses}}
+    <p id="nome_interesse">{{nome_interesse}}</p>
+    {{/each}}
+    {{#each this.nucleos}}
+    <span class="">{{nome_nucleo}}</span>
     {{/each}}
 </script>
 <!--terminar template -->

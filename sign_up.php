@@ -41,7 +41,7 @@
                         <input id="username" required="" class="input_sign_up mb-3 mb-md-3" type="text"
                                name="username" size="24" placeholder="username">
                         <input id="email" required="" class="input_sign_up mb-3 mb-md-3" type="email"
-                               name="email" size="24" placeholder="email">
+                               name="email" size="24" placeholder="exemplo@ua.pt">
                         <input id="pass" required="" class="input_sign_up mb-3 mb-md-3" type="password"
                                name="pass" size="24" placeholder="password">
                         <input id="pass_confirm" required="" class="input_sign_up mb-3 mb-md-3" type="password"
@@ -112,7 +112,7 @@
                                             while (mysqli_stmt_fetch($stmt)) {
                                                 ?>
                                                 <article class="col-6 check-interesse text-left mb-3 check-int-<?=$id_interesse?>">
-                                                    <input name="interesses[]" class='caixa' id='interesse_<?=$id_interesse?>' type="checkbox" value='<?= $id_interesse ?>'>
+                                                    <input name="interesses[]" id='interesse_<?=$id_interesse?>' type="checkbox" value='<?= $id_interesse ?>'>
                                                 </article>
                                                 <!--<article class="col-6 check-interesse text-left mb-3"
                                                          style='background-image: url("assets/img/<?/*= $icone_interesse */?>"); background-repeat: no-repeat'>
