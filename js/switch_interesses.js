@@ -36,14 +36,20 @@ $(document).ready(function () {
         console.log('search: ' + search);
         $.ajax({
             url: 'components/bd_search.php', //Jquery carrega serverside.php
-            data: 'search=' + search , // Envia o valor do botão clicado
+            data: 'search=' + search, // Envia o valor do botão clicado
             dataType: 'json', //escolhe o tipo de dados
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
                 console.log('sucesso');
-                $('#eventos_conteudo').html('');
-                createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
+                $("#eventos_load").removeAttr("style").hide();
+                if(data == ""){
+                    document.getElementById("eventos_conteudo").innerHTML = "Infelizmente. Não há resultados para a sua pesquisa..";
+                    document.getElementById("eventos_conteudo").style.margin= "auto";
+                }else{
+                    reateHTMLDinamyc("eventos_template", "eventos_conteudo", data);
+                }
+
             })
             .fail(function () { // Se existir um erro no pedido
                 console.log('erro');
