@@ -14,7 +14,7 @@ $(document).ready(function () {
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
-                createHTMLDinamyc("eventos_template","eventos_conteudo", data);
+                createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
 
             })
             .fail(function () { // Se existir um erro no pedido
@@ -24,13 +24,38 @@ $(document).ready(function () {
         return false; // keeps the page from not refreshing
     });
 });
+// teste search
+$(document).ready(function () {
+    console.log('teste');
+    $('#search-bar').on('keyup', function () {
+        console.log('keyup');
+        var search = this.value;
+        console.log('search: ' + search);
+        $.ajax({
+            url: 'components/bd_search.php', //Jquery carrega serverside.php
+            data: 'search=' + search , // Envia o valor do botão clicado
+            dataType: 'json', //escolhe o tipo de dados
+            type: 'GET', //por default, mas pode ser POST
+        })
+            .done(function (data) {
+                console.log('sucesso');
 
-Handlebars.registerHelper('formatDate', function(dateString) {
+                createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
+            })
+            .fail(function () { // Se existir um erro no pedido
+                console.log('erro');
+                $('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+            });
+        return false; // keeps the page from not refreshing
+    });
+});
+
+Handlebars.registerHelper('formatDate', function (dateString) {
     return new Handlebars.SafeString(
         moment(dateString).format("DD/MM")
     );
 });
-Handlebars.registerHelper('concat', function(prefix, id) {
+Handlebars.registerHelper('concat', function (prefix, id) {
     return (prefix + id);
 });
 
@@ -43,7 +68,7 @@ function createHTMLDinamyc(templateId, placeID, data) {
 }
 
 
-document.getElementById("interesses").onclick = function (){
+document.getElementById("interesses").onclick = function () {
     document.getElementById("selector").style.left = "0%";
     document.getElementById("interesses").style.color = "white";
     document.getElementById("todos").style.color = "#1D1D1D";
@@ -51,7 +76,7 @@ document.getElementById("interesses").onclick = function (){
 
 }
 
-document.getElementById("todos").onclick = function (){
+document.getElementById("todos").onclick = function () {
     document.getElementById("selector").style.left = "50%";
     document.getElementById("interesses").style.color = "#1D1D1D";
     document.getElementById("todos").style.color = "white";
@@ -62,21 +87,20 @@ document.getElementById("todos").onclick = function (){
 
 
 interesses_menu = false;
-document.getElementById("btn_interesses").onclick = function (){
-    if (interesses_menu === false){
+document.getElementById("btn_interesses").onclick = function () {
+    if (interesses_menu === false) {
         document.getElementById("panel_interesses_menu_mobile").style.display = "block";
-        setTimeout(function (){
+        setTimeout(function () {
             document.getElementById("interesses_menu").style.bottom = "0";
-        },10)
+        }, 10)
         document.body.style.overflow = "hidden";
         interesses_menu = true;
     }
 }
 
 
-
-document.getElementById("background_interesses_menu").onclick = function (){
-    if (interesses_menu === true){
+document.getElementById("background_interesses_menu").onclick = function () {
+    if (interesses_menu === true) {
         document.getElementById("panel_interesses_menu_mobile").style.display = "none";
         document.getElementById("interesses_menu").style.bottom = "-32rem";
         document.body.style.overflow = "auto";
@@ -94,7 +118,7 @@ $(document).ready(function () {
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
-                createHTMLDinamyc("pills_interesses_template","pills_interesses_conteudo", data);
+                createHTMLDinamyc("pills_interesses_template", "pills_interesses_conteudo", data);
 
             })
             .fail(function () { // Se existir um erro no pedido
