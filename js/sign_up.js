@@ -1,5 +1,5 @@
 var sign_up_page;
-var check;
+var interesses, avancar_interesse;
 
 $(document).ready(function () {
     $('#departamentos').on('change', function () {
@@ -35,7 +35,6 @@ function createHTMLDinamyc(templateId, placeID, data) {
 
 window.onload = function () {
     sign_up_page = 1;
-    check = false;
     document.getElementById("submit").disabled = true;
 
     document.getElementById("submit").onmouseover = function () {
@@ -71,17 +70,6 @@ window.onload = function () {
         sign_up("recuar");
     }
 
-    document.getElementById("d1").onclick = function () {
-        if (check === false) {
-            document.getElementById("credenciais").style.display = "block";
-            check = true;
-        } else {
-            document.getElementById("credenciais").style.display = "none";
-            document.getElementById("credenciais").value = "";
-            check = false;
-        }
-    }
-
     document.getElementById("d2").onclick = function () {
         if (document.getElementById("submit").disabled === true) {
             document.getElementById("submit").disabled = false;
@@ -89,6 +77,12 @@ window.onload = function () {
         } else {
             document.getElementById("submit").disabled = true;
             document.getElementById("submit").style.background = "linear-gradient(90deg, rgba(0,116,82,1) 0%, rgba(0,112,32,1) 100%)";
+        }
+    }
+
+    function interesses_check(interesses){
+        if (document.getElementById("interesse_" + interesses).checked === true){
+            avancar_interesse = true;
         }
     }
 
@@ -109,8 +103,6 @@ window.onload = function () {
 
                     document.getElementById("departamentos").style.display = "inline-block";
                     document.getElementById("cursos").style.display = "inline-block";
-                    document.getElementById("hr_meca").style.display = "block";
-                    document.getElementById("check").style.display = "block";
 
                     document.getElementById("header_3").style.display = "block";
                     document.getElementById("header_6").innerHTML = "Insere os teus";
@@ -120,9 +112,6 @@ window.onload = function () {
                 case 2:
                     document.getElementById("departamentos").style.display = "none";
                     document.getElementById("cursos").style.display = "none";
-                    document.getElementById("hr_meca").style.display = "none";
-                    document.getElementById("check").style.display = "none";
-                    document.getElementById("credenciais").style.display = "none";
 
                     document.getElementById("interesses_card").style.display = "flex";
 
@@ -132,18 +121,33 @@ window.onload = function () {
 
                     break;
                 case 3:
-                    document.getElementById("termos_sign_up").style.display = "flex";
-                    document.getElementById("submit").style.display = "block";
-                    document.getElementById("avancar_sign_up").style.display = "none";
-                    document.getElementById("check_2").style.display = "block";
-                    document.getElementById("interesses_card").style.display = "none";
+                    for (interesses = 1; interesses <= 5; interesses++) {
+                        switch (interesses){
+                            case 1: interesses_check(interesses); break;
+                            case 2: interesses_check(interesses); break;
+                            case 3: interesses_check(interesses); break;
+                            case 4: interesses_check(interesses); break;
+                            case 5: interesses_check(interesses); break;
+                        }
+                    }
+                    if(avancar_interesse === true){
+                        avancar_interesse = false;
+                        document.getElementById("termos_sign_up").style.display = "flex";
+                        document.getElementById("submit").style.display = "block";
+                        document.getElementById("avancar_sign_up").style.display = "none";
+                        document.getElementById("check_2").style.display = "block";
+                        document.getElementById("interesses_card").style.display = "none";
+                        document.getElementById("feedback_interesses").style.display = "none";
 
-                    document.getElementById("header_6").style.display = "none";
-                    document.getElementById("header_3").style.display = "none";
-                    document.getElementById("header_4").style.display = "block";
-                    document.getElementById("header_4").innerHTML = "Termos";
+                        document.getElementById("header_6").style.display = "none";
+                        document.getElementById("header_3").style.display = "none";
+                        document.getElementById("header_4").style.display = "block";
+                        document.getElementById("header_4").innerHTML = "Termos";
 
-                    sign_up_page = 4;
+                        sign_up_page = 4;
+                    } else{
+                        document.getElementById("feedback_interesses").style.display = "block";
+                    }
                     break;
             }
         } else {
@@ -163,8 +167,6 @@ window.onload = function () {
 
                     document.getElementById("departamentos").style.display = "none";
                     document.getElementById("cursos").style.display = "none";
-                    document.getElementById("hr_meca").style.display = "none";
-                    document.getElementById("check").style.display = "none";
 
                     document.getElementById("header_1").style.display = "block";
                     document.getElementById("header_6").innerHTML = "Cria a tua conta";
@@ -176,16 +178,13 @@ window.onload = function () {
                 case 3:
                     document.getElementById("departamentos").style.display = "inline-block";
                     document.getElementById("cursos").style.display = "inline-block";
-                    document.getElementById("hr_meca").style.display = "block";
-                    document.getElementById("check").style.display = "block";
                     document.getElementById("interesses_card").style.display = "none";
+                    document.getElementById("feedback_interesses").style.display = "none";
 
                     document.getElementById("header_6").innerHTML = "Insere os teus";
                     document.getElementById("header_3").innerHTML = "Dados da UA";
                     document.getElementById("avancar_sign_up").disabled = false;
-                    if (check === true) {
-                        document.getElementById("credenciais").style.display = "block";
-                    }
+
                     sign_up_page = 2;
                     break;
                 case 4:

@@ -258,6 +258,7 @@ ORDER BY eventos.data_evento ASC";
                 <div class="card-footer text-right py-1 px-4">
                     <img class="save_share" src="assets/img/share_white.svg">
                     <img class="ml-3 save_share" src="assets/img/save_white.svg">
+                    <!-- <img class="ml-3 save_share" src="assets/img/saved_orange.svg"> -->
                 </div>
             </article>
     </article>
