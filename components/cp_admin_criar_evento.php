@@ -14,7 +14,7 @@
                     <h2 class="text-center h2-nucleo_save"> Criar um Evento </h2>
                 </article>
                 <article class="col-12 px-4">
-                    <form action="scripts/sc_criar_evento.php" method="post" id="criar_evento">
+                    <form action="scripts/sc_criar_evento.php" method="post" id="criar_evento" enctype="multipart/form-data">
                         <section class="row justify-content-center">
                             <article class="col-12 capa_evento">
                                 <div class="div-icons-sign-up text-center position-relative">
@@ -43,7 +43,7 @@
                                 </section>
                                 <select required="required" class="custom-select select_criar_nucleo mb-3 mb-md-3"
                                         id="area_1"
-                                        name="area_1" form="criar_nucleo">
+                                        name="area_1" form="criar_evento">
                                     <option value> localização </option>
                                     <option value="online"> online </option>
                                     <option value="presencial"> presencial </option>
@@ -52,7 +52,7 @@
                                        size="24" placeholder="Morada" required="required" style="display: none">
                                 <select required="required" class="custom-select select_criar_nucleo mb-3 mb-md-3"
                                         id="area_2"
-                                        name="area_2" form="criar_nucleo">
+                                        name="area_2" form="criar_evento">
                                     <option value> entrada </option>
                                     <option value="gratuita"> gratuita </option>
                                     <option value="paga"> paga </option>
@@ -71,10 +71,10 @@
                                         }
                                     </script>
                                 </select>
-                                <input id="preco" class="input_novo_admin mb-3 mb-md-3" type="text" name="preco"
+                                <input id="preco" class="input_novo_admin mb-3 mb-md-3" type="number" step="any" name="preco"
                                        size="24" placeholder="Preço" style="display: none">
-                                <label for="file-upload" class="capa_evento_div mb-3" id="previewImg"> <img src="assets/img/img_upload.svg"> </label>
-                                <input id="file-upload" class="input_novo_admin" type="file" name="capa_evento"
+                                <label for="fileToUpload" class="capa_evento_div mb-3" id="previewImg"> <img src="assets/img/img_upload.svg"> </label>
+                                <input id="fileToUpload" class="fileToUpload" type="file" name="fileToUpload"
                                        size="24" required="required" onchange="previewFile(this);">
                                 <textarea required="required" name="descricao" placeholder="descrição"
                                           class="form-control text-area-criar-nucleo" id="exampleFormControlTextarea1"
