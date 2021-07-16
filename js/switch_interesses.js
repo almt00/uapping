@@ -14,6 +14,8 @@ $(document).ready(function () {
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
+                $("#eventos_load").removeAttr("style").hide();
+
                 createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
 
             })
@@ -29,6 +31,7 @@ $(document).ready(function () {
     console.log('teste');
     $('#search-bar').on('keyup', function () {
         console.log('keyup');
+
         var search = this.value;
         console.log('search: ' + search);
         $.ajax({
@@ -38,8 +41,7 @@ $(document).ready(function () {
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
-                console.log('sucesso');
-
+                $('#eventos_conteudo').html('');
                 createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
             })
             .fail(function () { // Se existir um erro no pedido
