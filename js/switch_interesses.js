@@ -41,6 +41,7 @@ $(document).ready(function () {
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
+                console.log('sucesso');
                 $('#eventos_conteudo').html('');
                 createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
             })

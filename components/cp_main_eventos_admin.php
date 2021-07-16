@@ -87,7 +87,7 @@ if (isset($admin_membro) && $admin_membro==1) {
                                 <article class="col-12">
                                     <section class="row px-4">
                                         <article class="col-12 event-card mb-5">
-                                            <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
+                                            <a href="admin_editar_evento.php?id_evento=<?= $id_evento ?>">
                                                 <section class="row">
                                                     <article class="col-12">
                                                         <section class="row event-header mb-3 align-items-center">

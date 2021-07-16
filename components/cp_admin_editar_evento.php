@@ -11,7 +11,7 @@
             </section>
             <section class="row section-criar-nucleo justify-content-center">
                 <article class="col-12 mt-4 mb-3 position-relative">
-                    <h2 class="text-center h2-nucleo_save"> Criar um Evento </h2>
+                    <h2 class="text-center h2-nucleo_save"> Editar um Evento </h2>
                 </article>
                 <article class="col-12 px-4">
                     <form action="scripts/sc_criar_evento.php" method="post" id="criar_evento" enctype="multipart/form-data">
@@ -112,6 +112,22 @@
 
     var select_1 = document.getElementById("area_1");
     var select_2 = document.getElementById("area_2");
+
+    if (select_1.selectedIndex === 2){
+        document.getElementById("morada").style.display = "inline-block";
+        document.getElementById("morada").required = true;
+    } else{
+        document.getElementById("morada").style.display = "none";
+        document.getElementById("morada").required = false;
+    }
+
+    if (select_2.selectedIndex === 2){
+        document.getElementById("preco").style.display = "inline-block";
+        document.getElementById("preco").required = true;
+    } else{
+        document.getElementById("preco").style.display = "none";
+        document.getElementById("preco").required = false;
+    }
 
     document.getElementById("area_1").onchange = function (){
         if (select_1.selectedIndex === 2){

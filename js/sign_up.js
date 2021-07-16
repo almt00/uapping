@@ -1,5 +1,6 @@
 var sign_up_page;
 var interesses, avancar_interesse;
+var v_pass, v_email;
 
 $(document).ready(function () {
     $('#departamentos').on('change', function () {
@@ -86,28 +87,72 @@ window.onload = function () {
         }
     }
 
+    function verify_pass(){
+        if (document.getElementById("pass").value == ""){
+            document.getElementById("pass").style.backgroundColor = "#ff6161";
+            document.getElementById("feedback_pass_verify").innerHTML = "Password inválida";
+            v_pass = false;
+        } else if (document.getElementById("pass_confirm").value != document.getElementById("pass").value){
+            document.getElementById("pass").style.backgroundColor = "white";
+            document.getElementById("pass_confirm").style.backgroundColor = "#ff6161";
+            document.getElementById("feedback_pass_verify").innerHTML = "Confirmação da Password inválida";
+            v_pass = false;
+        } else{
+            document.getElementById("pass").style.backgroundColor = "white";
+            document.getElementById("pass_confirm").style.backgroundColor = "white";
+            v_pass = true;
+            document.getElementById("feedback_pass").style.display = "none";
+        }
+    }
+
+    function verify_mail(){
+        if (document.getElementById("email").value.indexOf("@ua.pt") != -1){
+            v_email = true;
+            document.getElementById("feedback_email").style.display = "none";
+        } else{
+            document.getElementById("feedback_email_verify").innerHTML = "Email inválido";
+            v_email = false;
+        }
+    }
+
     function sign_up(direct) {
         if (direct === "avancar") {
             switch (sign_up_page) {
                 case 1:
-                    document.getElementById("nome").style.display = "none";
-                    document.getElementById("nome_icon").style.display = "none";
-                    document.getElementById("username").style.display = "none";
-                    document.getElementById("username_icon").style.display = "none";
-                    document.getElementById("email").style.display = "none";
-                    document.getElementById("email_icon").style.display = "none";
-                    document.getElementById("pass").style.display = "none";
-                    document.getElementById("pass_icon").style.display = "none";
-                    document.getElementById("pass_confirm").style.display = "none";
-                    document.getElementById("header_1").style.display = "none";
+                    verify_mail();
+                    verify_pass();
+                    if (v_pass === true && v_email === true){
+                        v_pass = false;
+                        v_email = false;
+                        document.getElementById("nome").style.display = "none";
+                        document.getElementById("nome_icon").style.display = "none";
+                        document.getElementById("username").style.display = "none";
+                        document.getElementById("username_icon").style.display = "none";
+                        document.getElementById("email").style.display = "none";
+                        document.getElementById("email_icon").style.display = "none";
+                        document.getElementById("pass").style.display = "none";
+                        document.getElementById("pass_icon").style.display = "none";
+                        document.getElementById("pass_confirm").style.display = "none";
+                        document.getElementById("feedback_pass").style.display = "none";
+                        document.getElementById("feedback_email").style.display = "none";
+                        document.getElementById("header_1").style.display = "none";
 
-                    document.getElementById("departamentos").style.display = "inline-block";
-                    document.getElementById("cursos").style.display = "inline-block";
+                        document.getElementById("departamentos").style.display = "inline-block";
+                        document.getElementById("cursos").style.display = "inline-block";
 
-                    document.getElementById("header_3").style.display = "block";
-                    document.getElementById("header_6").innerHTML = "Insere os teus";
-                    document.getElementById("header_3").innerHTML = "Dados da UA";
-                    sign_up_page = 2;
+                        document.getElementById("header_3").style.display = "block";
+                        document.getElementById("header_6").innerHTML = "Insere os teus";
+                        document.getElementById("header_3").innerHTML = "Dados da UA";
+                        sign_up_page = 2;
+                    } else{
+                        if (v_pass != true){
+                            document.getElementById("feedback_pass").style.display = "block";
+                        }
+                        if (v_email != true){
+                            document.getElementById("feedback_email").style.display = "block";
+                        }
+
+                    }
                     break;
                 case 2:
                     document.getElementById("departamentos").style.display = "none";
