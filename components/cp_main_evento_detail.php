@@ -52,7 +52,7 @@ WHERE eventos.id_evento=?";
                         <article class="col-12 mb-4 px-event-detail">
                             <section class="row justify-content-between">
                                 <data class="col-6 mb-3 caixa-evento-detail">
-                                    <img class="mr-2 evento-detail-icon" src="assets/img/calendar_black.svg">
+                                    <img class="mr-2 evento-detail-icon" src="assets/img/calendar_cinza.svg">
                                     <p class="d-inline evento-detail-text"> <?php
                                         if (date('Y-m-d') == $data_evento) {
                                             echo "Hoje";
@@ -65,7 +65,7 @@ WHERE eventos.id_evento=?";
                                 </data>
                                 <horas class="col-5 mb-3 horas-preco-evento-detail">
                                     <div class="div-horas">
-                                        <img class="mr-2 evento-detail-icon" src="assets/img/clock.svg">
+                                        <img class="mr-2 evento-detail-icon" src="assets/img/clock_cinza.svg">
                                         <p class="d-inline evento-detail-text"> <?= date('G:i', strtotime($hora_evento)) ?> </p>
                                     </div>
                                 </horas>
@@ -141,7 +141,7 @@ WHERE eventos.id_evento=?";
                         <?php
                         if ($link_fb_evento != null) {
                             echo '<article class="col-12 mb-5 text-center px-event-detail" >
-                                <a href="' . $link_fb_evento . '" target="_blank">
+                                <a style="text-decoration: none; color:black;" href="' . $link_fb_evento . '" target="_blank">
                             <div class="links-face-out-event-detail"> Evento no Facebook</div></a>
                             <img class="mr-2 links-face-icon" src="assets/img/facebook_cinza.svg">
                         </article>';
