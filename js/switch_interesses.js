@@ -30,23 +30,25 @@ $(document).ready(function () {
     $('#search-bar').on('keyup', function () {
         console.log('keyup');
         var search = this.value;
-        console.log('search: ' + search);
-        $.ajax({
-            url: 'components/bd_search.php', //Jquery carrega serverside.php
-            data: 'search=' + search , // Envia o valor do botão clicado
-            dataType: 'json', //escolhe o tipo de dados
-            type: 'GET', //por default, mas pode ser POST
-        })
-            .done(function (data) {
-                console.log('sucesso');
-
-                createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
+        if (search!=='') {
+            $.ajax({
+                url: 'components/bd_search.php', //Jquery carrega serverside.php
+                data: 'search=' + search , // Envia o valor do botão clicado
+                dataType: 'json', //escolhe o tipo de dados
+                type: 'GET', //por default, mas pode ser POST
             })
-            .fail(function () { // Se existir um erro no pedido
-                console.log('erro');
-                $('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
-            });
-        return false; // keeps the page from not refreshing
+                .done(function (data) {
+                    console.log('sucesso');
+
+                    createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
+                })
+                .fail(function () { // Se existir um erro no pedido
+                    console.log('erro');
+                    $('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+                });
+            return false; // keeps the page from not refreshing
+        }
+
     });
 });
 

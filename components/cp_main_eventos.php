@@ -75,7 +75,7 @@ INNER JOIN utilizadores_has_interesses
 ON interesses.id_interesse = utilizadores_has_interesses.interesses_id_interesse
 INNER JOIN utilizadores 
 ON utilizadores_has_interesses.utilizadores_id_utilizador = utilizadores.id_utilizador
-WHERE utilizadores.id_utilizador = ? AND data_evento>NOW() AND hora_evento>NOW()
+WHERE utilizadores.id_utilizador = ? AND data_evento>NOW()
 GROUP BY eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
 ORDER BY eventos.data_evento ASC";
                     if (mysqli_stmt_prepare($stmt, $query)) {
@@ -86,7 +86,7 @@ ORDER BY eventos.data_evento ASC";
                                 ?>
                                 <article class="col-12">
                                     <section class="row px-4">
-                                        <article class="col-12 event-card mb-5">
+                                        <div class="col-12 event-card mb-5">
                                             <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
                                                 <section class="row">
                                                     <article class="col-12">
@@ -125,7 +125,15 @@ ORDER BY eventos.data_evento ASC";
                                                     </article>
                                                 </section>
                                             </a>
-                                            <div class="card-footer text-right py-1 px-4">
+                                            <div class="card-footer p-eventos text-right py-1 px-4">
+                                                <!--
+                                                <article class="mb-5 text-left">
+                                                    <div class="mr-1 people-bubble-event-detail bg-profile"
+                                                         style='background-image: url("assets/img/smells_rock_1.jpg");'></div>
+                                                    <div class="mr-1 people-bubble-event-detail bg-profile"></div>
+                                                    <div class="mr-1 people-bubble-event-detail bg-profile"></div>
+                                                    <div class="people-bubble-event-detail"><span> +3 </span></div>
+                                                </article>-->
                                                 <img class="save_share" src="assets/img/share_white.svg">
                                                 <img class="ml-3 save_share" src="assets/img/save_white.svg">
                                             </div>

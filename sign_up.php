@@ -83,7 +83,7 @@
                         </select>
                         <select required="required" class="custom-select select_sign_up mb-2 mb-md-2" id="cursos"
                                 name="curso" form="sign_up">
-                            <option value>Cursos</option>
+                            <option value="0">Cursos</option>
 
 
                             <?php
@@ -207,7 +207,7 @@
 
 <script id="cursos_template" type="text/x-handlebars-template">
     {{#each this}}
-    <option id="selector">{{nome_curso}}</option>
+    <option id="selector" value="{{id_curso}}">{{nome_curso}}</option>
     {{/each}}
 </script>
 
