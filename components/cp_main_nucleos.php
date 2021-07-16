@@ -69,7 +69,7 @@
                                     } ?>
                                             ">
                                         <a href="nucleos_detail.php?id_nucleo=<?= $id_nucleo ?>">
-                                            <div class="nucleo_card" style="background-image: ;">
+                                            <div class="nucleo_card" style='background-image: url("assets/nucleos/cover_nucleo_azul.svg");'>
                                                 <div class="row align-items-center sec_nucleo_card_img">
                                                     <div class="col-4 art_nucleo_card min-nucleo-card">
                                                         <img src="assets/img/<?= $imagem_oficial ?>">

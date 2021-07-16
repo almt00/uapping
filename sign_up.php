@@ -96,14 +96,6 @@
                     }*/
                             ?>
                         </select>
-                        <div id="hr_meca" class="border_bottom_meca"></div>
-                        <label id="check" class="box"> Já pertenço à direção de um núcleo
-                            <input type="checkbox" id="d1">
-                            <span class="checkmark-1"></span>
-                        </label>
-                        <input id="credenciais" class="input_sign_up mt-3 mt-md-3" type="text" name="credenciais"
-                               size="24" placeholder="credenciais">
-
 
                         <section class="row" id="interesses_card">
                             <article class="col-12">
@@ -121,6 +113,7 @@
                                                     <input name="interesses[]" id='interesse_<?= $id_interesse ?>'
                                                            type="checkbox" value='<?= $id_interesse ?>'>
                                                 </article>
+
                                                 <!--<article class="col-6 check-interesse text-left mb-3"
                                                          style='background-image: url("assets/img/<?/*= $icone_interesse */ ?>"); background-repeat: no-repeat'>
                                                     <input id='interesse_<?/*=$id_interesse*/ ?>' type="checkbox" value='<?/*= $id_interesse */ ?>' >
@@ -158,8 +151,15 @@
                                      <article class="col-6 check-interesse text-right">
                                      </article>
                                  </section>-->
+
                             </article>
                         </section>
+                        <section class="row">
+                            <article class="col-12">
+                                <div id="feedback_interesses" style="display: none;" class="text-center alert alert-danger p-2 m-3"><p class="text-dark m-0">Selecione pelo menos um interesse!</p></div>
+                            </article>
+                        </section>
+
                         <section id="termos_sign_up" class="row justify-content-center">
                             <article class="col-11 col-md-12">
                                 <p class="termos_info text-justify"> Lorem ipsum dolor sit amet, consectetur adipiscing
