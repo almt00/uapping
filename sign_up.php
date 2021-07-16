@@ -48,6 +48,16 @@
                                name="pass" size="24" placeholder="password">
                         <input id="pass_confirm" required="" class="input_sign_up mb-3 mb-md-3" type="password"
                                name="pass_confirm" size="24" placeholder="confirma a password">
+                        <section class="row">
+                            <article class="col-12">
+                                <div id="feedback_email" style="display: none;" class="text-center alert alert-danger p-2 m-3"><p id="feedback_email_verify" class="text-dark m-0"> </p></div>
+                            </article>
+                        </section>
+                        <section class="row">
+                            <article class="col-12">
+                                <div id="feedback_pass" style="display: none;" class="text-center alert alert-danger p-2 m-3"><p id="feedback_pass_verify" class="text-dark m-0"> </p></div>
+                            </article>
+                        </section>
                         <select required="" class="custom-select select_sign_up mb-3 mb-md-3" id="departamentos"
                                 name="departamento" form="sign_up">
                             <option value="0" >Seleciona departamento</option>
