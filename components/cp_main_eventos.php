@@ -75,7 +75,7 @@ INNER JOIN utilizadores_has_interesses
 ON interesses.id_interesse = utilizadores_has_interesses.interesses_id_interesse
 INNER JOIN utilizadores 
 ON utilizadores_has_interesses.utilizadores_id_utilizador = utilizadores.id_utilizador
-WHERE utilizadores.id_utilizador = ? AND data_evento>NOW() AND hora_evento>NOW()
+WHERE utilizadores.id_utilizador = ? AND data_evento>NOW()
 GROUP BY eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
 ORDER BY eventos.data_evento ASC";
                     if (mysqli_stmt_prepare($stmt, $query)) {

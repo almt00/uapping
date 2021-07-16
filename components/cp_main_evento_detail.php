@@ -119,7 +119,7 @@ WHERE eventos.id_evento=?";
                                 });
                             </script>
                             <div class="d-inline position-relative">
-                                <img class="ml-3 evento-detail-icon" src="assets/img/save.svg">
+                                <img class="ml-3 evento-detail-icon save" name="<?=$id_evento?>" src="assets/img/save.svg">
                                 <p class="tag-share-save-event-detail" style="margin-left:0.4rem"> Guardar </p>
                             </div>
                         </article>
