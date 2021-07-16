@@ -890,7 +890,10 @@ footer{
     color: white;
 }
 
-
+.feedback_interesse{
+    color: #ff4848;
+    text-align: center;
+}
 
 /* nav mobile */
 
@@ -1117,7 +1120,7 @@ footer{
 .nucleo_card{
     width:100%;
     height: 6rem;
-    background-color: red;
+    background-color: white;
     border-radius: 25px;
     background-repeat: no-repeat;
     background-size: cover;

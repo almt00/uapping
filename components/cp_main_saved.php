@@ -20,10 +20,10 @@
                         </selector>
                         <section style="height:100%;"
                                  class="row sec-selector-home-page text-center align-content-center">
-                            <article id="ativos" class="switch-interesses col-6">
+                            <article id="ativos" class="capture_saved_id switch-interesses col-6">
                                 <p> Ativos </p>
                             </article>
-                            <article id="passados" class="switch-todos col-6" style="color:#1D1D1D;">
+                            <article id="passados" class="capture_saved_id switch-todos col-6" style="color:#1D1D1D;">
                                 <p> Passados </p>
                             </article>
                         </section>
@@ -38,6 +38,7 @@
 
                 <article class="col-12 mt-4">
                     <section class="row px-4">
+                        <div id="eventos_guardados_conteudo"></div>
                         <?php
                         require_once "connections/connection.php";
                         $link = new_db_connection();
@@ -99,7 +100,7 @@
                                     </a>
                                     <div class="card-footer text-right py-1 px-4">
                                         <img class="save_share" src="assets/img/share_white.svg">
-                                        <img class="ml-3 save_share" src="assets/img/saved_white.svg">
+                                        <img class="ml-3 save_share" src="assets/img/saved_orange.svg">
                                     </div>
                                 </article>
                             <?php

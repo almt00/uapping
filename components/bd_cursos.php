@@ -15,7 +15,6 @@ if (mysqli_stmt_prepare($stmt, $query)) {
             $row_result["id_curso"] = htmlspecialchars($id_curso);
             $row_result["nome_curso"] = htmlspecialchars($nome_curso);
             $data[] = $row_result;
-            //echo '<option value="' . $id_curso . '"> ' . $nome_curso . '</option>';
         }
         print json_encode($data);
     } else {
