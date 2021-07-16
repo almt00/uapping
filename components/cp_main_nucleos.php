@@ -69,7 +69,7 @@
                                     } ?>
                                             ">
                                         <a href="nucleos_detail.php?id_nucleo=<?= $id_nucleo ?>">
-                                            <div class="nucleo_card" style='background-image: url("assets/nucleos/cover_nucleo_azul.svg");'>
+                                            <div class="nucleo_card mb-3" style='background-image: url("assets/nucleos/cover_nucleo_azul.svg");'>
                                                 <div class="row align-items-center sec_nucleo_card_img">
                                                     <div class="col-4 art_nucleo_card min-nucleo-card">
                                                         <img src="assets/img/<?= $imagem_oficial ?>">
@@ -94,9 +94,29 @@
                         mysqli_close($link);
                         ?>
 
+                        <article class="col-6 mb-3" style="<?php if ($padding === false) { ?>
+                                padding-right:8px;
+                            <?php $padding = true;
+                        } else { ?>
+                                padding-left:8px;
+                            <?php $padding = false;
+                        } ?> ">
+                            <a href="criar_nucleo.php">
+                            <section class="row">
+                                <article class="col-12">
+                                    <div class="art-nucleo-criacao"
+                                         style='background-image: url("assets/img/cover_criar_nucleo.svg");'>
+                                        <img class="sinal-mais-criacoes"
+                                             src="assets/criacoes_nucleos/sinal_mais_criacoes.svg">
+                                    </div>
+                                </article>
+                            </section>
+                            </a>
+                        </article>
                     </section>
 
                 </article>
+
                 <article id="nucleos_criacoes" class="col-12 px-4">
                     <a href="criar_nucleo.php">
                         <section class="row mb-5">
