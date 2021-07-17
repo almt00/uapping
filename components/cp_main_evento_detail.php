@@ -119,9 +119,10 @@ WHERE eventos.id_evento=?";
                                 });
                             </script>
                             <div class="d-inline position-relative">
-                                <img class="ml-3 evento-detail-icon save" name="<?=$id_evento?>" src="assets/img/save.svg">
+                                <img class="ml-3 evento-detail-icon save" id="removeGuardado" name="<?=$id_evento?>" src="assets/img/save.svg">
+                                <img class="ml-3 evento-detail-icon save" id="addGuardado" name="<?=$id_evento?>" src="assets/img/saved_orange.svg">
                                 <!-- <img class="ml-3 save_share" src="assets/img/saved_orange.svg"> -->
-                                <p class="tag-share-save-event-detail" style="margin-left:0.4rem"> Guardar </p>
+                                <p class="tag-share-save-event-detail" id="info_save" style="margin-left:0.4rem"> Guardar </p>
                             </div>
                         </article>
                         <article class="col-12 mb-2 px-event-detail">
