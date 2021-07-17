@@ -1,19 +1,23 @@
 <?php
 require_once "connections/connection.php";
 $link = new_db_connection();
+$id_utilizador=$_SESSION["id_user"];
 if (isset($_GET['id_evento'])) {
     $id_evento = $_GET['id_evento'];
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
-    $query = "SELECT eventos.id_evento,eventos.nome_evento, eventos.data_evento,eventos.hora_evento,eventos.imagem_evento,eventos.local_evento,eventos.descricao_evento,eventos.ref_id_nucleo,eventos.preco_evento,eventos.link_fb_evento, nucleos_oficiais.imagem_oficial, nucleos_oficiais.link_fb_oficial,nucleos_oficiais.link_insta_oficial,nucleos_oficiais.link_site_oficial
+    $query = "SELECT eventos_guardados.eventos_id_evento, eventos.id_evento,eventos.nome_evento, eventos.data_evento,eventos.hora_evento,eventos.imagem_evento,eventos.local_evento,eventos.descricao_evento,eventos.ref_id_nucleo,eventos.preco_evento,eventos.link_fb_evento, nucleos_oficiais.imagem_oficial, nucleos_oficiais.link_fb_oficial,nucleos_oficiais.link_insta_oficial,nucleos_oficiais.link_site_oficial
 FROM eventos
+LEFT JOIN eventos_guardados 
+ON eventos.id_evento = eventos_guardados.eventos_id_evento AND eventos_guardados.utilizadores_id_utilizador = ?
 INNER JOIN nucleos_oficiais
 ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo
-WHERE eventos.id_evento=?";
+WHERE eventos.id_evento= ?";
+
     if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
-        mysqli_stmt_bind_param($stmt, 'i', $id_evento);
+        mysqli_stmt_bind_param($stmt, 'ii', $id_utilizador, $id_evento);
         mysqli_stmt_execute($stmt); // Execute the prepared statement
-        mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $local_evento, $descricao_evento, $id_nucleo, $preco_evento, $link_fb_evento, $imagem_oficial, $link_fb_oficial, $link_insta_oficial, $link_site_oficial);
+        mysqli_stmt_bind_result($stmt, $ref_id_evento, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $local_evento, $descricao_evento, $id_nucleo, $preco_evento, $link_fb_evento, $imagem_oficial, $link_fb_oficial, $link_insta_oficial, $link_site_oficial);
         mysqli_stmt_fetch($stmt);
         mysqli_stmt_close($stmt); // Close statement
     }
@@ -119,9 +123,13 @@ WHERE eventos.id_evento=?";
                                 });
                             </script>
                             <div class="d-inline position-relative">
-                                <img class="ml-3 evento-detail-icon save" id="removeGuardado" name="<?=$id_evento?>" src="assets/img/save.svg">
-                                <img class="ml-3 evento-detail-icon save" id="addGuardado" name="<?=$id_evento?>" src="assets/img/saved_orange.svg">
-                                <!-- <img class="ml-3 save_share" src="assets/img/saved_orange.svg"> -->
+                                <?php if(empty($ref_id_evento)){
+                                    echo'<img class="ml-3 evento-detail-icon save" id="addGuardado" name="<?=$id_evento?>" src="assets/img/save.svg">';
+                                    echo'<img class="ml-3 evento-detail-icon save" id="removeGuardado" name="<?=$id_evento?>" src="assets/img/saved_orange.svg" style="display: none">';
+                                }else{
+                                    echo'<img class="ml-3 evento-detail-icon save" id="removeGuardado" name="<?=$id_evento?>" src="assets/img/saved_orange.svg">';
+                                    echo'<img class="ml-3 evento-detail-icon save" id="addGuardado" name="<?=$id_evento?>" src="assets/img/save.svg" style="display: none">';
+                                }?>
                                 <p class="tag-share-save-event-detail" id="info_save" style="margin-left:0.4rem"> Guardar </p>
                             </div>
                         </article>

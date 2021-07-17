@@ -17,7 +17,6 @@ $(document).ready(function () {
                 $("#eventos_load").removeAttr("style").hide();
 
                 createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
-
             })
             .fail(function () { // Se existir um erro no pedido
                 $('#eventos').html('Data error'); // Escreve mensagem de erro
@@ -92,7 +91,7 @@ $(document).ready(function () {
 
             })
             .fail(function () { // Se existir um erro no pedido
-                $('#eventos').html('Engano atual'); // Escreve mensagem de erro na listagem de vinhos
+                $('#eventos').html('Engano'); // Escreve mensagem de erro na listagem de vinhos
             });
         return false; // keeps the page from not refreshing
     });

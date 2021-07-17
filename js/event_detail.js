@@ -4,9 +4,11 @@ var $add, $remove
 $add = $("#addGuardado");
 $remove = $("#removeGuardado");
 
-    $remove.on('click', function () {
-        $remove.hide();
-        $add.show();
+$(document).ready(function () {
+    $add.on('click', function () {
+        $remove.show();
+        $add.hide();
+
         var id = $(this).attr('name');
 
         $.ajax({
@@ -16,7 +18,7 @@ $remove = $("#removeGuardado");
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
-                console.log("success add")
+                console.log("add")
             })
             .fail(function () { // Se existir um erro no pedido
                 //console.log("nop")
@@ -26,9 +28,10 @@ $remove = $("#removeGuardado");
         return false; // keeps the page from not refreshing
     });
 
-    $add.on("click", function() {
-        $remove.show();
-        $add.hide();
+    $remove.on("click", function() {
+        $add.show();
+        $remove.hide();
+
         var id = $(this).attr('name');
 
         $.ajax({
@@ -38,7 +41,7 @@ $remove = $("#removeGuardado");
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
-                console.log("success delete")
+                console.log("delete")
             })
             .fail(function () { // Se existir um erro no pedido
                 console.log("nop")
@@ -46,12 +49,9 @@ $remove = $("#removeGuardado");
             })
         ;
         return false; // keeps the page from not refreshing
-
-        // do your AJAX stuff to remove the favourite here
-
     });
 
-
+});
 
 
 /* ------------------ card topo / capa evento ------------------ */

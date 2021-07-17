@@ -52,6 +52,7 @@
                                 ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo
                                 WHERE eventos_guardados.utilizadores_id_utilizador=?
                                 ORDER BY eventos.data_evento ASC";
+
                         if (mysqli_stmt_prepare($stmt, $query)) {
                             mysqli_stmt_bind_param($stmt, 'i', $_SESSION['id_user']);
                             if (mysqli_stmt_execute($stmt)) {
@@ -114,7 +115,7 @@
                                 </script>
                                 <?php
 
-                                echo '<article class="col-12 text-center"><img src="assets/uapping_SVG_PNG/empty.svg"></article>'; // aqui colocar imagem ( Miguel )
+                                echo '<article class="col-12"><img src="assets/uapping_SVG_PNG/empty.svg"></article>'; // aqui colocar imagem ( Miguel )
                                 // echo 'nada';
 
                             }
@@ -149,7 +150,7 @@
     </footer>
 </main>
 
-!--TEMPLATE JS AJAX INTERESSES VS TODOS EVENTOS-->
+<!--TEMPLATE JS AJAX INTERESSES VS TODOS EVENTOS-->
 <script id="eventos_guardados_template" type="text/x-handlebars-template">
     {{#each this}}
 <article class="col-12 event-card mb-5">

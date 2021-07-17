@@ -2077,10 +2077,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     z-index: 5;
 }
 
-#removeGuardado {
-    display: none;
-}
-
 /* Displays */
 
 .display-xs-block{
