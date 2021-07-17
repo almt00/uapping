@@ -65,6 +65,36 @@ $(document).ready(function () {
     });
 });
 
+
+
+
+/* ------------------ home page / pills filtrar eventos por data ------------------ */
+$(document).ready(function () {
+    $(".pills_datas").on('click', function () {
+        console.log('pill');
+        var date = this.id;
+        console.log(date);
+
+        $.ajax({
+            url: 'components/bd_pills_filter.php', //Jquery carrega serverside.php
+            data: 'date=' + date, // Envia o valor do botão clicado
+            dataType: 'json', //escolhe o tipo de dados
+            type: 'GET', //por default, mas pode ser POST
+        })
+            .done(function (data) {
+
+                createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
+
+            })
+            .fail(function () { // Se existir um erro no pedido
+                $('#eventos').html('Engano atual'); // Escreve mensagem de erro na listagem de vinhos
+            });
+        return false; // keeps the page from not refreshing
+    });
+});
+
+
+
 Handlebars.registerHelper('formatDate', function (dateString) {
     return new Handlebars.SafeString(
         moment(dateString).format("DD/MM")

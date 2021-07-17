@@ -20,8 +20,8 @@ $rows = mysqli_stmt_num_rows($stmt);
 
 mysqli_stmt_close($stmt);
 mysqli_close($link);
-if (isset($admin_membro) && $admin_membro==1) {
-?>
+if (isset($admin_membro) && $admin_membro == 1) {
+    ?>
     <main class="background_cinza container-fluid main-flex">
         <section class="row">
             <article class="col-12">
@@ -147,7 +147,7 @@ if (isset($admin_membro) && $admin_membro==1) {
                                     </section>
                                 </article>
                                 <?php
-                                $_SESSION['id_nucleo_admin']=$id_nucleo;
+                                $_SESSION['id_nucleo_admin'] = $id_nucleo;
                             }
                         } else {
                             echo "Error:" . mysqli_stmt_error($stmt);
@@ -233,7 +233,7 @@ if (isset($admin_membro) && $admin_membro==1) {
         <background id="background_interesses_menu" class="black-ground"></background>
     </Panel>
 <?php } else {
-     echo "<script>window.location.href='home_page.php'</script>"; // sera q isto é problematico?
+    echo "<script>window.location.href='home_page.php'</script>"; // sera q isto é problematico?
 } ?>
 
 <script>
