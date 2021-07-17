@@ -10,7 +10,7 @@ $remove = $("#removeGuardado");
         var id = $(this).attr('name');
 
         $.ajax({
-            url: 'components/bd_insert_saved.php', //Jquery carrega serverside.php
+            url: 'bd/bd_insert_saved.php', //Jquery carrega serverside.php
             data: 'id_evento=' + id, // Envia o valor do botão clicado
             dataType: 'json', //escolhe o tipo de dados
             type: 'GET', //por default, mas pode ser POST
@@ -32,7 +32,7 @@ $remove = $("#removeGuardado");
         var id = $(this).attr('name');
 
         $.ajax({
-            url: 'components/bd_search_saved_delete.php', //Jquery carrega serverside.php
+            url: 'bd/bd_search_saved_delete.php', //Jquery carrega serverside.php
             data: 'id_evento=' + id, // Envia o valor do botão clicado
             dataType: 'json', //escolhe o tipo de dados
             type: 'GET', //por default, mas pode ser POST

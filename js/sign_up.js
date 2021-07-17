@@ -7,7 +7,7 @@ $(document).ready(function () {
         var val = $(this).val();
 
         $.ajax({
-            url: 'components/bd_cursos.php', //Jquery carrega serverside.php
+            url: 'bd/bd_cursos.php', //Jquery carrega serverside.php
             data: 'departamento=' + val, // Envia o valor do botão clicado
             dataType: 'json', //escolhe o tipo de dados
             type: 'GET', //por default, mas pode ser POST

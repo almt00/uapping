@@ -8,7 +8,7 @@ $(document).ready(function () {
         var id_switch = this.id;
 
         $.ajax({
-            url: 'components/bd_eventos.php', //Jquery carrega serverside.php
+            url: 'bd/bd_eventos.php', //Jquery carrega serverside.php
             data: 'id_switch=' + id_switch, // Envia o valor do botão clicado
             dataType: 'json', //escolhe o tipo de dados
             type: 'GET', //por default, mas pode ser POST
@@ -35,7 +35,7 @@ $(document).ready(function () {
         var search = this.value;
         console.log('search: ' + search);
         $.ajax({
-            url: 'components/bd_search.php', //Jquery carrega serverside.php
+            url: 'bd/bd_search.php', //Jquery carrega serverside.php
             data: 'search=' + search, // Envia o valor do botão clicado
             dataType: 'json', //escolhe o tipo de dados
             type: 'GET', //por default, mas pode ser POST
@@ -71,19 +71,24 @@ $(document).ready(function () {
 /* ------------------ home page / pills filtrar eventos por data ------------------ */
 $(document).ready(function () {
     $(".pills_datas").on('click', function () {
-        console.log('pill');
         var date = this.id;
-        console.log(date);
+        //miguel arranjas forma do pill do dia sendo clicado mudar de cor.
 
         $.ajax({
-            url: 'components/bd_pills_filter.php', //Jquery carrega serverside.php
+            url: 'bd/bd_pill_filter.php', //Jquery carrega serverside.php
             data: 'date=' + date, // Envia o valor do botão clicado
             dataType: 'json', //escolhe o tipo de dados
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
+                $("#eventos_load").removeAttr("style").hide();
 
-                createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
+                if(data == ""){
+                    document.getElementById("eventos_conteudo").innerHTML = "Infelizmente. Não há eventos nessa data..";
+
+                }else{
+                    createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
+                }
 
             })
             .fail(function () { // Se existir um erro no pedido
@@ -92,7 +97,6 @@ $(document).ready(function () {
         return false; // keeps the page from not refreshing
     });
 });
-
 
 
 Handlebars.registerHelper('formatDate', function (dateString) {
@@ -157,7 +161,7 @@ $(document).ready(function () {
     $('#btn_interesses').on('click', function () {
 
         $.ajax({
-            url: 'components/bd_pills_interesses.php', //Jquery carrega serverside.php
+            url: 'bd/bd_pills_interesses.php', //Jquery carrega serverside.php
             //data: 'filtro=' + filtro, // Envia o valor do botão clicado
             dataType: 'json', //escolhe o tipo de dados
             type: 'GET', //por default, mas pode ser POST
