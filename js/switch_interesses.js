@@ -20,7 +20,7 @@ $(document).ready(function () {
 
             })
             .fail(function () { // Se existir um erro no pedido
-                $('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+                $('#eventos').html('Data error'); // Escreve mensagem de erro
             })
         ;
         return false; // keeps the page from not refreshing
@@ -42,12 +42,18 @@ $(document).ready(function () {
         })
             .done(function (data) {
                 console.log('sucesso');
+
                 $("#eventos_load").removeAttr("style").hide();
                 if(data == ""){
                     document.getElementById("eventos_conteudo").innerHTML = "Infelizmente. Não há resultados para a sua pesquisa..";
                     document.getElementById("eventos_conteudo").style.margin= "auto";
+                    document.getElementById("selector").style.left = "50%";
+                    document.getElementById("interesses").style.color = "#1D1D1D";
+                    document.getElementById("todos").style.color = "white";
+                    document.getElementById("eventos_load").style.display = "none";
+
                 }else{
-                    reateHTMLDinamyc("eventos_template", "eventos_conteudo", data);
+                    createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
                 }
 
             })

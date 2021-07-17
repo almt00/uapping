@@ -105,7 +105,7 @@
                             <section class="row">
                                 <article class="col-12">
                                     <div class="art-nucleo-criacao"
-                                         style='background-image: url("assets/img/cover_criar_nucleo.svg");'>
+                                         style='background-image: url("assets/criacoes_nucleos/cover_criacao_cinza.svg");'>
                                         <img class="sinal-mais-criacoes"
                                              src="assets/criacoes_nucleos/sinal_mais_criacoes.svg">
                                     </div>

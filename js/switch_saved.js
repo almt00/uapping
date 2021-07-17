@@ -9,13 +9,14 @@ $(document).ready(function () {
             dataType: 'json', //escolhe o tipo de dados
             type: 'GET', //por default, mas pode ser POST
         })
-/*
+
             .done(function (data) {
-                createHTMLDinamyc("eventos_template","eventos_conteudo", data);
+                createHTMLDinamyc("eventos_guardados_template","eventos_guardados_conteudo", data);
+                $("#eventos_guardados_load").removeAttr("style").hide();
 
             })
             .fail(function () { // Se existir um erro no pedido
-                $('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+                $('#eventos_guardados_conteudo').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
             })
         ;
         return false; // keeps the page from not refreshing */
@@ -23,14 +24,23 @@ $(document).ready(function () {
 
 });
 
-/*
+Handlebars.registerHelper('formatDate', function (dateString) {
+    return new Handlebars.SafeString(
+        moment(dateString).format("DD/MM")
+    );
+});
+Handlebars.registerHelper('concat', function (prefix, id) {
+    return (prefix + id);
+});
+
+
 function createHTMLDinamyc(templateId, placeID, data) {
     var raw_template = document.getElementById(templateId).innerText;
     var compiled_template = Handlebars.compile(raw_template);
     var ourGeneratedHTML = compiled_template(data);
     var place = document.getElementById(placeID);
     place.innerHTML = ourGeneratedHTML;
-}*/
+}
 
 /* ------------------ home page / pin bar (todos, interesses) ------------------ */
 
