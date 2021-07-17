@@ -29,7 +29,7 @@ if (isset($admin_membro) && $admin_membro == 1) {
                     <article class="col-12">
                         <section class="row justify-content-center mb-3">
                             <article class="col-12 px-4">
-                                <h2 class="h2-admin-administradores"> Gestão <span> <?= $sigla_nucleo ?> </span></h2>
+                                <h2 class="h2-admin-administradores"> Gestão <span> <?= htmlspecialchars($sigla_nucleo) ?> </span></h2>
                             </article>
                         </section>
                         <section class="row justify-content-center">
@@ -94,7 +94,7 @@ if (isset($admin_membro) && $admin_membro == 1) {
                                                                 <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
                                                                 <section class="row">
                                                                     <article class="col-12">
-                                                                        <h4 class="h4-eventos"> <?= $nome_evento ?> </h4>
+                                                                        <h4 class="h4-eventos"> <?= htmlspecialchars($nome_evento) ?> </h4>
                                                                     </article>
                                                                 </section>
                                                                 </a>

@@ -54,8 +54,8 @@
                                                         <img src="assets/img/<?= $imagem_oficial ?>">
                                                     </div>
                                                     <div class="col-6 art_nucleo_card word-warp">
-                                                        <p class="p-nucleo_name m-0"> <?= $sigla_nucleo ?> </p>
-                                                        <p class="text-white m-0"> <?= $nome_nucleo ?> </p>
+                                                        <p class="p-nucleo_name m-0"> <?= htmlspecialchars($sigla_nucleo) ?> </p>
+                                                        <p class="text-white m-0"> <?= htmlspecialchars($nome_nucleo) ?> </p>
                                                     </div>
                                                 </div>
                                             </div>

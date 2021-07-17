@@ -44,10 +44,10 @@
                                     <a href="backoffice_edit_users.php">
                                         <section class="row">
                                             <article class="col-12">
-                                                <p class="p-administradores_nome"> <?= $nome ?> </p>
+                                                <p class="p-administradores_nome"> <?= htmlspecialchars($nome) ?> </p>
                                             </article>
                                             <article class="col-12">
-                                                <p class="p-administradores_nick">  <?= $nickname ?> </p>
+                                                <p class="p-administradores_nick">  <?= htmlspecialchars($nickname) ?> </p>
                                             </article>
                                         </section>
                                     </a>

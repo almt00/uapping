@@ -47,7 +47,7 @@ WHERE eventos.id_evento=?";
                             <div class="barra_evento_detail"></div>
                         </article>
                         <article class="col-12 px-event-detail mb-3 position-relative">
-                            <h2 class="h2-evento_detail"> <?= $nome_evento ?> </h2>
+                            <h2 class="h2-evento_detail"> <?= htmlspecialchars($nome_evento) ?> </h2>
                         </article>
                         <article class="col-12 mb-4 px-event-detail">
                             <section class="row justify-content-between">
@@ -71,7 +71,7 @@ WHERE eventos.id_evento=?";
                                 </horas>
                                 <localizacao class="col-6 mb-3 caixa-evento-detail">
                                     <img class="mr-2 evento-detail-icon" src="assets/img/location.svg">
-                                    <p class="d-inline"> <?= $local_evento ?> </p>
+                                    <p class="d-inline"> <?= htmlspecialchars($local_evento) ?> </p>
                                 </localizacao>
                                 <preco class="col-5 mb-3 horas-preco-evento-detail">
                                     <div class="div-preco">
@@ -79,7 +79,7 @@ WHERE eventos.id_evento=?";
                                         if ($preco_evento == null) {
                                             echo '<p class="d-inline"> Gratuito </p>';
                                         } else {
-                                            echo '<p class="d-inline">' . $preco_evento . ' €</p>';
+                                            echo '<p class="d-inline">' . htmlspecialchars($preco_evento) . ' €</p>';
                                         }
                                         ?>
 
@@ -91,7 +91,7 @@ WHERE eventos.id_evento=?";
                             <h3 class="subtitle-event-detail"> Sobre </h3>
                         </article>
                         <article class="col-12 mb-3 px-event-detail">
-                            <p class="text-event-detail"> <?= $descricao_evento ?>
+                            <p class="text-event-detail"> <?= htmlspecialchars($descricao_evento) ?>
                             </p>
                         </article>
                         <article class="col-12 mb-5 text-right share-save-event-detail-icons px-event-detail">
@@ -103,8 +103,8 @@ WHERE eventos.id_evento=?";
                             <!--script para partilha com a interface nativa do dispositivo-->
                             <script>
                                 const toShare = {
-                                    title: "Partilhar evento: <?= $nome_evento ?> ",
-                                    text: "Olha só este evento na UA chamado <?= $nome_evento ?>!",
+                                    title: "Partilhar evento: <?= htmlspecialchars($nome_evento) ?> ",
+                                    text: "Olha só este evento na UA chamado <?= htmlspecialchars($nome_evento) ?>!",
                                     url: window.location.href // ver isto qdo for partilhar fora do detalhe
                                 };
                                 const button = document.getElementById('share');

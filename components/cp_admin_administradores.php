@@ -30,7 +30,7 @@ mysqli_close($link);
             </section>
             <section class="row section-nucleos">
                 <article class="col-12 mt-4 mb-3 px-4">
-                    <h2 class="h2-admin-administradores"> Gestão <span> <?= $sigla_nucleo ?> </span></h2>
+                    <h2 class="h2-admin-administradores"> Gestão <span> <?= htmlspecialchars($sigla_nucleo) ?> </span></h2>
                 </article>
                 <article class="col-12 mt-1 mb-3 px-4">
                     <h2 class="h2-admin-administradores-sub d-inline-block mr-2"> Administradores </h2>
@@ -58,10 +58,10 @@ mysqli_close($link);
                                 <article class="col-8">
                                     <section class="row">
                                         <article class="col-12">
-                                            <p class="p-administradores_nome"> <?= $nome ?> </p>
+                                            <p class="p-administradores_nome"> <?= htmlspecialchars($nome) ?> </p>
                                         </article>
                                         <article class="col-12">
-                                            <p class="p-administradores_nick"> <?= $nickname ?> </p>
+                                            <p class="p-administradores_nick"> <?= htmlspecialchars($nickname) ?> </p>
                                         </article>
                                     </section>
                                 </article>

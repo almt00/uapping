@@ -179,9 +179,9 @@
                                                         <img src="assets/criacoes_nucleos/ghost_criacoes.svg">
                                                     </article>
                                                     <article class="col-8 pb-1">
-                                                        <h2 class="h2-cricao_nucleo m-0"> <?= $sigla_nucleo ?> </h2>
+                                                        <h2 class="h2-cricao_nucleo m-0"> <?= htmlspecialchars($sigla_nucleo) ?> </h2>
                                                         <p class="text-criação_nucleo m-0 pt-2"
-                                                           style="white-space: nowrap;"> <?= $nome_nucleo ?> </p>
+                                                           style="white-space: nowrap;"> <?= htmlspecialchars($nome_nucleo) ?> </p>
                                                     </article>
                                                     <article class="col-12 mt-2 mb-1 margin-criacao_nucleo">
                                                         <div class="mr-1 people-bubble-criacao_nucleo bg-profile"

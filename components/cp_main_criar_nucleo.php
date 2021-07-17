@@ -30,7 +30,7 @@
                                         if (mysqli_stmt_execute($stmt)) {
                                             mysqli_stmt_bind_result($stmt, $id_interesse, $nome_interesse);
                                             while (mysqli_stmt_fetch($stmt)) {
-                                                echo '<option value="' . $id_interesse . '">' . $nome_interesse . '</option>';
+                                                echo '<option value="' . $id_interesse . '">' . htmlspecialchars($nome_interesse) . '</option>';
                                             }
                                         } else {
                                             echo "Error:" . mysqli_stmt_error($stmt);

@@ -66,7 +66,7 @@
                                             <article class="col-12">
                                                 <section class="row event-header mb-3">
                                                     <titulo class="col-12 mt-3 mb-1">
-                                                        <h4 class="h2-eventos"> <?= $nome_evento ?> </h4>
+                                                        <h4 class="h2-eventos"> <?= htmlspecialchars($nome_evento) ?> </h4>
                                                     </titulo>
                                                     <article class="col-6">
                                                         <section class="row">

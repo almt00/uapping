@@ -99,7 +99,7 @@
                                                     <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
                                                         <section class="row">
                                                             <article class="col-12">
-                                                                <h4 class="h4-eventos"> <?= $nome_evento ?> </h4>
+                                                                <h4 class="h4-eventos"> <?= htmlspecialchars($nome_evento) ?> </h4>
                                                             </article>
                                                         </section>
                                                     </a>
