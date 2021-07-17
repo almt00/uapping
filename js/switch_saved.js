@@ -4,7 +4,7 @@ $(document).ready(function () {
 
         console.log(name_switch);
         $.ajax({
-            url: 'components/bd_search_saved.php', //Jquery carrega serverside.php
+            url: 'bd/bd_search_saved.php', //Jquery carrega serverside.php
             data: 'name_switch=' + name_switch, // Envia o valor do botão clicado
             dataType: 'json', //escolhe o tipo de dados
             type: 'GET', //por default, mas pode ser POST
