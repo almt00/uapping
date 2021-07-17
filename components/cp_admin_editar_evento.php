@@ -50,19 +50,19 @@ WHERE id_evento=?";
                                 <input id="nome_evento" class="input_novo_admin mb-3 mb-md-3" type="text"
                                        name="nome_evento"
                                        size="24" placeholder="Nome do Evento" required="required"
-                                       value="<?= $nome_evento ?>">
+                                       value="<?= htmlspecialchars($nome_evento) ?>">
                                 <section class="row justify-content-center sec_input_data_hora">
                                     <article class="col-6 art_input_data_hora pr-2" style="overflow: hidden;">
                                         <img id="username_icon" class="icon-data" src="assets/img/calendar_cinza.svg"
                                              alt="profile_icon" style="">
                                         <input id="data" class="input_data_hora mb-3 mb-md-3" type="date" name="data"
-                                               required="required" value="<?= $data_evento ?>">
+                                               required="required" value="<?= htmlspecialchars($data_evento) ?>">
                                         <!--<img id="calendar_icon" class="icon-calendar-criar-evento" src="assets/img/calendar_cinza.svg"
                                              alt="profile_icon">-->
                                     </article>
                                     <article class="col-6 art_input_data_hora pl-2">
                                         <input id="hora" class="input_data_hora mb-3 mb-md-3" type="time" name="hora"
-                                               required="required" value="<?= $hora_evento ?>">
+                                               required="required" value="<?= htmlspecialchars($hora_evento) ?>">
                                     </article>
                                 </section>
                                 <select required="required" class="custom-select select_criar_nucleo mb-3 mb-md-3"
@@ -82,7 +82,7 @@ WHERE id_evento=?";
                                 </select>
                                 <input id="morada" class="input_novo_admin mb-3 mb-md-3" type="text" name="morada"
                                        size="24" placeholder="Morada" required="required" style="display: none"
-                                       value="<?= $local_evento ?>">
+                                       value="<?= htmlspecialchars($local_evento) ?>">
                                 <select required="required" class="custom-select select_criar_nucleo mb-3 mb-md-3"
                                         id="area_2"
                                         name="area_2" form="editar_evento">
@@ -115,7 +115,7 @@ WHERE id_evento=?";
                                 </select>
 
                                 <input id="preco" class="input_novo_admin mb-3 mb-md-3" type="number" step="any"
-                                       name="preco" value="<?= $preco_evento ?>"
+                                       name="preco" value="<?= htmlspecialchars($preco_evento) ?>"
                                        size="24" placeholder="Preço" style="display: none" >
                                 <?php
                                 if (isset($imagem_evento)) {
@@ -151,19 +151,7 @@ WHERE id_evento=?";
             </section>
         </article>
     </section>
-    <footer class="row justify-content-center py-5">
-        <article class="col-3 text-center">
-            <a href="https://www.facebook.com/" target="_blank"> <span
-                        class="fab fa-facebook-f text-white fa-3x"></span> </a>
-        </article>
-        <article class="col-3 text-center mw-6rem">
-            <a href="https://twitter.com/" target="_blank"> <span class="fab fa-twitter text-white fa-3x"></span> </a>
-        </article>
-        <article class="col-3 text-center">
-            <a href="https://www.instagram.com/" target="_blank"> <span
-                        class="fab fa-instagram text-white fa-3x"></span> </a>
-        </article>
-    </footer>
+    <?php include_once "components/cp_footer.php"?>
 </main>
 
 <script>

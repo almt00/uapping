@@ -15,6 +15,8 @@
 
 <?php include_once "components/cp_header.php" ?>
 
+<?php include_once "scripts/sc_check_backoffice.php" ?>
+
 <?php include_once "components/cp_backoffice_users.php" ?>
 
 <?php include_once "components/cp_navegacao_mobile_backoffice.php" ?>

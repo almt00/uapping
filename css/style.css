@@ -21,7 +21,8 @@
 
 footer{
     margin-top:5rem;
-    background-color: rgba(0, 15, 59, 0.8);
+    background-color: rgb(37, 0, 76);
+    color:white;
 }
 
 .logo-section-landing{
@@ -1045,7 +1046,7 @@ footer{
 }
 
 .user-menu-options img{
-    height: 1.2rem;
+    width: 1.2rem;
     position: absolute;
     top:50%;
     transform: translateY(-50%);

@@ -1,27 +1,3 @@
-<?php
-require_once "connections/connection.php";
-$link = new_db_connection();
-$stmt = mysqli_stmt_init($link);
-$query = "SELECT nucleos_membros.ref_id_nucleo,nucleos_membros.admin_membro FROM nucleos_membros
-        INNER JOIN nucleos_oficiais
-        ON nucleos_membros.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo
-        INNER JOIN nucleos
-        ON nucleos_oficiais.ref_id_nucleo=nucleos.id_nucleo
-        WHERE ref_id_utilizador=? AND nucleos_membros.admin_membro=1";
-if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
-    mysqli_stmt_bind_param($stmt, 'i', $_SESSION['id_user']);
-    mysqli_stmt_execute($stmt); // Execute the prepared statement
-    mysqli_stmt_bind_result($stmt, $id_nucleo, $admin_membro);
-    mysqli_stmt_fetch($stmt);
-
-}
-mysqli_stmt_store_result($stmt);
-$rows = mysqli_stmt_num_rows($stmt);
-
-mysqli_stmt_close($stmt);
-mysqli_close($link);
-if (isset($admin_membro) && $admin_membro==1) {
-?>
     <main class="background_cinza container-fluid main-flex">
         <section class="row">
             <article class="col-12">
@@ -65,6 +41,7 @@ if (isset($admin_membro) && $admin_membro==1) {
                         <h2 class="pl-2 h2-eventos"> Eventos </h2>
                     </article>
                     <?php
+                    require_once "connections/connection.php";
                     $link = new_db_connection();
                     $stmt = mysqli_stmt_init($link);
                     $query = "SELECT eventos.id_evento,eventos.nome_evento, eventos.data_evento,eventos.hora_evento,eventos.imagem_evento,eventos.ref_id_nucleo 
@@ -85,13 +62,13 @@ if (isset($admin_membro) && $admin_membro==1) {
                                                                 <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
                                                                     <section class="row">
                                                                         <article class="col-12">
-                                                                            <h4 class="h4-eventos"> <?= $nome_evento ?> </h4>
+                                                                            <h4 class="h4-eventos"> <?= htmlspecialchars($nome_evento) ?> </h4>
                                                                         </article>
                                                                     </section>
                                                                 </a>
                                                             </titulo>
                                                             <article class="col-6">
-                                                                <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
+                                                                <a href="evento_detail.php?id_evento=<?= htmlspecialchars($id_evento) ?>">
                                                                     <section class="row">
                                                                         <data class="col-12 mb-2">
                                                                             <img class="mr-1"
@@ -152,20 +129,7 @@ if (isset($admin_membro) && $admin_membro==1) {
                 </section>
             </article>
         </section>
-        <footer class="row justify-content-center py-5">
-            <article class="col-3 text-center">
-                <a href="https://www.facebook.com/" target="_blank"> <span
-                            class="fab fa-facebook-f text-white fa-3x"></span> </a>
-            </article>
-            <article class="col-3 text-center mw-6rem">
-                <a href="https://twitter.com/" target="_blank"> <span class="fab fa-twitter text-white fa-3x"></span>
-                </a>
-            </article>
-            <article class="col-3 text-center">
-                <a href="https://www.instagram.com/" target="_blank"> <span
-                            class="fab fa-instagram text-white fa-3x"></span> </a>
-            </article>
-        </footer>
+        <?php include_once "components/cp_footer.php"?>
     </main>
 
     <Panel id="panel_interesses_menu_mobile" class="">
@@ -223,6 +187,3 @@ if (isset($admin_membro) && $admin_membro==1) {
         </interesses>
         <background id="background_interesses_menu" class="black-ground"></background>
     </Panel>
-<?php } else {
-     echo "<script>window.location.href='home_page.php'</script>"; // sera q isto é problematico?
-} ?>

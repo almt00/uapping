@@ -54,8 +54,8 @@
                                                         <img src="assets/img/<?= $imagem_oficial ?>">
                                                     </div>
                                                     <div class="col-6 art_nucleo_card word-warp">
-                                                        <p class="p-nucleo_name m-0"> <?= $sigla_nucleo ?> </p>
-                                                        <p class="text-white m-0"> <?= $nome_nucleo ?> </p>
+                                                        <p class="p-nucleo_name m-0"> <?= htmlspecialchars($sigla_nucleo) ?> </p>
+                                                        <p class="text-white m-0"> <?= htmlspecialchars($nome_nucleo) ?> </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -79,17 +79,5 @@
             </section>
         </article>
     </section>
-    <footer class="row justify-content-center py-5">
-        <article class="col-3 text-center">
-            <a href="https://www.facebook.com/" target="_blank"> <span
-                        class="fab fa-facebook-f text-white fa-3x"></span> </a>
-        </article>
-        <article class="col-3 text-center mw-6rem">
-            <a href="https://twitter.com/" target="_blank"> <span class="fab fa-twitter text-white fa-3x"></span> </a>
-        </article>
-        <article class="col-3 text-center">
-            <a href="https://www.instagram.com/" target="_blank"> <span
-                        class="fab fa-instagram text-white fa-3x"></span> </a>
-        </article>
-    </footer>
+    <?php include_once "components/cp_footer.php"?>
 </main>

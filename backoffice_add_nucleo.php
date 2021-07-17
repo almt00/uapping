@@ -13,6 +13,8 @@
 
 <?php include_once "components/cp_header.php" ?>
 
+<?php include_once "scripts/sc_check_backoffice.php" ?>
+
 <?php include_once "components/cp_backoffice_add_nucleo.php" ?>
 
 <?php include_once "helpers/help_js.php"?>

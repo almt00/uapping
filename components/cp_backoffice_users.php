@@ -44,10 +44,10 @@
                                     <a href="backoffice_edit_users.php">
                                         <section class="row">
                                             <article class="col-12">
-                                                <p class="p-administradores_nome"> <?= $nome ?> </p>
+                                                <p class="p-administradores_nome"> <?= htmlspecialchars($nome) ?> </p>
                                             </article>
                                             <article class="col-12">
-                                                <p class="p-administradores_nick">  <?= $nickname ?> </p>
+                                                <p class="p-administradores_nick">  <?= htmlspecialchars($nickname) ?> </p>
                                             </article>
                                         </section>
                                     </a>
@@ -92,17 +92,5 @@
             </section>
         </article>
     </section>
-    <footer class="row justify-content-center py-5">
-        <article class="col-3 text-center">
-            <a href="https://www.facebook.com/" target="_blank"> <span
-                        class="fab fa-facebook-f text-white fa-3x"></span> </a>
-        </article>
-        <article class="col-3 text-center mw-6rem">
-            <a href="https://twitter.com/" target="_blank"> <span class="fab fa-twitter text-white fa-3x"></span> </a>
-        </article>
-        <article class="col-3 text-center">
-            <a href="https://www.instagram.com/" target="_blank"> <span
-                        class="fab fa-instagram text-white fa-3x"></span> </a>
-        </article>
-    </footer>
+    <?php include_once "components/cp_footer.php"?>
 </main>

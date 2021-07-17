@@ -42,14 +42,14 @@ if (isset($_GET['id_nucleo'])) {
             </div>
             <section class="row section-nucleos">
                 <article class="col-12 mt-4 mb-3 position-relative padding-top-nucleo-detail">
-                    <h2 class="text-center h2-nucleo_detail"> <?= $sigla_nucleo ?> </h2>
-                    <h5 class="text-center h5-nucleo_detail"> <?= $nome_nucleo ?> </h5>
+                    <h2 class="text-center h2-nucleo_detail"> <?= htmlspecialchars($sigla_nucleo) ?> </h2>
+                    <h5 class="text-center h5-nucleo_detail"> <?= htmlspecialchars($nome_nucleo) ?> </h5>
                 </article>
                 <article class="col-12 mt-4 mb-1 px-event-detail">
                     <h3 class="subtitle-event-detail"> Sobre </h3>
                 </article>
                 <article class="col-12 mb-3 px-event-detail">
-                    <p class="text-event-detail"> <?= $descricao_nucleo ?>
+                    <p class="text-event-detail"> <?= htmlspecialchars($descricao_nucleo) ?>
                     </p>
                 </article>
                 <article class="col-12 p-0">
@@ -94,8 +94,8 @@ if (isset($_GET['id_nucleo'])) {
                                     ?>
                                     <article class="col-4 text-center mb-4">
                                         <img class="membros-nucleo-detail" src="assets/temp/profile_test.png">
-                                        <p class="p-nome-membro-nucleo-detail"> <?= $nome_membro_equipa ?> </p>
-                                        <p class="p-role-membro-nucleo-detail"> <?= $nome_cargo ?> </p>
+                                        <p class="p-nome-membro-nucleo-detail"> <?= htmlspecialchars($nome_membro_equipa) ?> </p>
+                                        <p class="p-role-membro-nucleo-detail"> <?= htmlspecialchars($nome_cargo) ?> </p>
                                     </article>
                                     <?php
                                 }
@@ -113,19 +113,7 @@ if (isset($_GET['id_nucleo'])) {
             </section>
         </article>
     </section>
-    <footer class="row justify-content-center py-5">
-        <article class="col-3 text-center">
-            <a href="https://www.facebook.com/" target="_blank"> <span
-                        class="fab fa-facebook-f text-white fa-3x"></span> </a>
-        </article>
-        <article class="col-3 text-center mw-6rem">
-            <a href="https://twitter.com/" target="_blank"> <span class="fab fa-twitter text-white fa-3x"></span> </a>
-        </article>
-        <article class="col-3 text-center">
-            <a href="https://www.instagram.com/" target="_blank"> <span
-                        class="fab fa-instagram text-white fa-3x"></span> </a>
-        </article>
-    </footer>
+    <?php include_once "components/cp_footer.php"?>
 </main>
 
 <script>

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['id_user']) || $_SESSION['id_user']==null) {
+    header("Location: index.php");
+}
+?>
+
 <main class="container-fluid main-flex overflow-hidden">
     <section class="row">
         <article class="col-12">
@@ -55,19 +62,7 @@
             </section>
         </article>
     </section>
-    <footer class="row justify-content-center py-5">
-        <article class="col-3 text-center">
-            <a href="https://www.facebook.com/" target="_blank"> <span
-                        class="fab fa-facebook-f text-white fa-3x"></span> </a>
-        </article>
-        <article class="col-3 text-center mw-6rem">
-            <a href="https://twitter.com/" target="_blank"> <span class="fab fa-twitter text-white fa-3x"></span> </a>
-        </article>
-        <article class="col-3 text-center">
-            <a href="https://www.instagram.com/" target="_blank"> <span
-                        class="fab fa-instagram text-white fa-3x"></span> </a>
-        </article>
-    </footer>
+    <?php include_once "components/cp_footer.php"?>
 </main>
 
 <script>
