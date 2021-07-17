@@ -257,7 +257,7 @@
                         <article class="col-12">
                             <section class="row event-header mb-3">
                                 <titulo class="col-12 mt-3 mb-1">
-                                    <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
+                                    <a href="evento_detail.php?id_evento={{id_evento}}">
                                         <section class="row">
                                             <article class="col-12">
                                                 <h4 class="h4-eventos" id="nome_evento">{{nome}}</h4>
@@ -266,7 +266,7 @@
                                     </a>
                                 </titulo>
                                 <article class="col-6">
-                                    <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
+                                    <a href="evento_detail.php?id_evento={{id_evento}}">
                                     <section class="row">
                                         <data class="col-12 mb-2">
                                             <img class="mr-1"
@@ -283,14 +283,14 @@
                                 <nucleo class="col-6 text-right" style="height:3.5rem;">
                                     <section class="row">
                                         <article class="col-12">
-                                            <a href="nucleos_detail.php?id_nucleo=<?= $id_nucleo ?>">
+                                            <a href="nucleos_detail.php?id_nucleo={{id_nucleo}}">
                                                 <img src="assets/img/{{imagem_nucleo}}">
                                             </a>
                                         </article>
                                     </section>
                                 </nucleo>
                             </section>
-                            <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
+                            <a href="evento_detail.php?id_evento={{id_evento}}">
                             <section id="background" class="row event-cover"
                                      style='background-image: url("assets/img/{{imagem}}")'>
                             </section>
