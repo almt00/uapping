@@ -126,7 +126,7 @@ if (isset($admin_membro) && $admin_membro == 1) {
                                                                 <section class="row">
                                                                     <article class="col-12">
                                                                         <a href="admin_editar_evento.php?id_evento=<?= $id_evento ?>">
-                                                                        <img onclick="test()" src="assets/admin/edit_admin.svg">
+                                                                        <img src="assets/admin/edit_admin.svg">
                                                                         </a>
                                                                     </article>
                                                                 </section>
@@ -143,11 +143,9 @@ if (isset($admin_membro) && $admin_membro == 1) {
                                                 <img class="save_share" src="assets/img/share_white.svg">
                                             </div>
                                         </article>
-
                                     </section>
                                 </article>
                                 <?php
-                                $_SESSION['id_nucleo_admin'] = $id_nucleo;
                             }
                         } else {
                             echo "Error:" . mysqli_stmt_error($stmt);
@@ -236,8 +234,3 @@ if (isset($admin_membro) && $admin_membro == 1) {
     echo "<script>window.location.href='home_page.php'</script>"; // sera q isto é problematico?
 } ?>
 
-<script>
-    function test(){
-        window.location.href='home_page.php';
-    }
-</script>
