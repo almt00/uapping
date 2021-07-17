@@ -15,6 +15,8 @@
 
 <?php include_once "components/cp_header.php" ?>
 
+<?php include_once "scripts/sc_check_admin.php" ?>
+
 <?php include_once "components/cp_admin_administradores.php" ?>
 
 <?php include_once "components/cp_navegacao_mobile_admin.php" ?>

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['id_user']) || $_SESSION['id_user']==null) {
+    header("Location: index.php");
+}
+?>
+
 <main class="container-fluid main-flex overflow-hidden">
     <section class="row">
         <article class="col-12">

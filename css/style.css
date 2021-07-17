@@ -1045,7 +1045,7 @@ footer{
 }
 
 .user-menu-options img{
-    height: 1.2rem;
+    width: 1.2rem;
     position: absolute;
     top:50%;
     transform: translateY(-50%);

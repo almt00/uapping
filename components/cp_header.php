@@ -46,6 +46,40 @@ if (!isset($_SESSION['id_user']) || $_SESSION['id_user']==null) {
             </article>
         </section>
         <section class="position-relative">
+            <?php if (isset($_SESSION['backoffice']) && $_SESSION['backoffice'] == 1){ ?>
+                    <?php if (isset($pag_backoffice) && $pag_backoffice === true){ ?>
+                    <a href="home_page.php">
+                        <article class="col-12 user-menu-options py-1">
+                            <img src="assets/icons_user_menu/voltar.svg">
+                            <span class="user-menu-options-span"> Área Pública </span>
+                        </article>
+                    </a>
+                <?php } else{ ?>
+                    <a href="home_page_backoffice.php">
+                        <article class="col-12 user-menu-options py-1">
+                            <img src="assets/icons_user_menu/admin.svg">
+                            <span class="user-menu-options-span"> Backoffice </span>
+                        </article>
+                    </a>
+                <?php } ?>
+            <?php } ?>
+            <?php if (isset($_SESSION['id_nucleo_admin']) && $_SESSION['id_nucleo_admin'] != null){ ?>
+                <?php if (isset($pag_admin) && $pag_admin === true){ ?>
+                    <a href="home_page.php">
+                        <article class="col-12 user-menu-options py-1">
+                            <img src="assets/icons_user_menu/voltar.svg">
+                            <span class="user-menu-options-span"> Área Pública </span>
+                        </article>
+                    </a>
+                <?php } else{ ?>
+                    <a href="home_page_admin.php">
+                        <article class="col-12 user-menu-options py-1">
+                            <img src="assets/icons_user_menu/admin.svg">
+                            <span class="user-menu-options-span"> Gerir Núcleo </span>
+                        </article>
+                    </a>
+                <?php } ?>
+            <?php } ?>
             <a href="">
                 <article class="col-12 user-menu-options py-1">
                     <img src="assets/icons_user_menu/change_interesses.svg">
