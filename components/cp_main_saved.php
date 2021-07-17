@@ -39,6 +39,7 @@
                 <article class="col-12 mt-4">
                     <section class="row px-4">
                         <div id="eventos_guardados_conteudo"></div>
+                        <div id="eventos_guardados_load">
                         <?php
                         require_once "connections/connection.php";
                         $link = new_db_connection();
@@ -65,7 +66,7 @@
                                             <article class="col-12">
                                                 <section class="row event-header mb-3">
                                                     <titulo class="col-12 mt-3 mb-1">
-                                                        <h4 class="h4-eventos"> <?= $nome_evento ?> </h4>
+                                                        <h4 class="h2-eventos"> <?= $nome_evento ?> </h4>
                                                     </titulo>
                                                     <article class="col-6">
                                                         <section class="row">
@@ -126,6 +127,7 @@
                         }
                         mysqli_close($link);
                         ?>
+                        </div>
                     </section>
                 </article>
 
@@ -146,3 +148,46 @@
         </article>
     </footer>
 </main>
+
+!--TEMPLATE JS AJAX INTERESSES VS TODOS EVENTOS-->
+<script id="eventos_guardados_template" type="text/x-handlebars-template">
+    {{#each this}}
+<article class="col-12 event-card mb-5">
+    <a <a href="evento_detail.php?id_evento={{id_evento}}">
+        <section class="row">
+            <article class="col-12">
+                <section class="row event-header mb-3">
+                    <titulo class="col-12 mt-3 mb-1">
+                        <h4 class="h4-eventos">{{nome}}</h4>
+                    </titulo>
+                    <article class="col-6">
+                        <section class="row">
+                            <data class="col-12 mb-2">
+                                <img class="mr-1"
+                                     src="assets/img/calendar_black.svg">
+                                <p class="d-inline" id="data_evento">{{formatDate data}}</p>
+                            </data>
+                            <horas class="col-12">
+                                <img class="mr-1" src="assets/img/clock.svg">
+                                <p class="d-inline" id="hora_evento">{{hora}}</p>
+                            </horas>
+                        </section>
+                    </article>
+                    <nucleo class="col-6 text-right">
+                        <img src="assets/img/{{imagem_nucleo}}">
+                    </nucleo>
+                </section>
+                <section class="row event-cover"
+                         stylstyle='background-image: url("assets/img/{{imagem}}")'>
+                </section>
+            </article>
+        </section>
+    </a>
+    <div class="card-footer text-right py-1 px-4">
+        <img class="save_share" src="assets/img/share_white.svg">
+        <img class="ml-3 save_share" src="assets/img/saved_orange.svg">
+    </div>
+</article>
+    {{/each}}
+</script>
+<!--terminar template -->

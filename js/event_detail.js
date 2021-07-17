@@ -1,10 +1,14 @@
 var capa_scroll;
+var $add, $remove
 
-$(document).ready(function () {
-    $('.save').on('click', function () {
+$add = $("#addGuardado");
+$remove = $("#removeGuardado");
+
+    $remove.on('click', function () {
+        $remove.hide();
+        $add.show();
         var id = $(this).attr('name');
 
-        console.log(id);
         $.ajax({
             url: 'components/bd_insert_saved.php', //Jquery carrega serverside.php
             data: 'id_evento=' + id, // Envia o valor do botão clicado
@@ -12,9 +16,29 @@ $(document).ready(function () {
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
-                console.log("success")
-                //createHTMLDinamyc("eventos_template","eventos_conteudo", data);
+                console.log("success add")
+            })
+            .fail(function () { // Se existir um erro no pedido
+                //console.log("nop")
+                //$('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+            })
+        ;
+        return false; // keeps the page from not refreshing
+    });
 
+    $add.on("click", function() {
+        $remove.show();
+        $add.hide();
+        var id = $(this).attr('name');
+
+        $.ajax({
+            url: 'components/bd_search_saved_delete.php', //Jquery carrega serverside.php
+            data: 'id_evento=' + id, // Envia o valor do botão clicado
+            dataType: 'json', //escolhe o tipo de dados
+            type: 'GET', //por default, mas pode ser POST
+        })
+            .done(function (data) {
+                console.log("success delete")
             })
             .fail(function () { // Se existir um erro no pedido
                 console.log("nop")
@@ -22,9 +46,12 @@ $(document).ready(function () {
             })
         ;
         return false; // keeps the page from not refreshing
+
+        // do your AJAX stuff to remove the favourite here
+
     });
 
-});
+
 
 
 /* ------------------ card topo / capa evento ------------------ */
