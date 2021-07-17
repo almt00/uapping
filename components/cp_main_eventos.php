@@ -88,14 +88,20 @@
                     <article class="col-12">
                         <section class="row px-4">
                             <div class="col-12 event-card mb-5">
-                                <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
                                     <section class="row">
                                         <article class="col-12">
                                             <section class="row event-header mb-3 align-items-center">
                                                 <titulo class="col-12 mt-3 mb-1">
-                                                    <h4 class="h2-eventos"> <?= $nome_evento ?></h4>
+                                                    <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
+                                                        <section class="row">
+                                                            <article class="col-12">
+                                                                <h4 class="h4-eventos"> <?= $nome_evento ?> </h4>
+                                                            </article>
+                                                        </section>
+                                                    </a>
                                                 </titulo>
                                                 <article class="col-6">
+                                                    <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
                                                     <section class="row">
                                                         <data class="col-12 mb-2">
                                                             <img class="mr-1"
@@ -115,17 +121,25 @@
                                                             <p class="d-inline"> <?= date('G:i', strtotime($hora_evento)) ?> </p>
                                                         </horas>
                                                     </section>
+                                                    </a>
                                                 </article>
-                                                <nucleo class="col-6 text-right">
-                                                    <img src="assets/img/<?= $imagem_oficial ?> ">
+                                                <nucleo class="col-6 text-right" style="height:3.5rem;">
+                                                    <section class="row">
+                                                        <article class="col-12">
+                                                            <a href="nucleos_detail.php?id_nucleo=<?= $id_nucleo ?>">
+                                                                <img src="assets/img/<?= $imagem_oficial ?> ">
+                                                            </a>
+                                                        </article>
+                                                    </section>
                                                 </nucleo>
                                             </section>
+                                            <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
                                             <section class="row event-cover"
                                                      style='background-image: url("assets/img/<?= $imagem_evento ?> ");'>
                                             </section>
+                                            </a>
                                         </article>
                                     </section>
-                                </a>
                                 <article class="card-footer p-eventos text-right py-1 px-4">
                                     <!--
                                     <article class="mb-5 text-left">
@@ -235,14 +249,20 @@
     <article class="col-12" id="eventos">
         <section class="row px-4">
             <article class="col-12 event-card mb-5" id="evento_">
-                <a href="evento_detail.php?id_evento={{id_evento}}">
                     <section class="row">
                         <article class="col-12">
                             <section class="row event-header mb-3">
                                 <titulo class="col-12 mt-3 mb-1">
-                                    <h4 class="h4-eventos" id="nome_evento">{{nome}}</h4>
+                                    <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
+                                        <section class="row">
+                                            <article class="col-12">
+                                                <h4 class="h4-eventos" id="nome_evento">{{nome}}</h4>
+                                            </article>
+                                        </section>
+                                    </a>
                                 </titulo>
                                 <article class="col-6">
+                                    <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
                                     <section class="row">
                                         <data class="col-12 mb-2">
                                             <img class="mr-1"
@@ -254,17 +274,25 @@
                                             <p class="d-inline" id="hora_evento">{{hora}}</p>
                                         </horas>
                                     </section>
+                                    </a>
                                 </article>
-                                <nucleo class="col-6 text-right">
-                                    <img src="assets/img/{{imagem_nucleo}}">
+                                <nucleo class="col-6 text-right" style="height:3.5rem;">
+                                    <section class="row">
+                                        <article class="col-12">
+                                            <a href="nucleos_detail.php?id_nucleo=<?= $id_nucleo ?>">
+                                                <img src="assets/img/{{imagem_nucleo}}">
+                                            </a>
+                                        </article>
+                                    </section>
                                 </nucleo>
                             </section>
+                            <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
                             <section id="background" class="row event-cover"
                                      style='background-image: url("assets/img/{{imagem}}")'>
                             </section>
+                            </a>
                         </article>
                     </section>
-                </a>
                 <div class="card-footer text-right py-1 px-4">
                     <img class="save_share" src="assets/img/share_white.svg">
                     <img class="ml-3 save_share" src="assets/img/save_white.svg">
