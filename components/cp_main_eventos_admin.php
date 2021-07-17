@@ -20,8 +20,8 @@ $rows = mysqli_stmt_num_rows($stmt);
 
 mysqli_stmt_close($stmt);
 mysqli_close($link);
-if (isset($admin_membro) && $admin_membro==1) {
-?>
+if (isset($admin_membro) && $admin_membro == 1) {
+    ?>
     <main class="background_cinza container-fluid main-flex">
         <section class="row">
             <article class="col-12">
@@ -87,14 +87,20 @@ if (isset($admin_membro) && $admin_membro==1) {
                                 <article class="col-12">
                                     <section class="row px-4">
                                         <article class="col-12 event-card mb-5">
-                                            <a href="admin_editar_evento.php?id_evento=<?= $id_evento ?>">
                                                 <section class="row">
                                                     <article class="col-12">
                                                         <section class="row event-header mb-3 align-items-center">
                                                             <titulo class="col-12 mt-3 mb-1">
-                                                                <h4 class="h4-eventos"> <?= $nome_evento ?> </h4>
+                                                                <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
+                                                                <section class="row">
+                                                                    <article class="col-12">
+                                                                        <h4 class="h4-eventos"> <?= $nome_evento ?> </h4>
+                                                                    </article>
+                                                                </section>
+                                                                </a>
                                                             </titulo>
                                                             <article class="col-6">
+                                                                <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
                                                                 <section class="row">
                                                                     <data class="col-12 mb-2">
                                                                         <img class="mr-1"
@@ -114,17 +120,25 @@ if (isset($admin_membro) && $admin_membro==1) {
                                                                         <p class="d-inline"> <?= date('G:i', strtotime($hora_evento)) ?> </p>
                                                                     </horas>
                                                                 </section>
+                                                                </a>
                                                             </article>
                                                             <nucleo class="col-6 text-right" style="height:3rem;">
-                                                                <img src="assets/admin/edit_admin.svg">
+                                                                <section class="row">
+                                                                    <article class="col-12">
+                                                                        <a href="admin_editar_evento.php?id_evento=<?= $id_evento ?>">
+                                                                        <img onclick="test()" src="assets/admin/edit_admin.svg">
+                                                                        </a>
+                                                                    </article>
+                                                                </section>
                                                             </nucleo>
                                                         </section>
+                                                        <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
                                                         <section class="row event-cover"
                                                                  style='background-image: url("assets/img/<?= $imagem_evento ?> ");'>
                                                         </section>
+                                                        </a>
                                                     </article>
                                                 </section>
-                                            </a>
                                             <div class="card-footer text-right py-1 px-4">
                                                 <img class="save_share" src="assets/img/share_white.svg">
                                             </div>
@@ -133,7 +147,7 @@ if (isset($admin_membro) && $admin_membro==1) {
                                     </section>
                                 </article>
                                 <?php
-                                $_SESSION['id_nucleo_admin']=$id_nucleo;
+                                $_SESSION['id_nucleo_admin'] = $id_nucleo;
                             }
                         } else {
                             echo "Error:" . mysqli_stmt_error($stmt);
@@ -219,5 +233,11 @@ if (isset($admin_membro) && $admin_membro==1) {
         <background id="background_interesses_menu" class="black-ground"></background>
     </Panel>
 <?php } else {
-     echo "<script>window.location.href='home_page.php'</script>"; // sera q isto é problematico?
+    echo "<script>window.location.href='home_page.php'</script>"; // sera q isto é problematico?
 } ?>
+
+<script>
+    function test(){
+        window.location.href='home_page.php';
+    }
+</script>
