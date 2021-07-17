@@ -20,8 +20,8 @@ $rows = mysqli_stmt_num_rows($stmt);
 
 mysqli_stmt_close($stmt);
 mysqli_close($link);
-if (isset($admin_membro) && $admin_membro==1) {
-?>
+if (isset($admin_membro) && $admin_membro == 1) {
+    ?>
     <main class="background_cinza container-fluid main-flex">
         <section class="row">
             <article class="col-12">
@@ -62,7 +62,8 @@ if (isset($admin_membro) && $admin_membro==1) {
                 </section>
                 <section class="row justify-content-center">
                     <article class="col-12 px-4 position-relative">
-                        <a href="admin_criar_evento.php"><img class="add_eventos_home_page" src="assets/admin/add_eventos.svg"></a>
+                        <a href="admin_criar_evento.php"><img class="add_eventos_home_page"
+                                                              src="assets/admin/add_eventos.svg"></a>
                     </article>
                 </section>
                 <section class="row">
@@ -115,8 +116,9 @@ if (isset($admin_membro) && $admin_membro==1) {
                                                                     </horas>
                                                                 </section>
                                                             </article>
+<!--                                                            <a href="admin_editar_evento.php?id_evento=--><?//=$id_evento?><!--"></a>-->
                                                             <nucleo class="col-6 text-right" style="height:3rem;">
-                                                                <img src="assets/admin/edit_admin.svg">
+                                                                <img src="assets/admin/edit_admin.svg" class="edit_evento">
                                                             </nucleo>
                                                         </section>
                                                         <section class="row event-cover"
@@ -133,7 +135,7 @@ if (isset($admin_membro) && $admin_membro==1) {
                                     </section>
                                 </article>
                                 <?php
-                                $_SESSION['id_nucleo_admin']=$id_nucleo;
+                                $_SESSION['id_nucleo_admin'] = $id_nucleo;
                             }
                         } else {
                             echo "Error:" . mysqli_stmt_error($stmt);
@@ -219,5 +221,5 @@ if (isset($admin_membro) && $admin_membro==1) {
         <background id="background_interesses_menu" class="black-ground"></background>
     </Panel>
 <?php } else {
-     echo "<script>window.location.href='home_page.php'</script>"; // sera q isto é problematico?
+    echo "<script>window.location.href='home_page.php'</script>"; // sera q isto é problematico?
 } ?>
