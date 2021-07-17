@@ -101,7 +101,7 @@ if (!isset($_SESSION['id_user']) || $_SESSION['id_user']==null) {
             <a href="mudar_password.php">
                 <article class="col-12 user-menu-options py-1">
                     <img src="assets/icons_user_menu/change_pass.svg">
-                    <span class="user-menu-options-span"> Mudar Pass </span>
+                    <span class="user-menu-options-span"> Mudar Password </span>
                 </article>
             </a>
             <a href="">

@@ -95,7 +95,7 @@ window.onload = function () {
         } else if (document.getElementById("pass_confirm").value != document.getElementById("pass").value){
             document.getElementById("pass").style.backgroundColor = "white";
             document.getElementById("pass_confirm").style.backgroundColor = "#ff6161";
-            document.getElementById("feedback_pass_verify").innerHTML = "Confirmação da Password inválida";
+            document.getElementById("feedback_pass_verify").innerHTML = "Confirmação da password inválida";
             v_pass = false;
         } else{
             document.getElementById("pass").style.backgroundColor = "white";
@@ -110,7 +110,7 @@ window.onload = function () {
             v_email = true;
             document.getElementById("feedback_email").style.display = "none";
         } else{
-            document.getElementById("feedback_email_verify").innerHTML = "Email inválido";
+            document.getElementById("feedback_email_verify").innerHTML = "Insere um email da UA válido";
             v_email = false;
         }
     }

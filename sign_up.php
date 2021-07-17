@@ -166,7 +166,7 @@
                         </section>
                         <section class="row">
                             <article class="col-12">
-                                <div id="feedback_interesses" style="display: none;" class="text-center alert alert-danger p-2 m-3"><p class="text-dark m-0">Selecione pelo menos um interesse!</p></div>
+                                <div id="feedback_interesses" style="display: none;" class="text-center alert alert-danger p-2 m-3"><p class="text-dark m-0">Seleciona pelo menos um interesse!</p></div>
                             </article>
                         </section>
 
