@@ -78,45 +78,58 @@ if (isset($admin_membro) && $admin_membro==1) {
                                 <article class="col-12">
                                     <section class="row px-4">
                                         <article class="col-12 event-card mb-5">
-                                            <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
                                                 <section class="row">
                                                     <article class="col-12">
                                                         <section class="row event-header mb-3 align-items-center">
                                                             <titulo class="col-12 mt-3 mb-1">
-                                                                <h4 class="h4-eventos"> <?= $nome_evento ?> </h4>
+                                                                <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
+                                                                    <section class="row">
+                                                                        <article class="col-12">
+                                                                            <h4 class="h4-eventos"> <?= $nome_evento ?> </h4>
+                                                                        </article>
+                                                                    </section>
+                                                                </a>
                                                             </titulo>
                                                             <article class="col-6">
-                                                                <section class="row">
-                                                                    <data class="col-12 mb-2">
-                                                                        <img class="mr-1"
-                                                                             src="assets/img/calendar_black.svg">
-                                                                        <p class="d-inline"> <?php
-                                                                            if (date('Y-m-d') == $data_evento) {
-                                                                                echo "Hoje";
-                                                                            } else if (date("Y-m-d", strtotime("+" . 1 . "days")) == $data_evento) {
-                                                                                echo "Amanhã";
-                                                                            } else {
-                                                                                echo date('j/m', strtotime($data_evento));
-                                                                            }
-                                                                            ?> </p>
-                                                                    </data>
-                                                                    <horas class="col-12">
-                                                                        <img class="mr-1" src="assets/img/clock.svg">
-                                                                        <p class="d-inline"> <?= date('G:i', strtotime($hora_evento)) ?> </p>
-                                                                    </horas>
-                                                                </section>
+                                                                <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
+                                                                    <section class="row">
+                                                                        <data class="col-12 mb-2">
+                                                                            <img class="mr-1"
+                                                                                 src="assets/img/calendar_black.svg">
+                                                                            <p class="d-inline"> <?php
+                                                                                if (date('Y-m-d') == $data_evento) {
+                                                                                    echo "Hoje";
+                                                                                } else if (date("Y-m-d", strtotime("+" . 1 . "days")) == $data_evento) {
+                                                                                    echo "Amanhã";
+                                                                                } else {
+                                                                                    echo date('j/m', strtotime($data_evento));
+                                                                                }
+                                                                                ?> </p>
+                                                                        </data>
+                                                                        <horas class="col-12">
+                                                                            <img class="mr-1" src="assets/img/clock.svg">
+                                                                            <p class="d-inline"> <?= date('G:i', strtotime($hora_evento)) ?> </p>
+                                                                        </horas>
+                                                                    </section>
+                                                                </a>
                                                             </article>
                                                             <nucleo class="col-6 text-right" style="height:3.5rem;">
-                                                                <!-- falta aqui fazer ligação também -->
-                                                                <img src="assets/img/NRock_1.svg">
+                                                                <section class="row">
+                                                                    <article class="col-12">
+                                                                        <a href="nucleos_detail.php?id_nucleo=<?= $id_nucleo ?>">
+                                                                            <img src="assets/img/<?= $imagem_oficial ?> ">
+                                                                        </a>
+                                                                    </article>
+                                                                </section>
                                                             </nucleo>
                                                         </section>
+                                                        <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
                                                         <section class="row event-cover"
                                                                  style='background-image: url("assets/img/<?= $imagem_evento ?> ");'>
                                                         </section>
+                                                        </a>
                                                     </article>
                                                 </section>
-                                            </a>
                                             <div class="card-footer text-right py-1 px-4">
                                                 <img class="save_share" src="assets/img/ban_cinza.svg">
                                                 <!-- <img class="ml-3 save_share" src="assets/img/ban_vermelho.svg"> -->
