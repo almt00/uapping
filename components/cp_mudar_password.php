@@ -9,7 +9,7 @@
                     </section>
                 </article>
             </section>
-            <section class="row section-criar-nucleo justify-content-center">
+            <section class="row section-criar-nucleo justify-content-center mt-0">
                 <article class="col-12 mt-4 mb-3 position-relative">
                     <h2 class="text-center h2-nucleo_save"> Alterar Password </h2>
                 </article>
