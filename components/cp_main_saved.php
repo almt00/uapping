@@ -38,8 +38,8 @@
 
                 <article class="col-12 mt-4">
                     <section class="row px-4">
-                        <div id="eventos_guardados_conteudo"></div>
-                        <div id="eventos_guardados_load">
+                        <div id="eventos_guardados_conteudo" style="width:100%;"></div>
+                        <div id="eventos_guardados_load" style="width:100%;">
                         <?php
                         require_once "connections/connection.php";
                         $link = new_db_connection();

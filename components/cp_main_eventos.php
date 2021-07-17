@@ -58,8 +58,8 @@
                 <article class="col-12 mt-5 mb-3 px-4">
                     <h2 class="pl-2 h2-eventos"> Eventos </h2>
                 </article>
-                <div id="eventos_conteudo"></div> <!--recebe template handlebars por ajax-->
-                <div id="eventos_load">
+                <div id="eventos_conteudo" style="width:100%;"></div> <!--recebe template handlebars por ajax-->
+                <div id="eventos_load" style="width:100%;">
                     <!--recebe sem ser por ajax-->
                     <?php
                     require_once "connections/connection.php";
