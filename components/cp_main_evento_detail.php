@@ -17,7 +17,7 @@ WHERE eventos.id_evento= ?";
     if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
         mysqli_stmt_bind_param($stmt, 'ii', $id_utilizador, $id_evento);
         mysqli_stmt_execute($stmt); // Execute the prepared statement
-        mysqli_stmt_bind_result($stmt, $ref_id_evento, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $local_evento, $descricao_evento, $id_nucleo, $preco_evento, $link_fb_evento, $imagem_oficial, $link_fb_oficial, $link_insta_oficial, $link_site_oficial);
+        mysqli_stmt_bind_result($stmt, $guardado, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $local_evento, $descricao_evento, $id_nucleo, $preco_evento, $link_fb_evento, $imagem_oficial, $link_fb_oficial, $link_insta_oficial, $link_site_oficial);
         mysqli_stmt_fetch($stmt);
         mysqli_stmt_close($stmt); // Close statement
     }
@@ -123,12 +123,13 @@ WHERE eventos.id_evento= ?";
                                 });
                             </script>
                             <div class="d-inline position-relative">
-                                <?php if(empty($ref_id_evento)){
-                                    echo'<img class="ml-3 evento-detail-icon save" id="addGuardado" name="<?=$id_evento?>" src="assets/img/save.svg">';
-                                    echo'<img class="ml-3 evento-detail-icon save" id="removeGuardado" name="<?=$id_evento?>" src="assets/img/saved_orange.svg" style="display: none">';
+                                <?php if(empty($guardado)){
+                                    echo'<img class="ml-3 evento-detail-icon save" id="addGuardado" name='.$id_evento.' src="assets/img/save.svg">';
+                                    echo'<img class="ml-3 evento-detail-icon save" id="removeGuardado" name='.$id_evento.' src="assets/img/saved_orange.svg" style="display: none">';
                                 }else{
-                                    echo'<img class="ml-3 evento-detail-icon save" id="removeGuardado" name="<?=$id_evento?>" src="assets/img/saved_orange.svg">';
-                                    echo'<img class="ml-3 evento-detail-icon save" id="addGuardado" name="<?=$id_evento?>" src="assets/img/save.svg" style="display: none">';
+
+                                    echo'<img class="ml-3 evento-detail-icon save" id="removeGuardado" name='.$id_evento.' src="assets/img/saved_orange.svg">';
+                                    echo'<img class="ml-3 evento-detail-icon save" id="addGuardado" name='.$id_evento.' src="assets/img/save.svg" style="display: none">';
                                 }?>
                                 <p class="tag-share-save-event-detail" id="info_save" style="margin-left:0.4rem"> Guardar </p>
                             </div>

@@ -97,6 +97,61 @@ $(document).ready(function () {
     });
 });
 
+/* ------------------ home page / saved ------------------
+
+$add = $("#addGuardado");
+$remove = $("#removeGuardado");
+
+$(document).ready(function () {
+    $add.on('click', function () {
+        $remove.show();
+        $add.hide();
+
+        var id = $(this).attr('name');
+
+        $.ajax({
+            url: 'bd/bd_insert_saved.php', //Jquery carrega serverside.php
+            data: 'id_evento=' + id, // Envia o valor do botão clicado
+            dataType: 'json', //escolhe o tipo de dados
+            type: 'GET', //por default, mas pode ser POST
+        })
+            .done(function (data) {
+                console.log("add")
+            })
+            .fail(function () { // Se existir um erro no pedido
+                //console.log("nop")
+                //$('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+            })
+        ;
+        return false; // keeps the page from not refreshing
+    });
+
+    $remove.on("click", function() {
+        $add.show();
+        $remove.hide();
+
+        var id = $(this).attr('name');
+
+        $.ajax({
+            url: 'bd/bd_search_saved_delete.php', //Jquery carrega serverside.php
+            data: 'id_evento=' + id, // Envia o valor do botão clicado
+            dataType: 'json', //escolhe o tipo de dados
+            type: 'GET', //por default, mas pode ser POST
+        })
+            .done(function (data) {
+                console.log("delete")
+            })
+            .fail(function () { // Se existir um erro no pedido
+                console.log("nop")
+                //$('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+            })
+        ;
+        return false; // keeps the page from not refreshing
+    });
+
+});
+
+*/
 
 Handlebars.registerHelper('formatDate', function (dateString) {
     return new Handlebars.SafeString(
