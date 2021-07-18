@@ -138,11 +138,51 @@ WHERE eventos.id_evento= ?";
                             <h3 class="subtitle-event-detail"> Participantes </h3>
                         </article>
                         <article class="col-12 mb-5 art-people-event-detail px-event-detail">
-                            <div class="mr-1 people-bubble-event-detail bg-profile"
-                                 style='background-image: url("assets/img/smells_rock_1.jpg");'></div>
-                            <div class="mr-1 people-bubble-event-detail bg-profile"></div>
-                            <div class="mr-1 people-bubble-event-detail bg-profile"></div>
-                            <div class="people-bubble-event-detail"><span> +3 </span></div>
+                            <!-- SQL para buscar participantes -->
+                            <?php
+                            if (isset($_GET['id_evento'])) {
+                                $link = new_db_connection();
+                                $stmt = mysqli_stmt_init($link);
+                                $query = "SELECT avatares.imagem_avatar FROM avatares
+INNER JOIN utilizadores
+ON utilizadores.ref_id_avatar=avatares.id_avatar
+INNER JOIN eventos_guardados
+ON eventos_guardados.utilizadores_id_utilizador=utilizadores.id_utilizador
+WHERE eventos_guardados.eventos_id_evento = ?"; //query para nome ficheiro img de avatar
+                                if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
+                                    mysqli_stmt_bind_param($stmt, 'i', $id_evento);
+                                    mysqli_stmt_execute($stmt); // Execute the prepared statement
+                                    mysqli_stmt_bind_result($stmt, $avatar);
+
+                                    $i = 0;
+                                    $n = 0;
+                                    while (mysqli_stmt_fetch($stmt)) {
+                                        $i++;// número de ciclos = utilizadores que guardam o evento
+                                        if ($i <= 2) {
+                                            ?>
+                                            <div id="avatar" class="mr-1 people-bubble-event-detail bg-profile"
+                                                 style='background-image: url("assets/img/<?= $avatar ?>");'>
+                                            </div>
+                                            <?php
+                                        }
+                                    }
+                                    //condição para esconder bolha "+" caso só existam 2 participantes
+                                    if ($i < 2) {
+                                        ?>
+                                        <style type="text/css">#participantes {
+                                                display: none;
+                                            }</style>
+                                        <?php
+                                    }
+                                    //echo $i; //para visualizar o numero total de participantes
+                                    $num = $i - 2;//identifica o valor númerico a ser apresentado na bolha de "+" participantes
+                                }
+                                mysqli_close($link);
+                            } else {
+                                die;
+                            }
+                            ?>
+                            <div id="participantes" class="people-bubble-event-detail"><span> +<?= $num ?></span></div>
                         </article>
                         <article class="col-12 mb-3 text-center px-event-detail">
                             <div class="links-cal-out-event-detail"> Adicionar ao calendário</div>

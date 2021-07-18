@@ -13,6 +13,8 @@
 
 <?php $nav_nucleo = true; ?>
 
+<?php $pag_backoffice = true; ?>
+
 <?php include_once "components/cp_header.php" ?>
 
 <?php include_once "scripts/sc_check_backoffice.php" ?>

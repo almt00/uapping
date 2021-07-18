@@ -11,6 +11,9 @@
 
 <script> admin_user = true; </script>
 
+<?php $pag_admin = true; ?>
+
+
 <?php include_once "components/cp_header.php" ?>
 
 <?php include_once "scripts/sc_check_admin.php" ?>
