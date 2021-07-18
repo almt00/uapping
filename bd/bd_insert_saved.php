@@ -3,6 +3,7 @@ require_once "../connections/connection.php";
 $id_evento = $_GET['id_evento'];
 session_start();
 $id_utilizador=$_SESSION["id_user"];
+//var_dump($id_utilizador);
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 $query = "INSERT INTO eventos_guardados (utilizadores_id_utilizador,eventos_id_evento) VALUES (?,?)";

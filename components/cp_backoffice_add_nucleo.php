@@ -109,12 +109,19 @@
                             <article id="art_add_membro" class="col-12" style="display: none">
                                 <section id="nucleo_membros" class="row">
                                     <article class="col-12">
-                                        <section id="art_nucleo_membros" class="row">
+
+                                        <?php
+
+                                        for ($i = 0; $i <= 12; $i++) {
+
+                                        ?>
+
+                                        <section id="art_nucleo_membros_<?=$i?>" class="row mb-4" <?php if ($i != 0){ ?> style="display:none" <?php } ?>>
                                             <article class="col-12">
-                                                <select required="required"
+                                                <select <?php if ($i == 0){ ?> required="required" <?php } ?>
                                                         class="custom-select select_criar_nucleo mb-3 mb-md-3"
-                                                        id="area_0"
-                                                        name="area_0" form="criar_nucleo">
+                                                        id="area_<?=$i?>"
+                                                        name="area_<?=$i?>" form="criar_nucleo">
                                                     <?php
                                                     require_once "connections/connection.php";
                                                     $link = new_db_connection();
@@ -136,18 +143,21 @@
                                                     ?>
                                                 </select>
                                                 <div class="div-input-sigla capa_evento">
-                                                    <input id="nome_1" class="input_sigla mb-3 mb-md-3 input_edit_user"
-                                                           type="text" name="nome_1"
-                                                           size="24" placeholder="nome" required="required"
+                                                    <input id="nome_<?=$i?>" class="input_sigla mb-3 mb-md-3 input_edit_user"
+                                                           type="text" name="nome_<?=$i?>"
+                                                           size="24" placeholder="nome" <?php if ($i == 0){ ?> required="required" <?php } ?>
                                                            style="padding-right:1.6rem;">
-                                                    <label for="file-upload" class="mb-3" id="previewImg"> <img
+                                                    <label for="file-upload_<?=$i?>" class="mb-3" id="previewImg_<?=$i?>"> <img
                                                                 src="assets/img/inserir_nucleo_logo.svg"> </label>
-                                                    <input id="file-upload" class="input_novo_admin" type="file"
-                                                           name="capa_evento"
-                                                           size="24" required="required" onchange="previewFile(this);">
+                                                    <input id="file-upload_<?=$i?>" class="input_novo_admin" type="file"
+                                                           name="capa_evento_<?=$i?>"
+                                                           size="24" <?php if ($i == 0){ ?> required="required" <?php } ?> onchange="previewFile(this);">
                                                 </div>
                                             </article>
                                         </section>
+
+                                        <?php } ?>
+
                                     </article>
                                 </section>
 
@@ -177,48 +187,19 @@
 </main>
 
 <script>
-    /*var n = 1;
 
-    var seccao_membros = document.getElementById('nucleo_membros');
-    document.getElementById('add_membro').onclick = function () {
-        document.getElementById('area_'+(n-1)).id = 'area_' + n;
-        //document.getElementById('area_'+(n)).id = 'area_' + (n+1);
-
-        seccao_membros.innerHTML += document.getElementById('art_nucleo_membros').innerHTML;
-        n++;
-        document.getElementById('area_'+(n-1)).id='area_'+n;
-
-        if (n>3) {
-            document.getElementById('area_'+(n-1)).id='area_'+(n-2);
-        }*/
-
-
-       /* if (n === 1) {
-            document.getElementById('area_').id = 'area_' + n;
-        }
-        seccao_membros.innerHTML += document.getElementById('art_nucleo_membros').innerHTML;
-        document.getElementById('area_' + n).id = 'area_' + nn;
-        n++;
-        console.log(n);
-        if (n !== 1) {
-            nn++;
-        }
-        console.log(nn);*/
-    }
-
-
-    /*var p_id_n = 0;
     var id_n = 1;
-    var att_n = 1;*/
 
-    /*document.getElementById("add_membro").onclick = function (){
-        document.getElementById("area_" + p_id_n).id = "area_" + id_n;
-        document.getElementById("area_" + id_n).setAttribute("name", "area_" + att_n);
-        document.getElementById("nucleo_membros").innerHTML += document.getElementById("art_nucleo_membros").innerHTML;
-        p_id_n++;
+    document.getElementById("add_membro").onclick = function (){
+        document.getElementById("art_nucleo_membros_" + id_n).style.display = "flex";
+        document.getElementById("area_" + id_n).required = true;
+        document.getElementById("nome_" + id_n).required = true;
+        document.getElementById("file-upload_" + id_n).required = true;
         id_n++;
-        att_n++;
-    }*/
+        if (id_n === 13){
+            document.getElementById("add_membro").style.display = "none";
+        }
+    }
 
     document.getElementById("avancar_add_nucleo").onclick = function () {
         document.getElementById("art_add_nucleo").style.display = "none";

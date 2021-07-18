@@ -9,16 +9,11 @@
 </head>
 <body>
 
-<script> admin_user = true; </script>
-
-<?php $pag_admin = true; ?>
-
+<script> normal_user = true; </script>
 
 <?php include_once "components/cp_header.php" ?>
 
-<?php include_once "scripts/sc_check_admin.php" ?>
-
-<?php include_once "components/cp_admin_editar_evento.php" ?>
+<?php include_once "components/cp_faq.php" ?>
 
 <?php include_once "helpers/help_js.php"?>
 

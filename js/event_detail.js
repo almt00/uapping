@@ -33,6 +33,7 @@ $(document).ready(function () {
         $remove.hide();
 
         var id = $(this).attr('name');
+        console.log(id);
 
         $.ajax({
             url: 'bd/bd_search_saved_delete.php', //Jquery carrega serverside.php
