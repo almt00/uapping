@@ -1,4 +1,4 @@
-<nav class="container-fluid nav-mobile display-md-off display-xs-block">
+<nav class="container-fluid nav-mobile">
     <div class="row nav-mobile-row">
         <site class="col-4 text-center">
             <a href="home_page.php">
