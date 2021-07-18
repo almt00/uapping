@@ -2078,6 +2078,87 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     z-index: 5;
 }
 
+/* ---------------------- */
+
+#avancar_add_sucesso{
+    border-radius: 50pt;
+    padding: 0.8rem 0.8rem;
+    color: white;
+    background: linear-gradient(90deg, rgba(0,205,144,1) 0%, rgba(0,195,55,1) 100%);
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    border: none;
+    margin-left:auto;
+    margin-right:auto;
+    transition: background-color 0.2s;
+    width:100%;
+    max-width: 22rem;
+}
+
+#avancar_add_sucesso:focus{
+    outline: none;
+}
+
+#cancelar_add_sucesso{
+    font-size:0.9rem;
+    border-radius: 50pt;
+    padding: 0.8rem 0.8rem;
+    display: block;
+    color: #787878;
+    font-weight: bold;
+    margin-left:auto;
+    margin-right:auto;
+    border: none;
+    background-color: transparent;
+    width:100%;
+    max-width: 22rem;
+}
+
+#cancelar_add_sucesso:focus{
+    outline: none;
+}
+
+#avancar_fim{
+    border-radius: 50pt;
+    padding: 0.8rem 0.8rem;
+    color: white;
+    background: linear-gradient(90deg, rgba(0,205,144,1) 0%, rgba(0,195,55,1) 100%);
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    border: none;
+    margin-left:auto;
+    margin-right:auto;
+    transition: background-color 0.2s;
+    width:100%;
+    max-width: 22rem;
+}
+
+#avancar_fim:focus{
+    outline: none;
+}
+
+#info_fim{
+    border-radius: 50pt;
+    padding: 0.8rem 0.8rem;
+    color: white;
+    background: linear-gradient(90deg, rgba(72,149,239,1) 0%, rgba(53,231,255,1) 100%);
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    border: none;
+    margin-left:auto;
+    margin-right:auto;
+    transition: background-color 0.2s;
+    width:100%;
+    max-width: 22rem;
+}
+
+#info_fim:focus{
+    outline: none;
+}
+
 /* Displays */
 
 .display-xs-block{

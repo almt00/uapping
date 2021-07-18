@@ -51,7 +51,7 @@ if ((isset($_POST['nome'])) && (isset($_POST['sigla'])) && (isset($_POST['descri
                                 mysqli_stmt_bind_param($stmt4, 'ii', $id_nucleo,$id_user);
                                 if (mysqli_stmt_execute($stmt4)) {
                                     var_dump($cor);
-                                   header("Location: ../nucleos.php");
+                                   header("Location: ../criar_nucleo_sucesso.php");
                                     die;
                                 } else {
                                     echo 'erro6';
