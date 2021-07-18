@@ -153,8 +153,36 @@
                                         <div class="mr-1 people-bubble-event-detail bg-profile"></div>
                                         <div class="people-bubble-event-detail"><span> +3 </span></div>
                                     </article>-->
-                                    <img class="save_share" src="assets/img/share_white.svg">
-                                    <img class="ml-3 save_share" src="assets/img/save_white.svg">
+
+                                    <!--script para partilha com a interface nativa do dispositivo-->
+                                    <script>
+                                        function share(id) {
+                                            const toShare = {
+                                                title: "Partilhar evento: <?= htmlspecialchars($nome_evento) ?> ",
+                                                text: "Olha só este evento na UA chamado <?= htmlspecialchars($nome_evento) ?>!",
+                                                url: "http://localhost/UAPPING/evento_detail.php?id_evento="+id+"" // mudar qdo for o servidor normal senao n da
+                                            };
+                                            const button = document.getElementById('share_<?php echo $id_evento ?>');
+
+                                            button.addEventListener('click', async () => {
+                                                try {
+                                                    await navigator.share(toShare); // Will trigger the native "share" feature
+                                                    button.textContent = 'Shared !';
+                                                } catch (err) {
+                                                    button.textContent = 'Something went wrong';
+                                                    console.log(err);
+                                                }
+                                            });
+                                        }
+
+                                    </script>
+
+                                    <img id="share_<?=$id_evento?>" class="save_share" src="assets/img/share_white.svg" style="cursor: pointer;">
+
+                                    <script> share("<?php echo $id_evento ?>");</script>
+
+
+                                    <img class="ml-3 save_share" src="assets/img/save_white.svg" style="cursor: pointer;">
                                 </article>
                         </section>
                     </article>
@@ -235,8 +263,12 @@
     </interesses>
     <background id="background_interesses_menu" class="black-ground"></background>
 </Panel>
+
+
 <!--TEMPLATE JS AJAX INTERESSES VS TODOS EVENTOS-->
+
 <script id="eventos_template" type="text/x-handlebars-template">
+
     {{#each this}}
     <article class="col-12" id="eventos">
         <section class="row px-4">
@@ -286,13 +318,18 @@
                         </article>
                     </section>
                 <div class="card-footer text-right py-1 px-4">
-                    <img class="save_share" src="assets/img/share_white.svg">
-                    <img class="ml-3 save_share" src="assets/img/save_white.svg">
+                    <img id="share_{{id_evento}}" class="save_share" src="assets/img/share_white.svg" style="cursor: pointer;">
+                    <img class="ml-3 save_share" src="assets/img/save_white.svg" style="cursor: pointer;">
                     <!-- <img class="ml-3 save_share" src="assets/img/saved_orange.svg"> -->
                 </div>
             </article>
     </article>
     {{/each}}
+
+</script>
+
+<script>
+    share(<?= $id_evento ?>);
 </script>
 <!--terminar template -->
 
