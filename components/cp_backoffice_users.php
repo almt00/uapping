@@ -41,7 +41,7 @@
                                     </a>
                                 </article>
                                 <article class="col-6">
-                                    <a href="backoffice_edit_users.php">
+                                    <a href="backoffice_edit_users.php?user=<?=$id_utilizador?>">
                                         <section class="row">
                                             <article class="col-12">
                                                 <p class="p-administradores_nome"> <?= htmlspecialchars($nome) ?> </p>
