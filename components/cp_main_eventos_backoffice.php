@@ -44,12 +44,14 @@
                     require_once "connections/connection.php";
                     $link = new_db_connection();
                     $stmt = mysqli_stmt_init($link);
-                    $query = "SELECT eventos.id_evento,eventos.nome_evento, eventos.data_evento,eventos.hora_evento,eventos.imagem_evento,eventos.ref_id_nucleo 
+                    $query = "SELECT eventos.id_evento,eventos.nome_evento, eventos.data_evento,eventos.hora_evento,eventos.imagem_evento,eventos.ref_id_nucleo,nucleos_oficiais.imagem_oficial
                         FROM eventos
+                        INNER JOIN nucleos_oficiais
+                        ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo
                         ORDER BY eventos.data_evento ASC";
                     if (mysqli_stmt_prepare($stmt, $query)) {
                         if (mysqli_stmt_execute($stmt)) {
-                            mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $id_nucleo);
+                            mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $id_nucleo,$imagem_oficial);
                             while (mysqli_stmt_fetch($stmt)) {
                                 ?>
                                 <article class="col-12">
