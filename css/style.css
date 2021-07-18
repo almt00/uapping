@@ -2159,6 +2159,50 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     outline: none;
 }
 
+.btn-back-faq{
+    position: absolute;
+    top:-0.6rem;
+    left:0;
+    z-index: 1;
+}
+
+/* ------ Faq's ------ */
+
+.faq-box{
+    width:100%;
+    overflow: hidden;
+    background-color: #ECECEC;
+    border-radius: 25px;
+}
+
+.faq-art-text{
+    padding: 1rem 0 0 2rem;
+}
+
+.faq-art-img{
+    margin-top: 0.7rem;
+}
+
+.art-content-faq{
+    max-height:0;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.h2-faq{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    color:#378FED;
+}
+
+.text-faq{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    font-size: 0.9rem;
+    color: black;
+    margin-bottom:0;
+}
+
 /* Displays */
 
 .display-xs-block{
