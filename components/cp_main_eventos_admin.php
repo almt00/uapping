@@ -35,21 +35,23 @@ if (isset($admin_membro) && $admin_membro == 1) {
                         <section class="row justify-content-center">
                             <article class="col-12 px-4 position-relative">
                                 <i class="fas fa-search icon-search-top"></i>
-                                <input class="input_search-home-page-admin" type="text" id="search-bar"
-                                       name="search_bar">
+                                <input class="input_search-home-page-admin" type="text" id="search-bar-nucleo" name="search_bar">
                             </article>
                         </section>
                         <section class="row justify-content-center mt-4">
                             <article class="col-12 art-date_slide">
                                 <Dateslide id="slide_date" class="px-4 date-slide-admin">
-                                    <hoje class="date-slide-elements_admin slide-hoje"> Hoje</hoje>
-                                    <amanha class="date-slide-elements_admin slide-amanha ml-2"> Amanhã</amanha>
-                                    <!--- para apresentar os dias dentro dos pill utilizando tempo real de forma dinâmica--->
+                                    <?php
+                                    $data_hoje = date("Y-m-d");
+                                    $data_amanha = date("Y-m-d", strtotime("+1days"));
+                                    ?>
+                                    <hoje class="date-slide-elements slide-hoje pills_datas" id="<?= $data_hoje ?>"> Hoje</hoje>
+                                    <amanha class="date-slide-elements slide-amanha ml-2 pills_datas" id="<?= $data_amanha ?>"> Amanhã</amanha>
                                     <?php
                                     for ($n = 0; $n <= 5; $n++) {
                                         $data_pill = date("Y-m-d", strtotime("+" . $n . "days"));
                                         if ($n >= 2) {
-                                            echo '<dia class="date-slide-elements_admin slide-dias ml-2" id="pill_' . $n . '">' . date('j', strtotime($data_pill)) . '</dia>';
+                                            echo '<dia class="date-slide-elements slide-dias ml-2 pills_datas" id="'.$data_pill.'">' . date('j', strtotime($data_pill)) . '</dia>';
                                         }
                                     }
                                     ?>
@@ -65,10 +67,13 @@ if (isset($admin_membro) && $admin_membro == 1) {
                         <a href="admin_criar_evento.php"><img class="add_eventos_home_page" src="assets/admin/add_eventos.svg"></a>
                     </article>
                 </section>
-                <section class="row">
+                <div class="row">
                     <article class="col-12 mt-5 mb-3 px-4">
                         <h2 class="pl-2 h2-eventos"> Eventos </h2>
                     </article>
+                    <div id="eventos_conteudo"></div> <!--recebe template handlebars por ajax-->
+                    <div id="eventos_load">
+                        <!--recebe sem ser por ajax-->
                     <?php
                     $link = new_db_connection();
                     $stmt = mysqli_stmt_init($link);
@@ -217,7 +222,70 @@ if (isset($admin_membro) && $admin_membro == 1) {
         </interesses>
         <background id="background_interesses_menu" class="black-ground"></background>
     </Panel>
+
+    <!--TEMPLATE PARA INSERIR EVENTOS PELA SEARCH BAR-->
+    <script id="eventos_template" type="text/x-handlebars-template">
+        {{#each this}}
+        <article class="col-12" id="eventos">
+            <section class="row px-4">
+                <article class="col-12 event-card mb-5" id="evento_">
+                    <section class="row">
+                        <article class="col-12">
+                            <section class="row event-header mb-3">
+                                <titulo class="col-12 mt-3 mb-1">
+                                    <a href="evento_detail.php?id_evento={{id_evento}}">
+                                        <section class="row">
+                                            <article class="col-12">
+                                                <h4 class="h4-eventos" id="nome_evento">{{nome}}</h4>
+                                            </article>
+                                        </section>
+                                    </a>
+                                </titulo>
+                                <article class="col-6">
+                                    <a href="evento_detail.php?id_evento={{id_evento}}">
+                                        <section class="row">
+                                            <data class="col-12 mb-2">
+                                                <img class="mr-1"
+                                                     src="assets/img/calendar_black.svg">
+                                                <p class="d-inline" id="data_evento">{{formatDate data}}</p>
+                                            </data>
+                                            <horas class="col-12">
+                                                <img class="mr-1" src="assets/img/clock.svg">
+                                                <p class="d-inline" id="hora_evento">{{hora}}</p>
+                                            </horas>
+                                        </section>
+                                    </a>
+                                </article>
+                                <nucleo class="col-6 text-right" style="height:3.5rem;">
+                                    <section class="row">
+                                        <article class="col-12">
+                                            <a href="nucleos_detail.php?id_nucleo={{id_nucleo}}">
+                                                <img src="assets/img/{{imagem_nucleo}}">
+                                            </a>
+                                        </article>
+                                    </section>
+                                </nucleo>
+                            </section>
+                            <a href="evento_detail.php?id_evento={{id_evento}}">
+                                <section id="background" class="row event-cover"
+                                         style='background-image: url("assets/img/{{imagem}}")'>
+                                </section>
+                            </a>
+                        </article>
+                    </section>
+                    <div class="card-footer text-right py-1 px-4">
+                        <img class="save_share" src="assets/img/share_white.svg">
+                        <img class="ml-3 save_share" src="assets/img/save_white.svg">
+                        <!-- <img class="ml-3 save_share" src="assets/img/saved_orange.svg"> -->
+                    </div>
+                </article>
+        </article>
+        {{/each}}
+    </script>
+
 <?php } else {
     echo "<script>window.location.href='home_page.php'</script>"; // sera q isto é problematico?
 } ?>
+
+
 

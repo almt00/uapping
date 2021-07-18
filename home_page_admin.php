@@ -25,5 +25,6 @@
 
 <?php include_once "helpers/help_js.php"?>
 
+<script src="js/switch_interesses.js" type="text/javascript"> </script>
 </body>
 </html>

@@ -31,13 +31,13 @@
                     <section class="row justify-content-center mt-4">
                         <article class="col-12 art-date_slide">
                             <Dateslide id="slide_date" class="px-4 date-slide">
+                                <!--- para apresentar os dias dentro dos pill utilizando tempo real de forma dinâmica--->
                                 <?php
                                 $data_hoje = date("Y-m-d");
                                 $data_amanha = date("Y-m-d", strtotime("+1days"));
                                 ?>
                                 <hoje class="date-slide-elements slide-hoje pills_datas" id="<?= $data_hoje ?>"> Hoje</hoje>
                                 <amanha class="date-slide-elements slide-amanha ml-2 pills_datas" id="<?= $data_amanha ?>"> Amanhã</amanha>
-                                <!--- para apresentar os dias dentro dos pill utilizando tempo real de forma dinâmica--->
                                 <?php
                                 for ($n = 0; $n <= 5; $n++) {
                                     $data_pill = date("Y-m-d", strtotime("+" . $n . "days"));
