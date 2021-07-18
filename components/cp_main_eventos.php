@@ -328,9 +328,7 @@
 
 </script>
 
-<script>
-    share(<?= $id_evento ?>);
-</script>
+
 <!--terminar template -->
 
 <!--TEMPLATE JS AJAX INTERESSES PILLS-->
