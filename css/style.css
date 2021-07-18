@@ -25,6 +25,19 @@ footer{
     color:white;
 }
 
+.profile_pic{
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:3rem;
+    width:3rem;
+    border-radius: 50px;
+}
+
+a{
+    cursor: pointer;
+}
+
 .logo-section-landing{
     min-height: 35vh;
 }
@@ -1038,7 +1051,7 @@ footer{
 
 .art-1-icon-user-menu{
     max-width: 3rem;
-    max-height: 100%;
+    max-height: 3rem;
 }
 
 .art-2-icon-user-menu{
