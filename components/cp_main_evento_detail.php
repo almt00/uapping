@@ -158,7 +158,7 @@ WHERE eventos_guardados.eventos_id_evento = ?"; //query para nome ficheiro img d
                                     $n = 0;
                                     while (mysqli_stmt_fetch($stmt)) {
                                         $i++;// número de ciclos = utilizadores que guardam o evento
-                                        if ($i <= 2) {
+                                        if ($i <= 3) {
                                             ?>
                                             <div id="avatar" class="mr-1 people-bubble-event-detail bg-profile"
                                                  style='background-image: url("assets/img/<?= $avatar ?>");'>
@@ -167,7 +167,7 @@ WHERE eventos_guardados.eventos_id_evento = ?"; //query para nome ficheiro img d
                                         }
                                     }
                                     //condição para esconder bolha "+" caso só existam 2 participantes
-                                    if ($i < 2) {
+                                    if ($i < 3) {
                                         ?>
                                         <style type="text/css">#participantes {
                                                 display: none;
@@ -175,7 +175,7 @@ WHERE eventos_guardados.eventos_id_evento = ?"; //query para nome ficheiro img d
                                         <?php
                                     }
                                     //echo $i; //para visualizar o numero total de participantes
-                                    $num = $i - 2;//identifica o valor númerico a ser apresentado na bolha de "+" participantes
+                                    $num = $i - 3;//identifica o valor númerico a ser apresentado na bolha de "+" participantes
                                 }
                                 mysqli_close($link);
                             } else {

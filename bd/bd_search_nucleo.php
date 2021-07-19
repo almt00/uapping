@@ -3,9 +3,16 @@ session_start();
 require_once "../connections/connection.php";
 // Create a new DB connection
 $link = new_db_connection();
-
+if (isset($_SESSION["id_nucleo_admin"])){
+    echo "teste session";
+}
+$nucleo = $_SESSION["id_nucleo_admin"];
 $result = $_GET['search'];
+
 $search=mysqli_real_escape_string($link,$result);
+var_dump($search);
+var_dump($result);
+
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 $query = "SELECT eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
