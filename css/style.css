@@ -88,6 +88,18 @@ a{
     min-height: 3.3rem;
 }
 
+.header-avatar{
+    height:2.2rem;
+    width:2.2rem;
+    margin-top: -1rem;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+}
+
 .role-header{
     position: absolute;
     top:-0.3rem;
