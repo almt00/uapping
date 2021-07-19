@@ -12,7 +12,7 @@
             <section class="row section-nucleos">
                 <article class="col-12 mt-4 mb-3 position-relative">
                     <h2 class="text-center h2-nucleo_save"> Núcleos </h2>
-                    <a href="#"><img class="mr-4 info_nucleos" src="assets/outros/info.svg"></a>
+                    <a href="faq.php"><img class="mr-4 info_nucleos" src="assets/outros/info.svg"></a>
                 </article>
                 <article class="col-12 px-4 mb-3">
                     <switch class="checkbox-top-home-page position-relative">

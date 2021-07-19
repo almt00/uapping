@@ -2216,6 +2216,56 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     margin-bottom:0;
 }
 
+/* change avatar profile */
+
+.check-avatar{
+    border-radius: 10px;
+    max-width: 5rem;
+    height: 5rem;
+    overflow: hidden;
+    padding:0;
+}
+
+.input-avatar_1 input[type="radio"]{
+    background-image: url("../assets/avatares/avatar_branco.svg");
+}
+
+.input-avatar_2 input[type="radio"]{
+    background-image: url("../assets/avatares/avatar_cinza.svg");
+}
+
+.input-avatar_3 input[type="radio"]{
+    background-image: url("../assets/avatares/avatar_azul.svg");
+}
+
+.input-avatar_4 input[type="radio"]{
+    background-image: url("../assets/avatares/avatar_vermelho.svg");
+}
+
+.input-avatar_5 input[type="radio"]{
+    background-image: url("../assets/avatares/avatar_roxo.svg");
+}
+
+.input-avatar_6 input[type="radio"]{
+    background-image: url("../assets/avatares/avatar_amarelo.svg");
+}
+
+.check-avatar input[type="radio"]{
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.check-avatar input[type="radio"]:checked{
+    border: 5px solid #378FED;
+}
+
 /* Displays */
 
 .display-xs-block{

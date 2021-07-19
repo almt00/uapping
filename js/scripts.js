@@ -62,7 +62,71 @@ window.onload = function (){
         if (user_menu === true){
             document.getElementById("panel_user_menu_mobile").style.display = "none";
             document.body.style.overflow = "auto";
+            document.getElementById("menu_profile").style.display = "block";
+            document.getElementById("change_avatar").style.display = "none";
             user_menu = false;
+        }
+    }
+
+    document.getElementById("avatar").onclick = function (){
+        document.getElementById("menu_profile").style.display = "none";
+        document.getElementById("change_avatar").style.display = "block";
+    }
+
+    /* inputs */
+
+    var avatar_id;
+
+    document.getElementById("avatar_1").onclick = function (){
+        if (document.getElementById("avatar_1").checked === true){
+            avatar_id = 1;
+            check_avatar(avatar_id);
+        }
+    }
+
+    document.getElementById("avatar_2").onclick = function (){
+        if (document.getElementById("avatar_2").checked === true){
+            avatar_id = 2;
+            check_avatar(avatar_id);
+        }
+    }
+
+    document.getElementById("avatar_3").onclick = function (){
+        if (document.getElementById("avatar_3").checked === true){
+            avatar_id = 3;
+            check_avatar(avatar_id);
+        }
+    }
+
+    document.getElementById("avatar_4").onclick = function (){
+        if (document.getElementById("avatar_4").checked === true){
+            avatar_id = 4
+            check_avatar(avatar_id);
+        }
+    }
+
+    document.getElementById("avatar_5").onclick = function (){
+        if (document.getElementById("avatar_5").checked === true){
+            avatar_id = 5;
+            check_avatar(avatar_id);
+        }
+    }
+
+    document.getElementById("avatar_6").onclick = function (){
+        if (document.getElementById("avatar_6").checked === true){
+            avatar_id = 6;
+            check_avatar(avatar_id);
+        }
+    }
+
+    function check_avatar(avatar_id){
+        switch (avatar_id){
+            case 1: document.getElementById("profile_avatar").style.backgroundImage = 'url("assets/avatares/avatar_branco.svg")'; break;
+            case 2: document.getElementById("profile_avatar").style.backgroundImage = 'url("assets/avatares/avatar_cinza.svg")'; break;
+            case 3: document.getElementById("profile_avatar").style.backgroundImage = 'url("assets/avatares/avatar_azul.svg")'; break;
+            case 4: document.getElementById("profile_avatar").style.backgroundImage = 'url("assets/avatares/avatar_vermelho.svg")'; break;
+            case 5: document.getElementById("profile_avatar").style.backgroundImage = 'url("assets/avatares/avatar_roxo.svg")'; break;
+            case 6: document.getElementById("profile_avatar").style.backgroundImage = 'url("assets/avatares/avatar_amarelo.svg")'; break;
         }
     }
 
