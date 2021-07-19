@@ -21,12 +21,15 @@
                             <article class="col-12 mb-3">
                                 <div id="faq_0" class="faq-box">
                                     <section class="row">
-                                        <article class="col-9 faq-art-text">
+                                        <article class="col-12 faq-art-text">
                                             <section class="row">
-                                                <article class="col-12">
+                                                <article class="col-10">
                                                     <h2 class="h2-faq mb-3">
                                                         O que são Núcleos Setoriais?
                                                     </h2>
+                                                </article>
+                                                <article class="col-2 text-center pl-0 faq-art-img">
+                                                    <img src="assets/img/faq_loader.svg">
                                                 </article>
                                                 <article id="art_content_faq_0" class="col-12 art-content-faq">
                                                     <p class="text-faq pb-3">
@@ -35,21 +38,21 @@
                                                 </article>
                                             </section>
                                         </article>
-                                        <article class="col-3 text-center faq-art-img">
-                                            <img src="assets/img/faq_loader.svg">
-                                        </article>
                                     </section>
                                 </div>
                             </article>
                             <article class="col-12 mb-3">
                                 <div id="faq_1" class="faq-box">
                                     <section class="row">
-                                        <article class="col-9 faq-art-text">
+                                        <article class="col-12 faq-art-text">
                                             <section class="row">
-                                                <article class="col-12">
+                                                <article class="col-10">
                                                     <h2 class="h2-faq mb-3">
                                                         E se eu não gostar de nenhum núcleo existente e quiser criar um novo?
                                                     </h2>
+                                                </article>
+                                                <article class="col-2 text-center pl-0 faq-art-img">
+                                                    <img src="assets/img/faq_loader.svg">
                                                 </article>
                                                 <article id="art_content_faq_1" class="col-12 art-content-faq">
                                                     <p class="text-faq pb-3">
@@ -59,32 +62,29 @@
                                                 </article>
                                             </section>
                                         </article>
-                                        <article class="col-3 text-center faq-art-img">
-                                            <img src="assets/img/faq_loader.svg">
-                                        </article>
                                     </section>
                                 </div>
                             </article>
                             <article class="col-12 mb-3">
                                 <div id="faq_2" class="faq-box">
                                     <section class="row">
-                                        <article class="col-9 faq-art-text">
+                                        <article class="col-12 faq-art-text">
                                             <section class="row">
-                                                <article class="col-12">
+                                                <article class="col-10">
                                                     <h2 class="h2-faq mb-3">
                                                         O que é a AAUAv?
                                                     </h2>
                                                 </article>
+                                                <article class="col-2 text-center pl-0 faq-art-img">
+                                                    <img src="assets/img/faq_loader.svg">
+                                                </article>
                                                 <article id="art_content_faq_2" class="col-12 art-content-faq">
                                                     <p class="text-faq pb-3">
                                                         A Associação Académica da Universidade de Aveiro é uma organização de jovens sem fins lucrativos que visa a criação e manutenção de estruturas intermédias de ligação aos estudantes que se desdobram em diferentes quadrantes, nomeadamente na representativa dos cursos ou escolas politécnicas e na promoção do desporto e da cultura.
-                                                        Sabe mais em: <a href="https://aauav.pt/"> https://aauav.pt/ </a>
+                                                        <br> Sabe mais em: <a href="https://aauav.pt/"> https://aauav.pt/ </a>
                                                     </p>
                                                 </article>
                                             </section>
-                                        </article>
-                                        <article class="col-3 text-center faq-art-img">
-                                            <img src="assets/img/faq_loader.svg">
                                         </article>
                                     </section>
                                 </div>
@@ -92,21 +92,21 @@
                             <article class="col-12 mb-3">
                                 <div id="faq_3" class="faq-box">
                                     <section class="row">
-                                        <article class="col-9 faq-art-text">
+                                        <article class="col-12 faq-art-text">
                                             <section class="row">
-                                                <article class="col-12">
+                                                <article class="col-10">
                                                     <h2 class="h2-faq mb-3">
                                                         Os núcleos “fantasma” são oficiais?
                                                     </h2>
                                                 </article>
+                                                <article class="col-2 text-center pl-0 faq-art-img">
+                                                    <img src="assets/img/faq_loader.svg">
+                                                </article>
                                                 <article id="art_content_faq_3" class="col-12 art-content-faq">
                                                     <p class="text-faq pb-3">
-                                                        Os núcleos “fantasma” não são núcleos oficiais. São propostas dos utilizadores da UAPPING que aguardam feedback para se tornarem núcleos oficiais.                                                     </p>
+                                                        Os núcleos “fantasma” não são núcleos oficiais. São propostas dos utilizadores da UAPPING que aguardam feedback para se tornarem núcleos oficiais.                                                      </p>
                                                 </article>
                                             </section>
-                                        </article>
-                                        <article class="col-3 text-center faq-art-img">
-                                            <img src="assets/img/faq_loader.svg">
                                         </article>
                                     </section>
                                 </div>
@@ -114,22 +114,21 @@
                             <article class="col-12 mb-3">
                                 <div id="faq_4" class="faq-box">
                                     <section class="row">
-                                        <article class="col-9 faq-art-text">
+                                        <article class="col-12 faq-art-text">
                                             <section class="row">
-                                                <article class="col-12">
+                                                <article class="col-10">
                                                     <h2 class="h2-faq mb-3">
                                                         Qual o tempo de vida de um núcleo “fantasma”?
                                                     </h2>
                                                 </article>
+                                                <article class="col-2 text-center pl-0 faq-art-img">
+                                                    <img src="assets/img/faq_loader.svg">
+                                                </article>
                                                 <article id="art_content_faq_4" class="col-12 art-content-faq">
                                                     <p class="text-faq pb-3">
-                                                        Estes núcleos ficam ativos durante 6 meses para veres se a tua ideia é viável. Ajudamos-te depois com informações sobre como tornar o teu núcleo fantasma em oficial.
-                                                    </p>
+                                                        Estes núcleos ficam ativos durante 6 meses para veres se a tua ideia é viável. Ajudamos-te depois com informações sobre como tornar o teu núcleo fantasma em oficial.                                                    </p>
                                                 </article>
                                             </section>
-                                        </article>
-                                        <article class="col-3 text-center faq-art-img">
-                                            <img src="assets/img/faq_loader.svg">
                                         </article>
                                     </section>
                                 </div>
