@@ -21,7 +21,8 @@ if (isset($_POST['nome']) && (isset($_POST['username'])) && (isset($_POST['email
             $_SESSION['id_user'] = mysqli_stmt_insert_id($stmt); // colocar id
             $_SESSION["nome"] = $nome_utilizador;
             $_SESSION["nickname"] = $nickname_utilizador;
-
+            $_SESSION["ativo"] = 1; // rever
+            $_SESSION["backoffice"] = 0;
             // $_SESSION["ativo"] = $ativo;
             // $_SESSION["role"] = $id_roles;
             mysqli_stmt_close($stmt);

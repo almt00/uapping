@@ -83,9 +83,9 @@ if ((isset($_POST['nome_evento'])) && (isset($_POST['data'])) && (isset($_POST['
             mysqli_stmt_bind_param($stmt, 'ssssissi', $nome_evento, $data_evento, $hora_evento, $morada,$preco, $nome_img, $descricao, $id_nucleo);
             if (mysqli_stmt_execute($stmt)) {
                // echo 'sucesso';
-                header("Location: ../home_page_admin.php");
                 mysqli_stmt_close($stmt);
                 mysqli_close($link);
+                header("Location: ../home_page_admin.php");
                 die();
             } else {
                 echo 'erro exe';

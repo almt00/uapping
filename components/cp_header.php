@@ -144,7 +144,7 @@ if (!isset($_SESSION['id_user']) || $_SESSION['id_user']==null) {
                         </section>
                     </article>
                 </section>
-                <form action="" method="post" id="avatar_change">
+                <form action="scripts/sc_mudar_avatar.php" method="post" id="avatar_change">
                 <section class="row justify-content-center px-3">
                     <article class="col-4 check-avatar input-avatar_1 mb-3 mx-2">
                         <input for="avatar_change" name="avatar" id="avatar_1"

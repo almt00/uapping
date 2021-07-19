@@ -51,7 +51,7 @@ if ((isset($_GET['id_evento'])) && $_GET['id_evento'] != 0) {
             }
 
             // Check file size
-            if ($_FILES["fileToUpload"]["size"] > 500 * 1024) {
+            if ($_FILES["fileToUpload"]["size"] > 800 * 1024) {
                 echo "Sorry, your file is too large.";
                 $uploadOk = 0;
             }
@@ -93,7 +93,7 @@ if ((isset($_GET['id_evento'])) && $_GET['id_evento'] != 0) {
             if (mysqli_stmt_execute($stmt)) {
                 var_dump($preco);
                 echo 'sucesso';
-                //header("Location: ../home_page_admin.php");
+                header("Location: ../home_page_admin.php");
                 mysqli_stmt_close($stmt);
                 mysqli_close($link);
                 die();
