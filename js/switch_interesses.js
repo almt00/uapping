@@ -246,9 +246,26 @@ Handlebars.registerHelper('formatDate', function (dateString) {
         moment(dateString).format("DD/MM")
     );
 });
-Handlebars.registerHelper('concat', function (prefix, id) {
-    return (prefix + id);
+
+Handlebars.registerHelper('sharehb', function (name, id) {
+    const toShare = {
+        title: "Partilhar evento:"+name+"",
+        text: "Olha só este evento na UA chamado "+name+" !",
+        url: "http://localhost/UAPPING/evento_detail.php?id_evento="+id+"" // mudar qdo for o servidor normal senao n da
+    };
+     const button = document.getElementById('share_'+id+'');
+    $(document).on('click', '.save_share_'+id,async () => {
+        console.log('click');
+        try {
+            await navigator.share(toShare); // Will trigger the native "share" feature
+            button.textContent = 'Shared !';
+        } catch (err) {
+            button.textContent = 'Something went wrong';
+            console.log(err);
+        }
+    });
 });
+
 
 function createHTMLDinamyc(templateId, placeID, data) {
     var raw_template = document.getElementById(templateId).innerText;

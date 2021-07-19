@@ -336,7 +336,8 @@
                         </article>
                     </section>
                 <div class="card-footer text-right py-1 px-4">
-                    <img class="save_share" src="assets/img/share_white.svg">
+                    <img id="share_{{id_evento}}" class="save_share_{{id_evento}}" src="assets/img/share_white.svg">
+                    {{sharehb nome id_evento}}
 
                     <?php if(empty($guardado)){
                         echo'<img class="ml-3 save_share save" id="addGuardado" name="{{id_evento}}" src="assets/img/save_white.svg">';
@@ -351,9 +352,12 @@
                 </div>
             </article>
     </article>
+
     {{/each}}
+
 </script>
 <!--terminar template -->
+
 
 <!--TEMPLATE JS AJAX INTERESSES PILLS-->
 <script id="pills_interesses_template" type="text/x-handlebars-template">
