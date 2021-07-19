@@ -3,8 +3,14 @@ require_once "../connections/connection.php";
 $id_selected_dep = $_GET['departamento'];
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
-$query = "SELECT id_curso, nome_curso FROM cursos 
-WHERE ref_id_departamento = ?";
+$query = "SELECT 
+            id_curso, 
+            nome_curso 
+            FROM 
+            cursos 
+            WHERE 
+            ref_id_departamento = ?";
+
 if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'i', $id_selected_dep);
     if (mysqli_stmt_execute($stmt)) {

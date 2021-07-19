@@ -2,12 +2,19 @@
 require_once "connections/connection.php";
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
-$query = "SELECT nucleos.sigla_nucleo,nucleos.id_nucleo FROM nucleos
-INNER JOIN nucleos_oficiais
-ON nucleos.id_nucleo=nucleos_oficiais.ref_id_nucleo
-INNER JOIN nucleos_membros
-ON nucleos_oficiais.ref_id_nucleo=nucleos_membros.ref_id_nucleo
-WHERE nucleos_membros.ref_id_utilizador=?";
+$query = "
+    SELECT nucleos.sigla_nucleo,
+    nucleos.id_nucleo 
+    FROM 
+    nucleos
+    INNER JOIN 
+    nucleos_oficiais 
+    ON nucleos.id_nucleo = nucleos_oficiais.ref_id_nucleo
+    INNER JOIN 
+    nucleos_membros 
+    ON nucleos_oficiais.ref_id_nucleo = nucleos_membros.ref_id_nucleo
+    WHERE 
+    nucleos_membros.ref_id_utilizador=?";
 if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
     mysqli_stmt_bind_param($stmt, 'i', $_SESSION['id_user']);
     mysqli_stmt_execute($stmt); // Execute the prepared statement
@@ -40,10 +47,18 @@ mysqli_close($link);
                 <?php
                 $link = new_db_connection();
                 $stmt = mysqli_stmt_init($link);
-                $query = "SELECT utilizadores.nome_utilizador,utilizadores.nickname_utilizador,utilizadores.ativo_utilizador,utilizadores.ref_id_avatar,utilizadores.id_utilizador FROM utilizadores
-                        INNER JOIN nucleos_membros
-                        ON utilizadores.id_utilizador=nucleos_membros.ref_id_utilizador
-                        WHERE nucleos_membros.admin_membro=1 AND nucleos_membros.ref_id_nucleo=?";
+                $query = "SELECT utilizadores.nome_utilizador,
+                            utilizadores.nickname_utilizador,
+                            utilizadores.ativo_utilizador,
+                            utilizadores.ref_id_avatar,
+                            utilizadores.id_utilizador 
+                            FROM 
+                            utilizadores
+                            INNER JOIN 
+                            nucleos_membros
+                            ON utilizadores.id_utilizador = nucleos_membros.ref_id_utilizador
+                            WHERE nucleos_membros.admin_membro = 1 AND nucleos_membros.ref_id_nucleo = ?";
+
                 if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
                     mysqli_stmt_bind_param($stmt, 'i', $id_nucleo);
                     mysqli_stmt_execute($stmt); // Execute the prepared statement

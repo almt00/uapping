@@ -102,15 +102,16 @@ $(document).ready(function () {
     });
 });
 
-/* ------------------ home page / saved ------------------
+/* ------------------ home page / saved ------------------*/
 
-$add = $("#addGuardado");
-$remove = $("#removeGuardado");
+$add = $(".save");
+$remove = $(".remove");
 
 $(document).ready(function () {
-    $add.on('click', function () {
-        $remove.show();
-        $add.hide();
+    $(document).on('click', ".save", function () {
+        var $this = $(this);
+        $this.hide();
+        $this.next().show()
 
         var id = $(this).attr('name');
 
@@ -131,9 +132,10 @@ $(document).ready(function () {
         return false; // keeps the page from not refreshing
     });
 
-    $remove.on("click", function() {
-        $add.show();
-        $remove.hide();
+    $(document).on('click', ".remove", function () {
+        var $this = $(this);
+        $this.hide();
+        $this.prev().show()
 
         var id = $(this).attr('name');
 
@@ -156,7 +158,6 @@ $(document).ready(function () {
 
 });
 
-*/
 /* ------------------ home page backoffice / search bar ------------------ */
 $(document).ready(function () {
     console.log('teste');

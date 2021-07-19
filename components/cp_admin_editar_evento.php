@@ -4,8 +4,21 @@ if (isset($_GET['id_evento']) && $_GET['id_evento'] != 0) {
     require_once "connections/connection.php";
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
-    $query = "SELECT nome_evento,data_evento,hora_evento,local_evento,imagem_evento,descricao_evento,parceria_evento,ref_id_nucleo,preco_evento,link_fb_evento FROM eventos
-WHERE id_evento=?";
+    $query = "SELECT 
+                nome_evento,
+                data_evento,
+                hora_evento,
+                local_evento,
+                imagem_evento,
+                descricao_evento,
+                parceria_evento,
+                ref_id_nucleo,
+                preco_evento,
+                link_fb_evento 
+                FROM 
+                eventos
+                WHERE id_evento=?";
+
     if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
         mysqli_stmt_bind_param($stmt, 'i', $id_evento);
         mysqli_stmt_execute($stmt); // Execute the prepared statement

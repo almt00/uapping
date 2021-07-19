@@ -5,11 +5,22 @@ if (isset($_GET['id_nucleo'])) {
     $id_nucleo = $_GET['id_nucleo'];
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
-    $query = "SELECT nucleos.id_nucleo,nucleos.nome_nucleo,nucleos.sigla_nucleo,nucleos_oficiais.imagem_oficial,nucleos.descricao_nucleo,
-                nucleos_oficiais.link_fb_oficial,nucleos_oficiais.link_insta_oficial,nucleos_oficiais.link_site_oficial FROM nucleos
-                INNER JOIN nucleos_oficiais
-                ON nucleos.id_nucleo=nucleos_oficiais.ref_id_nucleo
-                WHERE nucleos_oficiais.ref_id_nucleo=?";
+    $query = "SELECT 
+                nucleos.id_nucleo,
+                nucleos.nome_nucleo,
+                nucleos.sigla_nucleo,
+                nucleos_oficiais.imagem_oficial,
+                nucleos.descricao_nucleo,
+                nucleos_oficiais.link_fb_oficial,
+                nucleos_oficiais.link_insta_oficial,
+                nucleos_oficiais.link_site_oficial 
+                FROM 
+                nucleos
+                INNER JOIN 
+                nucleos_oficiais
+                ON nucleos.id_nucleo = nucleos_oficiais.ref_id_nucleo
+                WHERE nucleos_oficiais.ref_id_nucleo = ?";
+
     if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
         mysqli_stmt_bind_param($stmt, 'i', $id_nucleo);
         mysqli_stmt_execute($stmt); // Execute the prepared statement
@@ -94,12 +105,20 @@ if (isset($_GET['id_nucleo'])) {
                     <section class="row">
                         <?php
                         $stmt = mysqli_stmt_init($link);
-                        $query = "SELECT equipas.nome_membro_equipa,equipas.imagem_membro_equipa,cargos_oficiais.nome_cargo FROM equipas
-                                INNER JOIN nucleos_oficiais
-                                ON equipas.ref_id_nucleo_oficial=nucleos_oficiais.ref_id_nucleo
-                                INNER JOIN cargos_oficiais
-                                ON equipas.ref_id_cargo=cargos_oficiais.id_cargo
-                                WHERE equipas.ref_id_nucleo_oficial=?";
+                        $query = "SELECT 
+                                    equipas.nome_membro_equipa,
+                                    equipas.imagem_membro_equipa,
+                                    cargos_oficiais.nome_cargo 
+                                    FROM 
+                                    equipas
+                                    INNER JOIN 
+                                    nucleos_oficiais
+                                    ON equipas.ref_id_nucleo_oficial = nucleos_oficiais.ref_id_nucleo
+                                    INNER JOIN 
+                                    cargos_oficiais
+                                    ON equipas.ref_id_cargo = cargos_oficiais.id_cargo
+                                    WHERE equipas.ref_id_nucleo_oficial = ?";
+
                         if (mysqli_stmt_prepare($stmt, $query)) {
                             mysqli_stmt_bind_param($stmt, 'i', $id_nucleo);
                             if (mysqli_stmt_execute($stmt)) {

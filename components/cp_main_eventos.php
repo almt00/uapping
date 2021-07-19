@@ -31,13 +31,13 @@
                     <section class="row justify-content-center mt-4">
                         <article class="col-12 art-date_slide">
                             <Dateslide id="slide_date" class="px-4 date-slide">
-                                <!--- para apresentar os dias dentro dos pill utilizando tempo real de forma dinâmica--->
                                 <?php
                                 $data_hoje = date("Y-m-d");
                                 $data_amanha = date("Y-m-d", strtotime("+1days"));
                                 ?>
                                 <hoje class="date-slide-elements slide-hoje pills_datas" id="<?= $data_hoje ?>"> Hoje</hoje>
                                 <amanha class="date-slide-elements slide-amanha ml-2 pills_datas" id="<?= $data_amanha ?>"> Amanhã</amanha>
+                                <!--- para apresentar os dias dentro dos pill utilizando tempo real de forma dinâmica--->
                                 <?php
                                 for ($n = 0; $n <= 5; $n++) {
                                     $data_pill = date("Y-m-d", strtotime("+" . $n . "days"));
@@ -183,6 +183,15 @@
 
 
                                     <img class="ml-3 save_share" src="assets/img/save_white.svg" style="cursor: pointer;">
+
+                                    <?php if(empty($guardado)){
+                                        echo'<img class="ml-3 save_share save" id="addGuardado" name='.$id_evento.' src="assets/img/save_white.svg">';
+                                        echo'<img class="ml-3 save_share remove" id="removeGuardado" name='.$id_evento.' src="assets/img/saved_orange.svg" style="display: none">';
+                                    }else{
+                                        echo'<img class="ml-3 save_share save" id="addGuardado" name='.$id_evento.' src="assets/img/save_white.svg" style="display: none">';
+                                        echo'<img class="ml-3 save_share remove" id="removeGuardado" name='.$id_evento.' src="assets/img/saved_orange.svg">';
+                                    }?>
+
                                 </article>
                         </section>
                     </article>
@@ -263,12 +272,8 @@
     </interesses>
     <background id="background_interesses_menu" class="black-ground"></background>
 </Panel>
-
-
 <!--TEMPLATE JS AJAX INTERESSES VS TODOS EVENTOS-->
-
 <script id="eventos_template" type="text/x-handlebars-template">
-
     {{#each this}}
     <article class="col-12" id="eventos">
         <section class="row px-4">
@@ -318,17 +323,23 @@
                         </article>
                     </section>
                 <div class="card-footer text-right py-1 px-4">
-                    <img id="share_{{id_evento}}" class="save_share" src="assets/img/share_white.svg" style="cursor: pointer;">
-                    <img class="ml-3 save_share" src="assets/img/save_white.svg" style="cursor: pointer;">
+                    <img class="save_share" src="assets/img/share_white.svg">
+
+                    <?php if(empty($guardado)){
+                        echo'<img class="ml-3 save_share save" id="addGuardado" name="{{id_evento}}" src="assets/img/save_white.svg">';
+
+                        echo'<img class="ml-3 save_share remove" id="removeGuardado" name="{{id_evento}}" src="assets/img/saved_orange.svg" style="display: none">';
+                    }else{
+                        echo'<img class="ml-3 save_share remove" id="removeGuardado" name="{{id_evento}}" src="assets/img/saved_orange.svg">';
+                        echo'<img class="ml-3 save_share save" id="addGuardado" name="{{id_evento}}" src="assets/img/save_white.svg" style="display: none">';
+                    }?>
+                    <!--<img class="ml-3 save_share" src="assets/img/save_white.svg">-->
                     <!-- <img class="ml-3 save_share" src="assets/img/saved_orange.svg"> -->
                 </div>
             </article>
     </article>
     {{/each}}
-
 </script>
-
-
 <!--terminar template -->
 
 <!--TEMPLATE JS AJAX INTERESSES PILLS-->

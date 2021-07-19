@@ -12,7 +12,7 @@
             <section class="row section-nucleos">
                 <article class="col-12 mt-4 mb-3 position-relative">
                     <h2 class="text-center h2-nucleo_save"> Núcleos </h2>
-                    <a href="faq.php"><img class="mr-4 info_nucleos" src="assets/outros/info.svg"></a>
+                    <a href="#"><img class="mr-4 info_nucleos" src="assets/outros/info.svg"></a>
                 </article>
                 <article class="col-12 px-4 mb-3">
                     <switch class="checkbox-top-home-page position-relative">
@@ -51,11 +51,18 @@
                         $padding = false;
                         $link = new_db_connection();
                         $stmt = mysqli_stmt_init($link);
-                        $query = "SELECT nucleos.id_nucleo,nucleos.nome_nucleo,nucleos.sigla_nucleo,nucleos_oficiais.imagem_oficial,cores_oficiais.nome_cor_oficial FROM nucleos
+                        $query = "SELECT 
+                                nucleos.id_nucleo,
+                                nucleos.nome_nucleo,
+                                nucleos.sigla_nucleo,
+                                nucleos_oficiais.imagem_oficial,
+                                cores_oficiais.nome_cor_oficial 
+                                FROM nucleos
                                 INNER JOIN nucleos_oficiais
-                                ON nucleos.id_nucleo=nucleos_oficiais.ref_id_nucleo
+                                ON nucleos.id_nucleo = nucleos_oficiais.ref_id_nucleo
                                 INNER JOIN cores_oficiais
-                                ON nucleos_oficiais.ref_id_cor_oficial=cores_oficiais.id_cor_oficial;";
+                                ON nucleos_oficiais.ref_id_cor_oficial = cores_oficiais.id_cor_oficial;";
+
                         if (mysqli_stmt_prepare($stmt, $query)) {
                             if (mysqli_stmt_execute($stmt)) {
                                 mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $sigla_nucleo, $imagem_oficial,$cor);
@@ -134,8 +141,11 @@
                     <?php
                     $link = new_db_connection();
                     $stmt_1 = mysqli_stmt_init($link);
-                    $query = "SELECT nucleos_membros.ref_id_nucleo FROM nucleos_membros
-                            WHERE ref_id_utilizador=?";
+                    $query = "SELECT 
+                                nucleos_membros.ref_id_nucleo 
+                                FROM 
+                                nucleos_membros
+                                WHERE ref_id_utilizador = ?";
                     if (mysqli_stmt_prepare($stmt_1, $query)) {
                         mysqli_stmt_bind_param($stmt_1, 'i', $_SESSION['id_user']);
                         if (mysqli_stmt_execute($stmt_1)) {
@@ -156,15 +166,27 @@
 
                     $link = new_db_connection();
                     $stmt = mysqli_stmt_init($link);
-                    $query = "SELECT nucleos.id_nucleo,nucleos.nome_nucleo, nucleos.descricao_nucleo,nucleos.sigla_nucleo,cores_fantasmas.nome_cor_fantasma,nucleos_membros.ref_id_nucleo,nucleos_membros.ref_id_utilizador
-                            FROM nucleos
-                            INNER JOIN nucleos_fantasmas
-                            ON nucleos.id_nucleo=nucleos_fantasmas.ref_id_nucleo
-                            INNER JOIN cores_fantasmas
-                            ON nucleos_fantasmas.ref_id_cor_fantasma=cores_fantasmas.id_cor_fantasma 
-                            LEFT JOIN nucleos_membros
-                            ON nucleos_fantasmas.ref_id_nucleo=nucleos_membros.ref_id_nucleo
-                            ORDER BY nucleos.data_insercao_nucleo DESC";
+                    $query = "SELECT 
+                                nucleos.id_nucleo,
+                                nucleos.nome_nucleo, 
+                                nucleos.descricao_nucleo,
+                                nucleos.sigla_nucleo,
+                                cores_fantasmas.nome_cor_fantasma,
+                                nucleos_membros.ref_id_nucleo,
+                                nucleos_membros.ref_id_utilizador
+                                FROM 
+                                nucleos
+                                INNER JOIN 
+                                nucleos_fantasmas
+                                ON nucleos.id_nucleo = nucleos_fantasmas.ref_id_nucleo
+                                INNER JOIN 
+                                cores_fantasmas
+                                ON nucleos_fantasmas.ref_id_cor_fantasma = cores_fantasmas.id_cor_fantasma 
+                                LEFT JOIN 
+                                nucleos_membros
+                                ON nucleos_fantasmas.ref_id_nucleo = nucleos_membros.ref_id_nucleo
+                                ORDER BY nucleos.data_insercao_nucleo DESC";
+
                     if (mysqli_stmt_prepare($stmt, $query)) {
                         if (mysqli_stmt_execute($stmt)) {
                             mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $descricao_nucleo, $sigla_nucleo, $cor_nucleo,$ref_pertence,$ref_utilizador);
