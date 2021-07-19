@@ -65,7 +65,7 @@
 
                         if (mysqli_stmt_prepare($stmt, $query)) {
                             if (mysqli_stmt_execute($stmt)) {
-                                mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $sigla_nucleo, $imagem_oficial,$cor);
+                                mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $sigla_nucleo, $imagem_oficial, $cor);
                                 while (mysqli_stmt_fetch($stmt)) {
                                     ?>
                                     <article class="col-6 art-card-nucleo_geral" style="
@@ -78,7 +78,8 @@
                                     } ?>
                                             ">
                                         <a href="nucleos_detail.php?id_nucleo=<?= $id_nucleo ?>">
-                                            <div class="nucleo_card mb-3" style='background-image: url("assets/nucleos/cover_nucleo_<?=$cor?>.svg");'>
+                                            <div class="nucleo_card mb-3"
+                                                 style='background-image: url("assets/nucleos/cover_nucleo_<?= $cor ?>.svg");'>
                                                 <div class="row justify-content-between align-items-center sec_nucleo_card_img">
                                                     <div class="col-2 art_nucleo_card min-nucleo-card">
                                                         <img src="assets/img/<?= $imagem_oficial ?>">
@@ -110,15 +111,15 @@
                             <?php $padding = false;
                         } ?> ">
                             <a href="criar_nucleo.php">
-                            <section class="row">
-                                <article class="col-12">
-                                    <div class="art-nucleo-criacao"
-                                         style='background-image: url("assets/criacoes_nucleos/cover_criacao_cinza.svg");'>
-                                        <img class="sinal-mais-criacoes"
-                                             src="assets/criacoes_nucleos/sinal_mais_criacoes.svg">
-                                    </div>
-                                </article>
-                            </section>
+                                <section class="row">
+                                    <article class="col-12">
+                                        <div class="art-nucleo-criacao"
+                                             style='background-image: url("assets/criacoes_nucleos/cover_criacao_cinza.svg");'>
+                                            <img class="sinal-mais-criacoes"
+                                                 src="assets/criacoes_nucleos/sinal_mais_criacoes.svg">
+                                        </div>
+                                    </article>
+                                </section>
                             </a>
                         </article>
                     </section>
@@ -188,7 +189,7 @@
 
                     if (mysqli_stmt_prepare($stmt, $query)) {
                         if (mysqli_stmt_execute($stmt)) {
-                            mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $descricao_nucleo, $sigla_nucleo, $cor_nucleo,$ref_pertence,$ref_utilizador);
+                            mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $descricao_nucleo, $sigla_nucleo, $cor_nucleo, $ref_pertence, $ref_utilizador);
                             while (mysqli_stmt_fetch($stmt)) {
                                 ?>
                                 <section class="row mt-3 a-criacao_nucleo">
@@ -219,11 +220,11 @@
                                         </a>
                                         <div id="aderir_nucleo_criacao" class="aderir_criacoes">
                                             <?php
-                                            if (($ref_utilizador==$_SESSION['id_user']) && ($id_nucleo == $ref_pertence)) {
-                                                echo ' <img src="assets/criacoes_nucleos/aderiu_criacoes.svg">';
+                                            if (($ref_utilizador == $_SESSION['id_user']) && ($id_nucleo == $ref_pertence)) {
+                                                echo '<img class="aderiu_fantasma"  id="' . $id_nucleo . '" src="assets/criacoes_nucleos/aderiu_criacoes.svg">';
                                             } else {
-                                                echo '<img src="assets/criacoes_nucleos/aderir_criacoes.svg">';
-                                               // echo $_SESSION['id_user'];
+                                                echo '<img class="aderir_fantasma" id="' . $id_nucleo . '" src="assets/criacoes_nucleos/aderir_criacoes.svg">';
+                                                // echo $_SESSION['id_user'];
                                                 //echo $id_nucleo.' e '.$ref_id_nucleo;
                                             }
                                             ?>
@@ -249,11 +250,11 @@
             </section>
         </article>
     </section>
-    <?php include_once "components/cp_footer.php"?>
+    <?php include_once "components/cp_footer.php" ?>
 </main>
 
-<script>
+<!--<script>
     document.getElementById("aderir_nucleo_criacao").onclick = function () {
         window.location.href = "home_page.php";
     }
-</script>
+</script>-->
