@@ -30,9 +30,17 @@
                         $padding = false;
                         $link = new_db_connection();
                         $stmt = mysqli_stmt_init($link);
-                        $query = "SELECT nucleos.id_nucleo,nucleos.nome_nucleo,nucleos.sigla_nucleo,nucleos_oficiais.imagem_oficial FROM nucleos
-                                INNER JOIN nucleos_oficiais
-                                ON nucleos.id_nucleo=nucleos_oficiais.ref_id_nucleo;";
+                        $query = "SELECT 
+                                    nucleos.id_nucleo,
+                                    nucleos.nome_nucleo,
+                                    nucleos.sigla_nucleo,
+                                    nucleos_oficiais.imagem_oficial 
+                                    FROM 
+                                    nucleos
+                                    INNER JOIN 
+                                    nucleos_oficiais
+                                    ON nucleos.id_nucleo = nucleos_oficiais.ref_id_nucleo;";
+
                         if (mysqli_stmt_prepare($stmt, $query)) {
                             if (mysqli_stmt_execute($stmt)) {
                                 mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $sigla_nucleo, $imagem_oficial);

@@ -2,12 +2,20 @@
 require_once "connections/connection.php";
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
-$query = "SELECT nucleos_membros.ref_id_nucleo,nucleos_membros.admin_membro,nucleos.sigla_nucleo FROM nucleos_membros
-        INNER JOIN nucleos_oficiais
-        ON nucleos_membros.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo
-        INNER JOIN nucleos
-        ON nucleos_oficiais.ref_id_nucleo=nucleos.id_nucleo
-        WHERE ref_id_utilizador=? AND nucleos_membros.admin_membro=1";
+$query = "SELECT 
+            nucleos_membros.ref_id_nucleo,
+            nucleos_membros.admin_membro,
+            nucleos.sigla_nucleo 
+            FROM 
+            nucleos_membros
+            INNER JOIN 
+            nucleos_oficiais
+            ON nucleos_membros.ref_id_nucleo = nucleos_oficiais.ref_id_nucleo
+            INNER JOIN 
+            nucleos
+            ON nucleos_oficiais.ref_id_nucleo = nucleos.id_nucleo
+            WHERE ref_id_utilizador = ? AND nucleos_membros.admin_membro = 1";
+
 if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
     mysqli_stmt_bind_param($stmt, 'i', $_SESSION['id_user']);
     mysqli_stmt_execute($stmt); // Execute the prepared statement
@@ -72,12 +80,21 @@ if (isset($admin_membro) && $admin_membro == 1) {
                     <?php
                     $link = new_db_connection();
                     $stmt = mysqli_stmt_init($link);
-                    $query = "SELECT eventos.id_evento,eventos.nome_evento, eventos.data_evento,eventos.hora_evento,eventos.imagem_evento,eventos.ref_id_nucleo 
-                        FROM eventos
-                        INNER JOIN nucleos_oficiais
-                        ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo  
-                        WHERE eventos.ref_id_nucleo=?
-                        ORDER BY eventos.data_evento ASC";
+                    $query = "SELECT 
+                                eventos.id_evento,
+                                eventos.nome_evento, 
+                                eventos.data_evento,
+                                eventos.hora_evento,
+                                eventos.imagem_evento,
+                                eventos.ref_id_nucleo 
+                                FROM 
+                                eventos
+                                INNER JOIN 
+                                nucleos_oficiais
+                                ON eventos.ref_id_nucleo = nucleos_oficiais.ref_id_nucleo  
+                                WHERE eventos.ref_id_nucleo = ? AND CAST(CONCAT(eventos.data_evento, ' ',  eventos.hora_evento) AS DATETIME) > NOW()
+                                ORDER BY eventos.data_evento ASC";
+
                     if (mysqli_stmt_prepare($stmt, $query)) {
                         mysqli_stmt_bind_param($stmt, 'i', $id_nucleo);
                         if (mysqli_stmt_execute($stmt)) {

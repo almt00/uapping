@@ -1,8 +1,8 @@
 var capa_scroll;
 var $add, $remove
 
-$add = $("#addGuardado");
-$remove = $("#removeGuardado");
+$add = $(".save");
+$remove = $(".remove");
 
 $(document).ready(function () {
     $add.on('click', function () {

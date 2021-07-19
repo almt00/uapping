@@ -44,14 +44,26 @@
                         require_once "connections/connection.php";
                         $link = new_db_connection();
                         $stmt = mysqli_stmt_init($link);
-                        $query = "SELECT eventos_guardados.eventos_id_evento,eventos.nome_evento, eventos.data_evento,eventos.hora_evento,eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial 
-                                FROM eventos_guardados
-                                INNER JOIN eventos
-                                ON eventos_guardados.eventos_id_evento=eventos.id_evento
-                                INNER JOIN nucleos_oficiais
-                                ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo
-                                WHERE eventos_guardados.utilizadores_id_utilizador=?
-                                ORDER BY eventos.data_evento ASC";
+                        $query = "SELECT 
+                                    eventos_guardados.eventos_id_evento,
+                                    eventos.nome_evento, 
+                                    eventos.data_evento,eventos.hora_evento,
+                                    eventos.imagem_evento,
+                                    eventos.ref_id_nucleo, 
+                                    nucleos_oficiais.imagem_oficial 
+                                    FROM 
+                                    eventos_guardados
+                                    INNER JOIN 
+                                    eventos 
+                                    ON eventos_guardados.eventos_id_evento = eventos.id_evento
+                                    INNER JOIN 
+                                    nucleos_oficiais 
+                                    ON eventos.ref_id_nucleo = nucleos_oficiais.ref_id_nucleo
+                                    WHERE 
+                                    eventos_guardados.utilizadores_id_utilizador = ? AND 
+                                    CAST(CONCAT(eventos.data_evento, ' ',  eventos.hora_evento) AS DATETIME) >= NOW()
+                                    ORDER BY 
+                                    eventos.data_evento ASC";
 
                         if (mysqli_stmt_prepare($stmt, $query)) {
                             mysqli_stmt_bind_param($stmt, 'i', $_SESSION['id_user']);
@@ -102,7 +114,7 @@
                                     </a>
                                     <div class="card-footer text-right py-1 px-4">
                                         <img class="save_share" src="assets/img/share_white.svg">
-                                        <img class="ml-3 save_share" src="assets/img/saved_orange.svg">
+                                        <img class="ml-3 save_share remove" id="removeGuardado" name= <?=$id_evento?> src="assets/img/saved_orange.svg">
                                     </div>
                                 </article>
                             <?php
@@ -174,7 +186,7 @@
     </a>
     <div class="card-footer text-right py-1 px-4">
         <img class="save_share" src="assets/img/share_white.svg">
-        <img class="ml-3 save_share" src="assets/img/saved_orange.svg">
+        <img class="ml-3 save_share remove" id="removeGuardado" name="{{id_evento}}" src="assets/img/saved_orange.svg">
     </div>
 </article>
     {{/each}}

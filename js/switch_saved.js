@@ -1,4 +1,35 @@
 $(document).ready(function () {
+    var $add, $remove
+
+    $remove = $(".remove");
+//quero que haja um evento no futuro, neste documento ao clicar procura a classe remove
+    $(document).on("click", ".remove", function() {
+
+        var id = $(this).attr('name');
+        console.log(id);
+
+        $.ajax({
+            url: 'bd/bd_search_saved_delete.php', //Jquery carrega serverside.php
+            data: 'id_evento=' + id, // Envia o valor do botão clicado
+            dataType: 'json', //escolhe o tipo de dados
+            type: 'GET', //por default, mas pode ser POST
+        })
+            .done(function (data) {
+                window.location.reload();
+            })
+            .fail(function () { // Se existir um erro no pedido
+                console.log("nop")
+                //$('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+            })
+        ;
+        return false; // keeps the page from not refreshing
+    });
+
+});
+
+
+
+$(document).ready(function () {
     $('.capture_saved_id').on('click', function () {
         var name_switch = this.id;
 

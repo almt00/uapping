@@ -24,9 +24,19 @@
                 require_once "connections/connection.php";
                 $link = new_db_connection();
                 $stmt = mysqli_stmt_init($link);
-                $query = "SELECT utilizadores.id_utilizador,utilizadores.nome_utilizador,utilizadores.nickname_utilizador,utilizadores.ref_id_avatar,utilizadores.ativo_utilizador,nucleos_membros.admin_membro FROM utilizadores
-                        LEFT JOIN nucleos_membros
-                        ON utilizadores.id_utilizador=nucleos_membros.ref_id_utilizador";
+                $query = "SELECT 
+                            utilizadores.id_utilizador,
+                            utilizadores.nome_utilizador,
+                            utilizadores.nickname_utilizador,
+                            utilizadores.ref_id_avatar,
+                            utilizadores.ativo_utilizador,
+                            nucleos_membros.admin_membro 
+                            FROM 
+                            utilizadores
+                            LEFT JOIN 
+                            nucleos_membros
+                            ON utilizadores.id_utilizador = nucleos_membros.ref_id_utilizador";
+
                 if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
                     mysqli_stmt_execute($stmt); // Execute the prepared statement
                     mysqli_stmt_bind_result($stmt, $id_utilizador, $nome, $nickname, $avatar, $ativo, $admin_normal);

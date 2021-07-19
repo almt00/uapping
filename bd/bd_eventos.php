@@ -5,41 +5,56 @@ session_start();
 $id_utilizador = $_SESSION["id_user"];
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
-$query1 = "SELECT eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
-FROM eventos
-INNER JOIN nucleos_oficiais 
-ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo";
 
-$query2 = " INNER JOIN nucleos 
-ON nucleos_oficiais.ref_id_nucleo = nucleos.id_nucleo
-INNER JOIN nucleos_has_interesses 
-ON nucleos.id_nucleo = nucleos_has_interesses.nucleos_id_nucleo
-INNER JOIN interesses 
-ON nucleos_has_interesses.interesses_id_interesse = interesses.id_interesse
-INNER JOIN utilizadores_has_interesses 
-ON interesses.id_interesse = utilizadores_has_interesses.interesses_id_interesse
-INNER JOIN utilizadores 
-ON utilizadores_has_interesses.utilizadores_id_utilizador = utilizadores.id_utilizador
-WHERE utilizadores.id_utilizador = ? AND data_evento>NOW()
-GROUP BY eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial";
 
-$query3 = " WHERE data_evento>NOW()";
+$query1 = "SELECT 
+            eventos.id_evento, 
+            eventos.nome_evento, 
+            eventos.data_evento,
+            TIME_FORMAT(eventos.hora_evento,'%H:%i'),
+            eventos.imagem_evento,
+            eventos.ref_id_nucleo, 
+            nucleos_oficiais.imagem_oficial,
+                (SELECT eventos_guardados.eventos_id_evento 
+                FROM eventos_guardados 
+                WHERE eventos_guardados.eventos_id_evento=eventos.id_evento AND utilizadores_id_utilizador = ?) AS guardado 
+            FROM 
+            eventos
+            INNER JOIN 
+            nucleos
+            ON eventos.ref_id_nucleo = nucleos.id_nucleo
+            LEFT JOIN 
+            nucleos_oficiais
+            ON nucleos.id_nucleo = nucleos_oficiais.ref_id_nucleo";
 
-$query4 = " ORDER BY eventos.data_evento ASC";
+$query2 = " INNER JOIN nucleos_has_interesses
+            ON nucleos.id_nucleo = nucleos_has_interesses.nucleos_id_nucleo
+            INNER JOIN interesses 
+            ON nucleos_has_interesses.interesses_id_interesse = interesses.id_interesse
+            INNER JOIN utilizadores_has_interesses 
+            ON interesses.id_interesse = utilizadores_has_interesses.interesses_id_interesse
+            INNER JOIN utilizadores 
+            ON utilizadores_has_interesses.utilizadores_id_utilizador = utilizadores.id_utilizador";
+
+
+$query3 = " WHERE CAST(CONCAT(eventos.data_evento, ' ',  eventos.hora_evento) AS DATETIME) >= NOW()
+            GROUP BY eventos.id_evento
+            ORDER BY eventos.data_evento ASC";
+
 
 if ($id_switch == "interesses") {
-    $query = $query1 . $query2 . $query4;
+    $query = $query1 . $query2 . $query3;
+
 } else {
-    $query = $query1 . $query3 . $query4;
+    $query = $query1 . $query3;
+
 }
 
 if (mysqli_stmt_prepare($stmt, $query)) {
-    if ($id_switch == "interesses") {
         mysqli_stmt_bind_param($stmt, 'i', $id_utilizador);
-    }
 
     if (mysqli_stmt_execute($stmt)) {
-        mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $id_nucleo, $imagem_oficial);
+        mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $id_nucleo, $imagem_oficial, $guardado);
         $data = array();
         while (mysqli_stmt_fetch($stmt)) {
             $row_result = array();

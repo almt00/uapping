@@ -5,24 +5,32 @@ session_start();
 $id_utilizador = $_SESSION["id_user"];
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
-$query1 = "SELECT eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
-FROM utilizadores
-INNER JOIN eventos_guardados
-ON utilizadores.id_utilizador = eventos_guardados.utilizadores_id_utilizador
-INNER JOIN eventos
-ON eventos_guardados.eventos_id_evento = eventos.id_evento
-INNER JOIN nucleos 
-ON nucleos.id_nucleo = eventos.ref_id_nucleo
-INNER JOIN nucleos_oficiais
-ON nucleos.id_nucleo = nucleos_oficiais.ref_id_nucleo 
-WHERE utilizadores.id_utilizador = ? AND ";
+$query1 = "SELECT 
+            eventos_guardados.eventos_id_evento,
+            eventos.nome_evento, 
+            eventos.data_evento,eventos.hora_evento,
+            eventos.imagem_evento,
+            eventos.ref_id_nucleo, 
+            nucleos_oficiais.imagem_oficial 
+            FROM 
+            eventos_guardados
+            INNER JOIN 
+            eventos 
+            ON eventos_guardados.eventos_id_evento = eventos.id_evento
+            INNER JOIN 
+            nucleos_oficiais 
+            ON eventos.ref_id_nucleo = nucleos_oficiais.ref_id_nucleo
+            WHERE 
+            eventos_guardados.utilizadores_id_utilizador = ? 
+            AND CAST(CONCAT(eventos.data_evento, ' ',  eventos.hora_evento) 
+            AS";
 
-$query2 = " data_evento>NOW()";
+$query2 = " DATETIME) >= NOW()";
 
-$query3 = " data_evento<NOW()";
+$query3 = " DATETIME) < NOW()";
 
-$query4 = " GROUP BY eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
-            ORDER BY eventos.data_evento ASC";
+$query4 = " ORDER BY 
+            eventos.data_evento ASC";
 
 if ($name_switch == "ativos") {
     $query = $query1 . $query2 . $query4;
