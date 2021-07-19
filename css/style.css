@@ -2189,14 +2189,15 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .faq-art-text{
-    padding: 1rem 0 0 2rem;
+    padding: 1rem 1rem 0 2rem;
 }
 
 .faq-art-img{
-    margin-top: 0.7rem;
+    margin-top: -0.2rem;
 }
 
 .art-content-faq{
+    padding-right:2rem;
     max-height:0;
     transition: max-height 0.5s ease-in-out;
 }
