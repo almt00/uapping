@@ -25,6 +25,19 @@ footer{
     color:white;
 }
 
+.profile_pic{
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:3rem;
+    width:3rem;
+    border-radius: 50px;
+}
+
+a{
+    cursor: pointer;
+}
+
 .logo-section-landing{
     min-height: 35vh;
 }
@@ -1038,7 +1051,7 @@ footer{
 
 .art-1-icon-user-menu{
     max-width: 3rem;
-    max-height: 100%;
+    max-height: 3rem;
 }
 
 .art-2-icon-user-menu{
@@ -2076,6 +2089,131 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     margin-right:1.2rem;
     height:1.7rem;
     z-index: 5;
+}
+
+/* ---------------------- */
+
+#avancar_add_sucesso{
+    border-radius: 50pt;
+    padding: 0.8rem 0.8rem;
+    color: white;
+    background: linear-gradient(90deg, rgba(0,205,144,1) 0%, rgba(0,195,55,1) 100%);
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    border: none;
+    margin-left:auto;
+    margin-right:auto;
+    transition: background-color 0.2s;
+    width:100%;
+    max-width: 22rem;
+}
+
+#avancar_add_sucesso:focus{
+    outline: none;
+}
+
+#cancelar_add_sucesso{
+    font-size:0.9rem;
+    border-radius: 50pt;
+    padding: 0.8rem 0.8rem;
+    display: block;
+    color: #787878;
+    font-weight: bold;
+    margin-left:auto;
+    margin-right:auto;
+    border: none;
+    background-color: transparent;
+    width:100%;
+    max-width: 22rem;
+}
+
+#cancelar_add_sucesso:focus{
+    outline: none;
+}
+
+#avancar_fim{
+    border-radius: 50pt;
+    padding: 0.8rem 0.8rem;
+    color: white;
+    background: linear-gradient(90deg, rgba(0,205,144,1) 0%, rgba(0,195,55,1) 100%);
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    border: none;
+    margin-left:auto;
+    margin-right:auto;
+    transition: background-color 0.2s;
+    width:100%;
+    max-width: 22rem;
+}
+
+#avancar_fim:focus{
+    outline: none;
+}
+
+#info_fim{
+    border-radius: 50pt;
+    padding: 0.8rem 0.8rem;
+    color: white;
+    background: linear-gradient(90deg, rgba(72,149,239,1) 0%, rgba(53,231,255,1) 100%);
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    border: none;
+    margin-left:auto;
+    margin-right:auto;
+    transition: background-color 0.2s;
+    width:100%;
+    max-width: 22rem;
+}
+
+#info_fim:focus{
+    outline: none;
+}
+
+.btn-back-faq{
+    position: absolute;
+    top:-0.6rem;
+    left:0;
+    z-index: 1;
+}
+
+/* ------ Faq's ------ */
+
+.faq-box{
+    width:100%;
+    overflow: hidden;
+    background-color: #ECECEC;
+    border-radius: 25px;
+}
+
+.faq-art-text{
+    padding: 1rem 0 0 2rem;
+}
+
+.faq-art-img{
+    margin-top: 0.7rem;
+}
+
+.art-content-faq{
+    max-height:0;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.h2-faq{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    color:#378FED;
+}
+
+.text-faq{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    font-size: 0.9rem;
+    color: black;
+    margin-bottom:0;
 }
 
 /* Displays */

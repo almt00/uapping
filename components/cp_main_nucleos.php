@@ -52,16 +52,20 @@
                         $link = new_db_connection();
                         $stmt = mysqli_stmt_init($link);
                         $query = "SELECT 
-                                    nucleos.id_nucleo,
-                                    nucleos.nome_nucleo,
-                                    nucleos.sigla_nucleo,
-                                    nucleos_oficiais.imagem_oficial 
-                                    FROM nucleos
-                                    INNER JOIN nucleos_oficiais
-                                    ON nucleos.id_nucleo=nucleos_oficiais.ref_id_nucleo;";
+                                nucleos.id_nucleo,
+                                nucleos.nome_nucleo,
+                                nucleos.sigla_nucleo,
+                                nucleos_oficiais.imagem_oficial,
+                                cores_oficiais.nome_cor_oficial 
+                                FROM nucleos
+                                INNER JOIN nucleos_oficiais
+                                ON nucleos.id_nucleo = nucleos_oficiais.ref_id_nucleo
+                                INNER JOIN cores_oficiais
+                                ON nucleos_oficiais.ref_id_cor_oficial = cores_oficiais.id_cor_oficial;";
+
                         if (mysqli_stmt_prepare($stmt, $query)) {
                             if (mysqli_stmt_execute($stmt)) {
-                                mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $sigla_nucleo, $imagem_oficial);
+                                mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $sigla_nucleo, $imagem_oficial,$cor);
                                 while (mysqli_stmt_fetch($stmt)) {
                                     ?>
                                     <article class="col-6 art-card-nucleo_geral" style="
@@ -74,7 +78,7 @@
                                     } ?>
                                             ">
                                         <a href="nucleos_detail.php?id_nucleo=<?= $id_nucleo ?>">
-                                            <div class="nucleo_card mb-3" style='background-image: url("assets/nucleos/cover_nucleo_azul.svg");'>
+                                            <div class="nucleo_card mb-3" style='background-image: url("assets/nucleos/cover_nucleo_<?=$cor?>.svg");'>
                                                 <div class="row align-items-center sec_nucleo_card_img">
                                                     <div class="col-4 art_nucleo_card min-nucleo-card">
                                                         <img src="assets/img/<?= $imagem_oficial ?>">

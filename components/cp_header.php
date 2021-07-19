@@ -29,101 +29,108 @@ if (!isset($_SESSION['id_user']) || $_SESSION['id_user']==null) {
 
 <panel id="panel_user_menu_mobile">
     <menu id="user_menu_mobile" class="container-fluid user_menu_mobile">
-        <section class="row section-1-user-menu">
-            <article class="p-0 col-3 art-1-icon-user-menu position-relative">
-                <img class="edit-profile-menu-user" src="assets/icons_user_menu/edit.svg">
-                <img src="assets/img/user_profile.png">
-            </article>
-            <article class="p-0 col-9">
-                <section class="row ml-3">
-                    <article class="p-0 col-12">
-                        <strong> <?= $_SESSION['nome'] ?> </strong>
+        <section class="row position-relative">
+            <article class="col-12">
+                <section class="row section-1-user-menu">
+                    <article class="p-0 col-3 art-1-icon-user-menu position-relative">
+                        <img class="edit-profile-menu-user" src="assets/icons_user_menu/edit.svg">
+                        <div class="profile_pic" style='background-image: url("assets/img/user_profile.png")'></div>
                     </article>
-                    <article class="art-2-icon-user-menu p-0 col-12">
-                        @<?= $_SESSION['nickname'] ?>
+                    <article class="p-0 col-9">
+                        <section class="row ml-3">
+                            <article class="p-0 col-12">
+                                <strong> <?= $_SESSION['nome'] ?> </strong>
+                            </article>
+                            <article class="art-2-icon-user-menu p-0 col-12">
+                                @<?= $_SESSION['nickname'] ?>
+                            </article>
+                        </section>
+                    </article>
+                </section>
+                <section class="position-relative">
+                    <?php if (isset($_SESSION['backoffice']) && $_SESSION['backoffice'] == 1){ ?>
+                        <?php if (isset($pag_backoffice) && $pag_backoffice === true){ ?>
+                            <a href="home_page.php">
+                                <article class="col-12 user-menu-options py-1">
+                                    <img src="assets/icons_user_menu/voltar.svg">
+                                    <span class="user-menu-options-span"> Área Pública </span>
+                                </article>
+                            </a>
+                        <?php } else{ ?>
+                            <a href="home_page_backoffice.php">
+                                <article class="col-12 user-menu-options py-1">
+                                    <img src="assets/icons_user_menu/admin.svg">
+                                    <span class="user-menu-options-span"> Backoffice </span>
+                                </article>
+                            </a>
+                        <?php } ?>
+                    <?php } ?>
+                    <?php if (isset($_SESSION['id_nucleo_admin']) && $_SESSION['id_nucleo_admin'] != null){ ?>
+                        <?php if (isset($pag_admin) && $pag_admin === true){ ?>
+                            <a href="home_page.php">
+                                <article class="col-12 user-menu-options py-1">
+                                    <img src="assets/icons_user_menu/voltar.svg">
+                                    <span class="user-menu-options-span"> Área Pública </span>
+                                </article>
+                            </a>
+                        <?php } else{ ?>
+                            <a href="home_page_admin.php">
+                                <article class="col-12 user-menu-options py-1">
+                                    <img src="assets/icons_user_menu/admin.svg">
+                                    <span class="user-menu-options-span"> Gerir Núcleo </span>
+                                </article>
+                            </a>
+                        <?php } ?>
+                    <?php } ?>
+                    <a href="">
+                        <article class="col-12 user-menu-options py-1">
+                            <img src="assets/icons_user_menu/change_interesses.svg">
+                            <span class="user-menu-options-span"> Alterar Interesses </span>
+                        </article>
+                    </a>
+                    <a href="criar_nucleo.php">
+                        <article class="col-12 user-menu-options py-1">
+                            <img src="assets/icons_user_menu/criar_nucleo.svg">
+                            <span class="user-menu-options-span"> Criar Núcleo </span>
+                        </article>
+                    </a>
+                    <a href="">
+                        <article class="col-12 user-menu-options py-1">
+                            <img src="assets/icons_user_menu/notifications.svg">
+                            <span class="user-menu-options-span"> Notificações </span>
+                        </article>
+                    </a>
+                    <a href="mudar_password.php">
+                        <article class="col-12 user-menu-options py-1">
+                            <img src="assets/icons_user_menu/change_pass.svg">
+                            <span class="user-menu-options-span"> Mudar Password </span>
+                        </article>
+                    </a>
+                    <a href="">
+                        <article class="col-12 user-menu-options py-1">
+                            <img src="assets/icons_user_menu/help.svg">
+                            <span class="user-menu-options-span"> Ajuda </span>
+                        </article>
+                    </a>
+                    <a href="">
+                        <article class="col-12 user-menu-options py-1">
+                            <img src="assets/icons_user_menu/settings.svg">
+                            <span class="user-menu-options-span"> Mais Definições </span>
+                        </article>
+                    </a>
+                </section>
+                <section class="row section-2-user-menu">
+                    <article class="col-12 art-2-user-menu">
+                        <a href="scripts/sc_logout.php">
+                            <div class="btn-logout">
+                                Logout
+                            </div>
+                        </a>
                     </article>
                 </section>
             </article>
-        </section>
-        <section class="position-relative">
-            <?php if (isset($_SESSION['backoffice']) && $_SESSION['backoffice'] == 1){ ?>
-                    <?php if (isset($pag_backoffice) && $pag_backoffice === true){ ?>
-                    <a href="home_page.php">
-                        <article class="col-12 user-menu-options py-1">
-                            <img src="assets/icons_user_menu/voltar.svg">
-                            <span class="user-menu-options-span"> Área Pública </span>
-                        </article>
-                    </a>
-                <?php } else{ ?>
-                    <a href="home_page_backoffice.php">
-                        <article class="col-12 user-menu-options py-1">
-                            <img src="assets/icons_user_menu/admin.svg">
-                            <span class="user-menu-options-span"> Backoffice </span>
-                        </article>
-                    </a>
-                <?php } ?>
-            <?php } ?>
-            <?php if (isset($_SESSION['id_nucleo_admin']) && $_SESSION['id_nucleo_admin'] != null){ ?>
-                <?php if (isset($pag_admin) && $pag_admin === true){ ?>
-                    <a href="home_page.php">
-                        <article class="col-12 user-menu-options py-1">
-                            <img src="assets/icons_user_menu/voltar.svg">
-                            <span class="user-menu-options-span"> Área Pública </span>
-                        </article>
-                    </a>
-                <?php } else{ ?>
-                    <a href="home_page_admin.php">
-                        <article class="col-12 user-menu-options py-1">
-                            <img src="assets/icons_user_menu/admin.svg">
-                            <span class="user-menu-options-span"> Gerir Núcleo </span>
-                        </article>
-                    </a>
-                <?php } ?>
-            <?php } ?>
-            <a href="">
-                <article class="col-12 user-menu-options py-1">
-                    <img src="assets/icons_user_menu/change_interesses.svg">
-                    <span class="user-menu-options-span"> Alterar Interesses </span>
-                </article>
-            </a>
-            <a href="criar_nucleo.php">
-                <article class="col-12 user-menu-options py-1">
-                    <img src="assets/icons_user_menu/criar_nucleo.svg">
-                    <span class="user-menu-options-span"> Criar Núcleo </span>
-                </article>
-            </a>
-            <a href="">
-                <article class="col-12 user-menu-options py-1">
-                    <img src="assets/icons_user_menu/notifications.svg">
-                    <span class="user-menu-options-span"> Notificações </span>
-                </article>
-            </a>
-            <a href="mudar_password.php">
-                <article class="col-12 user-menu-options py-1">
-                    <img src="assets/icons_user_menu/change_pass.svg">
-                    <span class="user-menu-options-span"> Mudar Password </span>
-                </article>
-            </a>
-            <a href="">
-                <article class="col-12 user-menu-options py-1">
-                    <img src="assets/icons_user_menu/help.svg">
-                    <span class="user-menu-options-span"> Ajuda </span>
-                </article>
-            </a>
-            <a href="">
-                <article class="col-12 user-menu-options py-1">
-                    <img src="assets/icons_user_menu/settings.svg">
-                    <span class="user-menu-options-span"> Mais Definições </span>
-                </article>
-            </a>
-        </section>
-        <section class="row section-2-user-menu">
-            <article class="col-12 art-2-user-menu">
-                <a href="scripts/sc_logout.php">
-                    <div class="btn-logout">
-                        Logout
-                    </div>
-                </a>
+            <article class="col-12">
+
             </article>
         </section>
     </menu>

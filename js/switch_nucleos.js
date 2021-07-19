@@ -22,7 +22,7 @@ document.getElementById("criacoes").onclick = function (){
     document.getElementById("nucleos_criacoes").style.display = "block";
 }
 
-/* ------------------ interesses / btn home_page (eventos) -------------------- */
+/* ------------------ interesses / btn home_page (eventos) --------------------
 
 interesses_menu = false;
 document.getElementById("btn_interesses").onclick = function (){
@@ -43,4 +43,4 @@ document.getElementById("background_interesses_menu").onclick = function (){
         document.body.style.overflow = "auto";
         interesses_menu = false;
     }
-}
+}*/

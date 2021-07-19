@@ -6,6 +6,8 @@ var checkpills_1, checkpills_2, checkpills_3, checkpills_4, checkpills_5;
 $(document).ready(function () {
     $('.capture_id').on('click', function () {
         var id_switch = this.id;
+        $(".pills_datas").css("background-color", "#ffffff54");
+        $(".pills_datas").css("color", "#B25959");
 
         $.ajax({
             url: 'bd/bd_eventos.php', //Jquery carrega serverside.php
@@ -25,7 +27,8 @@ $(document).ready(function () {
         return false; // keeps the page from not refreshing
     });
 });
-// teste search
+
+/* ------------------ home page / search bar ------------------ */
 $(document).ready(function () {
     console.log('teste');
     $('#search-bar').on('keyup', function () {
@@ -64,14 +67,16 @@ $(document).ready(function () {
     });
 });
 
-
-
-
 /* ------------------ home page / pills filtrar eventos por data ------------------ */
 $(document).ready(function () {
     $(".pills_datas").on('click', function () {
         var date = this.id;
+        //todos os pills iguais
+        $(".pills_datas").css("background-color", "#ffffff54");
+        $(".pills_datas").css("color", "#B25959");
         //miguel arranjas forma do pill do dia sendo clicado mudar de cor.
+        $(this).css("background-color", "#F6CCAD")
+        $(this).css("color", "#BA6C33")
 
         $.ajax({
             url: 'bd/bd_pill_filter.php', //Jquery carrega serverside.php
@@ -153,6 +158,87 @@ $(document).ready(function () {
 
 });
 
+/* ------------------ home page backoffice / search bar ------------------ */
+$(document).ready(function () {
+    console.log('teste');
+    $('#search-bar-backoffice').on('keyup', function () {
+        console.log('keyup');
+
+        var search = this.value;
+        console.log('search: ' + search);
+        $.ajax({
+            url: 'bd/bd_search.php', //Jquery carrega serverside.php
+            data: 'search=' + search, // Envia o valor do botão clicado
+            dataType: 'json', //escolhe o tipo de dados
+            type: 'GET', //por default, mas pode ser POST
+        })
+            .done(function (data) {
+                console.log('sucesso');
+
+                $("#eventos_load").removeAttr("style").hide();
+                if(data == ""){
+                    document.getElementById("eventos_conteudo").innerHTML = "Infelizmente. Não há resultados para a sua pesquisa..";
+                    document.getElementById("eventos_conteudo").style.margin= "auto";
+                    document.getElementById("selector").style.left = "50%";
+                    document.getElementById("interesses").style.color = "#1D1D1D";
+                    document.getElementById("todos").style.color = "white";
+                    document.getElementById("eventos_load").style.display = "none";
+
+                }else{
+                    createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
+                }
+
+            })
+            .fail(function () { // Se existir um erro no pedido
+                console.log('erro');
+                $('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+            });
+        return false; // keeps the page from not refreshing
+    });
+});
+/* ------------------------------------------------------------------------------ */
+
+
+/* ------------------ home page nucleo / search bar ------------------ */
+$(document).ready(function () {
+    console.log('teste');
+    $('#search-bar-nucleo').on('keyup', function () {
+        console.log('keyup');
+        //var nucleo = sessionStorage.getItem("id_nucleo_admin");
+        var search = this.value;
+        console.log('search: ' + search);
+        //console.log('nucleo: ' + nucleo);
+        $.ajax({
+            url: 'bd/bd_search_nucleo.php', //Jquery carrega serverside.php
+            data: 'search=' + search , // Envia o valor do botão clicado 'value1='+val1+'&value2='+val2
+            dataType: 'json', //escolhe o tipo de dados
+            type: 'GET', //por default, mas pode ser POST
+        })
+            .done(function (data) {
+                console.log('sucesso');
+
+                $("#eventos_load").removeAttr("style").hide();
+                if(data == ""){
+                    document.getElementById("eventos_conteudo").innerHTML = "Infelizmente. Não há resultados para a sua pesquisa..";
+                    document.getElementById("eventos_conteudo").style.margin= "auto";
+                    document.getElementById("selector").style.left = "50%";
+                    document.getElementById("interesses").style.color = "#1D1D1D";
+                    document.getElementById("todos").style.color = "white";
+                    document.getElementById("eventos_load").style.display = "none";
+
+                }else{
+                    createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
+                }
+
+            })
+            .fail(function () { // Se existir um erro no pedido
+                console.log('horrores');
+                $('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+            });
+        return false; // keeps the page from not refreshing
+    });
+});
+/* ------------------------------------------------------------------------------ */
 
 
 Handlebars.registerHelper('formatDate', function (dateString) {

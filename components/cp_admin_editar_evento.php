@@ -26,7 +26,8 @@ if (isset($_GET['id_evento']) && $_GET['id_evento'] != 0) {
         mysqli_stmt_fetch($stmt);
 
     }
-
+    mysqli_stmt_close($stmt);
+    mysqli_close($link);
 }
 
 ?>
@@ -47,7 +48,8 @@ if (isset($_GET['id_evento']) && $_GET['id_evento'] != 0) {
                     <h2 class="text-center h2-nucleo_save"> Editar um Evento </h2>
                 </article>
                 <article class="col-12 px-4">
-                    <form action="scripts/sc_editar_evento.php?id_evento=<?= $id_evento ?>&imagem=<?= $imagem_evento ?>" method="post"
+                    <form action="scripts/sc_editar_evento.php?id_evento=<?= $id_evento ?>&imagem=<?= $imagem_evento ?>"
+                          method="post"
                           id="editar_evento"
                           enctype="multipart/form-data">
                         <section class="row justify-content-center">
@@ -129,7 +131,7 @@ if (isset($_GET['id_evento']) && $_GET['id_evento'] != 0) {
 
                                 <input id="preco" class="input_novo_admin mb-3 mb-md-3" type="number" step="any"
                                        name="preco" value="<?= htmlspecialchars($preco_evento) ?>"
-                                       size="24" placeholder="Preço" style="display: none" >
+                                       size="24" placeholder="Preço" style="display: none">
                                 <?php
                                 if (isset($imagem_evento)) {
                                     ?>
@@ -145,7 +147,8 @@ if (isset($_GET['id_evento']) && $_GET['id_evento'] != 0) {
                                     <?php
                                 }
                                 ?>
-                                <input id="fileToUpload" class="fileToUpload" type="file" name="fileToUpload" value="<?= $imagem_evento ?>"
+                                <input id="fileToUpload" class="fileToUpload" type="file" name="fileToUpload"
+                                       value="<?= $imagem_evento ?>"
                                        size="24" onchange="previewFile(this);">
                                 <textarea required="required" name="descricao" placeholder="descrição"
                                           class="form-control text-area-criar-nucleo" id="exampleFormControlTextarea1"
@@ -164,7 +167,7 @@ if (isset($_GET['id_evento']) && $_GET['id_evento'] != 0) {
             </section>
         </article>
     </section>
-    <?php include_once "components/cp_footer.php"?>
+    <?php include_once "components/cp_footer.php" ?>
 </main>
 
 <script>

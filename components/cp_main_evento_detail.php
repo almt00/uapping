@@ -127,7 +127,7 @@ if (isset($_GET['id_evento'])) {
                                 const toShare = {
                                     title: "Partilhar evento: <?= htmlspecialchars($nome_evento) ?> ",
                                     text: "Olha só este evento na UA chamado <?= htmlspecialchars($nome_evento) ?>!",
-                                    url: window.location.href // ver isto qdo for partilhar fora do detalhe
+                                    url: "http://localhost/UAPPING/evento_detail.php?id_evento=<?=$id_evento?>" // mudar qdo for o servidor normal senao n da
                                 };
                                 const button = document.getElementById('share');
                                 button.addEventListener('click', async () => {
@@ -181,7 +181,7 @@ if (isset($_GET['id_evento'])) {
                                     $n = 0;
                                     while (mysqli_stmt_fetch($stmt)) {
                                         $i++;// número de ciclos = utilizadores que guardam o evento
-                                        if ($i <= 2) {
+                                        if ($i <= 3) {
                                             ?>
                                             <div id="avatar" class="mr-1 people-bubble-event-detail bg-profile"
                                                  style='background-image: url("assets/img/<?= $avatar ?>");'>
@@ -190,7 +190,7 @@ if (isset($_GET['id_evento'])) {
                                         }
                                     }
                                     //condição para esconder bolha "+" caso só existam 2 participantes
-                                    if ($i < 2) {
+                                    if ($i < 3) {
                                         ?>
                                         <style type="text/css">#participantes {
                                                 display: none;
@@ -198,7 +198,7 @@ if (isset($_GET['id_evento'])) {
                                         <?php
                                     }
                                     //echo $i; //para visualizar o numero total de participantes
-                                    $num = $i - 2;//identifica o valor númerico a ser apresentado na bolha de "+" participantes
+                                    $num = $i - 3;//identifica o valor númerico a ser apresentado na bolha de "+" participantes
                                 }
                                 mysqli_close($link);
                             } else {
