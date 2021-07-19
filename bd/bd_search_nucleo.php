@@ -4,14 +4,10 @@ require_once "../connections/connection.php";
 // Create a new DB connection
 $link = new_db_connection();
 if (isset($_SESSION["id_nucleo_admin"])){
-    echo "teste session";
+    $nucleo = $_SESSION["id_nucleo_admin"];
 }
-$nucleo = $_SESSION["id_nucleo_admin"];
 $result = $_GET['search'];
-
 $search=mysqli_real_escape_string($link,$result);
-var_dump($search);
-var_dump($result);
 
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
@@ -19,8 +15,9 @@ $query = "SELECT eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIM
 FROM eventos
 INNER JOIN nucleos_oficiais 
 ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo 
-WHERE eventos.nome_evento LIKE '%$search%' AND eventos.data_evento >NOW()";
+WHERE eventos.nome_evento LIKE '%$search%' AND CAST(CONCAT(eventos.data_evento, ' ',  eventos.hora_evento) AS DATETIME) >= NOW() AND nucleos_oficiais.ref_id_nucleo=?";
 if (mysqli_stmt_prepare($stmt, $query)) {
+    mysqli_stmt_bind_param($stmt,'i',$nucleo);
     if (mysqli_stmt_execute($stmt)) {
         mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $id_nucleo, $imagem_oficial);
         /* fetch values */
@@ -37,6 +34,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
             $data[] = $row_result;
         }
         print json_encode($data);
+        //echo json_last_error_msg();
     } else {
         echo "Error: " . mysqli_stmt_error($stmt);
     }

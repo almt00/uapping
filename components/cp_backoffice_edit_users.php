@@ -16,7 +16,7 @@ WHERE utilizadores.id_utilizador=?";
         mysqli_stmt_bind_result($stmt, $nome_utilizador, $nickname_utilizador, $email_utilizador, $ativo_utilizador, $admin, $nome_nucleo);
         mysqli_stmt_store_result($stmt);
         $rows = mysqli_stmt_num_rows($stmt);
-        if ($rows != 1) {
+        if ($rows == 0) {
             ?>
             <script>
                 window.location.replace("backoffice_users.php");
