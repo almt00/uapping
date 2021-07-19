@@ -148,7 +148,7 @@ if (!isset($_SESSION['id_user']) || $_SESSION['id_user']==null) {
                 <section class="row justify-content-center px-3">
                     <article class="col-4 check-avatar input-avatar_1 mb-3 mx-2">
                         <input for="avatar_change" name="avatar" id="avatar_1"
-                               type="radio" value="avatar_1">
+                               type="radio" value="a1">
                     </article>
                     <article class="col-4 check-avatar input-avatar_2 mb-3 mx-2">
                         <input for="avatar_change" name="avatar" id="avatar_2"

@@ -91,9 +91,9 @@ if ((isset($_GET['id_evento'])) && $_GET['id_evento'] != 0) {
         if (mysqli_stmt_prepare($stmt, $query)) {
             mysqli_stmt_bind_param($stmt, 'ssssissi', $nome_evento, $data_evento, $hora_evento, $morada, $preco, $nome_img, $descricao, $id_evento);
             if (mysqli_stmt_execute($stmt)) {
+                header("Location: ../home_page_admin.php");
                 var_dump($preco);
                 echo 'sucesso';
-                header("Location: ../home_page_admin.php");
                 mysqli_stmt_close($stmt);
                 mysqli_close($link);
                 die();
