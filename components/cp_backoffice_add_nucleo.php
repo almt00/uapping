@@ -97,13 +97,13 @@
                                           rows="5" style="padding-left:1.6rem;"></textarea>
                                 <input id="nome" class="input_backoffice mb-3 mb-md-3 input_edit_user" type="text"
                                        name="instagram"
-                                       size="24" placeholder="link do instagram" required="required">
+                                       size="24" placeholder="link do instagram" >
                                 <input id="nome" class="input_backoffice mb-3 mb-md-3 input_edit_user" type="text"
                                        name="facebook"
-                                       size="24" placeholder="link do facebook" required="required">
+                                       size="24" placeholder="link do facebook">
                                 <input id="nome" class="input_backoffice mb-3 mb-md-3 input_edit_user" type="text"
                                        name="website"
-                                       size="24" placeholder="link do website" required="required">
+                                       size="24" placeholder="link do website">
                             </article>
 
                             <article id="art_add_membro" class="col-12" style="display: none">
