@@ -1126,9 +1126,13 @@ a{
 .p-nucleo_name{
     font-weight: 800;
     font-family: 'Open Sans', sans-serif;
-    font-size:4vw;
+    font-size:1rem;
     color: white;
     text-transform: uppercase;
+}
+
+.p-nucleo_desc{
+    line-height: 1rem;
 }
 
 .nucleo_card{

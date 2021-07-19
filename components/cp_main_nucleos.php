@@ -79,13 +79,12 @@
                                             ">
                                         <a href="nucleos_detail.php?id_nucleo=<?= $id_nucleo ?>">
                                             <div class="nucleo_card mb-3" style='background-image: url("assets/nucleos/cover_nucleo_<?=$cor?>.svg");'>
-                                                <div class="row align-items-center sec_nucleo_card_img">
-                                                    <div class="col-4 art_nucleo_card min-nucleo-card">
+                                                <div class="row justify-content-between align-items-center sec_nucleo_card_img">
+                                                    <div class="col-2 art_nucleo_card min-nucleo-card">
                                                         <img src="assets/img/<?= $imagem_oficial ?>">
                                                     </div>
-                                                    <div class="col-6 art_nucleo_card word-warp">
-                                                        <p class="p-nucleo_name m-0"> <?= $sigla_nucleo ?> </p>
-                                                        <p class="text-white m-0"> <?= $nome_nucleo ?> </p>
+                                                    <div class="col-6 art_nucleo_card word-warp pl-0 mr-2">
+                                                        <p class="p-nucleo_name m-0"> <?= $sigla_nucleo ?></p>
                                                     </div>
                                                 </div>
                                             </div>
