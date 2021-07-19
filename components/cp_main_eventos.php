@@ -182,7 +182,6 @@
                                     <script> share("<?php echo $id_evento ?>");</script>
 
 
-                                    <img class="ml-3 save_share" src="assets/img/save_white.svg" style="cursor: pointer;">
 
                                     <?php if(empty($guardado)){
                                         echo'<img class="ml-3 save_share save" id="addGuardado" name='.$id_evento.' src="assets/img/save_white.svg">';
