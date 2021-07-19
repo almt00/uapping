@@ -46,7 +46,7 @@ if ((isset($_POST['nome_evento'])) && (isset($_POST['data'])) && (isset($_POST['
         }
 
         // Check file size
-        if ($_FILES["fileToUpload"]["size"] > 500 * 1024) {
+        if ($_FILES["fileToUpload"]["size"] > 800 * 1024) {
             echo "Sorry, your file is too large.";
             $uploadOk = 0;
         }
