@@ -66,13 +66,26 @@
                     $link = new_db_connection();
                     $stmt = mysqli_stmt_init($link);
                     $id_utilizador = $_SESSION["id_user"];
-                    $query = "SELECT eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
-                                FROM eventos
-                                INNER JOIN nucleos_oficiais 
-                                ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo
-                                INNER JOIN nucleos 
-                                ON nucleos_oficiais.ref_id_nucleo = nucleos.id_nucleo
-                                INNER JOIN nucleos_has_interesses 
+                    $query = "SELECT 
+                                eventos.id_evento, 
+                                eventos.nome_evento, 
+                                eventos.data_evento,
+                                TIME_FORMAT(eventos.hora_evento,'%H:%i'),
+                                eventos.imagem_evento,
+                                eventos.ref_id_nucleo, 
+                                nucleos_oficiais.imagem_oficial,
+                                    (SELECT eventos_guardados.eventos_id_evento 
+                                    FROM eventos_guardados 
+                                    WHERE eventos_guardados.eventos_id_evento=eventos.id_evento AND utilizadores_id_utilizador = ?) AS guardado 
+                                FROM 
+                                eventos
+                                INNER JOIN 
+                                nucleos
+                                ON eventos.ref_id_nucleo = nucleos.id_nucleo
+                                LEFT JOIN 
+                                nucleos_oficiais
+                                ON nucleos.id_nucleo = nucleos_oficiais.ref_id_nucleo
+                                INNER JOIN nucleos_has_interesses
                                 ON nucleos.id_nucleo = nucleos_has_interesses.nucleos_id_nucleo
                                 INNER JOIN interesses 
                                 ON nucleos_has_interesses.interesses_id_interesse = interesses.id_interesse
@@ -80,13 +93,14 @@
                                 ON interesses.id_interesse = utilizadores_has_interesses.interesses_id_interesse
                                 INNER JOIN utilizadores 
                                 ON utilizadores_has_interesses.utilizadores_id_utilizador = utilizadores.id_utilizador
-                                WHERE utilizadores.id_utilizador = ? AND data_evento>NOW()
-                                GROUP BY eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
+                                WHERE CAST(CONCAT(eventos.data_evento, ' ',  eventos.hora_evento) AS DATETIME) >= NOW()
+                                GROUP BY eventos.id_evento
                                 ORDER BY eventos.data_evento ASC";
+
                     if (mysqli_stmt_prepare($stmt, $query)) {
                         mysqli_stmt_bind_param($stmt, 'i', $id_utilizador);
                         if (mysqli_stmt_execute($stmt)) {
-                            mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $id_nucleo, $imagem_oficial);
+                            mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $id_nucleo, $imagem_oficial, $guardado);
                             while (mysqli_stmt_fetch($stmt)) {
                     ?>
                     <article class="col-12">
