@@ -26,5 +26,6 @@
 
 <?php include_once "helpers/help_js.php"?>
 
+<script src="js/search_bars.js" type="text/javascript"> </script>
 </body>
 </html>
