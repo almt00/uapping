@@ -10,11 +10,27 @@ WHERE id_evento=?";
         mysqli_stmt_bind_param($stmt, 'i', $id_evento);
         mysqli_stmt_execute($stmt); // Execute the prepared statement
         mysqli_stmt_bind_result($stmt, $nome_evento, $data_evento, $hora_evento, $local_evento, $imagem_evento, $descricao_evento, $parceria_evento, $ref_id_nucleo, $preco_evento, $link_fb_evento);
+        mysqli_stmt_store_result($stmt);
+        $rows = mysqli_stmt_num_rows($stmt);
+        if ($rows != 1) {
+            ?>
+            <script>
+                window.location.replace("home_page_admin.php");
+            </script>
+            <?php
+            die();
+        }
         mysqli_stmt_fetch($stmt);
 
     }
     mysqli_stmt_close($stmt);
     mysqli_close($link);
+} else {
+    ?>
+    <script>
+        window.location.replace("home_page_admin.php");
+    </script>
+    <?php
 }
 
 ?>

@@ -14,6 +14,16 @@ WHERE utilizadores.id_utilizador=?";
         mysqli_stmt_bind_param($stmt, 'i', $id_utilizador);
         mysqli_stmt_execute($stmt); // Execute the prepared statement
         mysqli_stmt_bind_result($stmt, $nome_utilizador, $nickname_utilizador, $email_utilizador, $ativo_utilizador, $admin, $nome_nucleo);
+        mysqli_stmt_store_result($stmt);
+        $rows = mysqli_stmt_num_rows($stmt);
+        if ($rows != 1) {
+            ?>
+            <script>
+                window.location.replace("backoffice_users.php");
+            </script>
+            <?php
+            die();
+        }
         mysqli_stmt_fetch($stmt);
         ?>
         <main class="container-fluid main-flex overflow-hidden">
@@ -32,7 +42,8 @@ WHERE utilizadores.id_utilizador=?";
                             <h2 class="text-center h2-nucleo_save"> Informação utilizador </h2>
                         </article>
                         <article class="col-12 px-4">
-                            <form action="scripts/sc_update_utilizador.php?id=<?=$id_utilizador?>" method="post" id="criar_nucleo">
+                            <form action="scripts/sc_update_utilizador.php?id=<?= $id_utilizador ?>" method="post"
+                                  id="criar_nucleo">
                                 <section class="row justify-content-center">
                                     <article class="col-12">
                                         <div class="div-icons-sign-up text-center position-relative">
@@ -109,8 +120,11 @@ WHERE utilizadores.id_utilizador=?";
         <?php
 
     }
+} else { ?>
+    <script>window.location.replace("backoffice_users.php");</script>
+    <?php
+    die();
 }
-
 ?>
 <script>
     function block() {

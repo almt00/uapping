@@ -18,14 +18,29 @@ WHERE eventos.id_evento= ?";
         mysqli_stmt_bind_param($stmt, 'ii', $id_utilizador, $id_evento);
         mysqli_stmt_execute($stmt); // Execute the prepared statement
         mysqli_stmt_bind_result($stmt, $guardado, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $local_evento, $descricao_evento, $id_nucleo, $preco_evento, $link_fb_evento, $imagem_oficial, $link_fb_oficial, $link_insta_oficial, $link_site_oficial);
+        mysqli_stmt_store_result($stmt);
+        $rows=mysqli_stmt_num_rows($stmt);
+        if ($rows!=1) {
+            ?>
+            <script>
+                window.location.replace("home_page.php");
+            </script>
+            <?php
+            die();
+        }
         mysqli_stmt_fetch($stmt);
         mysqli_stmt_close($stmt); // Close statement
     }
     mysqli_close($link);
 } else {
-    header("Location: ../home_page.php");
+    ?>
+    <script>
+        window.location.replace("home_page.php");
+    </script>
+    <?php
     die;
 }
+
 ?>
 
 <main class="container-fluid main-flex">

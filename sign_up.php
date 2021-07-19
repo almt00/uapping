@@ -38,16 +38,16 @@
                             <img id="pass_icon" class="icon-sign_up_4" src="assets/img/input_pass_icon.svg"
                                  alt="profile_icon">
                         </div>
-                        <input id="nome" required="" class="input_sign_up mb-3 mb-md-3" type="text" name="nome"
-                               size="24" placeholder="nome completo">
-                        <input id="username" required="" class="input_sign_up mb-3 mb-md-3" type="text"
-                               name="username" size="24" placeholder="username">
-                        <input id="email" required="" class="input_sign_up mb-3 mb-md-3" type="email"
-                               name="email" size="24" placeholder="exemplo@ua.pt">
-                        <input id="pass" required="" class="input_sign_up mb-3 mb-md-3" type="password"
-                               name="pass" size="24" placeholder="password">
-                        <input id="pass_confirm" required="" class="input_sign_up mb-3 mb-md-3" type="password"
-                               name="pass_confirm" size="24" placeholder="confirma a password">
+                        <input id="nome" required="required" class="input_sign_up mb-3 mb-md-3" type="text" name="nome"
+                               size="50" placeholder="nome completo">
+                        <input id="username" required="required" class="input_sign_up mb-3 mb-md-3" type="text"
+                               name="username" size="30" placeholder="username">
+                        <input id="email" required="required" class="input_sign_up mb-3 mb-md-3" type="email"
+                               name="email" size="50" placeholder="exemplo@ua.pt">
+                        <input id="pass" required="required" class="input_sign_up mb-3 mb-md-3" type="password"
+                               name="pass" size="20" placeholder="password">
+                        <input id="pass_confirm" required="required" class="input_sign_up mb-3 mb-md-3" type="password"
+                               name="pass_confirm" size="20" placeholder="confirma a password">
                         <section class="row">
                             <article class="col-12">
                                 <div id="feedback_email" style="display: none;" class="text-center alert alert-danger p-2 m-3"><p id="feedback_email_verify" class="text-dark m-0"> </p></div>

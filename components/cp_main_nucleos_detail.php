@@ -15,11 +15,25 @@ if (isset($_GET['id_nucleo'])) {
         mysqli_stmt_execute($stmt); // Execute the prepared statement
         mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $sigla_nucleo, $imagem_oficial, $descricao_nucleo,
             $link_fb_oficial, $link_insta_oficial, $link_site_oficial);
+        mysqli_stmt_store_result($stmt);
+        $rows=mysqli_stmt_num_rows($stmt);
+        if ($rows!=1) {
+            ?>
+            <script>
+                window.location.replace("nucleos.php");
+            </script>
+            <?php
+            die();
+        }
         mysqli_stmt_fetch($stmt);
         mysqli_stmt_close($stmt); // Close statement
     }
 } else {
-    header("Location: home_page.php");
+    ?>
+    <script>
+        window.location.replace("nucleos.php");
+    </script>
+    <?php
     die;
 }
 ?>
