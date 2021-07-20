@@ -22,6 +22,68 @@ document.getElementById("criacoes").onclick = function (){
     document.getElementById("nucleos_criacoes").style.display = "block";
 }
 
+
+/* ------------------ nucleos fantasma ------------------*/
+
+$(document).ready(function () {
+    $(document).on('click', ".aderir_fantasma", function () { //aderir
+        //$(document).on('click', ".aderir_criacoes", function () {
+
+        console.log('click');
+        var $this = $(this);
+        this.src="assets/criacoes_nucleos/aderiu_criacoes.svg";
+        //$this.hide();
+        //$this.next().show()
+
+        var id = $(this).attr('id');
+
+        $.ajax({
+            url: 'bd/bd_nucleo_join.php', //Jquery carrega serverside.php
+            data: 'id_nucleo=' + id, // Envia o valor do botão clicado
+            dataType: 'json', //escolhe o tipo de dados
+            type: 'GET', //por default, mas pode ser POST
+        })
+            .done(function (data) {
+                console.log("add")
+            })
+            .fail(function () { // Se existir um erro no pedido
+                //console.log("nop")
+                //$('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+            })
+        ;
+        return false; // keeps the page from not refreshing
+    });
+
+    $(document).on('click', ".aderiu_fantasma", function () { // remover
+        //$(document).on('click', ".aderir_criacoes", function () {
+
+        console.log('click');
+        var $this = $(this);
+        this.src="assets/criacoes_nucleos/aderir_criacoes.svg";
+        //$this.hide();
+        //$this.next().show()
+
+        var id = $(this).attr('id');
+
+        $.ajax({
+            url: 'bd/bd_nucleo_quit.php', //Jquery carrega serverside.php
+            data: 'id_nucleo=' + id, // Envia o valor do botão clicado
+            dataType: 'json', //escolhe o tipo de dados
+            type: 'GET', //por default, mas pode ser POST
+        })
+            .done(function (data) {
+                console.log("add")
+            })
+            .fail(function () { // Se existir um erro no pedido
+                //console.log("nop")
+                //$('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+            })
+        ;
+        return false; // keeps the page from not refreshing
+    });
+});
+
+
 /* ------------------ interesses / btn home_page (eventos) --------------------
 
 interesses_menu = false;

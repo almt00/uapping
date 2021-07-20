@@ -23,8 +23,9 @@ if (isset($_POST['nome']) && (isset($_POST['username'])) && (isset($_POST['email
             $_SESSION["nickname"] = $nickname_utilizador;
             $_SESSION["ativo"] = 1; // rever
             $_SESSION["backoffice"] = 0;
-            // $_SESSION["ativo"] = $ativo;
-            // $_SESSION["role"] = $id_roles;
+            $_SESSION['avatar']="branco";
+
+
             mysqli_stmt_close($stmt);
             mysqli_close($link);
 //para dar vários interesses a serem inseridos na bd sem problemas

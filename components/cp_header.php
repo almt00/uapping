@@ -38,7 +38,7 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
         </article>
         <article class="col-6 text-right">
             <i class="fas fa-bell icon-size mr-3 mr-md-2"></i>
-            <i id="btn_user_menu_mobile" class="fas fa-user-circle icon-size" style="background-image: url('assets/avatares/avatar_<?= $_SESSION['avatar'] ?>.svg')"></i>
+            <img id="btn_user_menu_mobile" class="header-avatar" style="background-image: url('assets/avatares/avatar_<?= $_SESSION['avatar'] ?>.svg')"></img>
         </article>
     </nav>
 </header>
