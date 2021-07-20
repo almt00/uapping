@@ -164,7 +164,7 @@
     <?php include_once "components/cp_footer.php"?>
 </main>
 
-<!--TEMPLATE JS AJAX INTERESSES VS TODOS EVENTOS-->
+<!--TEMPLATE JS AJAX guardados-->
 <script id="eventos_guardados_template" type="text/x-handlebars-template">
     {{#each this}}
 <article class="col-12 event-card mb-5">

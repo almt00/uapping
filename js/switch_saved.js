@@ -42,6 +42,9 @@ $(document).ready(function () {
         })
 
             .done(function (data) {
+                if (data==0){
+                    $("#eventos_guardados_load").removeAttr("style").show();
+                }
                 createHTMLDinamyc("eventos_guardados_template", "eventos_guardados_conteudo", data);
             })
 
