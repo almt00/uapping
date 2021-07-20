@@ -40,6 +40,8 @@
                     <article class="col-12 mt-5 mb-3 px-4">
                         <h2 class="pl-2 h2-eventos"> Eventos </h2>
                     </article>
+                    <div id="eventos_conteudo" style="width:100%;"></div> <!--recebe template handlebars por ajax-->
+                    <div id="eventos_load" style="width:100%;">
                     <?php
                     require_once "connections/connection.php";
                     $link = new_db_connection();
@@ -135,6 +137,7 @@
                     }
                     mysqli_close($link);
                     ?>
+                    </div>
                 </section>
             </article>
         </section>
@@ -202,7 +205,7 @@
         {{#each this}}
         <article class="col-12" id="eventos">
             <section class="row px-4">
-                <article class="col-12 event-card mb-5" id="evento_">
+                <article class="col-12 event-card mb-5" id="{{id_evento}}">
                     <section class="row">
                         <article class="col-12">
                             <section class="row event-header mb-3">
@@ -234,7 +237,7 @@
                                     <section class="row">
                                         <article class="col-12">
                                             <a href="nucleos_detail.php?id_nucleo={{id_nucleo}}">
-                                                <img src="assets/img/{{imagem_nucleo}}">
+                                                <img src="assets/nucleos/{{imagem_nucleo}}.svg">
                                             </a>
                                         </article>
                                     </section>
@@ -242,7 +245,7 @@
                             </section>
                             <a href="evento_detail.php?id_evento={{id_evento}}">
                                 <section id="background" class="row event-cover"
-                                         style='background-image: url("assets/img/{{imagem}}")'>
+                                         style='background-image: url("assets/img_eventos/{{imagem}}")'>
                                 </section>
                             </a>
                         </article>
