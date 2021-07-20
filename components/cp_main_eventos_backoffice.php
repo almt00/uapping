@@ -103,7 +103,7 @@
                                                                 <section class="row">
                                                                     <article class="col-12">
                                                                         <a href="nucleos_detail.php?id_nucleo=<?= $id_nucleo ?>">
-                                                                            <img src="assets/img/<?= $imagem_oficial ?> ">
+                                                                            <img src="assets/nucleos/<?= $imagem_oficial ?>.svg">
                                                                         </a>
                                                                     </article>
                                                                 </section>

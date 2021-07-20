@@ -37,7 +37,8 @@
                             utilizadores
                             LEFT JOIN 
                             nucleos_membros
-                            ON utilizadores.id_utilizador = nucleos_membros.ref_id_utilizador";
+                            ON utilizadores.id_utilizador = nucleos_membros.ref_id_utilizador
+                            GROUP BY id_utilizador";
 
                 if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
                     mysqli_stmt_execute($stmt); // Execute the prepared statement

@@ -21,7 +21,7 @@ if ((isset($_POST['nome_evento'])) && (isset($_POST['data'])) && (isset($_POST['
     }
 
     if (isset($_FILES["fileToUpload"]["tmp_name"]) && $_FILES["fileToUpload"]["tmp_name"] != '') {
-        $target_dir = "../assets/img/";
+        $target_dir = "../assets/img_nucleos/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));

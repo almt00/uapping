@@ -156,7 +156,7 @@ if (isset($admin_membro) && $admin_membro == 1) {
                                                         </section>
                                                         <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
                                                         <section class="row event-cover"
-                                                                 style='background-image: url("assets/img/<?= $imagem_evento ?> ");'>
+                                                                 style='background-image: url("assets/img_eventos/<?= $imagem_evento ?> ");'>
                                                         </section>
                                                         </a>
                                                     </article>
@@ -277,7 +277,7 @@ if (isset($admin_membro) && $admin_membro == 1) {
                                     <section class="row">
                                         <article class="col-12">
                                             <a href="nucleos_detail.php?id_nucleo={{id_nucleo}}">
-                                                <img src="assets/img/{{imagem_nucleo}}">
+                                                <img src="assets/admin/edit_admin.svg">
                                             </a>
                                         </article>
                                     </section>
@@ -285,7 +285,7 @@ if (isset($admin_membro) && $admin_membro == 1) {
                             </section>
                             <a href="evento_detail.php?id_evento={{id_evento}}">
                                 <section id="background" class="row event-cover"
-                                         style='background-image: url("assets/img/{{imagem}}")'>
+                                         style='background-image: url("assets/img_eventos/{{imagem}}")'>
                                 </section>
                             </a>
                         </article>

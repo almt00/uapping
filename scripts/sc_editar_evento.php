@@ -25,7 +25,7 @@ if ((isset($_GET['id_evento'])) && $_GET['id_evento'] != 0) {
 
         if (isset($_FILES["fileToUpload"]["tmp_name"]) && $_FILES["fileToUpload"]["tmp_name"] != '') {
             echo 'file upload';
-            $target_dir = "../assets/img/";
+            $target_dir = "../assets/img_eventos/";
             $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
