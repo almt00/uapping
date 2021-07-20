@@ -247,7 +247,7 @@
                                             foreach ($pieces_membro as $membro) {
                                                 //echo $membro;
                                                 $check=false;
-                                                if (($membro == $_SESSION['id_user']) && ($id_nucleo == $ref_pertence)) { // isto preciso de ajuda (rip in peace) XD
+                                                if (($membro == $_SESSION['id_user']) && ($id_nucleo == $ref_pertence)) {
                                                     //echo 'teste';
                                                     echo '<img class="aderiu_fantasma"  id="' . $id_nucleo . '" src="assets/criacoes_nucleos/aderiu_criacoes.svg">';
                                                     $check=true;
