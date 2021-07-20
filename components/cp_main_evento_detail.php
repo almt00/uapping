@@ -204,23 +204,22 @@ if (isset($_GET['id_evento'])) {
                                             <?php
                                         }
                                     }
-                                    //condição para esconder bolha "+" caso só existam 2 participantes
-                                    if ($i < 3) {
-                                        ?>
-                                        <style type="text/css">#participantes {
-                                                display: none;
-                                            }</style>
-                                        <?php
-                                    }
-                                    //echo $i; //para visualizar o numero total de participantes
-                                    $num = $i - 3;//identifica o valor númerico a ser apresentado na bolha de "+" participantes
+                                }
+                                //condição para esconder bolha "+" caso só existam 2 participantes
+                                mysqli_stmt_store_result($stmt);
+                                $rows = mysqli_stmt_num_rows($stmt);
+                                //para visualizar o numero total de participantes
+                                $num = $rows - 3;//identifica o valor númerico a ser apresentado na bolha de "+" participantes
+                                if ($num > 0) {
+                                    ?>
+                                    <div id="participantes" class="people-bubble-event-detail" ><span> +<?= $num ?></span></div>
+                                    <?php
                                 }
                                 mysqli_close($link);
                             } else {
                                 die;
                             }
                             ?>
-                            <div id="participantes" class="people-bubble-event-detail"><span> +<?= $num ?></span></div>
                         </article>
                         <article class="col-12 mb-3 text-center px-event-detail">
                             <div class="links-cal-out-event-detail"> Adicionar ao calendário</div>
