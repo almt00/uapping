@@ -1,24 +1,74 @@
 var interesses_menu;
 var checkpills_1, checkpills_2, checkpills_3, checkpills_4, checkpills_5;
+var capture_id_is_active = false;
+var capture_id = null;
+var offset;
 
 /* ------------------ home page / pin bar (todos, interesses) ------------------ */
 
+
 $(document).ready(function () {
+
+    $(window).scroll(function() {
+        if($(window).scrollTop() + $(window).height() >= $(document).height() && capture_id_is_active) {
+            $.ajax({
+                url: 'bd/bd_eventos.php', //Jquery carrega serverside.php
+                data: 'id_switch=' + capture_id + '&offset='+ offset, // Envia o valor do botão clicado
+                dataType: 'json', //escolhe o tipo de dados
+                type: 'GET', //por default, mas pode ser POST
+            })
+                .done(function (data) {
+                    $("#eventos_load").removeAttr("style").hide();
+
+                    if(data != ""){
+                            offset++
+                        //$("#eventos-conteudo").append(data);
+                        createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
+                    }else{
+                        console.log("sem info no array")
+                    }
+                })
+                .fail(function () { // Se existir um erro no pedido
+                    $('#eventos').html('Data error'); // Escreve mensagem de erro
+                })
+            ;
+
+        }
+    });
+
+
+    var offset = 0;
+
+
     $('.capture_id').on('click', function () {
+        offset = 0;
+        click = true;
         var id_switch = this.id;
+        capture_id = this.id;
+        capture_id_is_active = true;
+
         $(".pills_datas").css("background-color", "#ffffff54");
         $(".pills_datas").css("color", "#B25959");
 
+
+
         $.ajax({
             url: 'bd/bd_eventos.php', //Jquery carrega serverside.php
-            data: 'id_switch=' + id_switch, // Envia o valor do botão clicado
+            data: 'id_switch=' + id_switch + '&offset='+ offset, // Envia o valor do botão clicado
             dataType: 'json', //escolhe o tipo de dados
             type: 'GET', //por default, mas pode ser POST
+
         })
             .done(function (data) {
                 $("#eventos_load").removeAttr("style").hide();
+                if(data != ""){
+                    offset++
+                    document.getElementById("eventos_conteudo").innerHTML = "";
+                    createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
 
-                createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
+                }else{
+                    console.log("sem info no array")
+                }
             })
             .fail(function () { // Se existir um erro no pedido
                 $('#eventos').html('Data error'); // Escreve mensagem de erro
@@ -272,9 +322,8 @@ function createHTMLDinamyc(templateId, placeID, data) {
     var compiled_template = Handlebars.compile(raw_template);
     var ourGeneratedHTML = compiled_template(data);
     var place = document.getElementById(placeID);
-    place.innerHTML = ourGeneratedHTML;
+    place.innerHTML += ourGeneratedHTML;
 }
-
 
 document.getElementById("interesses").onclick = function () {
     document.getElementById("selector").style.left = "0%";

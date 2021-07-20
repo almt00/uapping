@@ -93,7 +93,7 @@
                                 ON interesses.id_interesse = utilizadores_has_interesses.interesses_id_interesse
                                 INNER JOIN utilizadores 
                                 ON utilizadores_has_interesses.utilizadores_id_utilizador = utilizadores.id_utilizador
-                                WHERE CAST(CONCAT(eventos.data_evento, ' ',  eventos.hora_evento) AS DATETIME) >= NOW()
+                                WHERE CAST(CONCAT(eventos.data_evento, ' ',eventos.hora_evento) AS DATETIME) >= NOW()
                                 GROUP BY eventos.id_evento
                                 ORDER BY eventos.data_evento ASC";
 
