@@ -82,7 +82,7 @@
                                                  style='background-image: url("assets/nucleos/cover_nucleo_<?= $cor ?>.svg");'>
                                                 <div class="row justify-content-between align-items-center sec_nucleo_card_img">
                                                     <div class="col-2 art_nucleo_card min-nucleo-card">
-                                                        <img src="assets/img/<?= $imagem_oficial ?>">
+                                                        <img src="assets/nucleos/<?= $imagem_oficial ?>">
                                                     </div>
                                                     <div class="col-6 art_nucleo_card word-warp pl-0 mr-2">
                                                         <p class="p-nucleo_name m-0"> <?= $sigla_nucleo ?></p>
@@ -185,6 +185,7 @@
                                 LEFT JOIN 
                                 nucleos_membros
                                 ON nucleos_fantasmas.ref_id_nucleo = nucleos_membros.ref_id_nucleo
+                                GROUP BY nucleos_fantasmas.ref_id_nucleo
                                 ORDER BY nucleos.data_insercao_nucleo DESC";
 
                     if (mysqli_stmt_prepare($stmt, $query)) {
