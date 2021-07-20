@@ -193,7 +193,6 @@ if (isset($_GET['id_evento'])) {
                                     mysqli_stmt_bind_result($stmt, $avatar);
 
                                     $i = 0;
-                                    $n = 0;
                                     while (mysqli_stmt_fetch($stmt)) {
                                         $i++;// número de ciclos = utilizadores que guardam o evento
                                         if ($i <= 3) {
