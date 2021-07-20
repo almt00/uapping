@@ -78,7 +78,7 @@ if (isset($_GET['id_evento'])) {
             <section class="row">
                 <article class="col-12">
                     <section id="capa_evento" class="row event-detail-cover"
-                             style='background-image: url("assets/img/<?= $imagem_evento ?> ");'></section>
+                             style='background-image: url("assets/img_eventos/<?= $imagem_evento ?> ");'></section>
                     <section class="row section-evento_detail">
                         <article class="col-12 mt-barra mb-4">
                             <div class="barra_evento_detail"></div>
