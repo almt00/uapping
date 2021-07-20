@@ -121,7 +121,7 @@
                                                 </section>
                                                 <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
                                                 <section class="row event-cover"
-                                                         style='background-image: url("assets/img/<?= $imagem_evento ?>");'>
+                                                         style='background-image: url("assets/img_eventos/<?= $imagem_evento ?>");'>
                                                 </section>
                                                 </a>
                                             </article>
@@ -189,11 +189,11 @@
                         </section>
                     </article>
                     <nucleo class="col-6 text-right">
-                        <img src="assets/nucleo/{{imagem_nucleo}}.svg">
+                        <img src="assets/nucleos/{{imagem_nucleo}}.svg">
                     </nucleo>
                 </section>
                 <section class="row event-cover"
-                         stylstyle='background-image: url("assets/img/{{imagem}}")'>
+                         style='background-image: url("assets/img_eventos/{{imagem}}")'>
                 </section>
             </article>
         </section>

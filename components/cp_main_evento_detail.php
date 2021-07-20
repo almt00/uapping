@@ -241,7 +241,7 @@ if (isset($_GET['id_evento'])) {
                             <section class="row justify-content-between">
                                 <article class="col-6 mb-4">
                                     <a href="nucleos_detail.php?id_nucleo=<?= $id_nucleo ?>"><img
-                                                src="assets/temp/NRock_text.png"></a>
+                                                src="assets/nucleos/<?=$imagem_oficial?>.svg"></a>
                                 </article>
                                 <article class="position-relative mb-4 text-right art-org-icons align-self-center">
                                     <?php
