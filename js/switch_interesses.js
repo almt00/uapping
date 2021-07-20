@@ -282,7 +282,8 @@ function createHTMLDinamyc(templateId, placeID, data) {
     place.innerHTML = ourGeneratedHTML;
 }
 
-if(typeof(id_switch) != "undefined" && id_switch !== null) {
+
+
     document.getElementById("interesses").onclick = function () {
         document.getElementById("selector").style.left = "0%";
         document.getElementById("interesses").style.color = "white";
@@ -321,7 +322,7 @@ if(typeof(id_switch) != "undefined" && id_switch !== null) {
             document.body.style.overflow = "auto";
             interesses_menu = false;
         }
-    }
+
 
 }
 
