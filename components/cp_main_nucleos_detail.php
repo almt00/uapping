@@ -63,7 +63,7 @@ if (isset($_GET['id_nucleo'])) {
                 <img src="assets/img/back.svg">
             </div>
             <div class="nucleo_logo_icon padding-top-nucleo-detail pr-4">
-                <img src="assets/img/<?= $imagem_oficial ?>">
+                <img src="assets/nucleos/<?= $imagem_oficial ?>.svg">
             </div>
             <section class="row section-nucleos">
                 <article class="col-12 mt-4 mb-3 position-relative padding-top-nucleo-detail">
