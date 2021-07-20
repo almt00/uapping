@@ -210,7 +210,7 @@
                                                     </article>
                                                     <article class="col-12 mt-2 mb-1 margin-criacao_nucleo">
                                                         <div class="mr-1 people-bubble-criacao_nucleo bg-profile"
-                                                             style='background-image: url("assets/img/smells_rock_1.jpg");'></div>
+                                                             style='background-image: url("assets/img_eventos/smells_rock_1.jpg");'></div>
                                                         <div class="mr-1 people-bubble-criacao_nucleo bg-profile"></div>
                                                         <div class="mr-1 people-bubble-criacao_nucleo bg-profile"></div>
                                                         <div class="people-bubble-criacao_nucleo"><span> +3 </span>

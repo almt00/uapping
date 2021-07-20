@@ -153,7 +153,7 @@
                                             </section>
                                             <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
                                             <section class="row event-cover"
-                                                     style='background-image: url("assets/img/<?= $imagem_evento ?> ");'>
+                                                     style='background-image: url("assets/img_eventos/<?= $imagem_evento ?> ");'>
                                             </section>
                                             </a>
                                         </article>
@@ -330,7 +330,7 @@
                             </section>
                             <a href="evento_detail.php?id_evento={{id_evento}}">
                             <section id="background" class="row event-cover"
-                                     style='background-image: url("assets/img/{{imagem}}")'>
+                                     style='background-image: url("assets/img_eventos/{{imagem}}")'>
                             </section>
                             </a>
                         </article>
