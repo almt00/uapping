@@ -141,7 +141,7 @@
                                 </script>
                                 <?php
 
-                                echo '<article class="col-12"><img src="assets/uapping_SVG_PNG/empty.svg"></article>'; // aqui colocar imagem ( Miguel )
+                                echo '<article class="col-12"><img src="assets/ilustracoes/empty.svg"></article>'; // aqui colocar imagem ( Miguel )
                                 // echo 'nada';
 
                             }
