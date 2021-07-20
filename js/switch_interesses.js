@@ -4,85 +4,9 @@ var capture_id_is_active = false;
 var capture_id = null;
 var offset;
 
-/* ------infinite scroll tentativa - nao avançamos porque foi mais no final do projeto e mexia com muita lógica---- */
-
-/*
-$(document).ready(function () {
-
-    var offset = 0;
-
-
-    $('.capture_id').on('click', function () {
-        offset = 0;
-        click = true;
-        var id_switch = this.id;
-        capture_id = this.id;
-        capture_id_is_active = true;
-
-        $(".pills_datas").css("background-color", "#ffffff54");
-        $(".pills_datas").css("color", "#B25959");
-
-
-
-        $.ajax({
-            url: 'bd/bd_eventos.php', //Jquery carrega serverside.php
-            data: 'id_switch=' + id_switch + '&offset='+ offset, // Envia o valor do botão clicado
-            dataType: 'json', //escolhe o tipo de dados
-            type: 'GET', //por default, mas pode ser POST
-
-        })
-            .done(function (data) {
-                $("#eventos_load").removeAttr("style").hide();
-                if(data != ""){
-                    offset++
-                    document.getElementById("eventos_conteudo").innerHTML = "";
-                    createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
-
-                }else{
-                    console.log("sem info no array")
-                }
-            })
-            .fail(function () { // Se existir um erro no pedido
-                $('#eventos').html('Data error'); // Escreve mensagem de erro
-            })
-        ;
-        return false; // keeps the page from not refreshing
-    });
-
-    $(window).scroll(function() {
-        if($(window).scrollTop() + $(window).height() >= $(document).height() && capture_id_is_active) {
-            $.ajax({
-                url: 'bd/bd_eventos.php', //Jquery carrega serverside.php
-                data: 'id_switch=' + capture_id + '&offset='+ offset, // Envia o valor do botão clicado
-                dataType: 'json', //escolhe o tipo de dados
-                type: 'GET', //por default, mas pode ser POST
-            })
-                .done(function (data) {
-                    $("#eventos_load").removeAttr("style").hide();
-
-                    if(data != ""){
-                            offset++
-                        //$("#eventos-conteudo").append(data);
-                        createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
-                    }else{
-                        console.log("sem info no array")
-                    }
-                })
-                .fail(function () { // Se existir um erro no pedido
-                    $('#eventos').html('Data error'); // Escreve mensagem de erro
-                })
-            ;
-
-        }
-    });
-
-});
-
-/*
- */
+/* ------------------ home page / ajax eventos ------------------ */
 
 $(document).ready(function () {
-
     $('.capture_id').on('click', function () {
 
         var id_switch = this.id;
@@ -109,7 +33,6 @@ $(document).ready(function () {
         return false; // keeps the page from not refreshing
     });
 });
-
 
 /* ------------------ home page / search bar ------------------ */
 $(document).ready(function () {
@@ -305,9 +228,6 @@ $(document).ready(function () {
                 if(data == ""){
                     document.getElementById("eventos_conteudo").innerHTML = "Infelizmente. Não há resultados para a sua pesquisa..";
                     document.getElementById("eventos_conteudo").style.margin= "auto";
-                    document.getElementById("selector").style.left = "50%";
-                    document.getElementById("interesses").style.color = "#1D1D1D";
-                    document.getElementById("todos").style.color = "white";
                     document.getElementById("eventos_load").style.display = "none";
 
                 }else{
@@ -331,6 +251,8 @@ Handlebars.registerHelper('formatDate', function (dateString) {
     );
 });
 
+/* ------------------ partilha ------------------ */
+
 Handlebars.registerHelper('sharehb', function (name, id) {
     const toShare = {
         title: "Partilhar evento:"+name+"",
@@ -350,6 +272,7 @@ Handlebars.registerHelper('sharehb', function (name, id) {
     });
 });
 
+/* ------------------ função handlebars ------------------ */
 
 function createHTMLDinamyc(templateId, placeID, data) {
     var raw_template = document.getElementById(templateId).innerText;
@@ -359,45 +282,49 @@ function createHTMLDinamyc(templateId, placeID, data) {
     place.innerHTML = ourGeneratedHTML;
 }
 
-document.getElementById("interesses").onclick = function () {
-    document.getElementById("selector").style.left = "0%";
-    document.getElementById("interesses").style.color = "white";
-    document.getElementById("todos").style.color = "#1D1D1D";
-    document.getElementById("eventos_load").style.display = "none";
+if(typeof(id_switch) != "undefined" && id_switch !== null) {
+    document.getElementById("interesses").onclick = function () {
+        document.getElementById("selector").style.left = "0%";
+        document.getElementById("interesses").style.color = "white";
+        document.getElementById("todos").style.color = "#1D1D1D";
+        document.getElementById("eventos_load").style.display = "none";
 
-}
-
-document.getElementById("todos").onclick = function () {
-    document.getElementById("selector").style.left = "50%";
-    document.getElementById("interesses").style.color = "#1D1D1D";
-    document.getElementById("todos").style.color = "white";
-    document.getElementById("eventos_load").style.display = "none";
-}
-
-/* ------------------ interesses / btn home_page (eventos) -------------------- */
-
-
-interesses_menu = false;
-document.getElementById("btn_interesses").onclick = function () {
-    if (interesses_menu === false) {
-        document.getElementById("panel_interesses_menu_mobile").style.display = "block";
-        setTimeout(function () {
-            document.getElementById("interesses_menu").style.bottom = "0";
-        }, 10)
-        document.body.style.overflow = "hidden";
-        interesses_menu = true;
     }
-}
 
-
-document.getElementById("background_interesses_menu").onclick = function () {
-    if (interesses_menu === true) {
-        document.getElementById("panel_interesses_menu_mobile").style.display = "none";
-        document.getElementById("interesses_menu").style.bottom = "-32rem";
-        document.body.style.overflow = "auto";
-        interesses_menu = false;
+    document.getElementById("todos").onclick = function () {
+        document.getElementById("selector").style.left = "50%";
+        document.getElementById("interesses").style.color = "#1D1D1D";
+        document.getElementById("todos").style.color = "white";
+        document.getElementById("eventos_load").style.display = "none";
     }
+
+    /* ------------------ interesses / btn home_page (eventos) -------------------- */
+
+
+    interesses_menu = false;
+    document.getElementById("btn_interesses").onclick = function () {
+        if (interesses_menu === false) {
+            document.getElementById("panel_interesses_menu_mobile").style.display = "block";
+            setTimeout(function () {
+                document.getElementById("interesses_menu").style.bottom = "0";
+            }, 10)
+            document.body.style.overflow = "hidden";
+            interesses_menu = true;
+        }
+    }
+
+
+    document.getElementById("background_interesses_menu").onclick = function () {
+        if (interesses_menu === true) {
+            document.getElementById("panel_interesses_menu_mobile").style.display = "none";
+            document.getElementById("interesses_menu").style.bottom = "-32rem";
+            document.body.style.overflow = "auto";
+            interesses_menu = false;
+        }
+    }
+
 }
+
 
 $(document).ready(function () {
     $('#btn_interesses').on('click', function () {
@@ -485,3 +412,83 @@ document.getElementById("checkpills_5").onclick = function (){
     }
 }
 */
+
+
+
+
+/* ------infinite scroll tentativa - nao avançamos porque foi mais no final do projeto e mexia com muita lógica---- */
+
+/*
+$(document).ready(function () {
+
+    var offset = 0;
+
+
+    $('.capture_id').on('click', function () {
+        offset = 0;
+        click = true;
+        var id_switch = this.id;
+        capture_id = this.id;
+        capture_id_is_active = true;
+
+        $(".pills_datas").css("background-color", "#ffffff54");
+        $(".pills_datas").css("color", "#B25959");
+
+
+
+        $.ajax({
+            url: 'bd/bd_eventos.php', //Jquery carrega serverside.php
+            data: 'id_switch=' + id_switch + '&offset='+ offset, // Envia o valor do botão clicado
+            dataType: 'json', //escolhe o tipo de dados
+            type: 'GET', //por default, mas pode ser POST
+
+        })
+            .done(function (data) {
+                $("#eventos_load").removeAttr("style").hide();
+                if(data != ""){
+                    offset++
+                    document.getElementById("eventos_conteudo").innerHTML = "";
+                    createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
+
+                }else{
+                    console.log("sem info no array")
+                }
+            })
+            .fail(function () { // Se existir um erro no pedido
+                $('#eventos').html('Data error'); // Escreve mensagem de erro
+            })
+        ;
+        return false; // keeps the page from not refreshing
+    });
+
+    $(window).scroll(function() {
+        if($(window).scrollTop() + $(window).height() >= $(document).height() && capture_id_is_active) {
+            $.ajax({
+                url: 'bd/bd_eventos.php', //Jquery carrega serverside.php
+                data: 'id_switch=' + capture_id + '&offset='+ offset, // Envia o valor do botão clicado
+                dataType: 'json', //escolhe o tipo de dados
+                type: 'GET', //por default, mas pode ser POST
+            })
+                .done(function (data) {
+                    $("#eventos_load").removeAttr("style").hide();
+
+                    if(data != ""){
+                            offset++
+                        //$("#eventos-conteudo").append(data);
+                        createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
+                    }else{
+                        console.log("sem info no array")
+                    }
+                })
+                .fail(function () { // Se existir um erro no pedido
+                    $('#eventos').html('Data error'); // Escreve mensagem de erro
+                })
+            ;
+
+        }
+    });
+
+});
+
+/*
+ */
