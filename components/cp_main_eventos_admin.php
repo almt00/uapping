@@ -276,7 +276,7 @@ if (isset($admin_membro) && $admin_membro == 1) {
                                 <nucleo class="col-6 text-right" style="height:3.5rem;">
                                     <section class="row">
                                         <article class="col-12">
-                                            <a href="nucleos_detail.php?id_nucleo={{id_nucleo}}">
+                                            <a href="admin_editar_evento.php?id_evento={{id_evento}}">
                                                 <img src="assets/admin/edit_admin.svg">
                                             </a>
                                         </article>

@@ -26,14 +26,6 @@
 <?php include_once "helpers/help_js.php"?>
 
 <script src="js/switch_interesses.js" type="text/javascript"> </script>
-<script>
-    $(window).scroll(function () {
-        // End of the document reached?
-        if ($(document).height() - $(this).height() - 200 < $(this).scrollTop()) {
-            alert('Scrolled to Bottom');
-            console.log('fim');
-        }
-    });
-</script>
+
 </body>
 </html>
