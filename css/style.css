@@ -663,6 +663,9 @@ a{
     overflow-y:auto;
 }
 
+.morada {
+    font-size: 0.9rem;
+}
 
 .border_bottom_meca{
     border-bottom: 2px solid white;

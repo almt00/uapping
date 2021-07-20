@@ -28,7 +28,6 @@ $(document).ready(function () {
 });
 
 
-
 $(document).ready(function () {
     $('.capture_saved_id').on('click', function () {
         var name_switch = this.id;
@@ -64,6 +63,7 @@ Handlebars.registerHelper('concat', function (prefix, id) {
     return (prefix + id);
 });
 
+/* ----------------- função  handlebars ------------------ */
 
 function createHTMLDinamyc(templateId, placeID, data) {
     var raw_template = document.getElementById(templateId).innerText;

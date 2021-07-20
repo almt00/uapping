@@ -108,7 +108,16 @@ if (isset($_GET['id_evento'])) {
                                 </horas>
                                 <localizacao class="col-6 mb-3 caixa-evento-detail">
                                     <img class="mr-2 evento-detail-icon" src="assets/img/location.svg">
-                                    <p class="d-inline"> <?= htmlspecialchars($local_evento) ?> </p>
+
+                                    <?php
+
+                                    if(strlen($local_evento) > 8){
+                                        echo '<p class="d-inline morada">'.htmlspecialchars($local_evento).'</p>';
+                                    }else{
+                                        echo '<p class="d-inline">'.htmlspecialchars($local_evento).'</p>';
+                                    }
+                                    ?>
+
                                 </localizacao>
                                 <preco class="col-5 mb-3 horas-preco-evento-detail">
                                     <div class="div-preco">
