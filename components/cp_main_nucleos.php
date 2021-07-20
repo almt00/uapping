@@ -216,12 +216,36 @@
                                                            style="white-space: nowrap;"> <?= htmlspecialchars($nome_nucleo) ?> </p>
                                                     </article>
                                                     <article class="col-12 mt-2 mb-1 margin-criacao_nucleo">
-                                                        <div class="mr-1 people-bubble-criacao_nucleo bg-profile"
+                                                        <!--<div class="mr-1 people-bubble-criacao_nucleo bg-profile"
                                                              style='background-image: url("assets/img_eventos/smells_rock_1.jpg");'></div>
                                                         <div class="mr-1 people-bubble-criacao_nucleo bg-profile"></div>
                                                         <div class="mr-1 people-bubble-criacao_nucleo bg-profile"></div>
-                                                        <div class="people-bubble-criacao_nucleo"><span> +3 </span>
-                                                        </div>
+                                                        <div class="people-bubble-criacao_nucleo"><span> +3 </span>-->
+                                                            <?=
+                                                            $cor;
+                                                            //var_dump($cor);
+                                                            $pieces_cor = explode(",", $cor);
+                                                            //var_dump ($pieces_cor);
+                                                            foreach ($pieces_cor as $value) {
+                                                                ?>
+                                                                <div id="avatar" class="mr-1 people-bubble-criacao_nucleo bg-profile"
+                                                                     style='background-image: url("assets/avatares/avatar_<?= $value ?>.svg");'>
+                                                                </div>
+                                                                    <?php
+                                                            }
+                                                            //condição para esconder bolha "+" caso só existam 2 participantes
+                                                            $rows = count($pieces_cor);
+                                                            //echo $rows;
+                                                            //echo $i; //para visualizar o numero total de participantes
+                                                            $num = $rows - 3;//identifica o valor númerico a ser apresentado na bolha de "+" participantes
+                                                            if ($rows < 2) {
+                                                                //echo "funciona";
+                                                                ?>
+                                                                <div id="participantes" class="people-bubble-criacao_nucleo" ><span> +<?= $num?></span></div>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                            </div>
                                                     </article>
                                                 </section>
                                             </div>
