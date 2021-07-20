@@ -80,7 +80,7 @@
                                         <a href="nucleos_detail.php?id_nucleo=<?= $id_nucleo ?>">
                                             <div class="nucleo_card mb-3"
                                                  style='background-image: url("assets/nucleos/cover_nucleo_<?= $cor ?>.svg");'>
-                                                <div class="row justify-content-between align-items-center sec_nucleo_card_img">
+                                                <div class="row align-items-center sec_nucleo_card_img">
                                                     <div class="col-2 art_nucleo_card min-nucleo-card">
                                                         <img src="assets/nucleos/<?= $imagem_oficial ?>.svg">
                                                     </div>
