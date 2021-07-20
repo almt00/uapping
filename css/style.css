@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
 
-*{
-    user-select: none;
-}
-
 .background_cinza{
     background-color: #EDEDED !important;
 }
@@ -664,7 +660,9 @@ a{
     border-radius: 50px;
     padding: 0.6rem 1.6rem 0.6rem 1.6rem;
     height:3.2rem;
+    overflow-y:auto;
 }
+
 
 .border_bottom_meca{
     border-bottom: 2px solid white;
@@ -2377,6 +2375,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     .display-md-on-block{
         display: block;
     }
+
+
 
 }
 /*###############################################################################*/

@@ -267,7 +267,6 @@ $(document).ready(function () {
                     document.getElementById("interesses").style.color = "#1D1D1D";
                     document.getElementById("todos").style.color = "white";
                     document.getElementById("eventos_load").style.display = "none";
-
                 }else{
                     createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
                 }
@@ -358,6 +357,7 @@ function createHTMLDinamyc(templateId, placeID, data) {
     var place = document.getElementById(placeID);
     place.innerHTML = ourGeneratedHTML;
 }
+
 
 document.getElementById("interesses").onclick = function () {
     document.getElementById("selector").style.left = "0%";
