@@ -4,7 +4,7 @@ var capture_id_is_active = false;
 var capture_id = null;
 var offset;
 
-/* ------------------ home page / pin bar (todos, interesses) ------------------ */
+/* ------infinite scroll tentativa - nao avançamos porque foi mais no final do projeto e mexia com muita lógica---- */
 
 /*
 $(document).ready(function () {
