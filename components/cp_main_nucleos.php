@@ -173,7 +173,7 @@
                                 nucleos.sigla_nucleo,
                                 cores_fantasmas.nome_cor_fantasma,
                                 nucleos_membros.ref_id_nucleo,
-                                nucleos_membros.ref_id_utilizador,
+                                GROUP_CONCAT(nucleos_membros.ref_id_utilizador),
                                 GROUP_CONCAT(avatares.imagem_avatar) AS cor
                                 FROM 
                                 nucleos
@@ -243,12 +243,19 @@
                                         </a>
                                         <div id="aderir_nucleo_criacao" class="aderir_criacoes">
                                             <?php
-                                            if (($ref_utilizador == $_SESSION['id_user']) && ($id_nucleo == $ref_pertence)) { // isto preciso de ajuda (rip in peace) XD
-                                                echo '<img class="aderiu_fantasma"  id="' . $id_nucleo . '" src="assets/criacoes_nucleos/aderiu_criacoes.svg">';
-                                            } else {
+                                            $pieces_membro = explode(",", $ref_utilizador);
+                                            foreach ($pieces_membro as $membro) {
+                                                //echo $membro;
+                                                $check=false;
+                                                if (($membro == $_SESSION['id_user']) && ($id_nucleo == $ref_pertence)) { // isto preciso de ajuda (rip in peace) XD
+                                                    //echo 'teste';
+                                                    echo '<img class="aderiu_fantasma"  id="' . $id_nucleo . '" src="assets/criacoes_nucleos/aderiu_criacoes.svg">';
+                                                    $check=true;
+                                                    break;
+                                                }
+                                            }
+                                            if ($check==false) {
                                                 echo '<img class="aderir_fantasma" id="' . $id_nucleo . '" src="assets/criacoes_nucleos/aderir_criacoes.svg">';
-                                                // echo $_SESSION['id_user'];
-                                                //echo $id_nucleo.' e '.$ref_id_nucleo;
                                             }
                                             ?>
 
