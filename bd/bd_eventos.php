@@ -36,26 +36,32 @@ $query2 = " INNER JOIN nucleos_has_interesses
             INNER JOIN utilizadores_has_interesses 
             ON interesses.id_interesse = utilizadores_has_interesses.interesses_id_interesse
             INNER JOIN utilizadores 
-            ON utilizadores_has_interesses.utilizadores_id_utilizador = utilizadores.id_utilizador";
+            ON utilizadores_has_interesses.utilizadores_id_utilizador = utilizadores.id_utilizador
+            WHERE CAST(CONCAT(eventos.data_evento, ' ',eventos.hora_evento) AS DATETIME) >= NOW() AND utilizadores_id_utilizador = ?;";
 
 
-$query3 = " WHERE CAST(CONCAT(eventos.data_evento, ' ',eventos.hora_evento) AS DATETIME) >= NOW() AND utilizadores_id_utilizador = ?
-            GROUP BY eventos.id_evento
+$query3 = " WHERE CAST(CONCAT(eventos.data_evento, ' ',eventos.hora_evento) AS DATETIME) >= NOW()";
+
+$query4 = " GROUP BY eventos.id_evento
             ORDER BY eventos.data_evento ASC";
 
-$query_paginacao = " LIMIT ? OFFSET ?";
+//$query_paginacao = " LIMIT ? OFFSET ?";
 
 if ($id_switch == "interesses") {
-    $query = $query1 . $query2 . $query3;
+    $query = $query1 . $query2 . $query4;
 
 } else {
-    $query = $query1 . $query3;
+    $query = $query1 . $query3 . $query4;
 
 }
 
 if (mysqli_stmt_prepare($stmt, $query)) {
         //mysqli_stmt_bind_param($stmt, 'iii', $id_utilizador, $limit, $result_offset);
+    if($id_switch == "interesses"){
         mysqli_stmt_bind_param($stmt, 'ii', $id_utilizador, $id_utilizador);
+    }else{
+        mysqli_stmt_bind_param($stmt, 'i', $id_utilizador);
+    }
 
     if (mysqli_stmt_execute($stmt)) {
         mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $id_nucleo, $imagem_oficial, $guardado);
