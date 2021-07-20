@@ -199,7 +199,7 @@ if (isset($_GET['id_evento'])) {
                                         if ($i <= 3) {
                                             ?>
                                             <div id="avatar" class="mr-1 people-bubble-event-detail bg-profile"
-                                                 style='background-image: url("assets/img/<?= $avatar ?>");'>
+                                                 style='background-image: url("assets/avatares/avatar_<?= $avatar ?>.svg");'>
                                             </div>
                                             <?php
                                         }
