@@ -82,7 +82,7 @@
                                                  style='background-image: url("assets/nucleos/cover_nucleo_<?= $cor ?>.svg");'>
                                                 <div class="row justify-content-between align-items-center sec_nucleo_card_img">
                                                     <div class="col-2 art_nucleo_card min-nucleo-card">
-                                                        <img src="assets/nucleos/<?= $imagem_oficial ?>">
+                                                        <img src="assets/nucleos/<?= $imagem_oficial ?>.svg">
                                                     </div>
                                                     <div class="col-6 art_nucleo_card word-warp pl-0 mr-2">
                                                         <p class="p-nucleo_name m-0"> <?= $sigla_nucleo ?></p>
