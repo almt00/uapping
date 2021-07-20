@@ -37,7 +37,7 @@ $query2 = " INNER JOIN nucleos_has_interesses
             ON interesses.id_interesse = utilizadores_has_interesses.interesses_id_interesse
             INNER JOIN utilizadores 
             ON utilizadores_has_interesses.utilizadores_id_utilizador = utilizadores.id_utilizador
-            WHERE CAST(CONCAT(eventos.data_evento, ' ',eventos.hora_evento) AS DATETIME) >= NOW() AND utilizadores_id_utilizador = ?;";
+            WHERE CAST(CONCAT(eventos.data_evento, ' ',eventos.hora_evento) AS DATETIME) >= NOW() AND utilizadores_id_utilizador = ?";
 
 
 $query3 = " WHERE CAST(CONCAT(eventos.data_evento, ' ',eventos.hora_evento) AS DATETIME) >= NOW()";

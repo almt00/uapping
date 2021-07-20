@@ -113,7 +113,7 @@
                                                         <section class="row">
                                                             <article class="col-12">
                                                                 <a href="nucleos_detail.php?id_nucleo=<?= $id_nucleo ?>">
-                                                                    <img src="assets/img/<?= $imagem_oficial ?>">
+                                                                    <img src="assets/nucleos/<?= $imagem_oficial ?>.svg">
                                                                 </a>
                                                             </article>
                                                         </section>
@@ -189,7 +189,7 @@
                         </section>
                     </article>
                     <nucleo class="col-6 text-right">
-                        <img src="assets/img/{{imagem_nucleo}}">
+                        <img src="assets/nucleo/{{imagem_nucleo}}.svg">
                     </nucleo>
                 </section>
                 <section class="row event-cover"
