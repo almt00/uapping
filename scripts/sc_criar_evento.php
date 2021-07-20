@@ -65,7 +65,7 @@ if ((isset($_POST['nome_evento'])) && (isset($_POST['data'])) && (isset($_POST['
         } else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                 echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded. <br>";
-                $nome_img = htmlspecialchars(basename($_FILES["fileToUpload"]["name"]));
+                $nome_img = htmlspecialchars(basename($_FILES["fileToUpload"]["name"])); // escape do nome
             }
         }
 

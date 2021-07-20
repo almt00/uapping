@@ -216,43 +216,34 @@
                                                            style="white-space: nowrap;"> <?= htmlspecialchars($nome_nucleo) ?> </p>
                                                     </article>
                                                     <article class="col-12 mt-2 mb-1 margin-criacao_nucleo">
-                                                        <!--<div class="mr-1 people-bubble-criacao_nucleo bg-profile"
-                                                             style='background-image: url("assets/img_eventos/smells_rock_1.jpg");'></div>
-                                                        <div class="mr-1 people-bubble-criacao_nucleo bg-profile"></div>
-                                                        <div class="mr-1 people-bubble-criacao_nucleo bg-profile"></div>
-                                                        <div class="people-bubble-criacao_nucleo"><span> +3 </span>-->
-                                                            <?=
-                                                            $cor;
-                                                            //var_dump($cor);
-                                                            $pieces_cor = explode(",", $cor);
-                                                            //var_dump ($pieces_cor);
-                                                            foreach ($pieces_cor as $value) {
+                                                        <?php
+                                                        $pieces_cor = explode(",", $cor);
+                                                        $rows = count($pieces_cor);
+                                                        for ($i = 0; $i <= 2; $i++) {
+                                                            if (isset($pieces_cor[$i]) && !empty($pieces_cor[$i])) {
                                                                 ?>
-                                                                <div id="avatar" class="mr-1 people-bubble-criacao_nucleo bg-profile"
-                                                                     style='background-image: url("assets/avatares/avatar_<?= $value ?>.svg");'>
+                                                                <div class="mr-1 people-bubble-criacao_nucleo bg-profile"
+                                                                     style='background-image: url("assets/avatares/avatar_<?= $pieces_cor[$i] ?>.svg");'>
                                                                 </div>
-                                                                    <?php
-                                                            }
-                                                            //condição para esconder bolha "+" caso só existam 2 participantes
-                                                            $rows = count($pieces_cor);
-                                                            //echo $rows;
-                                                            //echo $i; //para visualizar o numero total de participantes
-                                                            $num = $rows - 3;//identifica o valor númerico a ser apresentado na bolha de "+" participantes
-                                                            if ($rows < 2) {
-                                                                //echo "funciona";
-                                                                ?>
-                                                                <div id="participantes" class="people-bubble-criacao_nucleo" ><span> +<?= $num?></span></div>
                                                                 <?php
                                                             }
-                                                            ?>
-                                                            </div>
+                                                        }
+                                                        //condição para esconder bolha "+" caso só existam 2 participantes
+
+                                                        if ($rows > 3) {
+                                                            $num = $rows - 3;//identifica o valor númerico a ser apresentado na bolha de "+" participantes
+                                                            echo '<div class="people-bubble-criacao_nucleo"><span> +' . $num . '</span>';
+                                                        } else {
+                                                            echo '<div class="people-bubble-criacao_nucleo" style="background-color: transparent"><span></span>';
+                                                        }
+                                                        ?>
                                                     </article>
                                                 </section>
                                             </div>
                                         </a>
                                         <div id="aderir_nucleo_criacao" class="aderir_criacoes">
                                             <?php
-                                            if (($ref_utilizador == $_SESSION['id_user']) && ($id_nucleo == $ref_pertence)) {
+                                            if (($ref_utilizador == $_SESSION['id_user']) && ($id_nucleo == $ref_pertence)) { // isto preciso de ajuda (rip in peace) XD
                                                 echo '<img class="aderiu_fantasma"  id="' . $id_nucleo . '" src="assets/criacoes_nucleos/aderiu_criacoes.svg">';
                                             } else {
                                                 echo '<img class="aderir_fantasma" id="' . $id_nucleo . '" src="assets/criacoes_nucleos/aderir_criacoes.svg">';
