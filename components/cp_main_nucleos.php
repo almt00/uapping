@@ -80,7 +80,7 @@
                                         <a href="nucleos_detail.php?id_nucleo=<?= $id_nucleo ?>">
                                             <div class="nucleo_card mb-3"
                                                  style='background-image: url("assets/nucleos/cover_nucleo_<?= $cor ?>.svg");'>
-                                                <div class="row justify-content-between align-items-center sec_nucleo_card_img">
+                                                <div class="row align-items-center sec_nucleo_card_img">
                                                     <div class="col-2 art_nucleo_card min-nucleo-card">
                                                         <img src="assets/nucleos/<?= $imagem_oficial ?>.svg">
                                                     </div>
@@ -166,14 +166,15 @@
 
                     $link = new_db_connection();
                     $stmt = mysqli_stmt_init($link);
-                    $query = "SELECT 
+                    $query = "SELECT
                                 nucleos.id_nucleo,
                                 nucleos.nome_nucleo, 
                                 nucleos.descricao_nucleo,
                                 nucleos.sigla_nucleo,
                                 cores_fantasmas.nome_cor_fantasma,
                                 nucleos_membros.ref_id_nucleo,
-                                nucleos_membros.ref_id_utilizador
+                                nucleos_membros.ref_id_utilizador,
+                                GROUP_CONCAT(avatares.imagem_avatar) AS cor
                                 FROM 
                                 nucleos
                                 INNER JOIN 
@@ -185,12 +186,18 @@
                                 LEFT JOIN 
                                 nucleos_membros
                                 ON nucleos_fantasmas.ref_id_nucleo = nucleos_membros.ref_id_nucleo
-                                GROUP BY nucleos_fantasmas.ref_id_nucleo
+                                LEFT JOIN
+                                utilizadores
+                                ON nucleos_membros.ref_id_utilizador = utilizadores.id_utilizador
+                                LEFT JOIN
+                                avatares
+                                ON utilizadores.ref_id_avatar = avatares.id_avatar
+                                GROUP BY nucleos.id_nucleo
                                 ORDER BY nucleos.data_insercao_nucleo DESC";
 
                     if (mysqli_stmt_prepare($stmt, $query)) {
                         if (mysqli_stmt_execute($stmt)) {
-                            mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $descricao_nucleo, $sigla_nucleo, $cor_nucleo, $ref_pertence, $ref_utilizador);
+                            mysqli_stmt_bind_result($stmt, $id_nucleo, $nome_nucleo, $descricao_nucleo, $sigla_nucleo, $cor_nucleo, $ref_pertence, $ref_utilizador, $cor);
                             while (mysqli_stmt_fetch($stmt)) {
                                 ?>
                                 <section class="row mt-3 a-criacao_nucleo">
