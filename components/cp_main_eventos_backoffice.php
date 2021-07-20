@@ -54,7 +54,7 @@
                                 nucleos_oficiais.imagem_oficial
                                 FROM eventos
                                 INNER JOIN nucleos_oficiais
-                                ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo 
+                                ON eventos.ref_id_nucleo = nucleos_oficiais.ref_id_nucleo 
                                 ORDER BY eventos.data_evento ASC";
                     if (mysqli_stmt_prepare($stmt, $query)) {
                         if (mysqli_stmt_execute($stmt)) {

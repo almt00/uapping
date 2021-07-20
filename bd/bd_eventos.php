@@ -39,7 +39,7 @@ $query2 = " INNER JOIN nucleos_has_interesses
             ON utilizadores_has_interesses.utilizadores_id_utilizador = utilizadores.id_utilizador";
 
 
-$query3 = " WHERE CAST(CONCAT(eventos.data_evento, ' ',  eventos.hora_evento) AS DATETIME) >= NOW()
+$query3 = " WHERE CAST(CONCAT(eventos.data_evento, ' ',eventos.hora_evento) AS DATETIME) >= NOW() AND utilizadores_id_utilizador = ?
             GROUP BY eventos.id_evento
             ORDER BY eventos.data_evento ASC";
 
@@ -55,7 +55,7 @@ if ($id_switch == "interesses") {
 
 if (mysqli_stmt_prepare($stmt, $query)) {
         //mysqli_stmt_bind_param($stmt, 'iii', $id_utilizador, $limit, $result_offset);
-        mysqli_stmt_bind_param($stmt, 'i', $id_utilizador);
+        mysqli_stmt_bind_param($stmt, 'ii', $id_utilizador, $id_utilizador);
 
     if (mysqli_stmt_execute($stmt)) {
         mysqli_stmt_bind_result($stmt, $id_evento, $nome_evento, $data_evento, $hora_evento, $imagem_evento, $id_nucleo, $imagem_oficial, $guardado);
