@@ -65,7 +65,7 @@ window.onload = function (){
             document.getElementById("menu_profile").style.display = "block";
             document.getElementById("change_avatar").style.display = "none";
 
-            document.getElementById("profile_avatar").style.backgroundImage = 'url("assets/img/user_profile.png")'; // aqui colocar o caminho da iamgem guardada já na base de dados
+            document.getElementById("profile_avatar").style.backgroundImage = 'url("assets/img/user_profile.png")'; // CAMINHO IMAGEM JÁ GUARDADA NA BD
             document.getElementById("avatar_1").checked = false;
             document.getElementById("avatar_2").checked = false;
             document.getElementById("avatar_3").checked = false;
