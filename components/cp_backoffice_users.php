@@ -9,7 +9,7 @@
                     </section>
                 </article>
             </section>
-            <section class="row section-nucleos">
+            <section class="row section-nucleos pb-5">
                 <article class="col-12 mt-4 px-4 position-relative">
                     <i class="fas fa-search icon-search-top"></i>
                     <input class="input_search-home-page-admin" type="text" id="search-bar"
