@@ -108,6 +108,39 @@ $(document).ready(function () {
     });
 });
 
+/* ------------------ HOMEPAGE BACKOFFICE / SEARCH BAR ------------------ */
+$(document).ready(function () {
+    $('#search-bar-backoffice').on('keyup', function () { //TECLA RELEASED
+        document.getElementById("eventos_conteudo").style.margin= "auto";
+        document.getElementById("eventos_load").style.display = "none";
+
+        var search = this.value; //CAPTURA O VALOR
+        $.ajax({
+            url: 'bd/bd_search.php',
+            data: 'search=' + search, // VALOR PESQUISADO
+            dataType: 'json',
+            type: 'GET',
+        })
+            .done(function (data) {
+                $("#eventos_load").removeAttr("style").hide(); //LIMPA A DIV DOS EVENTOS QUE VEM SEM SER VIA AJAX
+
+                if(data == ""){ //NÃO HAVENDO RESULTADO
+                    document.getElementById("eventos_conteudo").innerHTML = "<p class='text-center p-3'>Infelizmente não há resultados para a sua pesquisa...</p>";
+                    //MUDAR VISUALMENTE O SWITCH PARA TODOS
+
+                }else{
+                    createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
+                }
+
+            })
+            .fail(function () {
+                $('#eventos').html('Data error'); // MENSAGEM ERRO
+            });
+        return false; // keeps the page from not refreshing
+    });
+});
+
+
 /* ------------------ BACKOFFICE / PILLS FILTRAR EVENTOS DATA ------------------ */
 $(document).ready(function () {
     $(".pills_datas_backoffice").on('click', function () {

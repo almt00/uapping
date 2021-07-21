@@ -11,7 +11,7 @@
                         <section class="row justify-content-center">
                             <article class="col-12 px-4 position-relative">
                                 <i class="fas fa-search icon-search-top"></i>
-                                <input class="input_search-home-page-admin" type="text" id="search-bar"
+                                <input class="input_search-home-page-admin" type="text" id="search-bar-backoffice"
                                        name="search_bar">
                             </article>
                         </section>
@@ -60,7 +60,8 @@
                                 nucleos_oficiais.imagem_oficial
                                 FROM eventos
                                 INNER JOIN nucleos_oficiais
-                                ON eventos.ref_id_nucleo = nucleos_oficiais.ref_id_nucleo 
+                                ON eventos.ref_id_nucleo = nucleos_oficiais.ref_id_nucleo
+                                WHERE CAST(CONCAT(eventos.data_evento, ' ',  eventos.hora_evento) AS DATETIME) >= NOW()
                                 ORDER BY eventos.data_evento ASC";
                     if (mysqli_stmt_prepare($stmt, $query)) {
                         if (mysqli_stmt_execute($stmt)) {
