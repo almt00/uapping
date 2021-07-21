@@ -1,6 +1,6 @@
 <?php
 require_once "../connections/connection.php";
-
+//NAO CONSEGUIMOS TERMINAR ESTA PARTE DE FORMA A FICAR FUNCIONAL
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 $query = "SELECT 

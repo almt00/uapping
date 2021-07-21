@@ -1,8 +1,8 @@
 $(document).ready(function () {
-    var $add, $remove
+    var $remove
 
     $remove = $(".remove");
-//quero que haja um evento no futuro, neste documento ao clicar procura a classe remove
+    //quero que haja um evento no futuro, neste documento ao clicar procura a classe remove
     $(document).on("click", ".remove", function() {
 
         var id = $(this).attr('name');
@@ -15,11 +15,11 @@ $(document).ready(function () {
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
+                //FAZER RELOAD QUANDO É APAGADO O EVENTO
                 window.location.reload();
             })
             .fail(function () { // Se existir um erro no pedido
-                console.log("nop")
-                //$('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+                $('#eventos').html('Data error'); // Escreve mensagem de erro
             })
         ;
         return false; // keeps the page from not refreshing
@@ -43,7 +43,9 @@ $(document).ready(function () {
 
             .done(function (data) {
                 if (data==0){
-                    $("#eventos_guardados_load").removeAttr("style").show();
+                        document.getElementById("ilustracoes").style.display = "block";
+                } else {
+                    document.getElementById("ilustracoes").style.display = "none";
                 }
                 createHTMLDinamyc("eventos_guardados_template", "eventos_guardados_conteudo", data);
             })

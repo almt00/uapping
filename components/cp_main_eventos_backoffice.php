@@ -30,12 +30,11 @@
                                         $data_pill = date("Y-m-d", strtotime("+" . $n . "days"));
                                         if ($n >= 2) {
                                             echo '<dia class="date-slide-elements slide-dias ml-2 pills_datas" id="'.$data_pill.'">' . date('j', strtotime($data_pill)) . '</dia>';
-                                            //var_dump($data_pill);
                                         }
                                     }
                                     ?>
-                                    <calendar class="date-slide-elements_admin slide-dias ml-2"><img
-                                                src="assets/img/calendar.svg"></calendar>
+                                    <a href="em_contrucao.php"><calendar class="date-slide-elements slide-dias ml-2"><img
+                                                    src="assets/img/calendar.svg"></calendar></a>
                                 </Dateslide>
                             </article>
                         </section>

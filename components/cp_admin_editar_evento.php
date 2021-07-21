@@ -231,7 +231,6 @@ if (isset($_GET['id_evento']) && $_GET['id_evento'] != 0) {
             document.getElementById("preco").style.display = "inline-block";
             document.getElementById("preco").required = true;
         } else {
-            console.log('gratis');
             document.querySelector('#preco').value = null;
             document.getElementById("preco").style.display = "none";
             document.getElementById("preco").required = false;

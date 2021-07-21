@@ -8,7 +8,8 @@ $stmt = mysqli_stmt_init($link);
 $query1 = "SELECT 
             eventos_guardados.eventos_id_evento,
             eventos.nome_evento, 
-            eventos.data_evento,eventos.hora_evento,
+            eventos.data_evento,
+            TIME_FORMAT(eventos.hora_evento,'%H:%i'),
             eventos.imagem_evento,
             eventos.ref_id_nucleo, 
             nucleos_oficiais.imagem_oficial 

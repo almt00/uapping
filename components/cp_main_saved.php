@@ -38,7 +38,9 @@
 
                 <article class="col-12 mt-4">
                     <section class="row px-4">
-                        <div id="eventos_guardados_conteudo" style="width:100%;"></div>
+                        <div id="eventos_guardados_conteudo" style="width:100%;">
+                        </div>
+                        <article class="col-12 text-center" style="display: none" id="ilustracoes"><img src="assets/ilustracoes/empty.svg"></article>
                         <div id="eventos_guardados_load" style="width:100%;">
                         <?php
                         require_once "connections/connection.php";
@@ -81,7 +83,7 @@
                                                         <a href="evento_detail.php?id_evento=<?= $id_evento ?>">
                                                             <section class="row">
                                                                 <article class="col-12">
-                                                                    <h4 class="h2-eventos"> <?= htmlspecialchars($nome_evento) ?> </h4>
+                                                                    <h4 class="h4-eventos"> <?= htmlspecialchars($nome_evento) ?> </h4>
                                                                 </article>
                                                             </section>
                                                         </a>
@@ -141,7 +143,7 @@
                                 </script>
                                 <?php
 
-                                echo '<article class="col-12 text-center"><img src="assets/ilustracoes/empty.svg"></article>'; // aqui colocar imagem ( Miguel )
+                                echo '<article class="col-12 text-center" id="ilustracoes"><img src="assets/ilustracoes/empty.svg"></article>';
                                 // echo 'nada';
 
                             }
