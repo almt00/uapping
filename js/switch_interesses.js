@@ -108,6 +108,43 @@ $(document).ready(function () {
     });
 });
 
+/* ------------------ HOMEPAGE / PILLS FILTRAR EVENTOS DATA ------------------ */
+$(document).ready(function () {
+    $(".pills_datas_backoffice").on('click', function () {
+        var date = this.id;
+        //TODOS OS PILLS FICAM IGUAIS CROMÁTICAMENTE COMO SE NAO FOSSEM CLICADOS
+        $(".pills_datas_backoffice").css("background-color", "#ffffff54");
+        $(".pills_datas_backoffice").css("color", "#B25959");
+        //CLICANDO NO PILL MUDA DE COR
+        $(this).css("background-color", "#F6CCAD")
+        $(this).css("color", "#BA6C33")
+        //MUDANÇA DO SWITCH PARA TODOS
+
+        document.getElementById("eventos_load").style.display = "none";
+
+        $.ajax({
+            url: 'bd/bd_pill_filter.php', //Jquery carrega serverside.php
+            data: 'date=' + date, // Envia o valor do botão clicado
+            dataType: 'json', //escolhe o tipo de dados
+            type: 'GET', //por default, mas pode ser POST
+        })
+            .done(function (data) {
+                $("#eventos_load").removeAttr("style").hide();
+
+                if(data == ""){
+                    document.getElementById("eventos_conteudo").innerHTML = "<p class='text-center'>Infelizmente. Não há resultados para a sua pesquisa..</p>";
+                }else{
+                    createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
+                }
+            })
+            .fail(function () {
+                $('#eventos').html('Data error'); // MENSAGEM ERRO
+            });
+        return false; // keeps the page from not refreshing
+    });
+});
+
+
 
 /* ------------------ HOMEPAGE / SAVED ------------------*/
 

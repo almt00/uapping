@@ -46,9 +46,10 @@
                 </article>
                 <article id="nucleos_oficiais" class="col-12 px-4">
 
-                    <!----------------------------- Apresentação de nucleos Oficiais PHP e AJAX ------------------------>
-                    <div id="eventos_conteudo" style="width:100%;"></div> <!--recebe template handlebars por ajax-->
-                    <div id="eventos_load" style="width:100%;">           <!--recebe sem ser por ajax-->
+                    <!------------------------------ NUCLEOS OFICIAIS EM PHP E AJAX ----------------------------->
+
+                    <div id="eventos_conteudo" style="width:100%;"></div><!--RECEBE TEMPLATE HANDLEBARS POR AJAX-->
+                    <div id="eventos_load" style="width:100%;"><!--RECEBE SEM SER POR AJAX-->
                         <section class="row mb-3">
                             <?php
                             require_once "connections/connection.php";
@@ -159,11 +160,14 @@
                         {{/each}}
                     </section>
                 </script>
+                <!-------------------------FIM TEMPLATE----------------------->
 
                 <article id="nucleos_criacoes" class="col-12 px-4">
-                    <!----------------------------- Apresentação de nucleos fantasmas PHP e AJAX ------------------------>
-                    <div id="phantom" style="width:100%;"></div> <!--recebe template handlebars por ajax-->
-                    <div id="eventos_load" style="width:100%;" class="esconde_conteudo">
+
+                    <!------------------------------ NUCLEOS CRIAÇÕES EM PHP E AJAX ----------------------------->
+
+                    <div id="phantom" style="width:100%;"></div><!--RECEBE TEMPLATE HANDLEBARS POR AJAX-->
+                    <div id="eventos_load" style="width:100%;" class="esconde_conteudo"><!--RECEBE SEM SER POR AJAX-->
                         <!--recebe sem ser por ajax-->
                         <a href="criar_nucleo.php">
                             <section class="row mb-5">
@@ -254,6 +258,7 @@
                                                                style="white-space: nowrap;"> <?= htmlspecialchars($nome_nucleo) ?> </p>
                                                         </article>
                                                         <article class="col-12 mt-2 mb-1 margin-criacao_nucleo">
+                                                            <!-------------------PARA APRESENTAR AVATAR DE MEMBROS DO NÚCLEO------------------->
                                                             <?php
                                                             $pieces_cor = explode(",", $cor);
                                                             $rows = count($pieces_cor);
@@ -266,10 +271,8 @@
                                                                     <?php
                                                                 }
                                                             }
-                                                            //condição para esconder bolha "+" caso só existam 2 participantes
-
                                                             if ($rows > 3) {
-                                                                $num = $rows - 3;//identifica o valor númerico a ser apresentado na bolha de "+" participantes
+                                                                $num = $rows - 3;//IDENTIFICA VALOR NUMERICO APRESENTADO NA BOLHA DE + PARTICIPANTES
                                                                 echo '<div class="people-bubble-criacao_nucleo"><span> +' . $num . '</span>';
                                                             } else {
                                                                 echo '<div class="people-bubble-criacao_nucleo" style="background-color: transparent"><span></span>';
@@ -296,10 +299,6 @@
                                                     echo '<img class="aderir_fantasma" id="' . $id_nucleo . '" src="assets/criacoes_nucleos/aderir_criacoes.svg">';
                                                 }
                                                 ?>
-
-                                                <!-- <img src="assets/criacoes_nucleos/aderir_criacoes.svg"> -->
-                                                <!-- estas são as duas opções de iamgens a serem mostradas consoante o estado de ainda vai seguir
-                                                ou já a seguir -->
                                             </div>
                                         </article>
                                     </section>
@@ -348,15 +347,10 @@
                         </section>
                         {{/each}}
                     </script>
+                    <!-------------------------FIM TEMPLATE----------------------->
                 </article>
             </section>
         </article>
     </section>
     <?php include_once "components/cp_footer.php" ?>
 </main>
-
-<!--<script>
-    document.getElementById("aderir_nucleo_criacao").onclick = function () {
-        window.location.href = "home_page.php";
-    }
-</script>-->

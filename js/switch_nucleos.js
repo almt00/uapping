@@ -58,7 +58,7 @@ $(document).ready(function () {
         return false; // keeps the page from not refreshing
     });
 
-    /* ------------------------------- ADERIU A NÚCLEO FANTASMA -----------------------------------*/
+    /* ------------------------------- SAIR DE NÚCLEO FANTASMA -----------------------------------*/
 
     $(document).on('click', ".aderiu_fantasma", function () { // REMOVER SVG
         console.log('click');
