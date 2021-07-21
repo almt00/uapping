@@ -32,7 +32,7 @@ $(document).ready(function () {
             })
             .fail(function () { // Se existir um erro no pedido
                 console.log('erro');
-                $('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+                $('#eventos').html('Data error'); // Escreve mensagem de erro
             });
         return false; // keeps the page from not refreshing
     });

@@ -174,7 +174,7 @@
                                             const toShare = {
                                                 title: "Partilhar evento: <?= htmlspecialchars($nome_evento) ?> ",
                                                 text: "Olha só este evento na UA chamado <?= htmlspecialchars($nome_evento) ?>!",
-                                                url: "http://localhost/UAPPING/evento_detail.php?id_evento="+id+"" // mudar qdo for o servidor normal senao n da
+                                                url: "https://labmm.clients.ua.pt/deca_20L4/deca_20L4_32/evento_detail.php?id_evento="+id+"" // mudar qdo for o servidor normal senao n da
                                             };
                                             const button = document.getElementById('share_<?php echo $id_evento ?>');
 
