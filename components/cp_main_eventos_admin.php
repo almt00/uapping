@@ -301,7 +301,7 @@ if (isset($admin_membro) && $admin_membro == 1) {
     </script>
 
 <?php } else {
-    echo "<script>window.location.href='home_page.php'</script>"; // sera q isto é problematico?
+    echo "<script>window.location.href='home_page.php'</script>";
 } ?>
 
 

@@ -149,11 +149,11 @@ if (isset($_GET['id_evento'])) {
                             <!--script para partilha com a interface nativa do dispositivo-->
                             <script>
                                 const toShare = {
-                                    title: "Partilhar evento: <?= htmlspecialchars($nome_evento) ?> ",
+                                    title: "Partilhar evento:  <?= htmlspecialchars($nome_evento) ?> ",
                                     text: "Olha só este evento na UA chamado <?= htmlspecialchars($nome_evento) ?>!",
-                                    url: "https://labmm.clients.ua.pt/deca_20L4/deca_20L4_32/evento_detail.php?id_evento=<?=$id_evento?>" // mudar qdo for o servidor normal senao n da
+                                    url: "https://labmm.clients.ua.pt/deca_20L4/deca_20L4_32/evento_detail.php?id_evento=<?=$id_evento?>", // URL que vem na partilha
                                 };
-                                const button = document.getElementById('share');
+                                const button = document.getElementById('share'); // botão que dá o trigger
                                 button.addEventListener('click', async () => {
                                     try {
                                         await navigator.share(toShare); // Will trigger the native "share" feature

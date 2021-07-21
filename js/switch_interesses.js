@@ -233,7 +233,6 @@ $(document).ready(function () {
     });
 });
 
-
 /* ------------------ HOMEPAGE NUCLEO / SEARCH BAR ------------------ */
 $(document).ready(function () {
     $('#search-bar-nucleo').on('keyup', function () {
@@ -274,7 +273,7 @@ Handlebars.registerHelper('formatDate', function (dateString) {
     );
 });
 
-/* ------------------ PARTILHAR ------------------ */
+/* ------------------ PARTILHAR HELPER ------------------ */
 
 Handlebars.registerHelper('sharehb', function (name, id) {
     const toShare = {
@@ -348,6 +347,7 @@ function createHTMLDinamyc(templateId, placeID, data) {
 
 $(document).ready(function () {
     $('#btn_interesses').on('click', function () {
+        window.location.href="em_construcao.php";
 
 
 
