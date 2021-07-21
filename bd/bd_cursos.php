@@ -1,6 +1,6 @@
 <?php
 require_once "../connections/connection.php";
-$id_selected_dep = $_GET['departamento'];
+$id_selected_dep = $_GET['departamento'];// VEM POR QUERY STRING NO PEDIDO DE AJAX
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 $query = "SELECT 
@@ -15,10 +15,11 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'i', $id_selected_dep);
     if (mysqli_stmt_execute($stmt)) {
         mysqli_stmt_bind_result($stmt, $id_curso, $nome_curso);
+        // ARRAY VAZIO
         $data = array();
         while (mysqli_stmt_fetch($stmt)) {
             $row_result = array();
-            $row_result["id_curso"] = htmlspecialchars($id_curso);
+            $row_result["id_curso"] = htmlspecialchars($id_curso); //SEGURANÇA XSS
             $row_result["nome_curso"] = htmlspecialchars($nome_curso);
             $data[] = $row_result;
         }
