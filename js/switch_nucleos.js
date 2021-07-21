@@ -41,6 +41,8 @@ $(document).ready(function () {
         console.log('click');
         var $this = $(this);
         this.src="assets/criacoes_nucleos/aderiu_criacoes.svg";
+        $(this).attr("class","aderiu_fantasma");
+
         //$this.hide();
         //$this.next().show()
 
@@ -69,6 +71,7 @@ $(document).ready(function () {
         console.log('click');
         var $this = $(this);
         this.src="assets/criacoes_nucleos/aderir_criacoes.svg";
+        $(this).attr("class","aderir_fantasma");
         //$this.hide();
         //$this.next().show()
 
