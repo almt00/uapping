@@ -53,13 +53,13 @@ if (isset($admin_membro) && $admin_membro == 1) {
                                     $data_hoje = date("Y-m-d");
                                     $data_amanha = date("Y-m-d", strtotime("+1days"));
                                     ?>
-                                    <hoje class="date-slide-elements slide-hoje pills_datas" id="<?= $data_hoje ?>"> Hoje</hoje>
-                                    <amanha class="date-slide-elements slide-amanha ml-2 pills_datas" id="<?= $data_amanha ?>"> Amanhã</amanha>
+                                    <hoje class="date-slide-elements slide-hoje pills_datas_admin" id="<?= $data_hoje ?>"> Hoje</hoje>
+                                    <amanha class="date-slide-elements slide-amanha ml-2 pills_datas_admin" id="<?= $data_amanha ?>"> Amanhã</amanha>
                                     <?php
                                     for ($n = 0; $n <= 5; $n++) {
                                         $data_pill = date("Y-m-d", strtotime("+" . $n . "days"));
                                         if ($n >= 2) {
-                                            echo '<dia class="date-slide-elements slide-dias ml-2 pills_datas" id="'.$data_pill.'">' . date('j', strtotime($data_pill)) . '</dia>';
+                                            echo '<dia class="date-slide-elements slide-dias ml-2 pills_datas_admin" id="'.$data_pill.'">' . date('j', strtotime($data_pill)) . '</dia>';
                                         }
                                     }
                                     ?>
