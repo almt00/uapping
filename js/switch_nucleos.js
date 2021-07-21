@@ -1,9 +1,10 @@
-var interesses_menu;
+/* ------------------ HOME PAGE NÚCLEOS / (OFICCIAIS E CRIAÇÕES) ------------------ */
 
 $(document).ready(function (){
-    $(".esconde").hide();
+    $(".esconde").hide(); //PARA ESCONDER O INPUT QUE PERMITE PROCURA DE NUCLEOS FANTASMA
 });
-/* ------------------ home page / pin bar (oficiais, criacoes) ------------------ */
+
+/* ------------------------------ OFICIAIS E CRIAÇÕES / BTN ------------------------------------ */
 
 document.getElementById("oficiais").onclick = function (){
     document.getElementById("selector").style.left = "0%";
@@ -13,8 +14,8 @@ document.getElementById("oficiais").onclick = function (){
     document.getElementById("text_nucleo_criacoes").style.display = "none";
     document.getElementById("nucleos_oficiais").style.display = "block";
     document.getElementById("nucleos_criacoes").style.display = "none";
-    document.getElementById("search-bar-oficial").style.display = "block";
-    document.getElementById("search-bar-fantasma").style.display = "none";
+    document.getElementById("search-bar-oficial").style.display = "block";//MOSTRA INPUT OFICIAIS
+    document.getElementById("search-bar-fantasma").style.display = "none";//ESCONDE INPUT CRIAÇÕES
 
 }
 
@@ -26,25 +27,20 @@ document.getElementById("criacoes").onclick = function (){
     document.getElementById("text_nucleo_criacoes").style.display = "block";
     document.getElementById("nucleos_oficiais").style.display = "none";
     document.getElementById("nucleos_criacoes").style.display = "block";
-    document.getElementById("search-bar-oficial").style.display = "none";
-    document.getElementById("search-bar-fantasma").style.display = "block";
+    document.getElementById("search-bar-oficial").style.display = "none";//ESCONDE INPUT OFICIAIS
+    document.getElementById("search-bar-fantasma").style.display = "block";//MOSTRA INPUT CRIAÇÕES
 
 }
 
 
-/* ------------------ nucleos fantasma ------------------*/
+/* ---------------------------------- ADERIR A NÚCLEO FANTASMA -------------------------------------*/
 
 $(document).ready(function () {
-    $(document).on('click', ".aderir_fantasma", function () { //aderir
-        //$(document).on('click', ".aderir_criacoes", function () {
+    $(document).on('click', ".aderir_fantasma", function () {// ATRIBUIR SVG
 
-        console.log('click');
         var $this = $(this);
         this.src="assets/criacoes_nucleos/aderiu_criacoes.svg";
         $(this).attr("class","aderiu_fantasma");
-
-        //$this.hide();
-        //$this.next().show()
 
         var id = $(this).attr('id');
 
@@ -55,25 +51,20 @@ $(document).ready(function () {
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
-                console.log("add")
             })
-            .fail(function () { // Se existir um erro no pedido
-                //console.log("nop")
-                //$('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+            .fail(function () { // SE PEDIDO NÃO FOR ACEITE
             })
         ;
         return false; // keeps the page from not refreshing
     });
 
-    $(document).on('click', ".aderiu_fantasma", function () { // remover
-        //$(document).on('click', ".aderir_criacoes", function () {
+    /* ------------------------------- SAIR DE NÚCLEO FANTASMA -----------------------------------*/
 
+    $(document).on('click', ".aderiu_fantasma", function () { // REMOVER SVG
         console.log('click');
         var $this = $(this);
         this.src="assets/criacoes_nucleos/aderir_criacoes.svg";
         $(this).attr("class","aderir_fantasma");
-        //$this.hide();
-        //$this.next().show()
 
         var id = $(this).attr('id');
 
@@ -84,11 +75,8 @@ $(document).ready(function () {
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
-                console.log("add")
             })
-            .fail(function () { // Se existir um erro no pedido
-                //console.log("nop")
-                //$('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+            .fail(function () { // SE PEDIDO NÃO FOR ACEITE
             })
         ;
         return false; // keeps the page from not refreshing
@@ -96,14 +84,13 @@ $(document).ready(function () {
 });
 
 
-/* ------------------ Nucleos Oficiais / search bar ------------------ */
-$(document).ready(function () {
-    console.log('teste');
-    $('#search-bar-oficial').on('keyup', function () {
-        console.log('keyup');
+/* ------------------------------ NUCLEOS OFICIAIS / SEARCH INPUT ------------------------------ */
 
-        var search = this.value;
-        console.log('search: ' + search);
+$(document).ready(function () {
+
+    $('#search-bar-oficial').on('keyup', function () {// RECONHECE CADA TECLA PRESSIONADA
+        var search = this.value; //ATRIBUI VALOR DO INPUT OFICIAIS
+
         $.ajax({
             url: 'bd/bd_search_nucleo_oficial.php', //Jquery carrega serverside.php
             data: 'search=' + search, // Envia o valor do botão clicado
@@ -111,35 +98,33 @@ $(document).ready(function () {
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
-                console.log('sucesso');
-
                 $("#eventos_load").removeAttr("style").hide();
+
                 if(data == ""){
                     document.getElementById("eventos_conteudo").innerHTML = "Infelizmente. Não há resultados para a sua pesquisa..";
                     document.getElementById("eventos_conteudo").style.margin= "auto";
                     document.getElementById("eventos_load").style.display = "none";
 
                 }else{
+                    //PERMITE APRESENTAR DIV COM TEMPLATE HANDLEBARS
                     createHTMLDinamyc("template_oficiais", "eventos_conteudo", data);
                 }
 
             })
             .fail(function () { // Se existir um erro no pedido
                 console.log('erro');
-                $('#eventos').html('Data error'); // Escreve mensagem de erro
+                $('#eventos').html('Data error'); // MENSAGEM ERRO
             });
         return false; // keeps the page from not refreshing
     });
 });
 
-/* ------------------ Nucleos Fantasmas / search bar ------------------ */
+/* ------------------------------ NUCLEOS CRIAÇÕES / SEARCH INPUT ------------------------------ */
 $(document).ready(function () {
-    console.log('teste');
-    $('#search-bar-fantasma').on('keyup', function () {
-        console.log('keyup');
 
-        var search = this.value;
-        console.log('search: ' + search);
+    $('#search-bar-fantasma').on('keyup', function () {// RECONHECE CADA TECLA PRESSIONADA
+        var search = this.value;//ATRIBUI VALOR DO INPUT CRIAÇÕES
+
         $.ajax({
             url: 'bd/bd_search_nucleo_fantasma.php', //Jquery carrega serverside.php
             data: 'search=' + search, // Envia o valor do botão clicado
@@ -147,8 +132,6 @@ $(document).ready(function () {
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
-                console.log('sucesso');
-                //$("#eventos_conteudo").removeAttr("style").hide();
                 $(".esconde_conteudo").css('display','none');
                 if(data == ""){
                     console.log("Não injecta template");
@@ -157,20 +140,20 @@ $(document).ready(function () {
                     document.getElementById("eventos_load").style.display = "none";
 
                 }else{
-                    console.log("injecta template");
+                    //PERMITE APRESENTAR DIV COM TEMPLATE HANDLEBARS
                     createHTMLDinamyc("template_fantasmas", "phantom", data);
                 }
 
             })
             .fail(function () { // Se existir um erro no pedido
                 console.log('erro');
-                $('#eventos').html('Data error'); // Escreve mensagem de erro
+                $('#eventos').html('Data error'); // MENSAGEM ERRO
             });
         return false; // keeps the page from not refreshing
     });
 });
 
-
+/* ------------------ FUNÇÃO HANDLEBARS ------------------ */
 
 function createHTMLDinamyc(templateId, placeID, data) {
     var raw_template = document.getElementById(templateId).innerText;
@@ -180,32 +163,3 @@ function createHTMLDinamyc(templateId, placeID, data) {
     place.innerHTML = ourGeneratedHTML;
 }
 
-/* ------------------ Bolhas avatares nucleos fantasmas ------------------ */
-
-Handlebars.registerHelper('avatares', function () {
-
-});
-
-
-/* ------------------ interesses / btn home_page (eventos) --------------------
-
-interesses_menu = false;
-document.getElementById("btn_interesses").onclick = function (){
-    if (interesses_menu === false){
-        document.getElementById("panel_interesses_menu_mobile").style.display = "block";
-        setTimeout(function (){
-            document.getElementById("interesses_menu").style.bottom = "0";
-        },10)
-        document.body.style.overflow = "hidden";
-        interesses_menu = true;
-    }
-}
-
-document.getElementById("background_interesses_menu").onclick = function (){
-    if (interesses_menu === true){
-        document.getElementById("panel_interesses_menu_mobile").style.display = "none";
-        document.getElementById("interesses_menu").style.bottom = "-32rem";
-        document.body.style.overflow = "auto";
-        interesses_menu = false;
-    }
-}*/

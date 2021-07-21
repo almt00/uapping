@@ -158,13 +158,13 @@
                                         </article>
                                     </section>
                                 <article class="card-footer p-eventos text-right py-1 px-4">
-                                    <!--script para partilha com a interface nativa do dispositivo-->
+                                    <!------------------SCRIPT PARA PARTILHA COM A INTERFACE NATIVA DO DISPOSITIVO----------------->
                                     <script>
                                         function share(id) {
                                             const toShare = {
                                                 title: "Partilhar evento: <?= htmlspecialchars($nome_evento) ?> ",
                                                 text: "Olha só este evento na UA chamado <?= htmlspecialchars($nome_evento) ?>!",
-                                                url: "https://labmm.clients.ua.pt/deca_20L4/deca_20L4_32/evento_detail.php?id_evento="+id+"" // mudar qdo for o servidor normal senao n da
+                                                url: "https://labmm.clients.ua.pt/deca_20L4/deca_20L4_32/evento_detail.php?id_evento="+id+""
                                             };
                                             const button = document.getElementById('share_<?php echo $id_evento ?>');
                                             button.addEventListener('click', async () => {
@@ -173,7 +173,6 @@
                                                     button.textContent = 'Shared !';
                                                 } catch (err) {
                                                     button.textContent = 'Something went wrong';
-                                                    console.log(err);
                                                 }
                                             });
                                         }
@@ -202,8 +201,7 @@
             }
             mysqli_close($link);
             ?>
-                    <!--recebe sem ser por ajax-->
-                </div>
+                </div><!-------------FIM DE DIV QUE RECEBE PHP--------------->
             </div>
         </article>
     </section>
@@ -219,8 +217,7 @@
                 </article>
                 <article class="col-12">
                     <section class="row justify-content-start">
-                        <div id="pills_interesses_conteudo"></div>
-                        <!-- recebe template handlebars por ajax -->
+                        <div id="pills_interesses_conteudo"></div> <!-- RECEBE TEMPLATE HANDLEBARS POR AJAX DOS PILLS -->
                     </section>
                 </article>
             </section>
@@ -278,7 +275,7 @@
                             </a>
                         </article>
                     </section>
-                <!--PARTILHAR EVENTO-->
+                <!-----------------------------------------PARTILHAR EVENTO------------------------------>
                 <div class="card-footer text-right py-1 px-4">
                     <img id="share_{{id_evento}}" class="save_share_{{id_evento}}" src="assets/img/share_white.svg">
                     {{sharehb nome id_evento}}
@@ -295,7 +292,7 @@
     </article>
     {{/each}}
 </script>
-<!--terminar template -->
+<!-------------------------FIM TEMPLATE----------------------->
 
 <!--TEMPLATE JS AJAX INTERESSES PILLS-->
 <script id="pills_interesses_template" type="text/x-handlebars-template">
@@ -306,4 +303,4 @@
     <span class="">{{nome_nucleo}}</span>
     {{/each}}
 </script>
-<!--terminar template -->
+<!-------------------------FIM TEMPLATE----------------------->
