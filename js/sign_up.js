@@ -83,36 +83,42 @@ window.onload = function () {
         }
     }
 
-    function interesses_check(interesses){
-        if (document.getElementById("interesse_" + interesses).checked === true){
+    function interesses_check(interesses) {
+        if (document.getElementById("interesse_" + interesses).checked === true) {
             avancar_interesse = true;
         }
     }
 
-    function verify_pass(){
-        if (document.getElementById("pass").value == ""){
+    function verify_pass() {
+
+        if (document.getElementById("pass").value == "") {
             document.getElementById("pass").style.backgroundColor = "#ff6161";
             document.getElementById("feedback_pass_verify").innerHTML = "Password inválida";
             v_pass = false;
-        } else if (document.getElementById("pass_confirm").value != document.getElementById("pass").value){
+            // LIMITAR O NUMERO DE CARACTERES
+        } else if (document.getElementById("pass").value.length < 8) {
+            document.getElementById("pass").style.backgroundColor = "#ff6161";
+            document.getElementById("feedback_pass_verify").innerHTML = "Deve ter pelo menos 8 caracteres";
+            v_pass = false;
+        } else if (document.getElementById("pass_confirm").value != document.getElementById("pass").value) {
             document.getElementById("pass").style.backgroundColor = "white";
             document.getElementById("pass_confirm").style.backgroundColor = "#ff6161";
             document.getElementById("feedback_pass_verify").innerHTML = "Confirmação da password inválida";
             v_pass = false;
-        } else{
+        } else {
             document.getElementById("pass").style.backgroundColor = "white";
             document.getElementById("pass_confirm").style.backgroundColor = "white";
             v_pass = true;
             document.getElementById("feedback_pass").style.display = "none";
         }
     }
-
-    function verify_mail(){
-        if (document.getElementById("email").value.indexOf("@ua.pt") != -1){
+    // EMAIL @UA.PT OBRIGATORIAMENTE
+    function verify_mail() {
+        if (document.getElementById("email").value.indexOf("@ua.pt") != -1) {
             v_email = true;
             document.getElementById("feedback_email").style.display = "none";
-        } else{
-            document.getElementById("feedback_email_verify").innerHTML = "Insere um email da UA válido";
+        } else {
+            document.getElementById("feedback_email_verify").innerHTML = "Deves inserir um email da UA válido";
             v_email = false;
         }
     }
@@ -123,7 +129,7 @@ window.onload = function () {
                 case 1:
                     verify_mail();
                     verify_pass();
-                    if (v_pass === true && v_email === true){
+                    if (v_pass === true && v_email === true) {
                         v_pass = false;
                         v_email = false;
                         document.getElementById("nome").style.display = "none";
@@ -146,11 +152,11 @@ window.onload = function () {
                         document.getElementById("header_6").innerHTML = "Insere os teus";
                         document.getElementById("header_3").innerHTML = "Dados da UA";
                         sign_up_page = 2;
-                    } else{
-                        if (v_pass != true){
+                    } else {
+                        if (v_pass != true) {
                             document.getElementById("feedback_pass").style.display = "block";
                         }
-                        if (v_email != true){
+                        if (v_email != true) {
                             document.getElementById("feedback_email").style.display = "block";
                         }
 
@@ -170,15 +176,25 @@ window.onload = function () {
                 case 3:
                     // NÃO DEIXA AVANÇAR SEM ESCOLHER UM INTERESSE PELO MENOS
                     for (interesses = 1; interesses <= 5; interesses++) {
-                        switch (interesses){
-                            case 1: interesses_check(interesses); break;
-                            case 2: interesses_check(interesses); break;
-                            case 3: interesses_check(interesses); break;
-                            case 4: interesses_check(interesses); break;
-                            case 5: interesses_check(interesses); break;
+                        switch (interesses) {
+                            case 1:
+                                interesses_check(interesses);
+                                break;
+                            case 2:
+                                interesses_check(interesses);
+                                break;
+                            case 3:
+                                interesses_check(interesses);
+                                break;
+                            case 4:
+                                interesses_check(interesses);
+                                break;
+                            case 5:
+                                interesses_check(interesses);
+                                break;
                         }
                     }
-                    if(avancar_interesse === true){
+                    if (avancar_interesse === true) {
                         avancar_interesse = false;
                         document.getElementById("termos_sign_up").style.display = "flex";
                         document.getElementById("submit").style.display = "block";
@@ -193,7 +209,7 @@ window.onload = function () {
                         document.getElementById("header_4").innerHTML = "Termos";
 
                         sign_up_page = 4;
-                    } else{
+                    } else {
                         document.getElementById("feedback_interesses").style.display = "block";
                     }
                     break;

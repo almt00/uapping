@@ -12,18 +12,17 @@ $query = "SELECT
             ref_id_departamento = ?";
 
 if (mysqli_stmt_prepare($stmt, $query)) {
-        mysqli_stmt_bind_param($stmt, 'i', $id_selected_dep);
+        mysqli_stmt_bind_param($stmt, 'i', $id_selected_dep); //PREVINE SQL INJECTION
     if (mysqli_stmt_execute($stmt)) {
         mysqli_stmt_bind_result($stmt, $id_curso, $nome_curso);
-        // ARRAY VAZIO
-        $data = array();
+        $data = array();  // ARRAY VAZIO DATA
         while (mysqli_stmt_fetch($stmt)) {
-            $row_result = array();
-            $row_result["id_curso"] = htmlspecialchars($id_curso); //SEGURANÇA XSS
+            $row_result = array(); // ARRAY VAZIO ROW RESULT
+            $row_result["id_curso"] = htmlspecialchars($id_curso); // EVITA XSS
             $row_result["nome_curso"] = htmlspecialchars($nome_curso);
-            $data[] = $row_result;
+            $data[] = $row_result; // COLOCAR NO ARRAY DATA O ARRAY RESULT
         }
-        print json_encode($data);
+        print json_encode($data); // OUTPUT JSON
     } else {
         echo "Error:" . mysqli_stmt_error($stmt);
     }

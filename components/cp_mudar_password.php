@@ -38,7 +38,7 @@ if (!isset($_SESSION['id_user']) || $_SESSION['id_user']==null) {
                                 if (isset($_GET['msg'])) {
                                     switch ($_GET['msg']) {
                                         case 1:
-                                            echo '<p class="" style="color: red">A password está errada, por favor tenta novamente!</p>';
+                                            echo '<div class="text-center alert alert-danger p-2 m-3"><p class="text-dark m-0">A password está errada, por favor tenta novamente!</p></div>';
                                             break;
                                     }
                                 }

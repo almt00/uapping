@@ -21,7 +21,6 @@
             </div>
         </article>
     </section>
-
     <section class="row justify-content-center mt-3 mt-md-3">
         <article class="col-md-6">
             <form action="scripts/sc_login.php" method="post" id="sign_up">
@@ -45,7 +44,6 @@
                         }
                         ?>
                     </article>
-
                 </section>
                 <section class="row justify-content-center mt-3 mt-md-3">
                     <article class="col-md-12 mt-5 mt-md-5 px-4">
@@ -62,7 +60,7 @@
 
 <script>
     document.getElementById("voltar_sign_up").onclick = function () {
-        window.location.href = 'index.php';
+        window.location.href = 'index.php'; // REDIRECT PARA A LANDING PAGE
     }
 </script>
 

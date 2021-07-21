@@ -8,7 +8,7 @@
 
     </head>
     <body>
-
+    <!--CARROUSEL LANDING PAGE / REGISTO / LOGIN-->
     <main class="container-fluid">
         <section class="row mt-5 mt-md-5 logo-section-landing">
             <article class="col-12">
@@ -32,13 +32,11 @@
                             <article id="land-card-2" class="position-card-2 col-md-3 mt-4 text-center text-md-right align-self-start align-self-md-center">
                                 <img class="img-fluid" src="assets/ilustracoes/land_card_2.svg" draggable="false" alt="logotipo_icon">
                                 <p class="mt-5 mx-5"> Cria um núcleo com o tema que sempre sonhaste. Encontra pessoas gostam do mesmo que tu...
-
                                 </p>
                             </article>
                             <article id="land-card-3" class="position-card-3 col-md-3 mt-4 text-center text-md-right align-self-start align-self-md-center">
                                 <img class="img-fluid" src="assets/ilustracoes/land_card_3.svg" draggable="false" alt="logotipo_icon">
                                 <p class="mt-5 mx-5"> Vê todos os núcleos de atividades que existem na UA. Vais-te surpreender!
-
                                 </p>
                             </article>
                         </section>

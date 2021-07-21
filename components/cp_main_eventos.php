@@ -330,29 +330,24 @@
                             </section>
                             <a href="evento_detail.php?id_evento={{id_evento}}">
                             <section id="background" class="row event-cover"
-                                     style='background-image: url("assets/img_eventos/{{imagem}}")'>
+                                     style="background-image: url('assets/img_eventos/{{imagem}}')">
                             </section>
                             </a>
                         </article>
                     </section>
                 <div class="card-footer text-right py-1 px-4">
                     <img id="share_{{id_evento}}" class="save_share_{{id_evento}}" src="assets/img/share_white.svg">
-                    {{sharehb nome id_evento}}
-
+                    <!--SE NA BD A VARIAVEL EVENTO GUARDADO FOR NULA-->
                     <?php if(empty($guardado)){
-                        echo'<img class="ml-3 save_share save" id="addGuardado" name="{{id_evento}}" src="assets/img/save_white.svg">';
-
-                        echo'<img class="ml-3 save_share remove" id="removeGuardado" name="{{id_evento}}" src="assets/img/saved_orange.svg" style="display: none">';
+                        echo'<img class="ml-3 save_share save" id="addGuardado" name="{{id_evento}}" src="assets/img/save_white.svg">';//NÃO GUARDADO
+                        echo'<img class="ml-3 save_share remove" id="removeGuardado" name="{{id_evento}}" src="assets/img/saved_orange.svg" style="display: none">';//GUARDADO
                     }else{
-                        echo'<img class="ml-3 save_share remove" id="removeGuardado" name="{{id_evento}}" src="assets/img/saved_orange.svg">';
-                        echo'<img class="ml-3 save_share save" id="addGuardado" name="{{id_evento}}" src="assets/img/save_white.svg" style="display: none">';
+                        echo'<img class="ml-3 save_share remove" id="removeGuardado" name="{{id_evento}}" src="assets/img/saved_orange.svg">';//GUARDADO
+                        echo'<img class="ml-3 save_share save" id="addGuardado" name="{{id_evento}}" src="assets/img/save_white.svg" style="display: none">';//NÃO GUARDADO
                     }?>
-                    <!--<img class="ml-3 save_share" src="assets/img/save_white.svg">-->
-                    <!-- <img class="ml-3 save_share" src="assets/img/saved_orange.svg"> -->
                 </div>
             </article>
     </article>
-
     {{/each}}
 
 </script>

@@ -11,8 +11,6 @@
 
 <script> normal_user = true; </script>
 
-<?php //include_once "components/cp_header.php" ?>
-
 <?php include_once "components/cp_mudar_password.php" ?>
 
 <?php include_once "helpers/help_js.php"?>
