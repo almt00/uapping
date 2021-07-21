@@ -2,30 +2,31 @@ var sign_up_page;
 var interesses, avancar_interesse;
 var v_pass, v_email;
 
+// CONSOANTE O DEPARTAMENTO FILTRAGEM CURSOS VIA AJAX
 $(document).ready(function () {
+    //.CHANGE PORQUE SENDO UM SELECTOR O VALOR ESTÁ SEMPRE A MUDAR
     $('#departamentos').on('change', function () {
-        var val = $(this).val();
+        var val = $(this).val(); // PEGA NO VALOR DO DEPARTAMENTO ESCOLHIDO
 
         $.ajax({
-            url: 'bd/bd_cursos.php', //Jquery carrega serverside.php
-            data: 'departamento=' + val, // Envia o valor do botão clicado
-            dataType: 'json', //escolhe o tipo de dados
-            type: 'GET', //por default, mas pode ser POST
+            url: 'bd/bd_cursos.php', // QUERY
+            data: 'departamento=' + val, // ENVIA VALOR DO BOTAO DO DEPARTAMENTO ESCOLHIDO POR QUERY STRING
+            dataType: 'json', // TIPO DE DADOS
+            type: 'GET', // ACHAMOS QUE ERA MAIS SIMPLES TESTAR USANDO O MÉTODO GET
         })
             .done(function (data) {
-
+                //HANDLEBARS ARGUMENTOS
                 createHTMLDinamyc("cursos_template", "cursos", data);
-
             })
-            .fail(function () { // Se existir um erro no pedido
-                $('#selector').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+            .fail(function () { // SE EXISTIR ERRO NO PEDIDO
+                $('#selector').html('Data error'); // ESCREVE MENSAGEM
             })
         ;
         return false; // keeps the page from not refreshing
     });
 });
 
-
+//FUNÇÃO HANDLEBARS
 function createHTMLDinamyc(templateId, placeID, data) {
     var raw_template = document.getElementById(templateId).innerText;
     var compiled_template = Handlebars.compile(raw_template);
@@ -34,6 +35,7 @@ function createHTMLDinamyc(templateId, placeID, data) {
     place.innerHTML = ourGeneratedHTML;
 }
 
+//PASSOS DO SIGN-UP
 window.onload = function () {
     sign_up_page = 1;
     document.getElementById("submit").disabled = true;
@@ -166,6 +168,7 @@ window.onload = function () {
 
                     break;
                 case 3:
+                    // NÃO DEIXA AVANÇAR SEM ESCOLHER UM INTERESSE PELO MENOS
                     for (interesses = 1; interesses <= 5; interesses++) {
                         switch (interesses){
                             case 1: interesses_check(interesses); break;
