@@ -37,8 +37,9 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
             <span id="role_backoffice_header" class="role-header"> backoffice </span>
         </article>
         <article class="col-6 text-right">
-            <i class="fas fa-bell icon-size mr-3 mr-md-2"></i>
-            <img id="btn_user_menu_mobile" class="header-avatar" style="background-image: url('assets/avatares/avatar_<?= $_SESSION['avatar'] ?>.svg')"></img>
+            <a href="em_contrucao.php" style="color: black"><i class="fas fa-bell icon-size mr-3 mr-md-2"></i></a>
+            <img id="btn_user_menu_mobile" class="header-avatar" style="background-image: url('assets/avatares/avatar_<?= $_SESSION['avatar'] ?>.svg')">
+
         </article>
     </nav>
 </header>
@@ -98,7 +99,7 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
                             </a>
                         <?php } ?>
                     <?php } ?>
-                    <a href="">
+                    <a href="em_contrucao.php">
                         <article class="col-12 user-menu-options py-1">
                             <img src="assets/icons_user_menu/change_interesses.svg">
                             <span class="user-menu-options-span"> Alterar Interesses </span>
@@ -110,7 +111,7 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
                             <span class="user-menu-options-span"> Criar Núcleo </span>
                         </article>
                     </a>
-                    <a href="">
+                    <a href="em_contrucao.php">
                         <article class="col-12 user-menu-options py-1">
                             <img src="assets/icons_user_menu/notifications.svg">
                             <span class="user-menu-options-span"> Notificações </span>
@@ -122,13 +123,13 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
                             <span class="user-menu-options-span"> Mudar Password </span>
                         </article>
                     </a>
-                    <a href="">
+                    <a href="faq.php">
                         <article class="col-12 user-menu-options py-1">
                             <img src="assets/icons_user_menu/help.svg">
                             <span class="user-menu-options-span"> Ajuda </span>
                         </article>
                     </a>
-                    <a href="">
+                    <a href="em_contrucao.php">
                         <article class="col-12 user-menu-options py-1">
                             <img src="assets/icons_user_menu/settings.svg">
                             <span class="user-menu-options-span"> Mais Definições </span>
@@ -148,7 +149,6 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
             <article id="change_avatar" class="col-12" style="display: none;">
                 <section class="row section-1-user-menu">
                     <article id="avatar" class="p-0 col-3 art-1-icon-user-menu position-relative">
-
                         <div id="profile_avatar" class="profile_pic"
                              style='background-image: url("assets/avatares/avatar_<?= $_SESSION['avatar'] ?>.svg")'></div>
                     </article>
@@ -166,7 +166,6 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
                 <form action="scripts/sc_mudar_avatar.php" method="post" id="avatar_change">
                     <section class="row justify-content-center px-3">
                         <?php
-
                         $link = new_db_connection();
                         $stmt = mysqli_stmt_init($link);
                         $query = "SELECT avatares.id_avatar,avatares.imagem_avatar FROM avatares";

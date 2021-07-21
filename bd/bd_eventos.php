@@ -1,9 +1,10 @@
 <?php
 require_once "../connections/connection.php";
-$id_switch = $_GET['id_switch'];
-//$offset = $_GET['offset'];
+$id_switch = $_GET['id_switch']; // CAPTURAR O ID FAVORITOS/ TODOS
+//$offset = $_GET['offset']; // ERA PARA O INFINITE SCROLL
 session_start();
-$id_utilizador = $_SESSION["id_user"];
+$id_utilizador = $_SESSION["id_user"]; // SESSAO USER
+
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 //$limit = 4;

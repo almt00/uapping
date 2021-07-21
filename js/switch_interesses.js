@@ -38,6 +38,11 @@ $(document).ready(function () {
 /* ------------------ HOMEPAGE / SEARCH BAR ------------------ */
 $(document).ready(function () {
     $('#search-bar').on('keyup', function () { //TECLA RELEASED
+        document.getElementById("eventos_conteudo").style.margin= "auto";
+        document.getElementById("selector").style.left = "50%";
+        document.getElementById("interesses").style.color = "#1D1D1D";
+        document.getElementById("todos").style.color = "white";
+        document.getElementById("eventos_load").style.display = "none";
 
         var search = this.value; //CAPTURA O VALOR
         $.ajax({
@@ -50,13 +55,8 @@ $(document).ready(function () {
                 $("#eventos_load").removeAttr("style").hide(); //LIMPA A DIV DOS EVENTOS QUE VEM SEM SER VIA AJAX
 
                 if(data == ""){ //NÃO HAVENDO RESULTADO
-                    document.getElementById("eventos_conteudo").innerHTML = "<p class='text-center'>Infelizmente. Não há resultados para a sua pesquisa..</p>";
+                    document.getElementById("eventos_conteudo").innerHTML = "<p class='text-center p-3'>Infelizmente não há resultados para a sua pesquisa...</p>";
                     //MUDAR VISUALMENTE O SWITCH PARA TODOS
-                    document.getElementById("eventos_conteudo").style.margin= "auto";
-                    document.getElementById("selector").style.left = "50%";
-                    document.getElementById("interesses").style.color = "#1D1D1D";
-                    document.getElementById("todos").style.color = "white";
-                    document.getElementById("eventos_load").style.display = "none";
 
                 }else{
                     createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
@@ -96,7 +96,7 @@ $(document).ready(function () {
                 $("#eventos_load").removeAttr("style").hide();
 
                 if(data == ""){
-                    document.getElementById("eventos_conteudo").innerHTML = "<p class='text-center'>Infelizmente. Não há resultados para a sua pesquisa..</p>";
+                    document.getElementById("eventos_conteudo").innerHTML = "<p class='text-center p-3'>Infelizmente não há resultados para a sua pesquisa...</p>";
                 }else{
                     createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
                 }
@@ -213,13 +213,9 @@ $(document).ready(function () {
 
                 $("#eventos_load").removeAttr("style").hide();
                 if(data == ""){
-                    document.getElementById("eventos_conteudo").innerHTML = "<p class='text-center'>Infelizmente. Não há resultados para a sua pesquisa..</p>";
+                    document.getElementById("eventos_conteudo").innerHTML = "<p class='text-center p-3'>Infelizmente não há resultados para a sua pesquisa...</p>";
                     document.getElementById("eventos_conteudo").style.margin= "auto";
                     // MUDA SWITCH PARA TODOS
-                    document.getElementById("selector").style.left = "50%";
-                    document.getElementById("interesses").style.color = "#1D1D1D";
-                    document.getElementById("todos").style.color = "white";
-                    document.getElementById("eventos_load").style.display = "none";
 
                 }else{
                     createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
@@ -250,7 +246,7 @@ $(document).ready(function () {
                 $("#eventos_load").removeAttr("style").hide();
 
                 if(data == ""){
-                    document.getElementById("eventos_conteudo").innerHTML = "<p class='text-center'>Infelizmente. Não há resultados para a sua pesquisa..</p>";
+                    document.getElementById("eventos_conteudo").innerHTML = "<p class='text-center p-3'>Infelizmente não há resultados para a sua pesquisa...</p>";
                     document.getElementById("eventos_conteudo").style.margin= "auto";
                     document.getElementById("eventos_load").style.display = "none";
 
@@ -294,7 +290,6 @@ Handlebars.registerHelper('sharehb', function (name, id) {
 });
 
 /* ------------------ FUNÇÃO HANDLEBARS ------------------ */
-
 function createHTMLDinamyc(templateId, placeID, data) {
     var raw_template = document.getElementById(templateId).innerText;
     var compiled_template = Handlebars.compile(raw_template);
@@ -317,39 +312,11 @@ function createHTMLDinamyc(templateId, placeID, data) {
         document.getElementById("todos").style.color = "white";
         document.getElementById("eventos_load").style.display = "none";
     }
-/* ------------------ INTERESSES / BTN -------------------- */
-    /* ------------------ interesses / btn home_page (eventos) -------------------- */
 
-
-    interesses_menu = false;
-    document.getElementById("btn_interesses").onclick = function () {
-        if (interesses_menu === false) {
-            document.getElementById("panel_interesses_menu_mobile").style.display = "block";
-            setTimeout(function () {
-                document.getElementById("interesses_menu").style.bottom = "0";
-            }, 10)
-            document.body.style.overflow = "hidden";
-            interesses_menu = true;
-        }
-    }
-
-
-    document.getElementById("background_interesses_menu").onclick = function () {
-        if (interesses_menu === true) {
-            document.getElementById("panel_interesses_menu_mobile").style.display = "none";
-            document.getElementById("interesses_menu").style.bottom = "-32rem";
-            document.body.style.overflow = "auto";
-            interesses_menu = false;
-        }
-
-
-}
 
 $(document).ready(function () {
     $('#btn_interesses').on('click', function () {
-        window.location.href="em_construcao.php";
-
-
+        window.location.href = "em_contrucao.php";
 
         //NAO CONSEGUIMOS COLOCAR OS FILTROS QUANDO SE CLICA NO BOTAO DE FILTRAR
     /*
@@ -372,6 +339,30 @@ $(document).ready(function () {
      */
     });
 });
+
+/* ------------------ FILTRAR INTERESSES / BTN HOMEPAGE / ANIMACAO --------------------
+
+    interesses_menu = false;
+    document.getElementById("btn_interesses").onclick = function () {
+        if (interesses_menu === false) {
+            document.getElementById("panel_interesses_menu_mobile").style.display = "block";
+            setTimeout(function () {
+                document.getElementById("interesses_menu").style.bottom = "0";
+            }, 10)
+            document.body.style.overflow = "hidden";
+            interesses_menu = true;
+        }
+    }
+
+    document.getElementById("background_interesses_menu").onclick = function () {
+        if (interesses_menu === true) {
+            document.getElementById("panel_interesses_menu_mobile").style.display = "none";
+            document.getElementById("interesses_menu").style.bottom = "-32rem";
+            document.body.style.overflow = "auto";
+            interesses_menu = false;
+        }
+}
+*/
 
 
 /* ------INFINITE SCROLL QUE FUNCIONAVA, MAS QUE MEXIA COM OUTRAS PARTES DA PLATAFORMA,

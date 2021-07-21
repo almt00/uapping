@@ -11,11 +11,20 @@ $search=mysqli_real_escape_string($link,$result);
 
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
-$query = "SELECT eventos.id_evento, eventos.nome_evento, eventos.data_evento,TIME_FORMAT(eventos.hora_evento,'%H:%i'),eventos.imagem_evento,eventos.ref_id_nucleo, nucleos_oficiais.imagem_oficial
-FROM eventos
-INNER JOIN nucleos_oficiais 
-ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo 
-WHERE eventos.nome_evento LIKE '%$search%' AND CAST(CONCAT(eventos.data_evento, ' ',  eventos.hora_evento) AS DATETIME) >= NOW() AND nucleos_oficiais.ref_id_nucleo=?";
+$query = "SELECT 
+            eventos.id_evento, 
+            eventos.nome_evento, 
+            eventos.data_evento,
+            TIME_FORMAT(eventos.hora_evento,'%H:%i'),
+            eventos.imagem_evento,
+            eventos.ref_id_nucleo, 
+            nucleos_oficiais.imagem_oficial
+        FROM eventos
+        INNER JOIN nucleos_oficiais 
+        ON eventos.ref_id_nucleo=nucleos_oficiais.ref_id_nucleo 
+        WHERE eventos.nome_evento LIKE '%$search%' 
+        AND CAST(CONCAT(eventos.data_evento, ' ',  eventos.hora_evento) AS DATETIME) >= NOW() AND nucleos_oficiais.ref_id_nucleo=?";
+
 if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_bind_param($stmt,'i',$nucleo);
     if (mysqli_stmt_execute($stmt)) {

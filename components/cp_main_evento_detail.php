@@ -58,9 +58,7 @@ if (isset($_GET['id_evento'])) {
     <?php
     die;
 }
-
 ?>
-
 <main class="container-fluid main-flex">
     <section class="row">
         <article class="col-12">
@@ -160,7 +158,6 @@ if (isset($_GET['id_evento'])) {
                                         button.textContent = 'Shared !';
                                     } catch (err) {
                                         button.textContent = 'Something went wrong';
-                                        console.log(err);
                                     }
                                 });
                             </script>
@@ -242,13 +239,12 @@ if (isset($_GET['id_evento'])) {
                         </article>';
                         }
                         ?>
-
                         <article class="col-12 mb-2 px-event-detail">
                             <h3 class="subtitle-event-detail"> Organização </h3>
                         </article>
                         <article class="col-12 mb2 px-event-detail">
                             <section class="row justify-content-between">
-                                <article class="col-6 mb-4">
+                                <article class="col-4 mb-4">
                                     <a href="nucleos_detail.php?id_nucleo=<?= $id_nucleo ?>"><img
                                                 src="assets/nucleos/<?=$imagem_oficial?>.svg"></a>
                                 </article>
@@ -267,14 +263,12 @@ if (isset($_GET['id_evento'])) {
                                                 class="org-icons-event-detail" src="assets/img/face_icon.svg"></a>';
                                     }
                                     ?>
-
                                 </article>
                             </section>
                         </article>
                     </section>
                 </article>
             </section>
-
         </article>
     </section>
     <?php include_once "components/cp_footer.php"?>

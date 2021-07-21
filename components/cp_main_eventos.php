@@ -43,12 +43,11 @@
                                     $data_pill = date("Y-m-d", strtotime("+" . $n . "days"));
                                     if ($n >= 2) {
                                         echo '<dia class="date-slide-elements slide-dias ml-2 pills_datas" id="'.$data_pill.'">' . date('j', strtotime($data_pill)) . '</dia>';
-                                        //var_dump($data_pill);
                                     }
                                 }
                                 ?>
-                                <calendar class="date-slide-elements slide-dias ml-2"><img
-                                            src="assets/img/calendar.svg"></calendar>
+                                <a href="em_contrucao.php"><calendar class="date-slide-elements slide-dias ml-2"><img
+                                            src="assets/img/calendar.svg"></calendar></a>
                             </Dateslide>
                         </article>
                     </section>
@@ -65,6 +64,7 @@
                     $link = new_db_connection();
                     $stmt = mysqli_stmt_init($link);
                     $id_utilizador = $_SESSION["id_user"];
+
                     $query = "SELECT 
                                 eventos.id_evento, 
                                 eventos.nome_evento, 
@@ -167,7 +167,6 @@
                                                 url: "https://labmm.clients.ua.pt/deca_20L4/deca_20L4_32/evento_detail.php?id_evento="+id+""
                                             };
                                             const button = document.getElementById('share_<?php echo $id_evento ?>');
-
                                             button.addEventListener('click', async () => {
                                                 try {
                                                     await navigator.share(toShare); // Will trigger the native "share" feature
@@ -179,9 +178,8 @@
                                         }
                                     </script>
                                     <img id="share_<?=$id_evento?>" class="save_share" src="assets/img/share_white.svg" style="cursor: pointer;">
-
                                     <script> share("<?php echo $id_evento ?>");</script>
-
+                                    <!--VARIAVEL GUARDADO ESTANDO NULA-->
                                     <?php if(empty($guardado)){
                                         echo'<img class="ml-3 save_share save" id="addGuardado" name='.$id_evento.' src="assets/img/save_white.svg">';
                                         echo'<img class="ml-3 save_share remove" id="removeGuardado" name='.$id_evento.' src="assets/img/saved_orange.svg" style="display: none">';
