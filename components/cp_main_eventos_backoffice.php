@@ -68,7 +68,7 @@
                             while (mysqli_stmt_fetch($stmt)) {
                                 ?>
                                 <article class="col-12">
-                                    <section class="row px-4">
+                                    <section class="row px-4" id="evento_<?=$id_evento?>">
                                         <article class="col-12 event-card mb-5">
                                                 <section class="row">
                                                     <article class="col-12">
@@ -124,6 +124,7 @@
                                                 </section>
                                             <div class="card-footer text-right py-1 px-4">
                                                 <img class="save_share" src="assets/img/ban_cinza.svg">
+                                                <img id="<?=$id_evento?>" class="save_share ban_evento" src="assets/img/ban_cinza.svg" onclick="window.location.href='em_construcao.php'">
                                             </div>
                                         </article>
 
@@ -151,7 +152,7 @@
     <script id="eventos_template" type="text/x-handlebars-template">
         {{#each this}}
         <article class="col-12" id="eventos">
-            <section class="row px-4">
+            <section class="row px-4" id="evento_{{id_evento}}">
                 <article class="col-12 event-card mb-5" id="{{id_evento}}">
                     <section class="row">
                         <article class="col-12">
@@ -198,8 +199,7 @@
                         </article>
                     </section>
                     <div class="card-footer text-right py-1 px-4">
-                        <img class="save_share" src="assets/img/share_white.svg">
-                        <img class="ml-3 save_share" src="assets/img/save_white.svg">
+                        <img id="{{id_evento}}" class="save_share ban_evento" src="assets/img/ban_cinza.svg" onclick="window.location.href='em_construcao.php'">
                     </div>
                 </article>
         </article>

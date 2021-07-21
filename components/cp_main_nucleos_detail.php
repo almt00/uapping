@@ -126,7 +126,7 @@ if (isset($_GET['id_nucleo'])) {
                                 while (mysqli_stmt_fetch($stmt)) {
                                     ?>
                                     <article class="col-4 text-center mb-4">
-                                        <img class="membros-nucleo-detail" src="assets/temp/profile_test.png">
+                                        <img class="membros-nucleo-detail" src="assets/nucleos/equipa/<?=$imagem_membro_equipa?>">
                                         <p class="p-nome-membro-nucleo-detail"> <?= htmlspecialchars($nome_membro_equipa) ?> </p>
                                         <p class="p-role-membro-nucleo-detail"> <?= htmlspecialchars($nome_cargo) ?> </p>
                                     </article>

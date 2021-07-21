@@ -60,6 +60,7 @@ Handlebars.registerHelper('role', function (admin_normal) {
     }
 });*/
 
+
 // ban utilizador
 $(document).on('click', ".ban", function () { // remover
     this.src = "assets/img/ban_vermelho.svg";
