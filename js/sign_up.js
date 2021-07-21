@@ -237,7 +237,6 @@ window.onload = function () {
                     document.getElementById("header_3").style.display = "none";
 
                     sign_up_page = 1;
-
                     break;
                 case 3:
                     document.getElementById("departamentos").style.display = "inline-block";

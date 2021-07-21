@@ -58,9 +58,8 @@
                 <article class="col-12 mt-5 mb-3 px-4">
                     <h2 class="pl-2 h2-eventos"> Eventos </h2>
                 </article>
-                <div id="eventos_conteudo" style="width:100%;"></div> <!--recebe template handlebars por ajax-->
-                <div id="eventos_load" style="width:100%;">
-                    <!--recebe sem ser por ajax-->
+                <div id="eventos_conteudo" style="width:100%;"></div> <!--RECEBE TEMPLATE HANDLEBARS POR AJAX-->
+                <div id="eventos_load" style="width:100%;"><!--RECEBE SEM SER POR AJAX-->
                     <?php
                     require_once "connections/connection.php";
                     $link = new_db_connection();
@@ -159,15 +158,6 @@
                                         </article>
                                     </section>
                                 <article class="card-footer p-eventos text-right py-1 px-4">
-                                    <!--
-                                    <article class="mb-5 text-left">
-                                        <div class="mr-1 people-bubble-event-detail bg-profile"
-                                             style='background-image: url("assets/img/smells_rock_1.jpg");'></div>
-                                        <div class="mr-1 people-bubble-event-detail bg-profile"></div>
-                                        <div class="mr-1 people-bubble-event-detail bg-profile"></div>
-                                        <div class="people-bubble-event-detail"><span> +3 </span></div>
-                                    </article>-->
-
                                     <!--script para partilha com a interface nativa do dispositivo-->
                                     <script>
                                         function share(id) {
@@ -188,14 +178,11 @@
                                                 }
                                             });
                                         }
-
                                     </script>
 
                                     <img id="share_<?=$id_evento?>" class="save_share" src="assets/img/share_white.svg" style="cursor: pointer;">
 
                                     <script> share("<?php echo $id_evento ?>");</script>
-
-
 
                                     <?php if(empty($guardado)){
                                         echo'<img class="ml-3 save_share save" id="addGuardado" name='.$id_evento.' src="assets/img/save_white.svg">';
@@ -204,7 +191,6 @@
                                         echo'<img class="ml-3 save_share save" id="addGuardado" name='.$id_evento.' src="assets/img/save_white.svg" style="display: none">';
                                         echo'<img class="ml-3 save_share remove" id="removeGuardado" name='.$id_evento.' src="assets/img/saved_orange.svg">';
                                     }?>
-
                                 </article>
                         </section>
                     </article>
@@ -238,46 +224,6 @@
                     <section class="row justify-content-start">
                         <div id="pills_interesses_conteudo"></div>
                         <!-- recebe template handlebars por ajax -->
-                        <!--
-                        <article id="checkpills_1" class="col-4 check-interesse-pills">
-                            <div class="check-interesse-pills-text"><p id="checkpills-text-1"> Cultura </p></div>
-                            <input id="checkpills-input-1" name="" value="" type="checkbox">
-                        </article>
-                        <article id="checkpills_2" class="col-4 check-interesse-pills">
-                            <div class="check-interesse-pills-text"><p id="checkpills-text-2"> Música </p></div>
-                            <input id="checkpills-input-2" name="" value="" type="checkbox">
-                        </article>
-                        <article id="checkpills_3" class="col-4 check-interesse-pills">
-                            <div class="check-interesse-pills-text"><p id="checkpills-text-3"> Dança </p></div>
-                            <input id="checkpills-input-3" name="" value="" type="checkbox">
-                        </article>
-                        <article id="checkpills_4" class="col-4 check-interesse-pills">
-                            <div class="check-interesse-pills-text"><p id="checkpills-text-4"> Desporto </p></div>
-                            <input id="checkpills-input-4" name="" value="" type="checkbox">
-                        </article>
-                        <article id="checkpills_5" class="col-4 check-interesse-pills">
-                            <div class="check-interesse-pills-text"><p id="checkpills-text-5"> Jogos </p></div>
-                            <input id="checkpills-input-5" name="" value="" type="checkbox">
-                        </article>-->
-                    </section>
-                </article>
-            </section>
-            <section class="row mx-4">
-                <article class="col-12 my-4">
-                    <h5 class="h5-interesses"> Núcleos </h5>
-                </article>
-                <article class="col-12 my-4">
-                    <p class=""> Cultura </p>
-                </article>
-                <article class="col-12">
-                    <section class="row">
-                        <article class="col-12">
-                            <span class=""> Cultura </span>
-                            <span> Música </span>
-                            <span> Dança </span>
-                            <span> Desporto </span>
-                            <span> Jogos </span>
-                        </article>
                     </section>
                 </article>
             </section>
@@ -335,8 +281,10 @@
                             </a>
                         </article>
                     </section>
+                <!--PARTILHAR EVENTO-->
                 <div class="card-footer text-right py-1 px-4">
                     <img id="share_{{id_evento}}" class="save_share_{{id_evento}}" src="assets/img/share_white.svg">
+                    {{sharehb nome id_evento}}
                     <!--SE NA BD A VARIAVEL EVENTO GUARDADO FOR NULA-->
                     <?php if(empty($guardado)){
                         echo'<img class="ml-3 save_share save" id="addGuardado" name="{{id_evento}}" src="assets/img/save_white.svg">';//NÃO GUARDADO
@@ -349,10 +297,8 @@
             </article>
     </article>
     {{/each}}
-
 </script>
 <!--terminar template -->
-
 
 <!--TEMPLATE JS AJAX INTERESSES PILLS-->
 <script id="pills_interesses_template" type="text/x-handlebars-template">

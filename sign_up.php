@@ -40,7 +40,7 @@
                         </div>
                         <input id="nome" required="required" class="input_sign_up mb-3 mb-md-3" type="text" name="nome"
                                size="50" placeholder="nome completo">
-                        <input id="username" required="required" class="input_sign_up mb-3 mb-md-3" type="text"
+                        <input id="username" required="required" class="input_sign_up mb-3 mb-md-3" type="text" pattern=".{8,}"
                                name="username" size="30" placeholder="username">
                         <input id="email" required="required" class="input_sign_up mb-3 mb-md-3" type="email"
                                name="email" size="50" placeholder="exemplo@ua.pt">

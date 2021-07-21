@@ -1,32 +1,33 @@
 var interesses_menu;
-var checkpills_1, checkpills_2, checkpills_3, checkpills_4, checkpills_5;
+//var checkpills_1, checkpills_2, checkpills_3, checkpills_4, checkpills_5; //ISTO SERIA PARA OS PILLS DO FILTRO DA HOMEPAGE CASO ESTIVESSE A FUNCIONAR
 var capture_id_is_active = false;
 var capture_id = null;
 var offset;
 
-/* ------------------ home page / ajax eventos ------------------ */
+/* ------------------ HOMEPAGE / AJAX EVENTOS ------------------ */
 
 $(document).ready(function () {
-    $('.capture_id').on('click', function () {
+    $('.capture_id').on('click', function () { //CLICANDO NA CLASSE QUE ESTÁ NO SWITCH
 
-        var id_switch = this.id;
+        var id_switch = this.id; //VAI CAPTURAR O VALOR DO ID DE CADA BOTAO
 
-        $(".pills_datas").css("background-color", "#ffffff54");
+        $(".pills_datas").css("background-color", "#ffffff54"); //CORES PILLS DATA
         $(".pills_datas").css("color", "#B25959");
 
         $.ajax({
-            url: 'bd/bd_eventos.php', //Jquery carrega serverside.php
-            data: 'id_switch=' + id_switch, // Envia o valor do botão clicado
-            dataType: 'json', //escolhe o tipo de dados
-            type: 'GET', //por default, mas pode ser POST
+            url: 'bd/bd_eventos.php',
+            data: 'id_switch=' + id_switch, // VALOR INTERESSES / TODOS
+            dataType: 'json',
+            type: 'GET',
         })
             .done(function (data) {
-                $("#eventos_load").removeAttr("style").hide();
+                $("#eventos_load").removeAttr("style").hide(); //REMOVE A PARTE DOS EVENTOS QUE VEM SEM O AJAX DA PÁGINA
 
                 createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
+                //HANDLEBARS QUE COLOCA O QUE ESTÁ NO (EVENTOS TEMPLATE + A DATA) A APARECER NA DIV VAZIA EVENTOS CONTEUDO
 
             })
-            .fail(function () { // Se existir um erro no pedido
+            .fail(function () {
                 $('#eventos').html('Data error'); // Escreve mensagem de erro
             })
         ;
@@ -34,26 +35,23 @@ $(document).ready(function () {
     });
 });
 
-/* ------------------ home page / search bar ------------------ */
+/* ------------------ HOMEPAGE / SEARCH BAR ------------------ */
 $(document).ready(function () {
-    console.log('teste');
-    $('#search-bar').on('keyup', function () {
-        console.log('keyup');
+    $('#search-bar').on('keyup', function () { //TECLA RELEASED
 
-        var search = this.value;
-        console.log('search: ' + search);
+        var search = this.value; //CAPTURA O VALOR
         $.ajax({
-            url: 'bd/bd_search.php', //Jquery carrega serverside.php
-            data: 'search=' + search, // Envia o valor do botão clicado
-            dataType: 'json', //escolhe o tipo de dados
-            type: 'GET', //por default, mas pode ser POST
+            url: 'bd/bd_search.php',
+            data: 'search=' + search, // VALOR PESQUISADO
+            dataType: 'json',
+            type: 'GET',
         })
             .done(function (data) {
-                console.log('sucesso');
+                $("#eventos_load").removeAttr("style").hide(); //LIMPA A DIV DOS EVENTOS QUE VEM SEM SER VIA AJAX
 
-                $("#eventos_load").removeAttr("style").hide();
-                if(data == ""){
-                    document.getElementById("eventos_conteudo").innerHTML = "Infelizmente. Não há resultados para a sua pesquisa..";
+                if(data == ""){ //NÃO HAVENDO RESULTADO
+                    document.getElementById("eventos_conteudo").innerHTML = "<p class='text-center'>Infelizmente. Não há resultados para a sua pesquisa..</p>";
+                    //MUDAR VISUALMENTE O SWITCH PARA TODOS
                     document.getElementById("eventos_conteudo").style.margin= "auto";
                     document.getElementById("selector").style.left = "50%";
                     document.getElementById("interesses").style.color = "#1D1D1D";
@@ -65,24 +63,28 @@ $(document).ready(function () {
                 }
 
             })
-            .fail(function () { // Se existir um erro no pedido
-                console.log('erro');
-                $('#eventos').html('Data error'); // Escreve mensagem de erro
+            .fail(function () {
+                $('#eventos').html('Data error'); // MENSAGEM ERRO
             });
         return false; // keeps the page from not refreshing
     });
 });
 
-/* ------------------ home page / pills filtrar eventos por data ------------------ */
+/* ------------------ HOMEPAGE / PILLS FILTRAR EVENTOS DATA ------------------ */
 $(document).ready(function () {
     $(".pills_datas").on('click', function () {
         var date = this.id;
-        //todos os pills iguais
+        //TODOS OS PILLS FICAM IGUAIS CROMÁTICAMENTE COMO SE NAO FOSSEM CLICADOS
         $(".pills_datas").css("background-color", "#ffffff54");
         $(".pills_datas").css("color", "#B25959");
-        //miguel arranjas forma do pill do dia sendo clicado mudar de cor.
+        //CLICANDO NO PILL MUDA DE COR
         $(this).css("background-color", "#F6CCAD")
         $(this).css("color", "#BA6C33")
+        //MUDANÇA DO SWITCH PARA TODOS
+        document.getElementById("selector").style.left = "50%";
+        document.getElementById("interesses").style.color = "#1D1D1D";
+        document.getElementById("todos").style.color = "white";
+        document.getElementById("eventos_load").style.display = "none";
 
         $.ajax({
             url: 'bd/bd_pill_filter.php', //Jquery carrega serverside.php
@@ -94,70 +96,63 @@ $(document).ready(function () {
                 $("#eventos_load").removeAttr("style").hide();
 
                 if(data == ""){
-                    document.getElementById("eventos_conteudo").innerHTML = "Infelizmente. Não há eventos nessa data..";
-
+                    document.getElementById("eventos_conteudo").innerHTML = "<p class='text-center'>Infelizmente. Não há resultados para a sua pesquisa..</p>";
                 }else{
                     createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
                 }
-
             })
-            .fail(function () { // Se existir um erro no pedido
-                $('#eventos').html('Engano'); // Escreve mensagem de erro
+            .fail(function () {
+                $('#eventos').html('Data error'); // MENSAGEM ERRO
             });
         return false; // keeps the page from not refreshing
     });
 });
 
 
-/* ------------------ home page / saved ------------------*/
+/* ------------------ HOMEPAGE / SAVED ------------------*/
 
-$add = $(".save");
-$remove = $(".remove");
+$add = $(".save"); //BOTAO COM CLASSE SAVE
+$remove = $(".remove"); //BOTAO COM CLASSE REMOVE
 
 $(document).ready(function () {
+    //NO MOMENTO DO ONCLICK (BINDING) NÃO EXISTE O ELEMENTO COM A CLASSE SAVE. TEM QUE HAVER A INCLUSAO DE UM ELEMENTO QUE EXISTA.
     $(document).on('click', ".save", function () {
-        var $this = $(this);
-        $this.hide();
-        $this.next().show()
+        $(this).hide(); //ESCONDE O BOTAO
+        $(this).next().show() //MOSTRA O PRÓXIMO BOTAO (ORDEM HTML)
 
-        var id = $(this).attr('name');
+        var id = $(this).attr('name'); //ATRIBUTO NOME VAI COM O ID DO EVENTO
 
         $.ajax({
-            url: 'bd/bd_insert_saved.php', //Jquery carrega serverside.php
-            data: 'id_evento=' + id, // Envia o valor do botão clicado
-            dataType: 'json', //escolhe o tipo de dados
-            type: 'GET', //por default, mas pode ser POST
+            url: 'bd/bd_insert_saved.php',
+            data: 'id_evento=' + id,
+            dataType: 'json',
+            type: 'GET',
         })
             .done(function (data) {
-                console.log("add")
             })
-            .fail(function () { // Se existir um erro no pedido
-                //console.log("nop")
-                //$('#eventos').html('Data error'); // Escreve mensagem de erro
+            .fail(function () {
+                $('#eventos').html('Data error'); // MENSAGEM ERRO
             })
         ;
         return false; // keeps the page from not refreshing
     });
 
     $(document).on('click', ".remove", function () {
-        var $this = $(this);
-        $this.hide();
-        $this.prev().show()
+        $(this).hide(); //ESCONDE O BOTAO
+        $(this).prev().show() //MOSTRA O BOTAO ANTERIOR (ORDEM HTML)
 
         var id = $(this).attr('name');
 
         $.ajax({
-            url: 'bd/bd_search_saved_delete.php', //Jquery carrega serverside.php
-            data: 'id_evento=' + id, // Envia o valor do botão clicado
-            dataType: 'json', //escolhe o tipo de dados
-            type: 'GET', //por default, mas pode ser POST
+            url: 'bd/bd_search_saved_delete.php',
+            data: 'id_evento=' + id,
+            dataType: 'json',
+            type: 'GET',
         })
             .done(function (data) {
-                console.log("delete")
             })
-            .fail(function () { // Se existir um erro no pedido
-                console.log("nop")
-                //$('#eventos').html('Data error'); // Escreve mensagem de erro
+            .fail(function () {
+                $('#eventos').html('Data error'); // MENSAGEM ERRO
             })
         ;
         return false; // keeps the page from not refreshing
@@ -165,14 +160,12 @@ $(document).ready(function () {
 
 });
 
-/* ------------------ home page backoffice / search bar ------------------ */
+/* ------------------ HOMEPAGE BACKOFFICE / SEARCH BAR ------------------ */
 $(document).ready(function () {
-    console.log('teste');
+
     $('#search-bar-backoffice').on('keyup', function () {
-        console.log('keyup');
 
         var search = this.value;
-        console.log('search: ' + search);
         $.ajax({
             url: 'bd/bd_search.php', //Jquery carrega serverside.php
             data: 'search=' + search, // Envia o valor do botão clicado
@@ -180,12 +173,12 @@ $(document).ready(function () {
             type: 'GET', //por default, mas pode ser POST
         })
             .done(function (data) {
-                console.log('sucesso');
 
                 $("#eventos_load").removeAttr("style").hide();
                 if(data == ""){
-                    document.getElementById("eventos_conteudo").innerHTML = "Infelizmente. Não há resultados para a sua pesquisa..";
+                    document.getElementById("eventos_conteudo").innerHTML = "<p class='text-center'>Infelizmente. Não há resultados para a sua pesquisa..</p>";
                     document.getElementById("eventos_conteudo").style.margin= "auto";
+                    // MUDA SWITCH PARA TODOS
                     document.getElementById("selector").style.left = "50%";
                     document.getElementById("interesses").style.color = "#1D1D1D";
                     document.getElementById("todos").style.color = "white";
@@ -196,48 +189,41 @@ $(document).ready(function () {
                 }
 
             })
-            .fail(function () { // Se existir um erro no pedido
-                console.log('erro');
-                $('#eventos').html('Data error'); // Escreve mensagem de erro
+            .fail(function () {
+                $('#eventos').html('Data error'); // MENSAGEM ERRO
             });
         return false; // keeps the page from not refreshing
     });
 });
-/* ------------------------------------------------------------------------------ */
 
 
-/* ------------------ home page nucleo / search bar ------------------ */
+/* ------------------ HOMEPAGE NUCLEO / SEARCH BAR ------------------ */
 $(document).ready(function () {
-    console.log('teste');
     $('#search-bar-nucleo').on('keyup', function () {
-        console.log('keyup');
-        //var nucleo = sessionStorage.getItem("id_nucleo_admin");
+
         var search = this.value;
-        console.log('search: ' + search);
-        //console.log('nucleo: ' + nucleo);
+
         $.ajax({
-            url: 'bd/bd_search_nucleo.php', //Jquery carrega serverside.php
-            data: 'search=' + search , // Envia o valor do botão clicado
-            dataType: 'json', //escolhe o tipo de dados
-            type: 'GET', //por default, mas pode ser POST
+            url: 'bd/bd_search_nucleo.php',
+            data: 'search=' + search ,
+            dataType: 'json',
+            type: 'GET',
         })
             .done(function (data) {
-                console.log('sucesso');
 
                 $("#eventos_load").removeAttr("style").hide();
+
                 if(data == ""){
-                    document.getElementById("eventos_conteudo").innerHTML = "Infelizmente. Não há resultados para a sua pesquisa..";
+                    document.getElementById("eventos_conteudo").innerHTML = "<p class='text-center'>Infelizmente. Não há resultados para a sua pesquisa..</p>";
                     document.getElementById("eventos_conteudo").style.margin= "auto";
                     document.getElementById("eventos_load").style.display = "none";
 
                 }else{
                     createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
                 }
-
             })
-            .fail(function () { // Se existir um erro no pedido
-                console.log('horrores');
-                $('#eventos').html('Data error'); // Escreve mensagem de erro
+            .fail(function () {
+                $('#eventos').html('Data error'); // MENSAGEM ERRO
             });
         return false; // keeps the page from not refreshing
     });
@@ -251,7 +237,7 @@ Handlebars.registerHelper('formatDate', function (dateString) {
     );
 });
 
-/* ------------------ partilha ------------------ */
+/* ------------------ PARTILHAR ------------------ */
 
 Handlebars.registerHelper('sharehb', function (name, id) {
     const toShare = {
@@ -261,7 +247,6 @@ Handlebars.registerHelper('sharehb', function (name, id) {
     };
      const button = document.getElementById('share_'+id+'');
     $(document).on('click', '.save_share_'+id,async () => {
-        console.log('click');
         try {
             await navigator.share(toShare); // Will trigger the native "share" feature
             button.textContent = 'Shared !';
@@ -272,7 +257,7 @@ Handlebars.registerHelper('sharehb', function (name, id) {
     });
 });
 
-/* ------------------ função handlebars ------------------ */
+/* ------------------ FUNÇÃO HANDLEBARS ------------------ */
 
 function createHTMLDinamyc(templateId, placeID, data) {
     var raw_template = document.getElementById(templateId).innerText;
@@ -281,8 +266,6 @@ function createHTMLDinamyc(templateId, placeID, data) {
     var place = document.getElementById(placeID);
     place.innerHTML = ourGeneratedHTML;
 }
-
-
 
     document.getElementById("interesses").onclick = function () {
         document.getElementById("selector").style.left = "0%";
@@ -298,7 +281,7 @@ function createHTMLDinamyc(templateId, placeID, data) {
         document.getElementById("todos").style.color = "white";
         document.getElementById("eventos_load").style.display = "none";
     }
-
+/* ------------------ INTERESSES / BTN -------------------- */
     /* ------------------ interesses / btn home_page (eventos) -------------------- */
 
 
@@ -326,10 +309,13 @@ function createHTMLDinamyc(templateId, placeID, data) {
 
 }
 
-
 $(document).ready(function () {
     $('#btn_interesses').on('click', function () {
 
+
+
+        //NAO CONSEGUIMOS COLOCAR OS FILTROS QUANDO SE CLICA NO BOTAO DE FILTRAR
+    /*
         $.ajax({
             url: 'bd/bd_pills_interesses.php', //Jquery carrega serverside.php
             //data: 'filtro=' + filtro, // Envia o valor do botão clicado
@@ -345,79 +331,14 @@ $(document).ready(function () {
             })
         ;
         return false; // keeps the page from not refreshing
+
+     */
     });
 });
 
-/*
-checkpills_1 = false;
-document.getElementById("checkpills_1").onclick = function (){
-    if (checkpills_1 === false){
-        checkpills_1 = true;
-        document.getElementById("checkpills-input-1").checked = true;
-        document.getElementById("checkpills-text-1").style.color = "#378FED";
-    } else{
-        checkpills_1 = false;
-        document.getElementById("checkpills-input-1").checked = false;
-        document.getElementById("checkpills-text-1").style.color = "#979797";
-    }
-}
 
-checkpills_2 = false;
-document.getElementById("checkpills_2").onclick = function (){
-    if (checkpills_2 === false){
-        checkpills_2 = true;
-        document.getElementById("checkpills-input-2").checked = true;
-        document.getElementById("checkpills-text-2").style.color = "#378FED";
-    } else{
-        checkpills_2 = false;
-        document.getElementById("checkpills-input-2").checked = false;
-        document.getElementById("checkpills-text-2").style.color = "#979797";
-    }
-}
-checkpills_3 = false;
-document.getElementById("checkpills_3").onclick = function (){
-    if (checkpills_3 === false){
-        checkpills_3 = true;
-        document.getElementById("checkpills-input-3").checked = true;
-        document.getElementById("checkpills-text-3").style.color = "#378FED";
-    } else{
-        checkpills_3 = false;
-        document.getElementById("checkpills-input-3").checked = false;
-        document.getElementById("checkpills-text-3").style.color = "#979797";
-    }
-}
-
-checkpills_4 = false;
-document.getElementById("checkpills_4").onclick = function (){
-    if (checkpills_4 === false){
-        checkpills_4 = true;
-        document.getElementById("checkpills-input-4").checked = true;
-        document.getElementById("checkpills-text-4").style.color = "#378FED";
-    } else{
-        checkpills_4 = false;
-        document.getElementById("checkpills-input-4").checked = false;
-        document.getElementById("checkpills-text-4").style.color = "#979797";
-    }
-}
-
-checkpills_5 = false;
-document.getElementById("checkpills_5").onclick = function (){
-    if (checkpills_5 === false){
-        checkpills_5 = true;
-        document.getElementById("checkpills-input-5").checked = true;
-        document.getElementById("checkpills-text-5").style.color = "#378FED";
-    } else{
-        checkpills_5 = false;
-        document.getElementById("checkpills-input-5").checked = false;
-        document.getElementById("checkpills-text-5").style.color = "#979797";
-    }
-}
-*/
-
-
-
-
-/* ------infinite scroll tentativa - nao avançamos porque foi mais no final do projeto e mexia com muita lógica---- */
+/* ------INFINITE SCROLL QUE FUNCIONAVA, MAS QUE MEXIA COM OUTRAS PARTES DA PLATAFORMA,
+JÁ QUE ESCOLHEMOS AVANÇAR COM ESTA PARTE UM POUCO TARDE---- */
 
 /*
 $(document).ready(function () {
