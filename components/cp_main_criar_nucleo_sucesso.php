@@ -55,7 +55,7 @@
     }
 
     document.getElementById("avancar_fim").onclick = function (){
-        window.location.href = "home_page.php";
+        window.location.href = "nucleos.php";
     }
 
     document.getElementById("info_fim").onclick = function (){
