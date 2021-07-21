@@ -123,7 +123,6 @@
                                                     </article>
                                                 </section>
                                             <div class="card-footer text-right py-1 px-4">
-                                                <img class="save_share" src="assets/img/ban_cinza.svg">
                                                 <img id="<?=$id_evento?>" class="save_share ban_evento" src="assets/img/ban_cinza.svg" onclick="window.location.href='em_construcao.php'">
                                             </div>
                                         </article>
