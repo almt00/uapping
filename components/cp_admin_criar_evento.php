@@ -22,8 +22,6 @@
                                          alt="profile_icon">
                                 </div>
                                 <div class="div-icons-sign-up text-center position-relative">
-                                    <!--<img id="clock_icon" class="icon-clock-criar-evento" src="assets/img/clock_cinza.svg"
-                                         alt="profile_icon">-->
                                 </div>
                                 <input id="nome_evento" class="input_novo_admin mb-3 mb-md-3" type="text" name="nome_evento"
                                        size="24" placeholder="Nome do Evento" required="required">
@@ -33,8 +31,6 @@
                                              alt="profile_icon" style="">
                                         <input id="data" class="input_data_hora mb-3 mb-md-3" type="date" name="data"
                                                required="required">
-                                        <!--<img id="calendar_icon" class="icon-calendar-criar-evento" src="assets/img/calendar_cinza.svg"
-                                             alt="profile_icon">-->
                                     </article>
                                     <article class="col-6 art_input_data_hora pl-2">
                                         <input id="hora" class="input_data_hora mb-3 mb-md-3" type="time" name="hora"

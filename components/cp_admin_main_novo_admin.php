@@ -31,7 +31,7 @@
                                 <?php
                                 if (isset($_GET['msg']) && $_GET['msg'] != null) {
                                     if ($_GET['msg'] == 1) {
-                                        echo '<div class="text-center"><p class="text-warning">O username e o email inseridos não correspondem</p></div>';
+                                        echo '<div class="text-center alert alert-danger p-2 m-3"><p class="text-dark m-0">O username e o email inseridos não correspondem</p></div>';
                                     }
                                 }
                                 ?>

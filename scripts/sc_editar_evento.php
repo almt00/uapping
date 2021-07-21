@@ -76,23 +76,25 @@ if ((isset($_GET['id_evento'])) && $_GET['id_evento'] != 0) {
         } else {
             $nome_img = $_GET['imagem'];
         }
-       // echo $nome_img;
-
-        // $img_capa = $_POST['capa_evento'];
         $descricao = $_POST['descricao'];
         $id_nucleo = $_SESSION['id_nucleo_admin'];
         require_once "../connections/connection.php";
         $link = new_db_connection();
         $stmt = mysqli_stmt_init($link);
         $query = "UPDATE eventos
-          SET nome_evento=?,data_evento=?,hora_evento=?,local_evento=?,preco_evento=?,imagem_evento=?,descricao_evento=?
+          SET nome_evento = ?,
+          data_evento=?,
+          hora_evento=?,
+          local_evento=?,
+          preco_evento=?,
+          imagem_evento=?,
+          descricao_evento=?
           WHERE id_evento=?";
 
         if (mysqli_stmt_prepare($stmt, $query)) {
             mysqli_stmt_bind_param($stmt, 'ssssissi', $nome_evento, $data_evento, $hora_evento, $morada, $preco, $nome_img, $descricao, $id_evento);
             if (mysqli_stmt_execute($stmt)) {
                 header("Location: ../home_page_admin.php");
-                var_dump($preco);
                 echo 'sucesso';
                 mysqli_stmt_close($stmt);
                 mysqli_close($link);

@@ -41,7 +41,7 @@
                         <i class="fas fa-search icon-search-top"></i>
                         <input class="input_search-home-page" type="text" id="search-bar-oficial" name="search_bar">
                         <input class="input_search-home-page esconde" type="text" id="search-bar-fantasma" name="search_bar">
-                        <img id="" class="img-filter-top" src="assets/img/filter.svg">
+                        <a href="em_construcao.php"><img id="" class="img-filter-top" src="assets/img/filter.svg"></a>
                     </article>
                 </article>
                 <article id="nucleos_oficiais" class="col-12 px-4">
@@ -336,8 +336,6 @@
                                                 <div class="people-bubble-criacao_nucleo"
                                                      style="background-color: transparent"><span></span></div>
                                             </article>
-
-
                                         </section>
                                     </div>
                                 </a>
