@@ -23,7 +23,7 @@
             <?php if (isset($nav_estatisticas) && $nav_estatisticas === true){ ?>
             <img src="assets/barra_navegacao/nav_estatisticas_filled.svg">
             <?php } else{ ?>
-                <img src="assets/barra_navegacao/nav_estatisticas.svg">
+                <a href="em_construcao"><img src="assets/barra_navegacao/nav_estatisticas.svg"></a>
             <?php } ?>
             </a>
         </site>

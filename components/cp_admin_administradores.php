@@ -83,9 +83,9 @@ mysqli_close($link);
                                 <article class="col-2 text-right art-ban">
                                     <?php
                                     if ($ativo == 1 && $id_utilizador != $_SESSION['id_user']) {
-                                        echo '<img src="assets/img/ban_cinza.svg" style="height:2.2rem;">';
+                                        echo '<a href="em_construcao.php"><img src="assets/img/ban_cinza.svg" style="height:2.2rem;"></a>';
                                     } else if ($ativo != 1) {
-                                        echo '<img src="assets/img/ban_vermelho.svg" style="height:2.2rem;">';
+                                        echo '<a href="em_construcao.php"><img src="assets/img/ban_vermelho.svg" style="height:2.2rem;"></a>';
                                     }
                                     ?>
                                 </article>

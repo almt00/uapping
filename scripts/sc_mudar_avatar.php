@@ -15,7 +15,6 @@ if (isset($_POST['avatar']) && $_POST['avatar']!=null) {
         header("Location: ../home_page.php"); // feedback aqui
         mysqli_stmt_close($stmt);
         mysqli_close($link);
-        //$_SESSION['avatar']=$id_avatar;
         die();
     } else {
         mysqli_stmt_error($stmt);
