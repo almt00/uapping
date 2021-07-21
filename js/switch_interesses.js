@@ -108,7 +108,7 @@ $(document).ready(function () {
     });
 });
 
-/* ------------------ HOMEPAGE / PILLS FILTRAR EVENTOS DATA ------------------ */
+/* ------------------ HOMEPAGE BACKOFFICE / PILLS FILTRAR EVENTOS DATA ------------------ */
 $(document).ready(function () {
     $(".pills_datas_backoffice").on('click', function () {
         var date = this.id;

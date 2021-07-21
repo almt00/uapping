@@ -28,7 +28,7 @@
             </a>
         </site>
         <site class="col-3 text-center">
-            <a href="">
+            <a href="backoffice_chart.php">
             <?php if (isset($nav_estatisticas) && $nav_estatisticas === true){ ?>
             <img src="assets/barra_navegacao/nav_estatisticas_filled.svg">
             <?php } else{ ?>
