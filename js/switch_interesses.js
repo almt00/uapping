@@ -132,7 +132,7 @@ $(document).ready(function () {
                 $("#eventos_load").removeAttr("style").hide();
 
                 if(data == ""){
-                    document.getElementById("eventos_conteudo").innerHTML = "<p class='text-center'>Infelizmente. Não há resultados para a sua pesquisa..</p>";
+                    document.getElementById("eventos_conteudo").innerHTML = "<p class='text-center p-3'>Infelizmente não há resultados para a sua pesquisa...</p>";
                 }else{
                     createHTMLDinamyc("eventos_template", "eventos_conteudo", data);
                 }
@@ -351,7 +351,7 @@ function createHTMLDinamyc(templateId, placeID, data) {
 
 $(document).ready(function () {
     $('#btn_interesses').on('click', function () {
-        window.location.href = "em_contrucao.php";
+        window.location.href = "em_construcao.php";
 
         //NAO CONSEGUIMOS COLOCAR OS FILTROS QUANDO SE CLICA NO BOTAO DE FILTRAR
     /*

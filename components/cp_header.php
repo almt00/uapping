@@ -37,7 +37,7 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
             <span id="role_backoffice_header" class="role-header"> backoffice </span>
         </article>
         <article class="col-6 text-right">
-            <a href="em_contrucao.php" style="color: black"><i class="fas fa-bell icon-size mr-3 mr-md-2"></i></a>
+            <a href="em_construcao.php" style="color: black"><i class="fas fa-bell icon-size mr-3 mr-md-2"></i></a>
             <img id="btn_user_menu_mobile" class="header-avatar" style="background-image: url('assets/avatares/avatar_<?= $_SESSION['avatar'] ?>.svg')">
 
         </article>
@@ -99,7 +99,7 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
                             </a>
                         <?php } ?>
                     <?php } ?>
-                    <a href="em_contrucao.php">
+                    <a href="em_construcao.php">
                         <article class="col-12 user-menu-options py-1">
                             <img src="assets/icons_user_menu/change_interesses.svg">
                             <span class="user-menu-options-span"> Alterar Interesses </span>
@@ -111,7 +111,7 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
                             <span class="user-menu-options-span"> Criar Núcleo </span>
                         </article>
                     </a>
-                    <a href="em_contrucao.php">
+                    <a href="em_construcao.php">
                         <article class="col-12 user-menu-options py-1">
                             <img src="assets/icons_user_menu/notifications.svg">
                             <span class="user-menu-options-span"> Notificações </span>
@@ -129,7 +129,7 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
                             <span class="user-menu-options-span"> Ajuda </span>
                         </article>
                     </a>
-                    <a href="em_contrucao.php">
+                    <a href="em_construcao.php">
                         <article class="col-12 user-menu-options py-1">
                             <img src="assets/icons_user_menu/settings.svg">
                             <span class="user-menu-options-span"> Mais Definições </span>
