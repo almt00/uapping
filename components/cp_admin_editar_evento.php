@@ -28,13 +28,20 @@ if (isset($_GET['id_evento']) && $_GET['id_evento'] != 0) {
         if ($rows != 1) {
             ?>
             <script>
-                window.location.replace("home_page_admin.php");
+                // window.location.replace("home_page_admin.php");
             </script>
             <?php
             die();
         }
         mysqli_stmt_fetch($stmt);
-
+        if ($ref_id_nucleo != $_SESSION['id_nucleo_admin']) {
+            ?>
+            <script>
+                window.location.replace("home_page_admin.php");
+            </script>
+            <?php
+            die();
+        }
     }
     mysqli_stmt_close($stmt);
     mysqli_close($link);
@@ -152,7 +159,7 @@ if (isset($_GET['id_evento']) && $_GET['id_evento'] != 0) {
                                 if (isset($imagem_evento)) {
                                     ?>
                                     <label for="fileToUpload" class="capa_evento_div mb-3" id="previewImg"
-                                           style="background-image: url('assets/img/<?= $imagem_evento ?>');filter: brightness(60%)">
+                                           style="background-image: url('assets/img_eventos/<?= $imagem_evento ?>');filter: brightness(60%)">
                                         <img
                                                 src="assets/img/img_upload.svg"> </label>
                                     <?php
