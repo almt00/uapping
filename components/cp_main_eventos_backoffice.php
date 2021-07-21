@@ -33,7 +33,7 @@
                                         }
                                     }
                                     ?>
-                                    <a href="em_contrucao.php"><calendar class="date-slide-elements_admin slide-dias ml-2"><img
+                                    <a href="em_construcao.php"><calendar class="date-slide-elements_admin slide-dias ml-2"><img
                                                 src="assets/img/calendar.svg"></calendar></a>
                                 </Dateslide>
                             </article>

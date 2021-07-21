@@ -63,7 +63,7 @@ if (isset($admin_membro) && $admin_membro == 1) {
                                         }
                                     }
                                     ?>
-                                    <a href="em_contrucao.php"><calendar class="date-slide-elements slide-dias ml-2"><img
+                                    <a href="em_construcao.php"><calendar class="date-slide-elements slide-dias ml-2"><img
                                                     src="assets/img/calendar.svg"></calendar></a>
                                 </Dateslide>
                             </article>
