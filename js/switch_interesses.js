@@ -67,7 +67,7 @@ $(document).ready(function () {
             })
             .fail(function () { // Se existir um erro no pedido
                 console.log('erro');
-                $('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+                $('#eventos').html('Data error'); // Escreve mensagem de erro
             });
         return false; // keeps the page from not refreshing
     });
@@ -102,7 +102,7 @@ $(document).ready(function () {
 
             })
             .fail(function () { // Se existir um erro no pedido
-                $('#eventos').html('Engano'); // Escreve mensagem de erro na listagem de vinhos
+                $('#eventos').html('Engano'); // Escreve mensagem de erro
             });
         return false; // keeps the page from not refreshing
     });
@@ -133,7 +133,7 @@ $(document).ready(function () {
             })
             .fail(function () { // Se existir um erro no pedido
                 //console.log("nop")
-                //$('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+                //$('#eventos').html('Data error'); // Escreve mensagem de erro
             })
         ;
         return false; // keeps the page from not refreshing
@@ -157,7 +157,7 @@ $(document).ready(function () {
             })
             .fail(function () { // Se existir um erro no pedido
                 console.log("nop")
-                //$('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+                //$('#eventos').html('Data error'); // Escreve mensagem de erro
             })
         ;
         return false; // keeps the page from not refreshing
@@ -198,7 +198,7 @@ $(document).ready(function () {
             })
             .fail(function () { // Se existir um erro no pedido
                 console.log('erro');
-                $('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+                $('#eventos').html('Data error'); // Escreve mensagem de erro
             });
         return false; // keeps the page from not refreshing
     });
@@ -217,7 +217,7 @@ $(document).ready(function () {
         //console.log('nucleo: ' + nucleo);
         $.ajax({
             url: 'bd/bd_search_nucleo.php', //Jquery carrega serverside.php
-            data: 'search=' + search , // Envia o valor do botão clicado 'value1='+val1+'&value2='+val2
+            data: 'search=' + search , // Envia o valor do botão clicado
             dataType: 'json', //escolhe o tipo de dados
             type: 'GET', //por default, mas pode ser POST
         })
@@ -237,7 +237,7 @@ $(document).ready(function () {
             })
             .fail(function () { // Se existir um erro no pedido
                 console.log('horrores');
-                $('#eventos').html('Data error'); // Escreve mensagem de erro na listagem de vinhos
+                $('#eventos').html('Data error'); // Escreve mensagem de erro
             });
         return false; // keeps the page from not refreshing
     });
