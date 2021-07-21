@@ -40,12 +40,12 @@
                         </div>
                         <input id="nome" required="required" class="input_sign_up mb-3 mb-md-3" type="text" name="nome"
                                size="50" placeholder="nome completo">
-                        <input id="username" required="required" class="input_sign_up mb-3 mb-md-3" type="text" pattern=".{8,}"
+                        <input id="username" class="input_sign_up mb-3 mb-md-3" type="text"
                                name="username" size="30" placeholder="username">
                         <input id="email" required="required" class="input_sign_up mb-3 mb-md-3" type="email"
                                name="email" size="50" placeholder="exemplo@ua.pt">
                         <input id="pass" required="required" class="input_sign_up mb-3 mb-md-3" type="password"
-                               name="pass" size="20" placeholder="password">
+                               name="pass" size="20" placeholder="password" pattern=".{8,}">
                         <input id="pass_confirm" required="required" class="input_sign_up mb-3 mb-md-3" type="password"
                                name="pass_confirm" size="20" placeholder="confirma a password">
                         <section class="row">
