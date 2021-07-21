@@ -79,9 +79,9 @@
                                 <article class="col-2 text-right art-ban">
                                     <?php
                                     if ($ativo == 1 && $id_utilizador != $_SESSION['id_user']) {
-                                        echo '<img src="assets/img/ban_cinza.svg" style="height:2.2rem;">';
+                                        echo '<img class="ban" id="'.$id_utilizador.'" src="assets/img/ban_cinza.svg" style="height:2.2rem;">';
                                     } else if ($ativo != 1) {
-                                        echo '<img src="assets/img/ban_vermelho.svg" style="height:2.2rem;">';
+                                        echo '<img class="unban" id="'.$id_utilizador.'"  src="assets/img/ban_vermelho.svg" style="height:2.2rem;">';
                                     }
                                     ?>
                                 </article>
@@ -131,43 +131,15 @@
                 </article>
                 <article class="col-2 text-right p-0">
                             <span class="admin-mark">
-                                <?php
-                                if ($admin_normal == 1) {
-                                    echo 'admin';
-                                } else {
-                                    echo 'normal';
-                                }
-                                ?>
+                                {{role admin}}
                             </span>
                 </article>
                 <article class="col-2 text-right art-ban">
-                    <?php
-                    if ($ativo == 1 && $id_utilizador != $_SESSION['id_user']) {
-                        echo '<img src="assets/img/ban_cinza.svg" style="height:2.2rem;">';
-                    } else if ($ativo != 1) {
-                        echo '<img src="assets/img/ban_vermelho.svg" style="height:2.2rem;">';
-                    }
-                    ?>
+                    <img id="{{id_utilizador}}" class="ban" src="assets/img/ban_cinza.svg" style="height:2.2rem;">
                 </article>
             </section>
         </article>
-        <!--
-                                --><?php
-        /*                    }
-                        }
-                        mysqli_stmt_store_result($stmt);
-                        $rows = mysqli_stmt_num_rows($stmt);
-                        $n = 3;
-                        if ($rows <= $n) {
-                            echo ' <article class="col-12 mt-4 mb-3 px-4 text-center">
-                            <img class="img-fluid" src="assets/asset_administradores.svg">
-                        </article>';
-                        }
-                        mysqli_stmt_close($stmt);
-                        mysqli_close($link);
-                        */?>
-
-        {{/each}}
+       {{/each}}
     </script>
 
 
