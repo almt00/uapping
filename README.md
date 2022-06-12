@@ -12,3 +12,6 @@ Edgar Quintero 		98940
 Mariana Alves 		99683
 
 
+cd Sites/uapping
+
+composer deploy
