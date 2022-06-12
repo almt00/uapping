@@ -1,0 +1,8 @@
+{
+    "require-dev": {
+        "deployer/deployer": "^6.8"
+    },
+    "scripts" : {
+        "deploy": "dep deploy"
+    }
+}
